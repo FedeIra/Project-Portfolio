@@ -1,0 +1,15 @@
+.navbar_container {
+  padding: 2rem;
+  background-color: #bcccf1;
+  height: 60px;
+  position: fixed;
+  width: 100%;
+  font-family: 'Raleway';
+  font-size: 17pt;
+  font-weight: 100;
+}
+
+.navbar_collapse {
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,0 +1,41 @@
+.landing_container {
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.landing_image {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.landing_button {
+  position: absolute;
+  top: 20%;
+  left: 45%;
+  background-color: transparent;
+  color: white;
+  border: 1px solid #fff;
+  box-sizing: inherit;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 17pt;
+  padding: 10px 20px;
+  transition: all 0.5s;
+  font-family: 'Raleway';
+}
+
+.landing_button:hover {
+  background-color: #bcccf1;
+  color: black;
+  border: 1px solid #bcccf1;
+}
+
+.landing_button:hover::after {
+  content: '\2193';
+}
