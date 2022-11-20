@@ -1,0 +1,8 @@
+.card {
+  border: 1px solid #000000;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  color: white;
+  background: linear-gradient(0deg, rgba(4, 1, 19, 0.5), #1a294e);
+  margin: 0.3rem;
+}

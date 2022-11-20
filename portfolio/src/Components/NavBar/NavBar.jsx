@@ -1,67 +1,38 @@
 import React from 'react';
 import style from './NavBar.module.css';
-
-/* import porfolio image: */
 import * as images from '../../Assets/home_images.js';
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
-const NavBar = () => {
+function NavBar() {
   return (
-    <nav
-      className={`navbar navbar-expand-md navbar-light ${style.navbar_container}`}
+    <Navbar
       id="navbar"
+      collapseOnSelect
+      expand="lg"
+      variant="dark"
+      className={`sticky-top ${style.navbar_container}`}
     >
-      <div className="container-fluid">
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbar-toggler"
-          aria-controls="navbarTogglerDemo01"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div
-          className={`navbar navbar-expand-md navbar-light ${style.navbar_collapse}`}
-          id="navbar-toggler"
-        >
-          <a className="navbar-brand" href="#">
-            <img
-              src={images.portfolio_picture}
-              alt="portfolio_image"
-              width="50px"
-            />
-          </a>
-          <ul
-            className="navbar-nav d-flex justify-content-center align-items-center
-          "
-          >
-            <li className="nav-item">
-              <a className="nav-link active" href="#" aria-current="page">
-                About me
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Experience
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Projects
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Contact
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+      <Container>
+        <Navbar.Brand href="#landing">
+          <img
+            src={images.portfolio_picture}
+            style={{ filter: 'invert(100%)' }}
+            width="30"
+            alt="portfolio_image"
+          />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#about">About me</Nav.Link>
+            <Nav.Link href="#experience">Experience</Nav.Link>
+            <Nav.Link href="#projects">Projects</Nav.Link>
+            <Nav.Link href="#contact">Contact</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
-};
+}
 
 export default NavBar;

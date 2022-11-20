@@ -4,7 +4,7 @@ import * as images from '../../Assets/home_images.js';
 
 const Landing = () => {
   return (
-    <div className={style.landing_container}>
+    <div id="landing" className={style.landing_container}>
       <img
         src={images.landing_picture}
         alt="landing_image"

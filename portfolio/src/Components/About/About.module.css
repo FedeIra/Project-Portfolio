@@ -1,0 +1,48 @@
+.about {
+  height: 100vh;
+  width: 100%;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.about__row {
+  align-items: center;
+  margin: 2%;
+}
+
+.about__col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about__col__left {
+  margin: 2% 0%;
+}
+
+.about__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about__tech__img {
+  height: 100%;
+}
+
+.about__col__right {
+  margin: 0% 2% 3%;
+}
+
+.about__col__right {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2%;
+  background-color: rgb(5, 4, 4);
+}
+
+.about__heading {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2%;
+}

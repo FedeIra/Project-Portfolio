@@ -31,9 +31,8 @@
 }
 
 .landing_button:hover {
-  background-color: #bcccf1;
-  color: black;
-  border: 1px solid #bcccf1;
+  background-color: #78839c;
+  border: 1px solid #78839c;
 }
 
 .landing_button:hover::after {

@@ -1,0 +1,39 @@
+[
+  {
+    "name": "JavaScript",
+    "avatar": "javascript.png"
+  },
+  {
+    "name": "Node.js",
+    "avatar": "nodejs.png"
+  },
+  {
+    "name": "ReactJS",
+    "avatar": "react.png"
+  },
+  {
+    "name": "Redux",
+    "avatar": "redux.png"
+  },
+  {
+    "name": "MongoDB",
+    "avatar": "mongodb.png"
+  },
+  {
+    "name": "PostgreSQL",
+    "avatar": "postgressSQL.png"
+  },
+  {
+    "name": "Firebase",
+    "avatar": "firebase.png"
+  },
+
+  {
+    "name": "Chakra UI",
+    "avatar": "chakra.png"
+  },
+  {
+    "name": "Github",
+    "avatar": "github.png"
+  }
+]
