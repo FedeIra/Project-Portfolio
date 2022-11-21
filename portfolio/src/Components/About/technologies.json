@@ -8,6 +8,30 @@
     "avatar": "nodejs.png"
   },
   {
+    "name": "MongoDB",
+    "avatar": "mongodb.png"
+  },
+  {
+    "name": "Mongoose",
+    "avatar": "mongoose.png"
+  },
+  {
+    "name": "PostgreSQL",
+    "avatar": "postgressSQL.png"
+  },
+  {
+    "name": "Sequelize",
+    "avatar": "sequelize.png"
+  },
+  {
+    "name": "Firebase",
+    "avatar": "firebase.png"
+  },
+  {
+    "name": "HTML",
+    "avatar": "html.png"
+  },
+  {
     "name": "ReactJS",
     "avatar": "react.png"
   },
@@ -16,16 +40,8 @@
     "avatar": "redux.png"
   },
   {
-    "name": "MongoDB",
-    "avatar": "mongodb.png"
-  },
-  {
-    "name": "PostgreSQL",
-    "avatar": "postgressSQL.png"
-  },
-  {
-    "name": "Firebase",
-    "avatar": "firebase.png"
+    "name": "CSS",
+    "avatar": "css.png"
   },
 
   {
@@ -33,7 +49,15 @@
     "avatar": "chakra.png"
   },
   {
+    "name": "Bootstrap",
+    "avatar": "bootstrap.png"
+  },
+  {
     "name": "Github",
     "avatar": "github.png"
+  },
+  {
+    "name": "SCRUM",
+    "avatar": "SCRUM.png"
   }
 ]

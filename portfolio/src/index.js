@@ -6,18 +6,22 @@ import { BrowserRouter } from 'react-router-dom';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
 const theme = extendTheme({
   styles: {
     global: () => ({
       body: {
         bg: '',
-        fontFamily: 'Raleway',
       },
     }),
   },
+  fonts: {
+    heading: 'Raleway',
+    body: 'Raleway',
+  },
 });
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ChakraProvider theme={theme}>
     <BrowserRouter>

@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './Landing.module.css';
 import * as images from '../../Assets/home_images.js';
+import { Link } from 'react-router-dom';
 
 const Landing = () => {
   return (
@@ -10,15 +11,11 @@ const Landing = () => {
         alt="landing_image"
         className={style.landing_image}
       />
-      <button
-        type="button"
-        className={style.landing_button}
-        onClick={() => {
-          window.location.href = '#navbar';
-        }}
-      >
-        View my profile! &nbsp;
-      </button>
+      <Link to="/about">
+        <button type="button" className={style.landing_button}>
+          View my profile! &nbsp;
+        </button>
+      </Link>
     </div>
   );
 };

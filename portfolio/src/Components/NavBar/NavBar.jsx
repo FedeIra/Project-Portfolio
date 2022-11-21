@@ -13,7 +13,7 @@ function NavBar() {
       className={`sticky-top ${style.navbar_container}`}
     >
       <Container>
-        <Navbar.Brand href="#landing">
+        <Navbar.Brand href="/">
           <img
             src={images.portfolio_picture}
             style={{ filter: 'invert(100%)' }}
@@ -24,10 +24,10 @@ function NavBar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#about">About me</Nav.Link>
-            <Nav.Link href="#experience">Experience</Nav.Link>
-            <Nav.Link href="#projects">Projects</Nav.Link>
-            <Nav.Link href="#contact">Contact</Nav.Link>
+            <Nav.Link href="/about">About me</Nav.Link>
+            <Nav.Link href="/experience">Experience</Nav.Link>
+            <Nav.Link href="/projects">Projects</Nav.Link>
+            <Nav.Link href="/contact">Contact</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
