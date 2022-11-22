@@ -1,0 +1,6 @@
+/* responsive card for cellphone: */
+@media (max-width: 420px) {
+  .cardAbout {
+    width: 8rem;
+  }
+}

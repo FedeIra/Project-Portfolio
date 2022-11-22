@@ -1,5 +1,7 @@
 export { default as landing_picture } from './Landing-gif.gif';
 
+export { default as landing_picture_cell } from './Landing-gif-cell.gif';
+
 export { default as portfolio_picture } from './portfolio-image.png';
 
 export { default as profile_picture } from './profile-pic2.jpg';

@@ -1,22 +1,28 @@
 import React from 'react';
 import style from './Landing.module.css';
-import * as images from '../../Assets/home_images.js';
 import { Link } from 'react-router-dom';
+import { Button, Container } from 'react-bootstrap';
 
 const Landing = () => {
   return (
-    <div id="landing" className={style.landing_container}>
-      <img
-        src={images.landing_picture}
-        alt="landing_image"
-        className={style.landing_image}
-      />
+    <Container fluid className={style.landing}>
       <Link to="/about">
-        <button type="button" className={style.landing_button}>
+        <Button
+          className={style.button}
+          variant="outline-light"
+          size="lg"
+          block
+          style={{
+            position: 'absolute',
+            top: '60%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+          }}
+        >
           View my profile! &nbsp;
-        </button>
+        </Button>
       </Link>
-    </div>
+    </Container>
   );
 };
 
