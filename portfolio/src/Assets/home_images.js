@@ -19,3 +19,9 @@ export { default as kinema_picture4 } from './kinema4.png';
 export { default as kinema_picture5 } from './kinema5.png';
 
 export { default as kinema_picture6 } from './kinema6.png';
+
+export { default as kinema_logo } from './KinemaLogo.png';
+
+export { default as gaming1 } from './gaming&beyond1.png';
+
+export { default as gaming_logo } from './gamingLogo.png';

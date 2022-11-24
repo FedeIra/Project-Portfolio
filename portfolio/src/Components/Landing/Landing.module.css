@@ -13,7 +13,7 @@
 
 .button:hover::after {
   content: '\2192';
-  color: white;
+  color: rgb(5, 5, 5);
 }
 
 .landing {
