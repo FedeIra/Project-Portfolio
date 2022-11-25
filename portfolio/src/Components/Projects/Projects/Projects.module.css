@@ -1,0 +1,20 @@
+.carousel_item {
+  color: #fff;
+  font-weight: 700;
+  font-size: large;
+}
+
+.carousel_caption {
+  background-color: rgba(0, 0, 0, 0.4);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+h3 {
+  position: absolute;
+  bottom: 0;
+  left: 45%;
+}

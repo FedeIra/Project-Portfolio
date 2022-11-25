@@ -25,8 +25,8 @@ function NavBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/about">About me</Nav.Link>
-            <Nav.Link href="/experience">Experience</Nav.Link>
             <Nav.Link href="/projects">Projects</Nav.Link>
+            <Nav.Link href="/experience">Experience & Background</Nav.Link>
             <Nav.Link href="/contact">Contact</Nav.Link>
           </Nav>
         </Navbar.Collapse>
