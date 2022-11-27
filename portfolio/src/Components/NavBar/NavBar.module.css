@@ -1,15 +1,8 @@
 .navbar_container {
-  padding: 2rem;
-  background-color: #bcccf1;
-  height: 60px;
-  position: fixed;
+  padding: 0.5rem;
   width: 100%;
   font-family: 'Raleway';
-  font-size: 17pt;
-  font-weight: 100;
-}
-
-.navbar_collapse {
-  align-items: center;
-  justify-content: space-between;
+  font-size: 20px;
+  border-bottom: 3px solid #b5bfdf;
+  background: linear-gradient(0deg, rgba(4, 1, 19, 0.5), #1a294e);
 }

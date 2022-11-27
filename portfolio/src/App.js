@@ -1,11 +1,22 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import Home from './Components/Home/Home.jsx';
+import { AnimatePresence } from 'framer-motion';
+import About from './Components/About/About.jsx';
+import Landing from './Components/Landing/Landing.jsx';
+import Projects from './Components/Projects/Projects.jsx';
+import Experience from './Components/Experience/Experience.jsx';
+import Contact from './Components/Contact/Contact.jsx';
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-    </Routes>
+    <AnimatePresence>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/experience" element={<Experience />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </AnimatePresence>
   );
 }

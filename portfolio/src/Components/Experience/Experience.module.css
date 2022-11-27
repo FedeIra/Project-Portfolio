@@ -1,0 +1,13 @@
+.about_heading {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 2%;
+  border-bottom: 2px solid rgb(96, 96, 96);
+  margin-top: 2%;
+}
+
+@media (max-width: 480px) {
+  .about_heading {
+    font-size: 2rem;
+  }
+}
