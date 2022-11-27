@@ -5,6 +5,7 @@ import About from './Components/About/About.jsx';
 import Landing from './Components/Landing/Landing.jsx';
 import Projects from './Components/Projects/Projects.jsx';
 import Experience from './Components/Experience/Experience.jsx';
+import Contact from './Components/Contact/Contact.jsx';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/experience" element={<Experience />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </AnimatePresence>
   );

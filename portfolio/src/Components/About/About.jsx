@@ -5,6 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import CardAbout from './CardAbout.jsx';
 import technologies from './technologies.json';
 import NavBar from '../NavBar/NavBar.jsx';
+import Footer from '../Footer/Footer.jsx';
 import { motion } from 'framer-motion';
 
 const About = () => {
@@ -96,6 +97,7 @@ const About = () => {
           </Col>
         </Row>
       </Container>
+      <Footer />
     </div>
   );
 };

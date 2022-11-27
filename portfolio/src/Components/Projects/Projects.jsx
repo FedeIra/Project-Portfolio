@@ -14,6 +14,7 @@ import ProjectKinema from './Projects/ProjectKinema.jsx';
 import ProjectGaming from './Projects/ProjectGaming.jsx';
 import { motion } from 'framer-motion';
 import { FaGithub, FaGlobe, FaStar } from 'react-icons/fa';
+import Footer from '../Footer/Footer.jsx';
 
 const Projects = () => {
   const popover = (
@@ -196,6 +197,7 @@ const Projects = () => {
           </Col>
         </Row>
       </Container>
+      <Footer />
     </div>
   );
 };
