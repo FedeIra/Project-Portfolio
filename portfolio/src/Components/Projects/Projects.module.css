@@ -4,6 +4,12 @@
   align-items: center;
 }
 
+@media (max-width: 768px) {
+  .container_general {
+    width: 75vh;
+  }
+}
+
 .about {
   height: 100%;
   width: 100%;
