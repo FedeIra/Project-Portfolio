@@ -98,7 +98,7 @@ const Experience = () => {
                   Building my portfolio using the following techs:
                   <br />
                   Javascript | JSON | HTML | React.js | CSS | Chakra UI |
-                  Bootstrap
+                  Bootstrap | Email.js | Toastify
                 </p>
               </div>
             </div>

@@ -10,13 +10,14 @@ const CardAbout = ({ name, avatar }) => {
       borderRadius="1rem"
       padding="0.5rem"
       color="white"
-      bgGradient="linear(to-r,rgba(4, 1, 19, 0.5),#1a294e)"
+      bgGradient="linear(to-r,rgba(4, 1, 19, 0.5),rgba(2, 0, 36, 1)
+      )"
       margin="0.8rem"
       width="12rem"
       className={style.cardAbout}
     >
       <Avatar src={icon} size="xs" name={name} ml={-1} mr={2} />
-      <TagLabel>{name}</TagLabel>
+      <TagLabel color={'black'}>{name}</TagLabel>
     </Tag>
   );
 };
