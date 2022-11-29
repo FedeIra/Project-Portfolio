@@ -1,9 +1,7 @@
 .navbar_container {
-  padding: 0.5rem;
   width: 100%;
-  font-family: 'Roboto';
   font-size: 20px;
-  border-bottom: 3px solid #b5bfdf;
+  border-bottom: 3px solid #f2f3f5;
+  border-top: 3px solid #f2f3f5;
   background: rgba(4, 1, 19, 0.5);
-  color: white;
 }

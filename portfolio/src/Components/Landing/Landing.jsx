@@ -14,7 +14,7 @@ const Landing = () => {
           block
           style={{
             position: 'absolute',
-            top: '30%',
+            top: '60vh',
             left: '50%',
             transform: 'translate(-50%, -50%)',
           }}

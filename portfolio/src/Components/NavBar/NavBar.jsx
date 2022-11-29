@@ -1,7 +1,8 @@
 import React from 'react';
 import style from './NavBar.module.css';
 import * as images from '../../Assets/home_images.js';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Row, Col, Container, Nav, Navbar } from 'react-bootstrap';
+import Icons from './Icons/Icons.jsx';
 
 function NavBar() {
   return (
@@ -10,8 +11,7 @@ function NavBar() {
       collapseOnSelect
       expand="lg"
       variant="dark"
-      className={`sticky-top 
-
+      className={`sticky-top
       ${style.navbar_container}`}
     >
       <Container color="white">
@@ -33,12 +33,13 @@ function NavBar() {
               Projects
             </Nav.Link>
             <Nav.Link style={{ color: 'white' }} href="/experience">
-              Experience & Background
+              Experience
             </Nav.Link>
             <Nav.Link style={{ color: 'white' }} href="/contact">
-              Contact
+              Get in touch
             </Nav.Link>
           </Nav>
+          <Icons />
         </Navbar.Collapse>
       </Container>
     </Navbar>
