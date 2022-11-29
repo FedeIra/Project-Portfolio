@@ -7,12 +7,12 @@
 }
 
 .formContainer {
+  height: 100vh;
   background-color: #364359;
   border-radius: 1rem;
   padding: 1rem;
   padding-bottom: 2rem;
   margin-bottom: 1rem;
-  height: auto;
 }
 
 .title {

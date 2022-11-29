@@ -5,3 +5,15 @@
   border-top: 3px solid #f2f3f5;
   background: rgba(4, 1, 19, 0.5);
 }
+
+@media (min-width: 769px) {
+  .navbar_icons {
+    position: absolute;
+    right: 5%;
+  }
+}
+
+#navbar .active {
+  text-decoration: underline;
+  background-color: yellow;
+}

@@ -47,10 +47,9 @@ const Contact = () => {
   };
 
   return (
-    <div>
+    <div id="getInTouch">
       <Container
         style={{
-          height: '80vh',
           marginBottom: '1vh',
         }}
       >

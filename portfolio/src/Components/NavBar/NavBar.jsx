@@ -1,8 +1,9 @@
 import React from 'react';
 import style from './NavBar.module.css';
 import * as images from '../../Assets/home_images.js';
-import { Row, Col, Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import Icons from './Icons/Icons.jsx';
+/* import NavBar.module.css */
 
 function NavBar() {
   return (
@@ -11,11 +12,18 @@ function NavBar() {
       collapseOnSelect
       expand="lg"
       variant="dark"
-      className={`sticky-top
+      className={`
+      navbar
+      sticky-top
       ${style.navbar_container}`}
     >
-      <Container color="white">
-        <Navbar.Brand href="/">
+      <Container
+        color="white"
+        style={{
+          marginLeft: '5%',
+        }}
+      >
+        <Navbar.Brand href="#landing">
           <img
             src={images.portfolio_picture}
             style={{ filter: 'invert(100%)' }}
@@ -25,21 +33,39 @@ function NavBar() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link style={{ color: 'white' }} href="/about">
+          <Nav>
+            <Nav.Link
+              className="nav-link"
+              style={{ color: 'white' }}
+              href="#aboutMe"
+            >
               About me
             </Nav.Link>
-            <Nav.Link style={{ color: 'white' }} href="/projects">
+            <Nav.Link
+              className="nav-link "
+              style={{ color: 'white' }}
+              href="#projects"
+            >
               Projects
             </Nav.Link>
-            <Nav.Link style={{ color: 'white' }} href="/experience">
+            <Nav.Link
+              className="nav-link"
+              style={{ color: 'white' }}
+              href="#experience"
+            >
               Experience
             </Nav.Link>
-            <Nav.Link style={{ color: 'white' }} href="/contact">
+            <Nav.Link
+              className="nav-link"
+              style={{ color: 'white' }}
+              href="#getInTouch"
+            >
               Get in touch
             </Nav.Link>
           </Nav>
-          <Icons />
+          <div className={style.navbar_icons}>
+            <Icons />
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>

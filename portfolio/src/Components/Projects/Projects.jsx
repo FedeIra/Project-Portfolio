@@ -50,7 +50,7 @@ const Projects = () => {
   );
 
   return (
-    <div className={style.container_general}>
+    <div id="projects" className={style.container_general}>
       <Container fluid className={style.about}>
         <Row className={style.about_row}>
           <Col xs={11} md={12} lg={12} className={style.about_col_text}>

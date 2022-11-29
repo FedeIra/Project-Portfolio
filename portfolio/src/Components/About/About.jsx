@@ -13,8 +13,50 @@ import Footer from '../Footer/Footer.jsx';
 import { motion } from 'framer-motion';
 
 const About = () => {
+  /* Underline navBar according to section */
+  const navBarLinks = document.getElementsByClassName('nav-link');
+
+  window.onscroll = function () {
+    const aboutMe = document.getElementById('aboutMe');
+    const projects = document.getElementById('projects');
+    const experience = document.getElementById('experience');
+    const contact = document.getElementById('getInTouch');
+
+    const navBarLinksArray = Array.from(navBarLinks);
+    const navBarLinksArrayLength = navBarLinksArray.length;
+
+    const aboutMePosition = aboutMe.getBoundingClientRect().top;
+    const projectsPosition = projects.getBoundingClientRect().top;
+    const experiencePosition = experience.getBoundingClientRect().top;
+    const contactPosition = contact.getBoundingClientRect().top;
+
+    const navBarLinksArrayPositions = [
+      aboutMePosition,
+      projectsPosition,
+      experiencePosition,
+      contactPosition,
+    ];
+
+    for (let i = 0; i < navBarLinksArrayLength; i++) {
+      if (navBarLinksArrayPositions[i] < 100) {
+        navBarLinksArray[i].style.textDecoration = 'underline';
+        for (let j = 0; j < navBarLinksArrayLength; j++) {
+          if (j !== i) {
+            navBarLinksArray[j].style.textDecoration = 'none';
+          }
+        }
+      } else {
+        navBarLinksArray[i].style.textDecoration = 'none';
+      }
+    }
+  };
+
   return (
-    <div>
+    <div
+      className="
+      scrollspy-example
+      "
+    >
       <Landing />
       <div className={style.container_general}>
         <NavBar />
@@ -41,6 +83,7 @@ const About = () => {
                 initial={{ opacity: 0, x: -1000 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
+                id="aboutMe"
               >
                 About me
               </motion.h2>
