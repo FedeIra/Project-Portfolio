@@ -1,16 +1,13 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import NavBar from '../NavBar/NavBar.jsx';
 import { motion } from 'framer-motion';
 import style from './Experience.module.css';
 import * as images from '../../Assets/home_images.js';
 import Background from './Background/Background.jsx';
-import Footer from '../Footer/Footer.jsx';
 
 const Experience = () => {
   return (
     <div>
-      <NavBar />
       <Container>
         <Row>
           <Col xs={12} md={12} lg={12}>
@@ -704,7 +701,6 @@ const Experience = () => {
       </Container>
       <br />
       <br />
-      <Footer />
     </div>
   );
 };

@@ -9,12 +9,10 @@ import {
   OverlayTrigger,
   Tooltip,
 } from 'react-bootstrap';
-import NavBar from '../NavBar/NavBar.jsx';
 import ProjectKinema from './Projects/ProjectKinema.jsx';
 import ProjectGaming from './Projects/ProjectGaming.jsx';
 import { motion } from 'framer-motion';
 import { FaGithub, FaGlobe, FaStar } from 'react-icons/fa';
-import Footer from '../Footer/Footer.jsx';
 
 const Projects = () => {
   const popover = (
@@ -53,7 +51,6 @@ const Projects = () => {
 
   return (
     <div className={style.container_general}>
-      <NavBar />
       <Container fluid className={style.about}>
         <Row className={style.about_row}>
           <Col xs={11} md={12} lg={12} className={style.about_col_text}>
@@ -197,7 +194,6 @@ const Projects = () => {
           </Col>
         </Row>
       </Container>
-      <Footer />
     </div>
   );
 };

@@ -1,8 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import NavBar from '../NavBar/NavBar.jsx';
 import { motion } from 'framer-motion';
-import Footer from '../Footer/Footer.jsx';
 import style from './Contact.module.css';
 import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
@@ -50,7 +48,6 @@ const Contact = () => {
 
   return (
     <div>
-      <NavBar />
       <Container
         style={{
           height: '80vh',
@@ -177,7 +174,6 @@ const Contact = () => {
           </div>
         </section>
       </Container>
-      <Footer />
     </div>
   );
 };

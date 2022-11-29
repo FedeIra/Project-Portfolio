@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './NavBar.module.css';
 import * as images from '../../Assets/home_images.js';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 
 function NavBar() {
   return (
@@ -10,9 +10,11 @@ function NavBar() {
       collapseOnSelect
       expand="lg"
       variant="dark"
-      className={`sticky-top ${style.navbar_container}`}
+      className={`sticky-top 
+
+      ${style.navbar_container}`}
     >
-      <Container>
+      <Container color="white">
         <Navbar.Brand href="/">
           <img
             src={images.portfolio_picture}
@@ -24,10 +26,18 @@ function NavBar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/about">About me</Nav.Link>
-            <Nav.Link href="/projects">Projects</Nav.Link>
-            <Nav.Link href="/experience">Experience & Background</Nav.Link>
-            <Nav.Link href="/contact">Contact</Nav.Link>
+            <Nav.Link style={{ color: 'white' }} href="/about">
+              About me
+            </Nav.Link>
+            <Nav.Link style={{ color: 'white' }} href="/projects">
+              Projects
+            </Nav.Link>
+            <Nav.Link style={{ color: 'white' }} href="/experience">
+              Experience & Background
+            </Nav.Link>
+            <Nav.Link style={{ color: 'white' }} href="/contact">
+              Contact
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
