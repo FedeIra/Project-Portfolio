@@ -1,22 +1,19 @@
 .container {
-  position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
   margin-bottom: 4%;
 }
 
 .row {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
   flex-wrap: wrap;
   width: 75%;
+  flex-direction: row;
 }
 
-/* row responsive for cellphone: */
-@media (max-width: 480px) {
+@media (max-width: 780px) {
   .row {
     width: 100%;
   }
@@ -29,7 +26,7 @@
   margin: 10px 100px 10px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 780px) {
   .hexagon {
     width: 6rem;
     height: 6rem;
@@ -49,13 +46,11 @@
 
 .text {
   text-align: center;
-  margin-left: 1.3rem;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 780px) {
   .text {
     font-size: 14px;
-    margin-left: 0.9rem;
   }
 }
 .title {
@@ -64,7 +59,7 @@
   color: #fff;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 780px) {
   .title {
     font-size: 1.1rem;
   }

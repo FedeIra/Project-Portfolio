@@ -57,44 +57,33 @@ const About = () => {
       className="
       scrollspy-example
       "
-      style={{
-        width: '100vw',
-      }}
     >
       <Landing />
       <div className={style.container_general}>
         <NavBar />
-        <Container
-          fluid
-          className={style.about}
-          style={{
-            fontSize: '20px',
-          }}
-        >
-          <Row className={style.about_row}>
-            <Col xs={12} md={12} className={style.about_col_text}>
-              <motion.h2
-                className={`text-center ${style.about_heading}`}
-                initial={{ opacity: 0, x: -1000 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1 }}
-                id="aboutMe"
-              >
-                About me
-              </motion.h2>
-              <br />
+        <Container fluid className={style.about}>
+          <Row>
+            <motion.h2
+              className={`text-center ${style.about_heading}`}
+              initial={{ opacity: 0, x: -1000 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+              id="aboutMe"
+            >
+              About me
+            </motion.h2>
+            <Col xs={12} md={12}>
               <Skills />
               <Row>
                 <Col
                   xs={12}
                   md={{ span: 4, offset: 2 }}
-                  className={`${style.about_col} ${style.about_col_left}`}
+                  className={style.about_col}
                 >
                   <motion.img
                     src={images.profile_picture}
                     alt="profile-pic"
                     className={style.about_img}
-                    style={{ width: '20rem', height: '20rem' }}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1 }}
