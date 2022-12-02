@@ -1,0 +1,41 @@
+.title {
+  font-size: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin: 0 0 20px;
+}
+
+.buttonOverlay {
+  position: absolute;
+  top: 37%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 3;
+  width: 25%;
+  height: 21%;
+  border-radius: 100%;
+  font-size: 18px;
+  padding: 16px;
+  border: none;
+  cursor: pointer;
+  font-weight: 900;
+  border: 3px solid rgb(246, 246, 246);
+}
+
+.buttonOverlay:hover {
+  background-color: #f1f1f1;
+  border: none;
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .buttonOverlay {
+    top: 30%;
+    left: 50%;
+    width: 40%;
+    height: 24%;
+  }
+}

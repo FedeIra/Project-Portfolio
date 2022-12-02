@@ -15,38 +15,9 @@ import { motion } from 'framer-motion';
 import style from './Projects.module.css';
 import * as images from '../../Assets/home_images';
 import { FaGithub, FaGlobe, FaStar } from 'react-icons/fa';
+import Overlay from './Overlays/Overlay.jsx';
 
 const Projects = () => {
-  const popover = (
-    <Popover
-      id="popover-basic"
-      className={style.popover}
-      style={{
-        width: '60rem',
-        maxWidth: '100%',
-      }}
-    >
-      <Popover.Body>
-        <ProjectKinema />
-      </Popover.Body>
-    </Popover>
-  );
-
-  const popover2 = (
-    <Popover
-      id="popover-basic"
-      className={style.popover}
-      style={{
-        width: '60rem',
-        maxWidth: '100%',
-      }}
-    >
-      <Popover.Body>
-        <ProjectGaming />
-      </Popover.Body>
-    </Popover>
-  );
-
   const renderTextProject = (text) => (
     <Tooltip id="button-tooltip" className={style.tooltip}>
       {text}
@@ -84,22 +55,11 @@ const Projects = () => {
                         marginBottom: '30px',
                       }}
                     >
-                      {/*    <OverlayTrigger
-                        placement="bottom"
-                        overlay={renderTextProject('Go see Kinema!')}
-                        className={style.overlay}
-                      > */}
                       <Card className={style.card}>
                         <div className={style.img1}>
                           <Card.Img src={images.kinema_picture2} alt="kinema" />
                           <Card.ImgOverlay className={style.card_overlay}>
-                            <Card.Header>Card Header</Card.Header>
-                            <Card.Body>
-                              <Card.Text className="text-left">
-                                This is a wider card with supporting text below
-                                as a natural lead-in to additional content.
-                              </Card.Text>
-                            </Card.Body>
+                            <Overlay name={'Kinema'} />
                           </Card.ImgOverlay>
                         </div>
                         <a
@@ -108,13 +68,7 @@ const Projects = () => {
                           rel="nofollow"
                         >
                           <div className={style.img2}>
-                            <OverlayTrigger
-                              placement="bottom"
-                              delay={{ show: 100, hide: 0 }}
-                              overlay={renderTextProject('Go see Kinema!')}
-                            >
-                              <img src={images.kinema_logo} alt="kinema-logo" />
-                            </OverlayTrigger>
+                            <img src={images.kinema_logo} alt="kinema-logo" />
                           </div>
                         </a>
                         <div className={style.main_text}>
@@ -151,7 +105,7 @@ const Projects = () => {
                               variant="primary"
                               className={style.buttonCard}
                             >
-                              See Kinema
+                              View site
                               <FaGlobe
                                 style={{
                                   marginLeft: '5px',
@@ -184,7 +138,10 @@ const Projects = () => {
                     <div className="col-md-4">
                       <Card className={style.card}>
                         <div className={style.img1}>
-                          <img src={images.gaming1} alt="gaming" />
+                          <Card.Img src={images.gaming1} alt="gaming" />
+                          <Card.ImgOverlay className={style.card_overlay}>
+                            <Overlay name={'Gaming & Beyond'} />
+                          </Card.ImgOverlay>
                         </div>
                         <a
                           href="https://gamingweb.vercel.app/"
@@ -224,7 +181,7 @@ const Projects = () => {
                               variant="primary"
                               className={style.buttonCard}
                             >
-                              See G&B
+                              View site
                               <FaGlobe
                                 style={{
                                   marginLeft: '5px',
