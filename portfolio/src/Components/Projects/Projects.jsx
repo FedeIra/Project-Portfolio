@@ -7,6 +7,7 @@ import {
   OverlayTrigger,
   Tooltip,
   Button,
+  Card,
 } from 'react-bootstrap';
 import ProjectKinema from './Projects/ProjectKinema.jsx';
 import ProjectGaming from './Projects/ProjectGaming.jsx';
@@ -83,101 +84,105 @@ const Projects = () => {
                         marginBottom: '30px',
                       }}
                     >
-                      <OverlayTrigger
-                        /* placement="bottom" */
+                      {/*    <OverlayTrigger
+                        placement="bottom"
                         overlay={renderTextProject('Go see Kinema!')}
                         className={style.overlay}
-                      >
-                        <div className={style.card}>
-                          <div className={style.img1}>
-                            <img src={images.kinema_picture2} alt="kinema" />
+                      > */}
+                      <Card className={style.card}>
+                        <div className={style.img1}>
+                          <Card.Img src={images.kinema_picture2} alt="kinema" />
+                          <Card.ImgOverlay className={style.card_overlay}>
+                            <Card.Header>Card Header</Card.Header>
+                            <Card.Body>
+                              <Card.Text className="text-left">
+                                This is a wider card with supporting text below
+                                as a natural lead-in to additional content.
+                              </Card.Text>
+                            </Card.Body>
+                          </Card.ImgOverlay>
+                        </div>
+                        <a
+                          href="https://kinema-entertainment.vercel.app/"
+                          target="blank"
+                          rel="nofollow"
+                        >
+                          <div className={style.img2}>
+                            <OverlayTrigger
+                              placement="bottom"
+                              delay={{ show: 100, hide: 0 }}
+                              overlay={renderTextProject('Go see Kinema!')}
+                            >
+                              <img src={images.kinema_logo} alt="kinema-logo" />
+                            </OverlayTrigger>
                           </div>
-
+                        </a>
+                        <div className={style.main_text}>
+                          <h2>Kinema</h2>
+                          <p>
+                            Kinema is a movie and TV Show streaming website with
+                            the following features: Third-party authentication
+                            (Google); Stripe payment platform integration;
+                            Combined filters; Image loading with Cloudinary;
+                            E-mail and live notifications; Logic user delete;
+                            Redux persist; Rating and review system; and Admin.
+                            and owner dashboard.
+                          </p>
+                          <br />
+                          <div className={style.stars}>
+                            <FaStar
+                              style={{
+                                color: 'orange',
+                              }}
+                            />
+                            <p>
+                              Selected by Henry among the best 4 projects of the
+                              course.
+                            </p>
+                          </div>
+                        </div>
+                        <div className={style.socials}>
                           <a
                             href="https://kinema-entertainment.vercel.app/"
                             target="blank"
                             rel="nofollow"
                           >
-                            <div className={style.img2}>
-                              <OverlayTrigger
-                                placement="bottom"
-                                delay={{ show: 100, hide: 0 }}
-                                overlay={renderTextProject('Go see Kinema!')}
-                              >
-                                <img
-                                  src={images.kinema_logo}
-                                  alt="kinema-logo"
-                                />
-                              </OverlayTrigger>
-                            </div>
-                          </a>
-                          <div className={style.main_text}>
-                            <h2>Kinema</h2>
-                            <p>
-                              Kinema is a movie and TV Show streaming website
-                              with the following features: Third-party
-                              authentication (Google); Stripe payment platform
-                              integration; Combined filters; Image loading with
-                              Cloudinary; E-mail and live notifications; Logic
-                              user delete; Redux persist; Rating and review
-                              system; and Admin. and owner dashboard.
-                            </p>
-                            <br />
-                            <div className={style.stars}>
-                              <FaStar
+                            <Button
+                              variant="primary"
+                              className={style.buttonCard}
+                            >
+                              See Kinema
+                              <FaGlobe
                                 style={{
-                                  color: 'orange',
+                                  marginLeft: '5px',
+                                  fontSize: '20px',
                                 }}
                               />
-                              <p>
-                                Selected by Henry among the best 4 projects of
-                                the course.
-                              </p>
-                            </div>
-                          </div>
-                          <div className={style.socials}>
-                            <a
-                              href="https://kinema-entertainment.vercel.app/"
-                              target="blank"
-                              rel="nofollow"
+                            </Button>
+                          </a>
+                          <a
+                            href="https://github.com/PG-Movies-Group-1/Kinema-Project"
+                            target="blank"
+                            rel="nofollow"
+                          >
+                            <Button
+                              variant="secondary"
+                              className={style.buttonCard}
                             >
-                              <Button
-                                variant="primary"
-                                className={style.buttonCard}
-                              >
-                                See Kinema
-                                <FaGlobe
-                                  style={{
-                                    marginLeft: '5px',
-                                    fontSize: '20px',
-                                  }}
-                                />
-                              </Button>
-                            </a>
-                            <a
-                              href="https://github.com/PG-Movies-Group-1/Kinema-Project"
-                              target="blank"
-                              rel="nofollow"
-                            >
-                              <Button
-                                variant="secondary"
-                                className={style.buttonCard}
-                              >
-                                View Code
-                                <FaGithub
-                                  style={{
-                                    marginLeft: '5px',
-                                    fontSize: '20px',
-                                  }}
-                                />
-                              </Button>
-                            </a>
-                          </div>
+                              View Code
+                              <FaGithub
+                                style={{
+                                  marginLeft: '5px',
+                                  fontSize: '20px',
+                                }}
+                              />
+                            </Button>
+                          </a>
                         </div>
-                      </OverlayTrigger>
+                      </Card>
                     </div>
                     <div className="col-md-4">
-                      <div className={style.card}>
+                      <Card className={style.card}>
                         <div className={style.img1}>
                           <img src={images.gaming1} alt="gaming" />
                         </div>
@@ -247,7 +252,7 @@ const Projects = () => {
                             </Button>
                           </a>
                         </div>
-                      </div>
+                      </Card>
                     </div>
                   </div>
                 </div>
