@@ -1,9 +1,14 @@
+.experience_container {
+  width: 100%;
+  height: 100%;
+}
+
 .about_heading {
   font-size: 3rem;
   font-weight: 600;
   margin-bottom: 2%;
-  border-bottom: 2px solid rgb(96, 96, 96);
-  margin-top: 2%;
+  border-bottom: 3px solid rgb(96, 96, 96);
+  width: 100%;
 }
 
 @media (max-width: 480px) {
@@ -11,3 +16,24 @@
     font-size: 2rem;
   }
 }
+
+/*          <Row
+                className={`
+              h-0
+              `}
+              >
+                <Col>&nbsp;</Col>
+                <Col>&nbsp;</Col>
+              </Row>
+              <h5
+                className={`m-0
+            `}
+              >
+                <span className={`badge bg-success border`}>&nbsp;</span>
+              </h5>
+              <Row
+                className={`
+              h-100
+              w-30
+              `}
+              > */
