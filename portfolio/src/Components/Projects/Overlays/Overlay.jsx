@@ -51,8 +51,12 @@ const Overlay = ({ name }) => {
         >
           <Button
             className={style.buttonOverlay}
-
-            // onClick={() => setModalShow(true)}
+            style={{
+              borderRadius: '100%',
+              border: '3px solid rgb(246, 246, 246)',
+              fontSize: '18px',
+              padding: '16px',
+            }}
           >
             VIEW MORE!
           </Button>

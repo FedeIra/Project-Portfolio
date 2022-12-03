@@ -16,6 +16,7 @@ import style from './Projects.module.css';
 import * as images from '../../Assets/home_images';
 import { FaGithub, FaGlobe, FaStar } from 'react-icons/fa';
 import Overlay from './Overlays/Overlay.jsx';
+import { IconButton } from '@chakra-ui/react';
 
 const Projects = () => {
   const renderTextProject = (text) => (
@@ -44,8 +45,8 @@ const Projects = () => {
             >
               <div className={style.profile_area}>
                 <div>
-                  <div
-                    className="row
+                  <Row
+                    className="
                   justify-content-center
                   "
                   >
@@ -84,10 +85,16 @@ const Projects = () => {
                           </p>
                           <br />
                           <div className={style.stars}>
-                            <FaStar
-                              style={{
-                                color: 'orange',
-                              }}
+                            <IconButton
+                              colorScheme="transparent"
+                              fontSize="20px"
+                              icon={
+                                <FaStar
+                                  size="1.4rem"
+                                  color="orange"
+                                  className={style.iconStar}
+                                />
+                              }
                             />
                             <p>
                               Selected by Henry among the best 4 projects of the
@@ -106,11 +113,11 @@ const Projects = () => {
                               className={style.buttonCard}
                             >
                               View site
-                              <FaGlobe
-                                style={{
-                                  marginLeft: '5px',
-                                  fontSize: '20px',
-                                }}
+                              <IconButton
+                                colorScheme="transparent"
+                                aria-label="Call Segun"
+                                fontSize="20px"
+                                icon={<FaGlobe size="1.4rem" />}
                               />
                             </Button>
                           </a>
@@ -124,11 +131,10 @@ const Projects = () => {
                               className={style.buttonCard}
                             >
                               View Code
-                              <FaGithub
-                                style={{
-                                  marginLeft: '5px',
-                                  fontSize: '20px',
-                                }}
+                              <IconButton
+                                colorScheme="transparent"
+                                fontSize="20px"
+                                icon={<FaGithub size="1.4rem" />}
                               />
                             </Button>
                           </a>
@@ -140,7 +146,7 @@ const Projects = () => {
                         <div className={style.img1}>
                           <Card.Img src={images.gaming1} alt="gaming" />
                           <Card.ImgOverlay className={style.card_overlay}>
-                            <Overlay name={'Gaming & Beyond'} />
+                            <Overlay name={'G&B'} />
                           </Card.ImgOverlay>
                         </div>
                         <a
@@ -149,18 +155,16 @@ const Projects = () => {
                           rel="nofollow"
                         >
                           <div className={style.img2}>
-                            <OverlayTrigger
-                              placement="bottom"
-                              delay={{ show: 100, hide: 0 }}
-                              overlay={renderTextProject('Go see G&B!')}
-                            >
-                              <img src={images.gaming_logo} alt="gaming-logo" />
-                            </OverlayTrigger>
+                            <img src={images.gaming_logo} alt="gaming-logo" />
                           </div>
                         </a>
                         <div className={style.main_text}>
                           <h2>Gaming & Beyond</h2>
-                          <p>
+                          <p
+                            style={{
+                              marginBottom: '17px',
+                            }}
+                          >
                             G&B is a gaming website with the following features:
                             Search engine; Combined filters and sorts; Paging;
                             User interaction to create, delete and modify
@@ -182,11 +186,10 @@ const Projects = () => {
                               className={style.buttonCard}
                             >
                               View site
-                              <FaGlobe
-                                style={{
-                                  marginLeft: '5px',
-                                  fontSize: '20px',
-                                }}
+                              <IconButton
+                                colorScheme="transparent"
+                                fontSize="20px"
+                                icon={<FaGlobe size="1.4rem" />}
                               />
                             </Button>
                           </a>
@@ -200,18 +203,17 @@ const Projects = () => {
                               className={style.buttonCard}
                             >
                               View Code
-                              <FaGithub
-                                style={{
-                                  marginLeft: '5px',
-                                  fontSize: '20px',
-                                }}
+                              <IconButton
+                                colorScheme="transparent"
+                                fontSize="20px"
+                                icon={<FaGithub size="1.4rem" />}
                               />
                             </Button>
                           </a>
                         </div>
                       </Card>
                     </div>
-                  </div>
+                  </Row>
                 </div>
               </div>
             </motion.div>
