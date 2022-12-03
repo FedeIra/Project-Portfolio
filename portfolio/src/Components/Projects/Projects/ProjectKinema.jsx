@@ -3,8 +3,41 @@ import * as images from '../../../Assets/Project_Kinema/Kinema_images';
 import style from './Projects.module.css';
 
 function ProjectKinema() {
+  const leftArrowStyle = {
+    position: 'absolute',
+    bottom: '0',
+    left: '0',
+    padding: '11.5%',
+    color: 'white',
+    backgroundColor: 'rgba(0, 0, 0, 0.9)',
+  };
+
+  const rightArrowStyle = {
+    position: 'absolute',
+    bottom: '0',
+    right: '0',
+    padding: '11.5%',
+    color: 'white',
+    backgroundColor: 'rgba(0, 0, 0, 0.9)',
+  };
+
   return (
-    <Carousel>
+    <Carousel
+      prevIcon={
+        <span
+          aria-hidden="true"
+          className="carousel-control-prev-icon"
+          style={leftArrowStyle}
+        />
+      }
+      nextIcon={
+        <span
+          aria-hidden="true"
+          className="carousel-control-next-icon"
+          style={rightArrowStyle}
+        />
+      }
+    >
       <Carousel.Item interval={2000} className={style.carousel_item}>
         <Carousel.Caption
           className={style.carousel_caption}

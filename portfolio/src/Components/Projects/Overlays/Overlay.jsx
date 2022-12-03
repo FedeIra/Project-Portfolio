@@ -55,6 +55,8 @@ const Overlay = ({ name }) => {
             borderTopRightRadius: '10px',
             backgroundColor: 'black',
             borderBottom: '3px solid gray',
+            padding: '0',
+            margin: '0',
           }}
         >
           {name === 'Kinema' ? <ProjectKinema /> : <ProjectGaming />}

@@ -21,8 +21,8 @@ h3 {
 }
 
 .carousel_item img {
-  width: 140rem;
-  height: 40rem;
+  width: 130rem;
+  height: 35rem;
 }
 
 @media (max-width: 768px) {
