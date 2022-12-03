@@ -16,22 +16,10 @@ function ProjectKinema() {
         >
           <h3>Landing</h3>
         </Carousel.Caption>
-        <img
-          className="
-          d-block
-          w-100
-          rounded
-          "
-          src={images.kinema_project1}
-          alt="First slide"
-        />
+        <img src={images.kinema_project1} alt="First slide" />
       </Carousel.Item>
       <Carousel.Item interval={2000} className={style.carousel_item}>
-        <img
-          className="d-block w-100 rounded"
-          src={images.kinema_project2}
-          alt="Second slide"
-        />
+        <img src={images.kinema_project2} alt="Second slide" />
         <Carousel.Caption
           className={style.carousel_caption}
           style={{
@@ -44,11 +32,7 @@ function ProjectKinema() {
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={2000} className={style.carousel_item}>
-        <img
-          className="d-block w-100  rounded"
-          src={images.kinema_project3}
-          alt="Third slide"
-        />
+        <img src={images.kinema_project3} alt="Third slide" />
         <Carousel.Caption
           className={style.carousel_caption}
           style={{
@@ -71,15 +55,7 @@ function ProjectKinema() {
         >
           <h3>Video</h3>
         </Carousel.Caption>
-        <img
-          className="
-          d-block
-          w-100
-           rounded
-          "
-          src={images.kinema_project4}
-          alt="First slide"
-        />
+        <img src={images.kinema_project4} alt="First slide" />
       </Carousel.Item>
       <Carousel.Item interval={2000} className={style.carousel_item}>
         <Carousel.Caption
@@ -92,15 +68,7 @@ function ProjectKinema() {
         >
           <h3>Owner Panel</h3>
         </Carousel.Caption>
-        <img
-          className="
-          d-block
-          w-100
-           rounded
-          "
-          src={images.kinema_project5}
-          alt="First slide"
-        />
+        <img src={images.kinema_project5} alt="First slide" />
       </Carousel.Item>
       <Carousel.Item interval={2000} className={style.carousel_item}>
         <Carousel.Caption
@@ -113,15 +81,7 @@ function ProjectKinema() {
         >
           <h3>Admin. Panel</h3>
         </Carousel.Caption>
-        <img
-          className="
-          d-block
-          w-100
-           rounded
-          "
-          src={images.kinema_project6}
-          alt="First slide"
-        />
+        <img src={images.kinema_project6} alt="First slide" />
       </Carousel.Item>
     </Carousel>
   );

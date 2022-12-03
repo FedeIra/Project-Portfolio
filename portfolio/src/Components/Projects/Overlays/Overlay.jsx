@@ -1,38 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Button, Tooltip, OverlayTrigger, Modal } from 'react-bootstrap';
 import style from './Overlay.module.css';
-import Modals from '../Modals/Modal.jsx';
-
-// function MyVerticallyCenteredModal(props) {
-//   return (
-//     <Modal
-//       {...props}
-//       size="lg"
-//       aria-labelledby="contained-modal-title-vcenter"
-//       centered
-//     >
-//       <Modal.Header closeButton>
-//         <Modal.Title id="contained-modal-title-vcenter">
-//           Modal heading
-//         </Modal.Title>
-//       </Modal.Header>
-//       <Modal.Body>
-//         <h4>Centered Modal</h4>
-//         <p>
-//           Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-//           dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-//           consectetur ac, vestibulum at eros.
-//         </p>
-//       </Modal.Body>
-//       <Modal.Footer>
-//         <Button onClick={props.onHide}>Close</Button>
-//       </Modal.Footer>
-//     </Modal>
-//   );
-// }
+import { FaGlobe } from 'react-icons/fa';
+import { IconButton } from '@chakra-ui/react';
+import ProjectKinema from '../Projects/ProjectKinema';
+import ProjectGaming from '../Projects/ProjectGaming';
 
 const Overlay = ({ name }) => {
-  // const [modalShow, setModalShow] = React.useState(false);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const renderTextProject = () => (
     <Tooltip id="button-tooltip" className={style.tooltip}>
@@ -41,7 +19,7 @@ const Overlay = ({ name }) => {
   );
 
   return (
-    <Card.ImgOverlay>
+    <Card.ImgOverlay className={style.card_overlay}>
       <Card.Header className={style.title}>{name}</Card.Header>
       <Card.Body>
         <OverlayTrigger
@@ -57,15 +35,54 @@ const Overlay = ({ name }) => {
               fontSize: '18px',
               padding: '16px',
             }}
+            onClick={handleShow}
           >
             VIEW MORE!
           </Button>
-          {/* <MyVerticallyCenteredModal
-            show={modalShow}
-            onHide={() => setModalShow(false)}
-          /> */}
         </OverlayTrigger>
       </Card.Body>
+      <Modal
+        show={show}
+        onHide={handleClose}
+        size="xl"
+        centered
+        className={style.modal}
+      >
+        <Modal.Body
+          style={{
+            border: '1px solid white',
+            borderTopLeftRadius: '10px',
+            borderTopRightRadius: '10px',
+            backgroundColor: 'black',
+            borderBottom: '3px solid gray',
+          }}
+        >
+          {name === 'Kinema' ? <ProjectKinema /> : <ProjectGaming />}
+        </Modal.Body>
+        <Modal.Footer>
+          <Modal.Header closeButton>
+            <Button
+              variant="primary"
+              onClick={handleClose}
+              style={{
+                position: 'absolute',
+                left: '4%',
+                height: '2.5rem',
+                display: 'flex',
+                alignContent: 'center',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              View site
+              <IconButton
+                colorScheme="transparent"
+                icon={<FaGlobe size="1rem" />}
+              />
+            </Button>
+          </Modal.Header>
+        </Modal.Footer>
+      </Modal>
     </Card.ImgOverlay>
   );
 };

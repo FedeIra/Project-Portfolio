@@ -1,16 +1,5 @@
 import React from 'react';
-import {
-  Container,
-  Row,
-  Col,
-  Popover,
-  OverlayTrigger,
-  Tooltip,
-  Button,
-  Card,
-} from 'react-bootstrap';
-import ProjectKinema from './Projects/ProjectKinema.jsx';
-import ProjectGaming from './Projects/ProjectGaming.jsx';
+import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import style from './Projects.module.css';
 import * as images from '../../Assets/home_images';
@@ -19,12 +8,6 @@ import Overlay from './Overlays/Overlay.jsx';
 import { IconButton } from '@chakra-ui/react';
 
 const Projects = () => {
-  const renderTextProject = (text) => (
-    <Tooltip id="button-tooltip" className={style.tooltip}>
-      {text}
-    </Tooltip>
-  );
-
   return (
     <div id="projects">
       <motion.h2
@@ -63,15 +46,11 @@ const Projects = () => {
                             <Overlay name={'Kinema'} />
                           </Card.ImgOverlay>
                         </div>
-                        <a
-                          href="https://kinema-entertainment.vercel.app/"
-                          target="blank"
-                          rel="nofollow"
-                        >
-                          <div className={style.img2}>
-                            <img src={images.kinema_logo} alt="kinema-logo" />
-                          </div>
-                        </a>
+
+                        <div className={style.img2}>
+                          <img src={images.kinema_logo} alt="kinema-logo" />
+                        </div>
+
                         <div className={style.main_text}>
                           <h2>Kinema</h2>
                           <p>
@@ -149,15 +128,9 @@ const Projects = () => {
                             <Overlay name={'G&B'} />
                           </Card.ImgOverlay>
                         </div>
-                        <a
-                          href="https://gamingweb.vercel.app/"
-                          target="blank"
-                          rel="nofollow"
-                        >
-                          <div className={style.img2}>
-                            <img src={images.gaming_logo} alt="gaming-logo" />
-                          </div>
-                        </a>
+                        <div className={style.img2}>
+                          <img src={images.gaming_logo} alt="gaming-logo" />
+                        </div>
                         <div className={style.main_text}>
                           <h2>Gaming & Beyond</h2>
                           <p
