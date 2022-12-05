@@ -13,6 +13,9 @@ import Skills from '../Skills/Skills.jsx';
 import Footer from '../Footer/Footer.jsx';
 import { motion } from 'framer-motion';
 
+import { IconButton } from '@chakra-ui/react';
+import { BsChevronDoubleUp } from 'react-icons/bs';
+
 const About = () => {
   /* Underline navBar according to section */
   const navBarLinks = document.getElementsByClassName('nav-link');
@@ -137,6 +140,24 @@ const About = () => {
         <Projects />
         <Experience />
         <Contact />
+        <IconButton
+          icon={<BsChevronDoubleUp />}
+          size="lg"
+          onClick={() => window.scrollTo(0, 0)}
+          style={{
+            position: 'fixed',
+            bottom: '0',
+            right: '0',
+            margin: '1rem',
+            backgroundColor: 'rgb(119, 119, 119)',
+            border: 'none',
+            borderRadius: '50%',
+            width: '3rem',
+            height: '3rem',
+            cursor: 'pointer',
+            transition: 'all 0.3s ease-in-out',
+          }}
+        />
         <Footer />
       </div>
     </div>

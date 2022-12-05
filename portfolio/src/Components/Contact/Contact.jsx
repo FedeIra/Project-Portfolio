@@ -47,33 +47,28 @@ const Contact = () => {
   };
 
   return (
-    <div id="getInTouch">
-      <Container
-        style={{
-          marginBottom: '1vh',
-        }}
+    <div id="getInTouch" className={style.contact_container}>
+      <motion.h2
+        className={`text-center ${style.getInTouch_heading}`}
+        initial={{ opacity: 0, x: -1000 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}
       >
-        <Row>
-          <Col xs={12} md={12} lg={12}>
-            <motion.h2
-              className={`text-center ${style.about_heading}`}
-              initial={{ opacity: 0, x: -1000 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1 }}
-            >
-              Contact me!
-            </motion.h2>
-          </Col>
-        </Row>
+        Get in touch
+      </motion.h2>
+      <Container>
         <section id="contact" className="full-height px-lg-5">
           <div className="container">
             <div
               className={`row justify-content-center text-center ${style.formContainer}`}
             >
-              <div className="col-lg-8 pb-4" data-aos="fade-up"></div>
               <h6 className={style.title}>
                 Have a question or want to work together?
               </h6>
+              <br />
+              <br />
+              <br />
+              <br />
               <div className="col-lg-8" data-aos="fade-up" data-aos-delay="300">
                 <form
                   ref={form}
@@ -86,16 +81,15 @@ const Contact = () => {
                       name="user_name"
                       required
                       className={`form-control
-                      form-control-lg ${style.placeholder}`}
+                      form-control-lg `}
                       style={{
-                        background: '#1a294e',
+                        background: 'rgba(4, 1, 19, 0.5)',
                         border: 'none',
                         color: 'white',
                         boxShadow: 'none',
                         borderRadius: '0',
-                        borderBottom: '1px solid #b6cbce',
                       }}
-                      placeholder="Enter your name..."
+                      placeholder="Name"
                     />
                   </div>
                   <div className="form-group col-md-6">
@@ -106,14 +100,13 @@ const Contact = () => {
                       className={`form-control
                       form-control-lg ${style.placeholder}`}
                       style={{
-                        background: '#1a294e',
+                        background: 'rgba(4, 1, 19, 0.5)',
                         border: 'none',
                         color: 'white',
                         boxShadow: 'none',
                         borderRadius: '0',
-                        borderBottom: '1px solid #b6cbce',
                       }}
-                      placeholder="Enter your email..."
+                      placeholder="Enter email"
                     />
                   </div>
                   <div className="form-group col-12">
@@ -124,32 +117,30 @@ const Contact = () => {
                       className={`form-control
                       form-control-lg ${style.placeholder}`}
                       style={{
-                        background: '#1a294e',
+                        background: 'rgba(4, 1, 19, 0.5)',
                         border: 'none',
                         color: 'white',
                         boxShadow: 'none',
                         borderRadius: '0',
-                        borderBottom: '1px solid #b6cbce',
                       }}
-                      placeholder="Enter subject..."
+                      placeholder="Enter subject"
                     />
                   </div>
                   <div className="form-group col-12">
                     <textarea
                       name="message"
                       required
-                      rows="4"
+                      rows="5"
                       className={`form-control
                       form-control-lg ${style.placeholder}`}
                       style={{
-                        background: '#1a294e',
+                        background: 'rgba(4, 1, 19, 0.5)',
                         border: 'none',
                         color: 'white',
                         boxShadow: 'none',
                         borderRadius: '0',
-                        borderBottom: '1px solid #b6cbce',
                       }}
-                      placeholder="Enter your message..."
+                      placeholder="Your Message"
                     ></textarea>
                   </div>
                   <div className="form-group col-12 d-grid">
@@ -157,14 +148,14 @@ const Contact = () => {
                       type="submit"
                       className={`btn btn-brand`}
                       style={{
-                        backgroundColor: '#1a294e',
+                        backgroundColor: 'rgba(4, 1, 19, 0.5)',
                         color: 'white',
                         borderRadius: '0',
                         border: '3px solid #fefefe',
                         fontSize: '1.2rem',
                       }}
                     >
-                      Send Message
+                      Send Email
                     </button>
                   </div>
                 </form>

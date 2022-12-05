@@ -3,7 +3,6 @@ import style from './NavBar.module.css';
 import * as images from '../../Assets/home_images.js';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import Icons from './Icons/Icons.jsx';
-/* import NavBar.module.css */
 
 function NavBar() {
   return (

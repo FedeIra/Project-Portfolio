@@ -67,12 +67,12 @@ const Experience = () => {
             </Col>
             <Col
               className={`
-            py-2`}
+            py-3`}
             >
               <div className="card">
                 <div className="card-body">
                   <div className="float-end text-black">
-                    Nov. 2022 - Ongoing
+                    <p className={style.date}>Nov. 2022 - Current</p>
                   </div>
                   <h4
                     className="d-flex card-title text-black
@@ -85,8 +85,18 @@ const Experience = () => {
                       width="40"
                       className="me-2"
                     />
-                    <strong> Project Portfolio</strong>
+                    <strong> Project Portfolio </strong>
+                    <span className={style.construction}>
+                      <p className={style.construction_text}>In Process</p>
+                      {<span className="ms-1">&nbsp;</span>}
+                      <img
+                        className={style.construction_image}
+                        src={images.hammer_picture}
+                        alt="hammer"
+                      />
+                    </span>
                   </h4>
+
                   <p className="card-text text-black">
                     Building my portfolio using the following techs:
                     <br />
@@ -158,11 +168,13 @@ const Experience = () => {
             </Col>
             <Col
               className={`
-            py-4`}
+            py-0`}
             >
               <div className="card">
                 <div className="card-body">
-                  <div className="float-end">Oct. 2022 - Nov. 2022</div>
+                  <div className="float-end text-black">
+                    <p className={style.date}>Oct. 2022 - Nov. 2022</p>
+                  </div>
                   <h4 className="d-flex card-title text-black align-items-center">
                     <img
                       src={images.kinema_logo}
@@ -255,14 +267,16 @@ const Experience = () => {
             </Col>
             <Col
               className={`
-            py-4`}
+            py-3`}
             >
               <div className="card">
                 <div
                   className="card-body
               "
                 >
-                  <div className="float-end"> Sep. 2022 - Oct. 2022</div>
+                  <div className="float-end text-black">
+                    <p className={style.date}>Sep. 2022 - Oct. 2022</p>
+                  </div>
                   <h4 className="d-flex card-title text-black align-items-center">
                     <img
                       src={images.gaming_logo}
@@ -354,14 +368,18 @@ const Experience = () => {
             </Col>
             <Col
               className={`
-            py-4`}
+            py-0
+            
+            `}
             >
               <div className="card">
                 <div
                   className="card-body
               "
                 >
-                  <div className="float-end"> June. 2022 - Nov. 2022</div>
+                  <div className="float-end text-black">
+                    <p className={style.date}>Jun. 2022 - Nov. 2022</p>
+                  </div>
                   <h4 className="d-flex card-title text-black align-items-center">
                     <img
                       src={images.henry_picture}
@@ -445,14 +463,16 @@ const Experience = () => {
             </Col>
             <Col
               className={`
-            py-4`}
+            py-3`}
             >
               <div className="card">
                 <div
                   className="card-body
               "
                 >
-                  <div className="float-end"> Nov. 2021 - Jan. 2022</div>
+                  <div className="float-end text-black">
+                    <p className={style.date}>Nov. 2021 - Jan. 2022</p>
+                  </div>
                   <h4 className="d-flex card-title text-black align-items-center">
                     <img
                       src={images.educacionIT_picture}
@@ -529,14 +549,16 @@ const Experience = () => {
             </Col>
             <Col
               className={`
-            py-4`}
+            py-1`}
             >
               <div className="card">
                 <div
                   className="card-body
               "
                 >
-                  <div className="float-end"> May. 2021 - Jan 2022</div>
+                  <div className="float-end text-black">
+                    <p className={style.date}>May. 2021 - Jan. 2022</p>
+                  </div>
                   <h4 className="d-flex card-title text-black align-items-center">
                     <img
                       src={images.pildoras_picture}
@@ -613,14 +635,16 @@ const Experience = () => {
             </Col>
             <Col
               className={`
-            py-4`}
+            py-3`}
             >
               <div className="card">
                 <div
                   className="card-body
               "
                 >
-                  <div className="float-end"> Oct. 2021 - Dec. 2021</div>
+                  <div className="float-end text-black">
+                    <p className={style.date}>Oct. 2021 - Dec. 2021</p>
+                  </div>
                   <h4 className="d-flex card-title text-black align-items-center">
                     <img
                       src={images.educacionIT_picture}
@@ -683,14 +707,16 @@ const Experience = () => {
             </Col>
             <Col
               className={`
-            py-4`}
+            py-1`}
             >
               <div className="card">
                 <div
                   className="card-body
               "
                 >
-                  <div className="float-end"> May 2021 - May 2021</div>
+                  <div className="float-end text-black">
+                    <p className={style.date}>May 2021 - May 2021</p>
+                  </div>
                   <h4 className="d-flex card-title text-black align-items-center">
                     <img
                       src={images.linkedin_picture}
@@ -709,20 +735,21 @@ const Experience = () => {
           </Row>
         </motion.h2>
         {/* end time line */}
-        <Row>
-          <Col xs={12} md={12} lg={12}>
-            <motion.h2
-              className={`text-center ${style.about_heading}`}
-              initial={{ opacity: 0, x: 1000 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 9 }}
-            >
-              Background
-            </motion.h2>
-          </Col>
-        </Row>
-        <Background />
       </Container>
+      <br />
+      <br />
+      <br />
+      <br />
+      <motion.h2
+        className={`text-center ${style.about_heading}`}
+        initial={{ opacity: 0, x: 1000 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 9 }}
+      >
+        Background
+      </motion.h2>
+      <Background />
+      <br />
       <br />
       <br />
     </div>

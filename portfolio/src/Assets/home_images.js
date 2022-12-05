@@ -1,6 +1,6 @@
 export { default as landing_picture } from './Landing-gif.gif';
 
-export { default as building_picture } from './building.gif';
+export { default as hammer_picture } from './hammer.svg';
 
 export { default as henry_picture } from './henry.png';
 

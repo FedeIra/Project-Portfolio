@@ -3,9 +3,11 @@
   font-size: 25px;
   cursor: pointer;
   width: 15%;
+  border-radius: 0;
+  background-color: transparent;
 }
 
-.button:hover {
+/* .button:hover {
   background-color: #78839c;
   border: 1px solid white;
   color: white;
@@ -13,8 +15,8 @@
 
 .button:hover::after {
   content: '\2192';
-  color: rgb(5, 5, 5);
-}
+  color: rgb(251, 249, 249);
+} */
 
 .landing {
   background-image: url(../../Assets/Landing-gif.gif);
@@ -31,7 +33,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .landing {
     background-image: url(../../Assets/Landing-gif-cell.gif);
   }

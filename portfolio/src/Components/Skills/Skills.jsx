@@ -16,7 +16,6 @@ const Skills = () => {
             )`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                filter: 'grayscale(100%)',
               }}
             ></div>
           </div>
@@ -36,7 +35,6 @@ const Skills = () => {
             )`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                filter: 'grayscale(100%)',
               }}
             ></div>
           </div>
@@ -56,7 +54,6 @@ const Skills = () => {
             )`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                filter: 'grayscale(100%)',
               }}
             ></div>
           </div>
@@ -79,7 +76,6 @@ const Skills = () => {
             )`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                filter: 'grayscale(100%)',
               }}
             ></div>
           </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import * as images from '../../../../Assets/home_images';
+import style from './Background_Education.module.css';
 
 const Background_Education = () => {
   return (
@@ -21,21 +22,21 @@ const Background_Education = () => {
           >
             <Row
               className={`
-              h-50
+              h-0
               `}
             >
               <Col>&nbsp;</Col>
               <Col>&nbsp;</Col>
             </Row>
             <h5
-              className={`m-2
+              className={`m-0
             `}
             >
-              <span className={`badge bg-dark border`}>&nbsp;</span>
+              <span className={`badge bg-success border`}>&nbsp;</span>
             </h5>
             <Row
               className={`
-              h-50
+              h-100
               w-30
               `}
             >
@@ -58,18 +59,20 @@ const Background_Education = () => {
                 className="card-body
               "
               >
-                <div className="float-end">Feb. 2017 - Feb 2020</div>
-                <h4 className="d-flex card-title text-muted">
+                <div className="float-end">
+                  <p className={style.date}>Feb. 2017 - Feb. 2020</p>
+                </div>
+                <h4 className="d-flex card-title text-black align-items-center">
                   <img
                     src={images.university_picture}
                     alt="portfolio"
-                    width="20"
+                    width="40"
                     className="me-2"
                   />
                   <strong> Pontifical Catholic University of Argentina</strong>
                 </h4>
 
-                <p className="card-text text-muted">
+                <p className="card-text text-black">
                   Specialization in Labor & Employment Law.
                 </p>
               </div>
@@ -90,7 +93,7 @@ const Background_Education = () => {
           >
             <Row
               className={`
-              h-50
+              h-0
               `}
             >
               <Col
@@ -102,12 +105,19 @@ const Background_Education = () => {
               </Col>
               <Col>&nbsp;</Col>
             </Row>
-            <h5 className={`m-2`}>
-              <span className={`badge bg-dark border`}>&nbsp;</span>
+            <h5 className={`m-0`}>
+              <span
+                className={`badge border`}
+                style={{
+                  backgroundColor: '#2ECC71',
+                }}
+              >
+                &nbsp;
+              </span>
             </h5>
             <Row
               className={`
-              h-50
+              h-100
               `}
             >
               <Col
@@ -122,24 +132,26 @@ const Background_Education = () => {
           </Col>
           <Col
             className={`
-            py-2`}
+            py-3`}
           >
             <div className="card">
               <div
                 className="card-body
               "
               >
-                <div className="float-end"> Mar. 2016 - Aug. 2016</div>
-                <h4 className="d-flex card-title text-muted">
+                <div className="float-end">
+                  <p className={style.date}>Mar. 2016 - Aug. 2016</p>
+                </div>
+                <h4 className="d-flex card-title text-black align-items-center">
                   <img
                     src={images.university_picture}
                     alt="portfolio"
-                    width="20"
+                    width="40"
                     className="me-2"
                   />
                   <strong>Pontifical Catholic University of Argentina</strong>
                 </h4>
-                <p className="card-text text-muted">
+                <p className="card-text text-black">
                   Postgraduate Course in Labor & Employment Law.
                 </p>
               </div>
@@ -160,7 +172,7 @@ const Background_Education = () => {
           >
             <Row
               className={`
-              h-50
+              h-0
               w-30
               `}
             >
@@ -173,12 +185,19 @@ const Background_Education = () => {
               </Col>
               <Col>&nbsp;</Col>
             </Row>
-            <h5 className={`m-2`}>
-              <span className={`badge bg-dark border-success`}>&nbsp;</span>
+            <h5 className={`m-0`}>
+              <span
+                className={`badge border`}
+                style={{
+                  backgroundColor: '#2ECC71',
+                }}
+              >
+                &nbsp;
+              </span>
             </h5>
             <Row
               className={`
-              h-50
+              h-100
               `}
             >
               <Col
@@ -197,17 +216,19 @@ const Background_Education = () => {
           >
             <div className="card">
               <div className="card-body">
-                <div className="float-end">Mar. 2015 - Aug. 2015</div>
-                <h4 className="d-flex card-title text-muted">
+                <div className="float-end">
+                  <p className={style.date}>Mar. 2015 - Aug. 2015</p>
+                </div>
+                <h4 className="d-flex card-title text-black align-items-center">
                   <img
                     src={images.university_picture}
                     alt="portfolio"
-                    width="20"
+                    width="40"
                     className="me-2"
                   />
                   <strong>Pontifical Catholic University of Argentina</strong>
                 </h4>
-                <p className="card-text text-muted">
+                <p className="card-text text-black">
                   Postgraduate Course in Legal counselling.
                 </p>
               </div>
@@ -228,7 +249,7 @@ const Background_Education = () => {
           >
             <Row
               className={`
-              h-50
+              h-0
               `}
             >
               <Col
@@ -240,12 +261,19 @@ const Background_Education = () => {
               </Col>
               <Col>&nbsp;</Col>
             </Row>
-            <h5 className={`m-2`}>
-              <span className={`badge bg-dark border`}>&nbsp;</span>
+            <h5 className={`m-0`}>
+              <span
+                className={`badge border`}
+                style={{
+                  backgroundColor: '#2ECC71',
+                }}
+              >
+                &nbsp;
+              </span>
             </h5>
             <Row
               className={`
-              h-50
+              h-100
               `}
             >
               <Col
@@ -260,24 +288,26 @@ const Background_Education = () => {
           </Col>
           <Col
             className={`
-            py-2`}
+            py-3`}
           >
             <div className="card">
               <div
                 className="card-body
               "
               >
-                <div className="float-end"> 2007 - 2014</div>
-                <h4 className="d-flex card-title text-muted">
+                <div className="float-end">
+                  <p className={style.date}>2007 - 2014</p>
+                </div>
+                <h4 className="d-flex card-title text-black align-items-center">
                   <img
                     src={images.university_picture}
                     alt="portfolio"
-                    width="20"
+                    width="40"
                     className="me-2"
                   />
                   <strong>Pontifical Catholic University of Argentina</strong>
                 </h4>
-                <p className="card-text text-muted">Lawyer</p>
+                <p className="card-text text-black">Lawyer</p>
               </div>
             </div>
           </Col>
@@ -296,7 +326,7 @@ const Background_Education = () => {
           >
             <Row
               className={`
-              h-50
+              h-0
               `}
             >
               <Col
@@ -308,23 +338,16 @@ const Background_Education = () => {
               </Col>
               <Col>&nbsp;</Col>
             </Row>
-            <h5 className={`m-2`}>
-              <span className={`badge bg-dark border`}>&nbsp;</span>
+            <h5 className={`m-0`}>
+              <span
+                className={`badge border`}
+                style={{
+                  backgroundColor: '#2ECC71',
+                }}
+              >
+                &nbsp;
+              </span>
             </h5>
-            <Row
-              className={`
-              h-50
-              `}
-            >
-              <Col
-                className={`
-                border-end
-                `}
-              >
-                &nbsp;
-              </Col>
-              <Col>&nbsp;</Col>
-            </Row>
           </Col>
           <Col
             className={`
@@ -335,8 +358,10 @@ const Background_Education = () => {
                 className="card-body
               "
               >
-                <div className="float-end"> 1994 - 2006</div>
-                <h4 className="d-flex card-title text-muted">
+                <div className="float-end">
+                  <p className={style.date}>1994 - 2006</p>
+                </div>
+                <h4 className="d-flex card-title text-black">
                   <img
                     src={images.molinos_picture}
                     alt="portfolio"
@@ -345,7 +370,7 @@ const Background_Education = () => {
                   />
                   <strong>Los Molinos</strong>
                 </h4>
-                <p className="card-text text-muted">Bachelor.</p>
+                <p className="card-text text-black">Bachelor.</p>
               </div>
             </div>
           </Col>

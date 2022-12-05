@@ -12,28 +12,42 @@
 }
 
 @media (max-width: 480px) {
+  .date {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
   .about_heading {
     font-size: 2rem;
   }
 }
 
-/*          <Row
-                className={`
-              h-0
-              `}
-              >
-                <Col>&nbsp;</Col>
-                <Col>&nbsp;</Col>
-              </Row>
-              <h5
-                className={`m-0
-            `}
-              >
-                <span className={`badge bg-success border`}>&nbsp;</span>
-              </h5>
-              <Row
-                className={`
-              h-100
-              w-30
-              `}
-              > */
+.construction {
+  display: flex;
+  align-items: center;
+  margin-left: 5%;
+  background-color: rgb(0, 108, 0);
+  padding: 2%;
+  border-radius: 100%;
+  color: white;
+  font-size: 17px;
+}
+
+@media (max-width: 480px) {
+  .construction_text {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .construction {
+    margin-right: 20%;
+    padding: 10px;
+    justify-content: center;
+  }
+
+  .construction_image {
+    margin-right: 10px;
+  }
+}

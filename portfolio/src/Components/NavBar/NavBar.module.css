@@ -13,7 +13,8 @@
   }
 }
 
-#navbar .active {
-  text-decoration: underline;
-  background-color: yellow;
+@media (max-width: 768px) {
+  .navbar_container {
+    background: rgba(4, 1, 19, 0.9);
+  }
 }
