@@ -26,7 +26,6 @@
 
 .card {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-  border-radius: 15px;
   background: rgb(255, 255, 255);
   height: auto;
   padding-bottom: 20px;
@@ -55,13 +54,10 @@
 
 .img1 img {
   height: 250px;
-  /* OVERLAY */
   width: 100%;
-
-  /* OVERLAY */
+  border-radius: 0;
 }
 
-/* OVERLAY */
 .card_overlay {
   position: absolute;
   top: 0;
@@ -74,7 +70,6 @@
   transition: 0.1s ease;
   background-color: rgba(13, 13, 13, 0.9);
   color: white;
-  /*   border-radius: 0; */
 }
 
 .card:hover .card_overlay {
@@ -91,7 +86,6 @@
   -ms-transform: translate(-50%, -50%);
   text-align: center;
 }
-/* OVERLAY */
 
 .img2 img {
   position: relative;
@@ -118,7 +112,7 @@
   color: #fff;
   padding: 5px;
   margin-top: 10px;
-  border-radius: 5px;
+  border-radius: 0;
   font-size: 16px;
 }
 

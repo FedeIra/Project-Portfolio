@@ -51,8 +51,6 @@ const Overlay = ({ name }) => {
         <Modal.Body
           style={{
             border: '1px solid white',
-            borderTopLeftRadius: '10px',
-            borderTopRightRadius: '10px',
             backgroundColor: 'black',
             borderBottom: '3px solid gray',
             padding: '0',
@@ -61,29 +59,34 @@ const Overlay = ({ name }) => {
         >
           {name === 'Kinema' ? <ProjectKinema /> : <ProjectGaming />}
         </Modal.Body>
-        <Modal.Footer>
-          <Modal.Header closeButton>
-            <Button
-              variant="primary"
-              onClick={handleClose}
-              style={{
-                position: 'absolute',
-                left: '4%',
-                height: '2.5rem',
-                display: 'flex',
-                alignContent: 'center',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              View site
-              <IconButton
-                colorScheme="transparent"
-                icon={<FaGlobe size="1rem" />}
-              />
-            </Button>
-          </Modal.Header>
-        </Modal.Footer>
+        <Modal.Header
+          style={{
+            padding: '3%',
+            backgroundColor: 'white',
+          }}
+          closeButton
+        >
+          <Button
+            variant="primary"
+            onClick={handleClose}
+            style={{
+              position: 'absolute',
+              left: '4%',
+              height: '2.5rem',
+              display: 'flex',
+              alignContent: 'center',
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderRadius: '0',
+            }}
+          >
+            View site
+            <IconButton
+              colorScheme="transparent"
+              icon={<FaGlobe size="1rem" />}
+            />
+          </Button>
+        </Modal.Header>
       </Modal>
     </Card.ImgOverlay>
   );

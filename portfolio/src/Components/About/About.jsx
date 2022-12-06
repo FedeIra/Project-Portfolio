@@ -12,7 +12,6 @@ import Contact from '../Contact/Contact.jsx';
 import Skills from '../Skills/Skills.jsx';
 import Footer from '../Footer/Footer.jsx';
 import { motion } from 'framer-motion';
-
 import { IconButton } from '@chakra-ui/react';
 import { BsChevronDoubleUp } from 'react-icons/bs';
 

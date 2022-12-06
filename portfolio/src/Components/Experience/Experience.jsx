@@ -69,7 +69,12 @@ const Experience = () => {
               className={`
             py-3`}
             >
-              <div className="card">
+              <div
+                className="card"
+                style={{
+                  borderRadius: '0',
+                }}
+              >
                 <div className="card-body">
                   <div className="float-end text-black">
                     <p className={style.date}>Nov. 2022 - Current</p>
@@ -170,7 +175,12 @@ const Experience = () => {
               className={`
             py-0`}
             >
-              <div className="card">
+              <div
+                className="card"
+                style={{
+                  borderRadius: '0',
+                }}
+              >
                 <div className="card-body">
                   <div className="float-end text-black">
                     <p className={style.date}>Oct. 2022 - Nov. 2022</p>
@@ -269,7 +279,12 @@ const Experience = () => {
               className={`
             py-3`}
             >
-              <div className="card">
+              <div
+                className="card"
+                style={{
+                  borderRadius: '0',
+                }}
+              >
                 <div
                   className="card-body
               "
@@ -372,7 +387,12 @@ const Experience = () => {
             
             `}
             >
-              <div className="card">
+              <div
+                className="card"
+                style={{
+                  borderRadius: '0',
+                }}
+              >
                 <div
                   className="card-body
               "
@@ -465,7 +485,12 @@ const Experience = () => {
               className={`
             py-3`}
             >
-              <div className="card">
+              <div
+                className="card"
+                style={{
+                  borderRadius: '0',
+                }}
+              >
                 <div
                   className="card-body
               "
@@ -551,7 +576,12 @@ const Experience = () => {
               className={`
             py-1`}
             >
-              <div className="card">
+              <div
+                className="card"
+                style={{
+                  borderRadius: '0',
+                }}
+              >
                 <div
                   className="card-body
               "
@@ -637,7 +667,12 @@ const Experience = () => {
               className={`
             py-3`}
             >
-              <div className="card">
+              <div
+                className="card"
+                style={{
+                  borderRadius: '0',
+                }}
+              >
                 <div
                   className="card-body
               "
@@ -709,7 +744,12 @@ const Experience = () => {
               className={`
             py-1`}
             >
-              <div className="card">
+              <div
+                className="card"
+                style={{
+                  borderRadius: '0',
+                }}
+              >
                 <div
                   className="card-body
               "

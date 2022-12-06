@@ -1,19 +1,17 @@
 import React from 'react';
 import style from './Landing.module.css';
-import { Button, Container } from 'react-bootstrap';
-import { IoIosArrowForward } from 'react-icons/io';
+import { Container, Nav } from 'react-bootstrap';
 import { IconButton } from '@chakra-ui/react';
+import { IoIosArrowForward } from 'react-icons/io';
+import { HiOutlineArrowRight } from 'react-icons/hi';
+
+import { motion } from 'framer-motion';
 
 const Landing = () => {
-  /* build button for when button hover true: */
-  /* state for button hover true to change content of button: */
   const [buttonHover, setButtonHover] = React.useState(false);
 
-  /* build button if hover true: */
   const button = (
-    <Button
-      className={style.button}
-      /* style for button to set on center of screen: */
+    <button
       style={{
         position: 'absolute',
         top: '60vh',
@@ -25,23 +23,47 @@ const Landing = () => {
       onMouseLeave={() => setButtonHover(false)}
     >
       {buttonHover ? (
-        <span>
-          <span
-            /* circle with icon on middle: */
+        <Nav.Link href="#aboutMe">
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
             style={{
-              borderRadius: '100%',
-              backgroundColor: 'black',
+              color: 'black',
+              padding: '15px',
+              fontSize: '25px',
+              fontWeight: 'bold',
+              borderRadius: '0',
+              backgroundColor: 'white',
+              width: '15%',
             }}
           >
-            <IconButton size="lg" icon={<IoIosArrowForward size="1.5rem" />} />
-          </span>
-          <span>View my profile!</span>
-        </span>
+            <IconButton size="lg" icon={<HiOutlineArrowRight size="2rem" />} />
+            View my profile!
+          </motion.span>
+        </Nav.Link>
       ) : (
-        /* build button with right arrow */
-        'View my profile!'
+        <span
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'all 0.5s ease',
+          }}
+        >
+          <IconButton
+            size="lg"
+            icon={<IoIosArrowForward size="2rem" />}
+            style={{
+              color: 'black',
+              borderRadius: '0',
+            }}
+          />{' '}
+          <p className={style.button}> View my profile!</p>
+        </span>
       )}
-    </Button>
+    </button>
   );
 
   return (
@@ -52,23 +74,3 @@ const Landing = () => {
 };
 
 export default Landing;
-
-/* 
-     <Button
-       className={style.button}
-       variant="outline-light"
-       size="lg"
-       block
-       style={{
-         position: 'absolute',
-         top: '60vh',
-         left: '50%',
-         transform: 'translate(-50%, -50%)',
-       }}
-       onClick={() => {
-         window.location.href = '#navbar';
-         window.history.pushState(null, null, window.location.pathname);
-       }}
-     >
-       View my profile! &nbsp;
-     </Button>; */

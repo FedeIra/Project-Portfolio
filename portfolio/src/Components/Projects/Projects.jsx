@@ -39,14 +39,23 @@ const Projects = () => {
                         marginBottom: '30px',
                       }}
                     >
-                      <Card className={style.card}>
+                      <Card
+                        className={style.card}
+                        style={{
+                          borderRadius: '0',
+                        }}
+                      >
                         <div className={style.img1}>
                           <Card.Img src={images.kinema_picture2} alt="kinema" />
                           <Card.ImgOverlay className={style.card_overlay}>
-                            <Overlay name={'Kinema'} />
+                            <Overlay
+                              // style={{
+                              //   borderRadius: '0',
+                              // }}
+                              name={'Kinema'}
+                            />
                           </Card.ImgOverlay>
                         </div>
-
                         <div className={style.img2}>
                           <img src={images.kinema_logo} alt="kinema-logo" />
                         </div>
@@ -90,6 +99,9 @@ const Projects = () => {
                             <Button
                               variant="primary"
                               className={style.buttonCard}
+                              style={{
+                                borderRadius: '0',
+                              }}
                             >
                               View site
                               <IconButton
@@ -108,6 +120,9 @@ const Projects = () => {
                             <Button
                               variant="secondary"
                               className={style.buttonCard}
+                              style={{
+                                borderRadius: '0',
+                              }}
                             >
                               View Code
                               <IconButton
@@ -121,10 +136,20 @@ const Projects = () => {
                       </Card>
                     </div>
                     <div className="col-md-4">
-                      <Card className={style.card}>
+                      <Card
+                        className={style.card}
+                        style={{
+                          borderRadius: '0',
+                        }}
+                      >
                         <div className={style.img1}>
                           <Card.Img src={images.gaming1} alt="gaming" />
-                          <Card.ImgOverlay className={style.card_overlay}>
+                          <Card.ImgOverlay
+                            className={style.card_overlay}
+                            // style={{
+                            //   borderRadius: '0',
+                            // }}
+                          >
                             <Overlay name={'G&B'} />
                           </Card.ImgOverlay>
                         </div>
@@ -157,6 +182,9 @@ const Projects = () => {
                             <Button
                               variant="primary"
                               className={style.buttonCard}
+                              style={{
+                                borderRadius: '0',
+                              }}
                             >
                               View site
                               <IconButton
@@ -174,6 +202,9 @@ const Projects = () => {
                             <Button
                               variant="secondary"
                               className={style.buttonCard}
+                              style={{
+                                borderRadius: '0',
+                              }}
                             >
                               View Code
                               <IconButton

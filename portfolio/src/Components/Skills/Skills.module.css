@@ -42,6 +42,8 @@
   height: 100%;
   background: rgb(119, 119, 119);
   clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
+
+  filter: invert(100%);
 }
 
 .text {
