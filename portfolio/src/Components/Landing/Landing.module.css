@@ -1,6 +1,6 @@
 .button {
-  padding: 15px;
-  font-size: 25px;
+  padding: 13px;
+  font-size: 23px;
   cursor: pointer;
   background-color: transparent;
 }
@@ -14,19 +14,20 @@
   width: 100vw;
 }
 
-@media only screen and (max-width: 768px) {
-  .button {
-    width: 30%;
-  }
-}
-
 @media (max-width: 768px) {
   .landing {
     background-image: url(../../Assets/Landing-gif-cell.gif);
   }
+
   .button {
-    font-size: 20px;
-    width: 50%;
+    font-size: 16px;
+    font-weight: 800;
     padding: 10px;
+    padding-right: 15px;
+    color: black;
+  }
+  /* on hover nothing: */
+  .button:hover {
+    color: black;
   }
 }

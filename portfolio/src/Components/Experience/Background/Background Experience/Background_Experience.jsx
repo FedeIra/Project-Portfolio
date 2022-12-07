@@ -54,7 +54,12 @@ const Background_Experience = () => {
             className={`
             py-3`}
           >
-            <div className="card border-dark shadow">
+            <div
+              className="card"
+              style={{
+                borderRadius: '0',
+              }}
+            >
               <div
                 className="card-body
               "
@@ -142,7 +147,12 @@ const Background_Experience = () => {
             className={`
             py-2`}
           >
-            <div className="card">
+            <div
+              className="card"
+              style={{
+                borderRadius: '0',
+              }}
+            >
               <div
                 className="card-body
               "
@@ -222,7 +232,12 @@ const Background_Experience = () => {
             className={`
             py-3`}
           >
-            <div className="card">
+            <div
+              className="card"
+              style={{
+                borderRadius: '0',
+              }}
+            >
               <div className="card-body">
                 <div className="float-end">
                   <p className={style.date}>Mar. 2015 - Aug. 2015</p>
@@ -286,7 +301,12 @@ const Background_Experience = () => {
             className={`
             py-2`}
           >
-            <div className="card">
+            <div
+              className="card"
+              style={{
+                borderRadius: '0',
+              }}
+            >
               <div
                 className="card-body
               "

@@ -17,6 +17,10 @@ const Landing = () => {
         top: '60vh',
         left: '50%',
         transform: 'translate(-50%, -50%)',
+        // display: 'flex',
+        // flexDirection: 'row',
+        // alignItems: 'center',
+        // justifyContent: 'center',
       }}
       variant="outline-light"
       onMouseEnter={() => setButtonHover(true)}
@@ -30,12 +34,12 @@ const Landing = () => {
             transition={{ duration: 0.3 }}
             style={{
               color: 'black',
-              padding: '15px',
-              fontSize: '25px',
+              padding: '13px',
+              fontSize: '23px',
               fontWeight: 'bold',
               borderRadius: '0',
               backgroundColor: 'white',
-              width: '15%',
+              // width: '15%',
             }}
           >
             <IconButton size="lg" icon={<HiOutlineArrowRight size="2rem" />} />
@@ -48,9 +52,10 @@ const Landing = () => {
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
-            justifyContent: 'center',
+            // justifyContent: 'center',
             transition: 'all 0.5s ease',
           }}
+          className={style.spanOffHover}
         >
           <IconButton
             size="lg"
@@ -59,7 +64,7 @@ const Landing = () => {
               color: 'black',
               borderRadius: '0',
             }}
-          />{' '}
+          />
           <p className={style.button}> View my profile!</p>
         </span>
       )}
