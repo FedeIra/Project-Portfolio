@@ -32,18 +32,19 @@ const Landing = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
-            style={{
+            className={style.spanOnHover}
+            /*  style={{
               color: 'black',
               padding: '13px',
               fontSize: '23px',
               fontWeight: 'bold',
               borderRadius: '0',
               backgroundColor: 'white',
-              // width: '15%',
-            }}
+            }} */
           >
             <IconButton size="lg" icon={<HiOutlineArrowRight size="2rem" />} />
-            View my profile!
+
+            <span> View my profile!</span>
           </motion.span>
         </Nav.Link>
       ) : (
@@ -55,7 +56,6 @@ const Landing = () => {
             // justifyContent: 'center',
             transition: 'all 0.5s ease',
           }}
-          className={style.spanOffHover}
         >
           <IconButton
             size="lg"
@@ -63,9 +63,10 @@ const Landing = () => {
             style={{
               color: 'black',
               borderRadius: '0',
+              marginRight: '14px',
             }}
           />
-          <p className={style.button}> View my profile!</p>
+          <p> View my profile!</p>
         </span>
       )}
     </button>

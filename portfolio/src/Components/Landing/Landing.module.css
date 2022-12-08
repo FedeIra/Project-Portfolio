@@ -14,6 +14,16 @@
   width: 100vw;
 }
 
+.spanOnHover {
+  color: black;
+  font-size: 23px;
+  font-weight: 800;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 0;
+  padding: 13px;
+}
+
 @media (max-width: 768px) {
   .landing {
     background-image: url(../../Assets/Landing-gif-cell.gif);
@@ -24,10 +34,22 @@
     font-weight: 800;
     padding: 10px;
     padding-right: 15px;
-    color: black;
+    color: white;
   }
-  /* on hover nothing: */
-  .button:hover {
-    color: black;
+
+  /* spanHover when clicked: */
+  .spanOnHover {
+    background-color: white;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 5px;
+    padding-right: 15px;
+  }
+  .textOnHover {
+    background-color: white;
+    padding-top: 15px;
   }
 }
