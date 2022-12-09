@@ -27,7 +27,8 @@ const Contact = () => {
             description: 'I appreciate your email and will respond soon.',
             status: 'success',
             duration: 3000,
-            position: 'top-center',
+            position: 'top-right',
+
             isClosable: true,
           });
         },

@@ -1,10 +1,3 @@
-.button {
-  padding: 13px;
-  font-size: 23px;
-  cursor: pointer;
-  background-color: transparent;
-}
-
 .landing {
   background-image: url(../../Assets/Landing-gif.gif);
   background-size: cover;
@@ -14,42 +7,28 @@
   width: 100vw;
 }
 
-.spanOnHover {
-  color: black;
+.buttonGeneral {
+  padding: 12px;
+  padding-left: 18px;
   font-size: 23px;
-  font-weight: 800;
   cursor: pointer;
   background-color: white;
-  border-radius: 0;
-  padding: 13px;
+  color: black;
+  font-size: 23px;
+  font-weight: 600;
+}
+
+.divOnHover {
+  display: inline-block;
 }
 
 @media (max-width: 768px) {
   .landing {
     background-image: url(../../Assets/Landing-gif-cell.gif);
   }
-
-  .button {
-    font-size: 16px;
-    font-weight: 800;
-    padding: 10px;
-    padding-right: 15px;
-    color: white;
-  }
-
-  /* spanHover when clicked: */
-  .spanOnHover {
-    background-color: white;
-    font-size: 16px;
-    font-weight: 800;
-    cursor: pointer;
-    background-color: transparent;
-    border-radius: 0;
-    padding: 5px;
-    padding-right: 15px;
-  }
-  .textOnHover {
-    background-color: white;
-    padding-top: 15px;
+  .buttonGeneral {
+    padding: 4px;
+    padding-left: 15px;
+    font-size: 19px;
   }
 }

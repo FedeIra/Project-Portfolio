@@ -2,7 +2,8 @@
   font-size: 3rem;
   font-weight: 600;
   margin-bottom: 2%;
-  border-bottom: 3px solid rgb(119, 119, 119);
+  border-top: 3px solid rgba(4, 1, 19, 0.9);
+  padding-top: 2%;
 }
 
 .project {

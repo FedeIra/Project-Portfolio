@@ -48,12 +48,7 @@ const Projects = () => {
                         <div className={style.img1}>
                           <Card.Img src={images.kinema_picture2} alt="kinema" />
                           <Card.ImgOverlay className={style.card_overlay}>
-                            <Overlay
-                              // style={{
-                              //   borderRadius: '0',
-                              // }}
-                              name={'Kinema'}
-                            />
+                            <Overlay name={'Kinema'} />
                           </Card.ImgOverlay>
                         </div>
                         <div className={style.img2}>
@@ -144,12 +139,7 @@ const Projects = () => {
                       >
                         <div className={style.img1}>
                           <Card.Img src={images.gaming1} alt="gaming" />
-                          <Card.ImgOverlay
-                            className={style.card_overlay}
-                            // style={{
-                            //   borderRadius: '0',
-                            // }}
-                          >
+                          <Card.ImgOverlay className={style.card_overlay}>
                             <Overlay name={'G&B'} />
                           </Card.ImgOverlay>
                         </div>

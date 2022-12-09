@@ -99,7 +99,7 @@ const About = () => {
                       <p className={`text-center `}>
                         I'm a Full Stack Web Developer. I strive to deliver high
                         quality, responsive and dinamic products, always
-                        prioritizing user experience above all.{' '}
+                        prioritizing user experience above all. <br />
                         <a
                           href="#getInTouch"
                           style={{
@@ -148,7 +148,7 @@ const About = () => {
             bottom: '0',
             right: '0',
             margin: '1rem',
-            backgroundColor: 'rgb(119, 119, 119)',
+            backgroundColor: 'rgba(4, 1, 19, 0.9)',
             border: 'none',
             borderRadius: '50%',
             width: '3rem',

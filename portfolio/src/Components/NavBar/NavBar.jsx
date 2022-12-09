@@ -20,12 +20,13 @@ function NavBar() {
         color="white"
         style={{
           marginLeft: '5%',
+          width: '100%',
         }}
       >
         <Navbar.Brand href="#landing">
           <img
             src={images.portfolio_picture}
-            style={{ filter: 'invert(100%)' }}
+            style={{ filter: 'invert(100%)', marginLeft: '15px' }}
             width="30"
             alt="portfolio_image"
           />
@@ -35,28 +36,31 @@ function NavBar() {
           <Nav>
             <Nav.Link
               className="nav-link"
-              style={{ color: 'white' }}
+              style={{
+                color: 'white',
+                marginLeft: '15px',
+              }}
               href="#aboutMe"
             >
               About me
             </Nav.Link>
             <Nav.Link
               className="nav-link "
-              style={{ color: 'white' }}
+              style={{ color: 'white', marginLeft: '15px' }}
               href="#projects"
             >
               Projects
             </Nav.Link>
             <Nav.Link
               className="nav-link"
-              style={{ color: 'white' }}
+              style={{ color: 'white', marginLeft: '15px' }}
               href="#experience"
             >
               Experience
             </Nav.Link>
             <Nav.Link
               className="nav-link"
-              style={{ color: 'white' }}
+              style={{ color: 'white', marginLeft: '15px' }}
               href="#getInTouch"
             >
               Get in touch

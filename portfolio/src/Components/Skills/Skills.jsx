@@ -2,7 +2,6 @@ import React from 'react';
 import style from './Skills.module.css';
 import * as images from './Assets/skill_images.js';
 import { Row, Col } from 'react-bootstrap';
-import { useDeprecatedInvertedScale } from 'framer-motion';
 
 const Skills = () => {
   return (

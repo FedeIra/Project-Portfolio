@@ -63,11 +63,14 @@ const Background_Education = () => {
               <div
                 className="card-body
               "
+                style={{
+                  backgroundColor: 'rgba(4, 1, 19, 0.9)',
+                }}
               >
                 <div className="float-end">
                   <p className={style.date}>Feb. 2017 - Feb. 2020</p>
                 </div>
-                <h4 className="d-flex card-title text-black align-items-center">
+                <h4 className="d-flex card-title text-white align-items-center">
                   <img
                     src={images.university_picture}
                     alt="portfolio"
@@ -77,7 +80,7 @@ const Background_Education = () => {
                   <strong> Pontifical Catholic University of Argentina</strong>
                 </h4>
 
-                <p className="card-text text-black">
+                <p className="card-text text-white">
                   Specialization in Labor & Employment Law.
                 </p>
               </div>
@@ -148,11 +151,14 @@ const Background_Education = () => {
               <div
                 className="card-body
               "
+                style={{
+                  backgroundColor: 'rgba(4, 1, 19, 0.9)',
+                }}
               >
                 <div className="float-end">
                   <p className={style.date}>Mar. 2016 - Aug. 2016</p>
                 </div>
-                <h4 className="d-flex card-title text-black align-items-center">
+                <h4 className="d-flex card-title text-white align-items-center">
                   <img
                     src={images.university_picture}
                     alt="portfolio"
@@ -161,7 +167,7 @@ const Background_Education = () => {
                   />
                   <strong>Pontifical Catholic University of Argentina</strong>
                 </h4>
-                <p className="card-text text-black">
+                <p className="card-text text-white">
                   Postgraduate Course in Labor & Employment Law.
                 </p>
               </div>
@@ -230,11 +236,16 @@ const Background_Education = () => {
                 borderRadius: '0',
               }}
             >
-              <div className="card-body">
+              <div
+                className="card-body"
+                style={{
+                  backgroundColor: 'rgba(4, 1, 19, 0.9)',
+                }}
+              >
                 <div className="float-end">
                   <p className={style.date}>Mar. 2015 - Aug. 2015</p>
                 </div>
-                <h4 className="d-flex card-title text-black align-items-center">
+                <h4 className="d-flex card-title text-white align-items-center">
                   <img
                     src={images.university_picture}
                     alt="portfolio"
@@ -243,7 +254,7 @@ const Background_Education = () => {
                   />
                   <strong>Pontifical Catholic University of Argentina</strong>
                 </h4>
-                <p className="card-text text-black">
+                <p className="card-text text-white">
                   Postgraduate Course in Legal counselling.
                 </p>
               </div>
@@ -314,11 +325,14 @@ const Background_Education = () => {
               <div
                 className="card-body
               "
+                style={{
+                  backgroundColor: 'rgba(4, 1, 19, 0.9)',
+                }}
               >
                 <div className="float-end">
                   <p className={style.date}>2007 - 2014</p>
                 </div>
-                <h4 className="d-flex card-title text-black align-items-center">
+                <h4 className="d-flex card-title text-white align-items-center">
                   <img
                     src={images.university_picture}
                     alt="portfolio"
@@ -327,7 +341,7 @@ const Background_Education = () => {
                   />
                   <strong>Pontifical Catholic University of Argentina</strong>
                 </h4>
-                <p className="card-text text-black">Lawyer</p>
+                <p className="card-text text-white">Lawyer</p>
               </div>
             </div>
           </Col>
@@ -382,11 +396,14 @@ const Background_Education = () => {
               <div
                 className="card-body
               "
+                style={{
+                  backgroundColor: 'rgba(4, 1, 19, 0.9)',
+                }}
               >
                 <div className="float-end">
                   <p className={style.date}>1994 - 2006</p>
                 </div>
-                <h4 className="d-flex card-title text-black">
+                <h4 className="d-flex card-title text-white">
                   <img
                     src={images.molinos_picture}
                     alt="portfolio"
@@ -395,7 +412,7 @@ const Background_Education = () => {
                   />
                   <strong>Los Molinos</strong>
                 </h4>
-                <p className="card-text text-black">Bachelor.</p>
+                <p className="card-text text-white">Bachelor.</p>
               </div>
             </div>
           </Col>

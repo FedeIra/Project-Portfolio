@@ -37,7 +37,7 @@ const Overlay = ({ name }) => {
             }}
             onClick={handleShow}
           >
-            VIEW MORE!
+            Preview!
           </Button>
         </OverlayTrigger>
       </Card.Body>

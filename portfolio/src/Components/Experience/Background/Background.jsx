@@ -19,6 +19,8 @@ const Background = () => {
               backgroundColor: 'white',
               border: '1px solid #172139',
               borderRadius: '0px',
+              marginLeft: '5%',
+              marginRight: '5%',
             }}
           >
             <Accordion.Header>
@@ -39,6 +41,8 @@ const Background = () => {
               backgroundColor: 'white',
               border: '1px solid #172139',
               borderRadius: '0px',
+              marginLeft: '5%',
+              marginRight: '5%',
             }}
           >
             <Accordion.Header>

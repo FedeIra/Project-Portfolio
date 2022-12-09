@@ -63,11 +63,14 @@ const Background_Experience = () => {
               <div
                 className="card-body
               "
+                style={{
+                  backgroundColor: 'rgba(4, 1, 19, 0.9)',
+                }}
               >
                 <div className="float-end ">
                   <p className={style.date}>Aug. 2015 - Jun. 2022</p>
                 </div>
-                <h4 className="d-flex card-title text-dark align-items-center">
+                <h4 className="d-flex card-title text-white align-items-center">
                   <img
                     src={images.baker_picture}
                     alt="portfolio"
@@ -76,12 +79,12 @@ const Background_Experience = () => {
                   />
                   <strong> Baker McKenzie</strong>
                 </h4>
-                <p className="card-text text-dark">
+                <p className="card-text text-white">
                   Labour & Employment local and international advise and
                   litigation.{' '}
                 </p>
                 <br />
-                <p className="card-text text-dark">
+                <p className="card-text text-white">
                   Executive and massive terminations, companies start-ups and
                   shutdowns, local and international executive hires, employee
                   compensation and benefits, bargaining of individual and
@@ -156,11 +159,14 @@ const Background_Experience = () => {
               <div
                 className="card-body
               "
+                style={{
+                  backgroundColor: 'rgba(4, 1, 19, 0.9)',
+                }}
               >
                 <div className="float-end">
                   <p className={style.date}>Aug. 2014 - Oct. 2015</p>
                 </div>
-                <h4 className="d-flex card-title text-dark align-items-center">
+                <h4 className="d-flex card-title text-white align-items-center">
                   <img
                     src={images.viviendaDigna_picture}
                     alt="portfolio"
@@ -169,7 +175,7 @@ const Background_Experience = () => {
                   />
                   <strong>Vivienda Digna</strong>
                 </h4>
-                <p className="card-text text-dark">
+                <p className="card-text text-white">
                   Legal advice and handling collections (pro bono).
                 </p>
               </div>
@@ -238,11 +244,16 @@ const Background_Experience = () => {
                 borderRadius: '0',
               }}
             >
-              <div className="card-body">
+              <div
+                className="card-body"
+                style={{
+                  backgroundColor: 'rgba(4, 1, 19, 0.9)',
+                }}
+              >
                 <div className="float-end">
                   <p className={style.date}>Mar. 2015 - Aug. 2015</p>
                 </div>
-                <h4 className="d-flex card-title text-dark align-items-center">
+                <h4 className="d-flex card-title text-white align-items-center">
                   <img
                     src={images.mansueti_picture}
                     alt="portfolio"
@@ -251,7 +262,7 @@ const Background_Experience = () => {
                   />
                   <strong>Mansueti Gallo & Sallette</strong>
                 </h4>
-                <p className="card-text text-dark">
+                <p className="card-text text-white">
                   Labour & Employment advise and litigation. Employee
                   compensation and benefits, bargaining of individual
                   agreements, labor relations and dismissals.
@@ -310,11 +321,14 @@ const Background_Experience = () => {
               <div
                 className="card-body
               "
+                style={{
+                  backgroundColor: 'rgba(4, 1, 19, 0.9)',
+                }}
               >
                 <div className="float-end">
                   <p className={style.date}> Jul. 2008 - Mar. 2009</p>
                 </div>
-                <h4 className="d-flex card-title text-dark align-items-center">
+                <h4 className="d-flex card-title text-white align-items-center">
                   <img
                     src={images.navarro_picture}
                     alt="portfolio"
@@ -323,7 +337,7 @@ const Background_Experience = () => {
                   />
                   <strong>Navarro Castex</strong>
                 </h4>
-                <p className="card-text text-dark">
+                <p className="card-text text-white">
                   Legal support in litigation, translation and case law
                   research.
                 </p>

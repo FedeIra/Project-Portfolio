@@ -75,12 +75,17 @@ const Experience = () => {
                   borderRadius: '0',
                 }}
               >
-                <div className="card-body">
-                  <div className="float-end text-black">
+                <div
+                  className="card-body"
+                  style={{
+                    backgroundColor: 'rgba(4, 1, 19, 0.9)',
+                  }}
+                >
+                  <div className="float-end text-white">
                     <p className={style.date}>Nov. 2022 - Current</p>
                   </div>
                   <h4
-                    className="d-flex card-title text-black
+                    className="d-flex card-title text-white
                   align-items-center
                   "
                   >
@@ -89,20 +94,17 @@ const Experience = () => {
                       alt="portfolio"
                       width="40"
                       className="me-2"
+                      style={{
+                        filter: 'invert(100%)',
+                      }}
                     />
                     <strong> Project Portfolio </strong>
                     <span className={style.construction}>
-                      <p className={style.construction_text}>In Process</p>
-                      {<span className="ms-1">&nbsp;</span>}
-                      <img
-                        className={style.construction_image}
-                        src={images.hammer_picture}
-                        alt="hammer"
-                      />
+                      <p className={style.construction_text}>In Progress</p>
                     </span>
                   </h4>
 
-                  <p className="card-text text-black">
+                  <p className="card-text text-white">
                     Building my portfolio using the following techs:
                     <br />
                     Javascript | JSON | HTML | React.js | CSS | Chakra UI |
@@ -181,11 +183,16 @@ const Experience = () => {
                   borderRadius: '0',
                 }}
               >
-                <div className="card-body">
-                  <div className="float-end text-black">
+                <div
+                  className="card-body"
+                  style={{
+                    backgroundColor: 'rgba(4, 1, 19, 0.9)',
+                  }}
+                >
+                  <div className="float-end text-white">
                     <p className={style.date}>Oct. 2022 - Nov. 2022</p>
                   </div>
-                  <h4 className="d-flex card-title text-black align-items-center">
+                  <h4 className="d-flex card-title text-white align-items-center">
                     <img
                       src={images.kinema_logo}
                       alt="portfolio"
@@ -194,7 +201,7 @@ const Experience = () => {
                     />
                     <strong>Project Kinema</strong>
                   </h4>
-                  <p className="card-text text-black">
+                  <p className="card-text text-white">
                     Team project to build a movie and TV show streaming service
                     that includes the following features: <br /> • Third-party
                     authentication (Google);
@@ -206,7 +213,7 @@ const Experience = () => {
                     Dashboard admin. and owner.
                   </p>
                   <br />
-                  <p className="card-text text-black">
+                  <p className="card-text text-white">
                     Kinema was built using the following tools:
                     <br />
                     Javascript | Node.js | Express.js | JSON | Mongo Db |
@@ -288,11 +295,14 @@ const Experience = () => {
                 <div
                   className="card-body
               "
+                  style={{
+                    backgroundColor: 'rgba(4, 1, 19, 0.9)',
+                  }}
                 >
-                  <div className="float-end text-black">
+                  <div className="float-end text-white">
                     <p className={style.date}>Sep. 2022 - Oct. 2022</p>
                   </div>
-                  <h4 className="d-flex card-title text-black align-items-center">
+                  <h4 className="d-flex card-title text-white align-items-center">
                     <img
                       src={images.gaming_logo}
                       alt="portfolio"
@@ -301,7 +311,7 @@ const Experience = () => {
                     />
                     <strong>Project Gaming & Beyond</strong>
                   </h4>
-                  <p className="card-text text-black">
+                  <p className="card-text text-white">
                     Individual Project to build a single page application
                     consisting of videogames information with the following
                     features:
@@ -312,7 +322,7 @@ const Experience = () => {
                     delete added videgoames.
                   </p>
                   <br />
-                  <p className="card-text text-black">
+                  <p className="card-text text-white">
                     G&B was built using the following tools:
                     <br />
                     Javascript | Node.js | Express.js | JSON | PostgreSQL |
@@ -396,11 +406,14 @@ const Experience = () => {
                 <div
                   className="card-body
               "
+                  style={{
+                    backgroundColor: 'rgba(4, 1, 19, 0.9)',
+                  }}
                 >
-                  <div className="float-end text-black">
+                  <div className="float-end text-white">
                     <p className={style.date}>Jun. 2022 - Nov. 2022</p>
                   </div>
-                  <h4 className="d-flex card-title text-black align-items-center">
+                  <h4 className="d-flex card-title text-white align-items-center">
                     <img
                       src={images.henry_picture}
                       alt="portfolio"
@@ -409,12 +422,12 @@ const Experience = () => {
                     />
                     <strong>Henry Bootcamp</strong>
                   </h4>
-                  <p className="card-text text-black">
+                  <p className="card-text text-white">
                     Henry Bootcamp. 1000 hours of a theoretical-practical
                     course.
                   </p>
                   <br />
-                  <p className="card-text text-black">
+                  <p className="card-text text-white">
                     Technologies: Javascript | Node.js | Express | PostgreSQL |
                     Sequelize | React.js | Redux.js | HTML | CSS | SCRUM
                   </p>
@@ -423,14 +436,12 @@ const Experience = () => {
             </Col>
           </Row>
         </motion.h2>
-
         {/* Timeline item 5 */}
         <motion.h2
           initial={{ opacity: 0, y: -1000 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 5 }}
         >
-          {' '}
           <Row>
             <Col
               className={`
@@ -494,11 +505,14 @@ const Experience = () => {
                 <div
                   className="card-body
               "
+                  style={{
+                    backgroundColor: 'rgba(4, 1, 19, 0.9)',
+                  }}
                 >
-                  <div className="float-end text-black">
+                  <div className="float-end text-white">
                     <p className={style.date}>Nov. 2021 - Jan. 2022</p>
                   </div>
-                  <h4 className="d-flex card-title text-black align-items-center">
+                  <h4 className="d-flex card-title text-white align-items-center">
                     <img
                       src={images.educacionIT_picture}
                       alt="portfolio"
@@ -507,7 +521,7 @@ const Experience = () => {
                     />
                     <strong>EducacionIT</strong>
                   </h4>
-                  <p className="card-text text-black">
+                  <p className="card-text text-white">
                     Online Course, Python Programming.
                   </p>
                 </div>
@@ -521,7 +535,6 @@ const Experience = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 6 }}
         >
-          {' '}
           <Row>
             <Col
               className={`
@@ -585,11 +598,14 @@ const Experience = () => {
                 <div
                   className="card-body
               "
+                  style={{
+                    backgroundColor: 'rgba(4, 1, 19, 0.9)',
+                  }}
                 >
-                  <div className="float-end text-black">
+                  <div className="float-end text-white">
                     <p className={style.date}>May. 2021 - Jan. 2022</p>
                   </div>
-                  <h4 className="d-flex card-title text-black align-items-center">
+                  <h4 className="d-flex card-title text-white align-items-center">
                     <img
                       src={images.pildoras_picture}
                       alt="portfolio"
@@ -598,7 +614,7 @@ const Experience = () => {
                     />
                     <strong>Píldoras Informáticas</strong>
                   </h4>
-                  <p className="card-text text-black">
+                  <p className="card-text text-white">
                     Online Course, Python programming.
                   </p>
                 </div>
@@ -612,7 +628,6 @@ const Experience = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 7 }}
         >
-          {' '}
           <Row>
             <Col
               className={`
@@ -676,11 +691,14 @@ const Experience = () => {
                 <div
                   className="card-body
               "
+                  style={{
+                    backgroundColor: 'rgba(4, 1, 19, 0.9)',
+                  }}
                 >
-                  <div className="float-end text-black">
+                  <div className="float-end text-white">
                     <p className={style.date}>Oct. 2021 - Dec. 2021</p>
                   </div>
-                  <h4 className="d-flex card-title text-black align-items-center">
+                  <h4 className="d-flex card-title text-white align-items-center">
                     <img
                       src={images.educacionIT_picture}
                       alt="portfolio"
@@ -689,7 +707,7 @@ const Experience = () => {
                     />
                     <strong>EducacionIT</strong>
                   </h4>
-                  <p className="card-text text-black">
+                  <p className="card-text text-white">
                     Online Course, Python for non-programmers.
                   </p>
                 </div>
@@ -703,7 +721,6 @@ const Experience = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 8 }}
         >
-          {' '}
           <Row>
             <Col
               className={`
@@ -753,11 +770,14 @@ const Experience = () => {
                 <div
                   className="card-body
               "
+                  style={{
+                    backgroundColor: 'rgba(4, 1, 19, 0.9)',
+                  }}
                 >
-                  <div className="float-end text-black">
+                  <div className="float-end text-white">
                     <p className={style.date}>May 2021 - May 2021</p>
                   </div>
-                  <h4 className="d-flex card-title text-black align-items-center">
+                  <h4 className="d-flex card-title text-white align-items-center">
                     <img
                       src={images.linkedin_picture}
                       alt="linkedin"
@@ -766,7 +786,7 @@ const Experience = () => {
                     />
                     <strong>LinkedIn Learning</strong>
                   </h4>
-                  <p className="card-text text-black">
+                  <p className="card-text text-white">
                     Online Course, Intro to Python.
                   </p>
                 </div>
