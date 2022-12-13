@@ -37,7 +37,8 @@
 
 @media (max-width: 480px) {
   .construction_text {
-    display: none;
+    font-size: 14px;
+    text-align: center;
   }
 }
 
@@ -46,9 +47,5 @@
     margin-right: 20%;
     padding: 10px;
     justify-content: center;
-  }
-
-  .construction_image {
-    margin-right: 10px;
   }
 }

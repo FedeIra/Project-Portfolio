@@ -68,7 +68,7 @@ const Background_Experience = () => {
                 }}
               >
                 <div className="float-end text-white">
-                  <p className={style.date}>Aug. 2015 - Jun. 2022</p>
+                  <p className={style.date}>2015 - 2022</p>
                 </div>
                 <h4 className="d-flex card-title text-white align-items-center">
                   <img
@@ -164,7 +164,7 @@ const Background_Experience = () => {
                 }}
               >
                 <div className="float-end text-white">
-                  <p className={style.date}>Aug. 2014 - Oct. 2015</p>
+                  <p className={style.date}>2014 - 2015</p>
                 </div>
                 <h4 className="d-flex card-title text-white align-items-center">
                   <img
@@ -251,7 +251,7 @@ const Background_Experience = () => {
                 }}
               >
                 <div className="float-end text-white">
-                  <p className={style.date}>Mar. 2015 - Aug. 2015</p>
+                  <p className={style.date}>2015 - 2015</p>
                 </div>
                 <h4 className="d-flex card-title text-white align-items-center">
                   <img
@@ -326,7 +326,7 @@ const Background_Experience = () => {
                 }}
               >
                 <div className="float-end text-white">
-                  <p className={style.date}> Jul. 2008 - Mar. 2009</p>
+                  <p className={style.date}> 2008 - 2009</p>
                 </div>
                 <h4 className="d-flex card-title text-white align-items-center">
                   <img

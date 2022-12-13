@@ -51,9 +51,13 @@ const Contact = () => {
     <div id="getInTouch" className={style.contact_container}>
       <motion.h2
         className={`text-center ${style.getInTouch_heading}`}
-        initial={{ opacity: 0, x: -1000 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={{
+          hidden: { opacity: 0, x: -1000 },
+          visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+        }}
       >
         Get in touch
       </motion.h2>

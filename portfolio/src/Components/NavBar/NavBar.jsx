@@ -34,7 +34,7 @@ function NavBar() {
             alt="portfolio_image"
           />
         </Navbar.Brand>
-        <Nav.Link
+        <a
           style={{
             color: 'white',
             marginLeft: '15px',
@@ -43,7 +43,7 @@ function NavBar() {
           href="#getInTouch"
         >
           Get in touch!
-        </Nav.Link>
+        </a>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav "
           style={{

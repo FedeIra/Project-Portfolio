@@ -12,9 +12,17 @@ const Projects = () => {
     <div id="projects">
       <motion.h2
         className={`text-center ${style.projects_heading}`}
-        initial={{ opacity: 0, x: -1000 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={{
+          hidden: { opacity: 0, x: -1000 },
+          visible: {
+            opacity: 1,
+            x: 0,
+            transition: { duration: 1 },
+          },
+        }}
       >
         Projects
       </motion.h2>
@@ -22,9 +30,17 @@ const Projects = () => {
         <Row>
           <Col xs={12} md={12}>
             <motion.div
-              initial={{ opacity: 0, x: 1000 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1 }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0, x: 1000 },
+                visible: {
+                  opacity: 1,
+                  x: 0,
+                  transition: { duration: 1 },
+                },
+              }}
             >
               <div className={style.profile_area}>
                 <div>

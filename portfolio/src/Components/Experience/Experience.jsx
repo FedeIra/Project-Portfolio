@@ -10,18 +10,26 @@ const Experience = () => {
     <div id="experience" className={style.experience_container}>
       <motion.h2
         className={`text-center ${style.about_heading}`}
-        initial={{ opacity: 0, x: -1000 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={{
+          hidden: { opacity: 0, x: -1000 },
+          visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+        }}
       >
         Experience
       </motion.h2>
       <Container>
         {/* Timeline item 1 */}
         <motion.h2
-          initial={{ opacity: 0, y: -1000 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0, y: -1000 },
+            visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+          }}
         >
           <Row>
             <Col
@@ -117,9 +125,13 @@ const Experience = () => {
         </motion.h2>
         {/* Timeline item 2 */}
         <motion.h2
-          initial={{ opacity: 0, y: -1000 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0, y: -1000 },
+            visible: { opacity: 1, y: 0, transition: { duration: 2 } },
+          }}
         >
           <Row>
             <Col
@@ -228,9 +240,13 @@ const Experience = () => {
         </motion.h2>
         {/* Timeline item 3 */}
         <motion.h2
-          initial={{ opacity: 0, y: -1000 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 3 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0, y: -1000 },
+            visible: { opacity: 1, y: 0, transition: { duration: 3 } },
+          }}
         >
           <Row>
             <Col
@@ -336,11 +352,14 @@ const Experience = () => {
         </motion.h2>
         {/* Timeline item 4 */}
         <motion.h2
-          initial={{ opacity: 0, y: -1000 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 4 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0, y: -1000 },
+            visible: { opacity: 1, y: 0, transition: { duration: 4 } },
+          }}
         >
-          {' '}
           <Row>
             <Col
               className={`
@@ -438,9 +457,13 @@ const Experience = () => {
         </motion.h2>
         {/* Timeline item 5 */}
         <motion.h2
-          initial={{ opacity: 0, y: -1000 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 5 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0, y: -1000 },
+            visible: { opacity: 1, y: 0, transition: { duration: 5 } },
+          }}
         >
           <Row>
             <Col
@@ -531,9 +554,13 @@ const Experience = () => {
         </motion.h2>
         {/* Timeline item 6 */}
         <motion.h2
-          initial={{ opacity: 0, y: -1000 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 6 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0, y: -1000 },
+            visible: { opacity: 1, y: 0, transition: { duration: 6 } },
+          }}
         >
           <Row>
             <Col
@@ -624,9 +651,13 @@ const Experience = () => {
         </motion.h2>
         {/* Timeline item 7 */}
         <motion.h2
-          initial={{ opacity: 0, y: -1000 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 7 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0, y: -1000 },
+            visible: { opacity: 1, y: 0, transition: { duration: 7 } },
+          }}
         >
           <Row>
             <Col
@@ -717,9 +748,13 @@ const Experience = () => {
         </motion.h2>
         {/* Timeline item 8 */}
         <motion.h2
-          initial={{ opacity: 0, y: -1000 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 8 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0, y: -1000 },
+            visible: { opacity: 1, y: 0, transition: { duration: 8 } },
+          }}
         >
           <Row>
             <Col
@@ -802,9 +837,13 @@ const Experience = () => {
       <br />
       <motion.h2
         className={`text-center ${style.about_heading}`}
-        initial={{ opacity: 0, x: 1000 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 9 }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={{
+          hidden: { opacity: 0, x: 1000 },
+          visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+        }}
       >
         Background
       </motion.h2>

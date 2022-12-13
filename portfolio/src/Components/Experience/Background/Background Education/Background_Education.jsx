@@ -68,7 +68,7 @@ const Background_Education = () => {
                 }}
               >
                 <div className="float-end text-white">
-                  <p className={style.date}>Feb. 2017 - Feb. 2020</p>
+                  <p className={style.date}> 2017 - 2020</p>
                 </div>
                 <h4 className="d-flex card-title text-white align-items-center">
                   <img
@@ -156,7 +156,7 @@ const Background_Education = () => {
                 }}
               >
                 <div className="float-end text-white">
-                  <p className={style.date}>Mar. 2016 - Aug. 2016</p>
+                  <p className={style.date}> 2016 </p>
                 </div>
                 <h4 className="d-flex card-title text-white align-items-center">
                   <img
@@ -243,7 +243,7 @@ const Background_Education = () => {
                 }}
               >
                 <div className="float-end text-white">
-                  <p className={style.date}>Mar. 2015 - Aug. 2015</p>
+                  <p className={style.date}> 2015 </p>
                 </div>
                 <h4 className="d-flex card-title text-white align-items-center">
                   <img

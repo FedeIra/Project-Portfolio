@@ -93,9 +93,13 @@ const About = () => {
           <Row>
             <motion.h2
               className={`text-center ${style.about_heading}`}
-              initial={{ opacity: 0, x: -1000 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1 }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0, x: -1000 },
+                visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+              }}
               id="aboutMe"
             >
               About me
@@ -112,9 +116,17 @@ const About = () => {
                     src={images.profile_picture}
                     alt="profile-pic"
                     className={style.about_img}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1 }}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={{
+                      hidden: { opacity: 0 },
+                      visible: {
+                        opacity: 1,
+
+                        transition: { duration: 1 },
+                      },
+                    }}
                   />
                   <motion.div
                     initial={{ opacity: 0, x: 1000 }}
@@ -145,9 +157,16 @@ const About = () => {
                     {technologies.map((tech, index) => (
                       <motion.div
                         key={index}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: index * 0.1 }}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={{
+                          hidden: { opacity: 0 },
+                          visible: {
+                            opacity: 1,
+                            transition: { delay: index * 0.1 },
+                          },
+                        }}
                       >
                         <CardAbout
                           key={index}
