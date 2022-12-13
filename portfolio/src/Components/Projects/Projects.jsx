@@ -86,47 +86,54 @@ const Projects = () => {
                           </div>
                         </div>
                         <div className={style.socials}>
-                          <a
-                            href="https://kinema-entertainment.vercel.app/"
-                            target="blank"
-                            rel="nofollow"
-                          >
-                            <Button
-                              variant="primary"
-                              className={style.buttonCard}
-                              style={{
-                                borderRadius: '0',
-                              }}
-                            >
-                              View site
-                              <IconButton
-                                colorScheme="transparent"
-                                aria-label="Call Segun"
-                                fontSize="20px"
-                                icon={<FaGlobe size="1.4rem" />}
-                              />
-                            </Button>
-                          </a>
-                          <a
-                            href="https://github.com/PG-Movies-Group-1/Kinema-Project"
-                            target="blank"
-                            rel="nofollow"
-                          >
-                            <Button
-                              variant="secondary"
-                              className={style.buttonCard}
-                              style={{
-                                borderRadius: '0',
-                              }}
-                            >
-                              View Code
-                              <IconButton
-                                colorScheme="transparent"
-                                fontSize="20px"
-                                icon={<FaGithub size="1.4rem" />}
-                              />
-                            </Button>
-                          </a>
+                          <Row>
+                            <Col xs={12} md={6} className={style.buttonColumns}>
+                              <a
+                                href="https://kinema-entertainment.vercel.app/"
+                                target="blank"
+                                rel="nofollow"
+                              >
+                                <Button
+                                  variant="primary"
+                                  className={style.buttonCard}
+                                  style={{
+                                    borderRadius: '0',
+                                    paddingRight: '20px',
+                                  }}
+                                >
+                                  View Site
+                                  <IconButton
+                                    colorScheme="transparent"
+                                    aria-label="Call Segun"
+                                    fontSize="20px"
+                                    icon={<FaGlobe size="1.4rem" />}
+                                  />
+                                </Button>
+                              </a>
+                            </Col>
+                            <Col xs={12} md={6} className={style.buttonColumns}>
+                              <a
+                                href="https://github.com/PG-Movies-Group-1/Kinema-Project"
+                                target="blank"
+                                rel="nofollow"
+                              >
+                                <Button
+                                  variant="secondary"
+                                  className={style.buttonCard}
+                                  style={{
+                                    borderRadius: '0',
+                                  }}
+                                >
+                                  View Code
+                                  <IconButton
+                                    colorScheme="transparent"
+                                    fontSize="20px"
+                                    icon={<FaGithub size="1.4rem" />}
+                                  />
+                                </Button>
+                              </a>
+                            </Col>
+                          </Row>
                         </div>
                       </Card>
                     </div>
@@ -162,48 +169,56 @@ const Projects = () => {
                           <br />
                           <br />
                           <br />
+                          <br />
                         </div>
                         <div className={style.socials}>
-                          <a
-                            href="https://gamingweb.vercel.app/"
-                            target="blank"
-                            rel="nofollow"
-                          >
-                            <Button
-                              variant="primary"
-                              className={style.buttonCard}
-                              style={{
-                                borderRadius: '0',
-                              }}
-                            >
-                              View site
-                              <IconButton
-                                colorScheme="transparent"
-                                fontSize="20px"
-                                icon={<FaGlobe size="1.4rem" />}
-                              />
-                            </Button>
-                          </a>
-                          <a
-                            href="https://github.com/FedeIra/VideoGames-Web"
-                            target="blank"
-                            rel="nofollow"
-                          >
-                            <Button
-                              variant="secondary"
-                              className={style.buttonCard}
-                              style={{
-                                borderRadius: '0',
-                              }}
-                            >
-                              View Code
-                              <IconButton
-                                colorScheme="transparent"
-                                fontSize="20px"
-                                icon={<FaGithub size="1.4rem" />}
-                              />
-                            </Button>
-                          </a>
+                          <Row>
+                            <Col xs={12} md={6} className={style.buttonColumns}>
+                              <a
+                                href="https://gamingweb.vercel.app/"
+                                target="blank"
+                                rel="nofollow"
+                              >
+                                <Button
+                                  variant="primary"
+                                  className={style.buttonCard}
+                                  style={{
+                                    borderRadius: '0',
+                                    paddingRight: '20px',
+                                  }}
+                                >
+                                  View Site
+                                  <IconButton
+                                    colorScheme="transparent"
+                                    fontSize="20px"
+                                    icon={<FaGlobe size="1.4rem" />}
+                                  />
+                                </Button>
+                              </a>
+                            </Col>
+                            <Col xs={12} md={6} className={style.buttonColumns}>
+                              <a
+                                href="https://github.com/FedeIra/VideoGames-Web"
+                                target="blank"
+                                rel="nofollow"
+                              >
+                                <Button
+                                  variant="secondary"
+                                  className={style.buttonCard}
+                                  style={{
+                                    borderRadius: '0',
+                                  }}
+                                >
+                                  View Code
+                                  <IconButton
+                                    colorScheme="transparent"
+                                    fontSize="20px"
+                                    icon={<FaGithub size="1.4rem" />}
+                                  />
+                                </Button>
+                              </a>
+                            </Col>
+                          </Row>
                         </div>
                       </Card>
                     </div>

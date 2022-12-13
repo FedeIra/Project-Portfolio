@@ -6,15 +6,14 @@ import BackgroundEducation from './Background Education/Background_Education.jsx
 const Background = () => {
   return (
     <Accordion
-      /* classname that do not have border radius: */
-
       defaultActiveKey={['0']}
-      alwaysOpen
+      // alwaysOpen
     >
       <Row>
         <Col xs={12} md={{ span: 10, offset: 1 }} lg={{ span: 10, offset: 1 }}>
           <Accordion.Item
             eventKey="0"
+            active={true}
             style={{
               backgroundColor: 'white',
               border: '1px solid #172139',
@@ -36,6 +35,7 @@ const Background = () => {
           </Accordion.Item>
           <br />
           <Accordion.Item
+            active={false}
             eventKey="1"
             style={{
               backgroundColor: 'white',

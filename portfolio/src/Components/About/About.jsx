@@ -16,10 +16,11 @@ import { IconButton } from '@chakra-ui/react';
 import { BsChevronDoubleUp } from 'react-icons/bs';
 
 const About = () => {
-  /* Underline navBar according to section */
+  /* underline correspondant navlink when scrolling down through id: */
   const navBarLinks = document.getElementsByClassName('nav-link');
 
   window.onscroll = function () {
+    const landing = document.getElementById('landing');
     const aboutMe = document.getElementById('aboutMe');
     const projects = document.getElementById('projects');
     const experience = document.getElementById('experience');
@@ -28,12 +29,14 @@ const About = () => {
     const navBarLinksArray = Array.from(navBarLinks);
     const navBarLinksArrayLength = navBarLinksArray.length;
 
+    const landingPosition = landing.getBoundingClientRect().top;
     const aboutMePosition = aboutMe.getBoundingClientRect().top;
     const projectsPosition = projects.getBoundingClientRect().top;
     const experiencePosition = experience.getBoundingClientRect().top;
     const contactPosition = contact.getBoundingClientRect().top;
 
     const navBarLinksArrayPositions = [
+      landingPosition,
       aboutMePosition,
       projectsPosition,
       experiencePosition,
@@ -43,6 +46,7 @@ const About = () => {
     for (let i = 0; i < navBarLinksArrayLength; i++) {
       if (navBarLinksArrayPositions[i] < 100) {
         navBarLinksArray[i].style.textDecoration = 'underline';
+        console.log(navBarLinksArray[i]);
         for (let j = 0; j < navBarLinksArrayLength; j++) {
           if (j !== i) {
             navBarLinksArray[j].style.textDecoration = 'none';
@@ -60,9 +64,31 @@ const About = () => {
       scrollspy-example
       "
     >
+      {/* <NavBar /> */}
       <Landing />
       <div className={style.container_general}>
-        <NavBar />
+        <IconButton
+          icon={<BsChevronDoubleUp />}
+          id="scrollUp"
+          size="lg"
+          onClick={() => window.scrollTo(0, 0)}
+          style={{
+            position: 'fixed',
+            bottom: '0',
+            right: '0',
+            margin: '1rem',
+            backgroundColor: 'rgba(4, 1, 19, 0.9)',
+            border: 'none',
+            borderRadius: '50%',
+            width: '3rem',
+            height: '3rem',
+            cursor: 'pointer',
+            transition: 'all 0.3s ease-in-out',
+          }}
+          _hover={{
+            transform: 'scale(1.1)',
+          }}
+        />
         <Container fluid className={style.about}>
           <Row>
             <motion.h2
@@ -138,25 +164,8 @@ const About = () => {
         </Container>
         <Projects />
         <Experience />
+        <br />
         <Contact />
-        <IconButton
-          icon={<BsChevronDoubleUp />}
-          size="lg"
-          onClick={() => window.scrollTo(0, 0)}
-          style={{
-            position: 'fixed',
-            bottom: '0',
-            right: '0',
-            margin: '1rem',
-            backgroundColor: 'rgba(4, 1, 19, 0.9)',
-            border: 'none',
-            borderRadius: '50%',
-            width: '3rem',
-            height: '3rem',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease-in-out',
-          }}
-        />
         <Footer />
       </div>
     </div>

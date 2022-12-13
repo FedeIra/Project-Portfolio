@@ -128,6 +128,16 @@
   display: none;
 }
 
+@media (max-width: 768px) {
+  style.buttonColumns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+}
+
 .socials {
   display: flex;
   flex-direction: row;
@@ -148,7 +158,13 @@
 
 @media (max-width: 768px) {
   .buttonCard {
-    padding: 5px;
+  }
+  .buttonColumns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
   }
 }
 
