@@ -67,7 +67,7 @@ const Background_Experience = () => {
                   backgroundColor: 'rgba(4, 1, 19, 0.9)',
                 }}
               >
-                <div className="float-end ">
+                <div className="float-end text-white">
                   <p className={style.date}>Aug. 2015 - Jun. 2022</p>
                 </div>
                 <h4 className="d-flex card-title text-white align-items-center">
@@ -163,7 +163,7 @@ const Background_Experience = () => {
                   backgroundColor: 'rgba(4, 1, 19, 0.9)',
                 }}
               >
-                <div className="float-end">
+                <div className="float-end text-white">
                   <p className={style.date}>Aug. 2014 - Oct. 2015</p>
                 </div>
                 <h4 className="d-flex card-title text-white align-items-center">
@@ -250,7 +250,7 @@ const Background_Experience = () => {
                   backgroundColor: 'rgba(4, 1, 19, 0.9)',
                 }}
               >
-                <div className="float-end">
+                <div className="float-end text-white">
                   <p className={style.date}>Mar. 2015 - Aug. 2015</p>
                 </div>
                 <h4 className="d-flex card-title text-white align-items-center">
@@ -325,7 +325,7 @@ const Background_Experience = () => {
                   backgroundColor: 'rgba(4, 1, 19, 0.9)',
                 }}
               >
-                <div className="float-end">
+                <div className="float-end text-white">
                   <p className={style.date}> Jul. 2008 - Mar. 2009</p>
                 </div>
                 <h4 className="d-flex card-title text-white align-items-center">

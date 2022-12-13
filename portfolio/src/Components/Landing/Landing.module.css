@@ -26,14 +26,15 @@
 
 @media (max-width: 768px) {
   .landing {
-    background-image: url(../../Assets/Landing-gif-cell.gif);
-    /* background-size: 50vh;
-    background-size: 50vw; */
+    /* background-image: url(../../Assets/Landing-gif-cell.gif);*/
+    background-image: url(../../Assets/Landing-gif.gif);
+    background-size: 90vh;
+    height: 109vh;
     background-color: #161f37;
   }
   .buttonGeneral {
-    padding: 4px;
-    padding-left: 15px;
-    font-size: 19px;
+    padding: 0px;
+    padding-left: 14px;
+    font-size: 16px;
   }
 }

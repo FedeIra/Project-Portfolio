@@ -69,16 +69,7 @@ const Overlay = ({ name }) => {
           <Button
             variant="primary"
             onClick={handleClose}
-            style={{
-              position: 'absolute',
-              left: '4%',
-              height: '2.5rem',
-              display: 'flex',
-              alignContent: 'center',
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderRadius: '0',
-            }}
+            className={style.buttonCarousel}
           >
             View site
             <IconButton

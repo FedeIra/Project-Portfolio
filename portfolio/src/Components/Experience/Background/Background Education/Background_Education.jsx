@@ -67,7 +67,7 @@ const Background_Education = () => {
                   backgroundColor: 'rgba(4, 1, 19, 0.9)',
                 }}
               >
-                <div className="float-end">
+                <div className="float-end text-white">
                   <p className={style.date}>Feb. 2017 - Feb. 2020</p>
                 </div>
                 <h4 className="d-flex card-title text-white align-items-center">
@@ -155,7 +155,7 @@ const Background_Education = () => {
                   backgroundColor: 'rgba(4, 1, 19, 0.9)',
                 }}
               >
-                <div className="float-end">
+                <div className="float-end text-white">
                   <p className={style.date}>Mar. 2016 - Aug. 2016</p>
                 </div>
                 <h4 className="d-flex card-title text-white align-items-center">
@@ -242,7 +242,7 @@ const Background_Education = () => {
                   backgroundColor: 'rgba(4, 1, 19, 0.9)',
                 }}
               >
-                <div className="float-end">
+                <div className="float-end text-white">
                   <p className={style.date}>Mar. 2015 - Aug. 2015</p>
                 </div>
                 <h4 className="d-flex card-title text-white align-items-center">
@@ -329,7 +329,7 @@ const Background_Education = () => {
                   backgroundColor: 'rgba(4, 1, 19, 0.9)',
                 }}
               >
-                <div className="float-end">
+                <div className="float-end text-white">
                   <p className={style.date}>2007 - 2014</p>
                 </div>
                 <h4 className="d-flex card-title text-white align-items-center">
@@ -400,14 +400,14 @@ const Background_Education = () => {
                   backgroundColor: 'rgba(4, 1, 19, 0.9)',
                 }}
               >
-                <div className="float-end">
+                <div className="float-end text-white">
                   <p className={style.date}>1994 - 2006</p>
                 </div>
                 <h4 className="d-flex card-title text-white">
                   <img
                     src={images.molinos_picture}
                     alt="portfolio"
-                    width="20"
+                    width="40"
                     className="me-2"
                   />
                   <strong>Los Molinos</strong>

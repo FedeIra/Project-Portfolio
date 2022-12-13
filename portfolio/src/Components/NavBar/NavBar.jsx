@@ -3,6 +3,9 @@ import style from './NavBar.module.css';
 import * as images from '../../Assets/home_images.js';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import Icons from './Icons/Icons.jsx';
+import './NavBar.module.css';
+
+/* import and use styles from NavBar.module.css: */
 
 function NavBar() {
   return (
@@ -31,7 +34,22 @@ function NavBar() {
             alt="portfolio_image"
           />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Nav.Link
+          style={{
+            color: 'white',
+            marginLeft: '15px',
+          }}
+          className="d-lg-none"
+          href="#getInTouch"
+        >
+          Get in touch!
+        </Nav.Link>
+        <Navbar.Toggle
+          aria-controls="responsive-navbar-nav "
+          style={{
+            boxShadow: 'none',
+          }}
+        />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav>
             <Nav.Link

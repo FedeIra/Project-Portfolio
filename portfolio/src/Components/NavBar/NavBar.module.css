@@ -2,6 +2,8 @@
   width: 100%;
   font-size: 20px;
   background: rgba(4, 1, 19, 0.5);
+  border: rgba(4, 1, 19, 0.5);
+  color: white;
 }
 
 @media (min-width: 769px) {

@@ -64,8 +64,8 @@ const About = () => {
       scrollspy-example
       "
     >
-      {/* <NavBar /> */}
       <Landing />
+      <NavBar />
       <div className={style.container_general}>
         <IconButton
           icon={<BsChevronDoubleUp />}

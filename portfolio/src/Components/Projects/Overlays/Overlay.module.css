@@ -42,3 +42,22 @@
 .modal {
   color: black;
 }
+
+.buttonCarousel {
+  position: absolute;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  left: 4%;
+  height: 2.5rem;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .buttonCarousel {
+    height: 2rem;
+    left: 1%;
+  }
+}

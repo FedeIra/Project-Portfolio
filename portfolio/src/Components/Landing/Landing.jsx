@@ -13,7 +13,7 @@ const Landing = () => {
         className={style.buttonGeneral}
         style={{
           position: 'absolute',
-          top: '60vh',
+          top: '61.5vh',
           left: '50%',
           transform: 'translate(-50%, -50%)',
           display: 'inline-block',
@@ -28,29 +28,17 @@ const Landing = () => {
         {buttonHover ? (
           <div className={style.divOnHover}>
             <IconButton
+              backgroundColor="white"
               size="lg"
-              icon={
-                <HiOutlineArrowDown
-                  size="2rem"
-                  style={{
-                    alignItems: 'baseline',
-                  }}
-                />
-              }
+              icon={<HiOutlineArrowDown size="2rem" />}
             />
           </div>
         ) : (
           <span>
             <IconButton
+              backgroundColor="white"
               size="lg"
-              icon={
-                <HiOutlineArrowRight
-                  size="2rem"
-                  style={{
-                    animation: 'fadeIn 3s',
-                  }}
-                />
-              }
+              icon={<HiOutlineArrowRight size="2rem" />}
             />
           </span>
         )}
