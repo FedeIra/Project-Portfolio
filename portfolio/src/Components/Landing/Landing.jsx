@@ -30,7 +30,9 @@ const Landing = () => {
             <IconButton
               backgroundColor="white"
               size="lg"
-              icon={<HiOutlineArrowDown size="2rem" />}
+              icon={
+                <HiOutlineArrowDown size="2rem" className={style.icon_arrow} />
+              }
             />
           </div>
         ) : (
@@ -38,7 +40,9 @@ const Landing = () => {
             <IconButton
               backgroundColor="white"
               size="lg"
-              icon={<HiOutlineArrowRight size="2rem" />}
+              icon={
+                <HiOutlineArrowRight size="2rem" className={style.icon_arrow} />
+              }
             />
           </span>
         )}

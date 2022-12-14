@@ -6,6 +6,22 @@ import * as images from '../../Assets/home_images.js';
 import Background from './Background/Background.jsx';
 
 const Experience = () => {
+  let boxVariants = {};
+  let boxVariants2 = {};
+  const isMobile = window.innerWidth < 768;
+
+  if (!isMobile) {
+    boxVariants = {
+      hidden: { opacity: 0, x: -1000 },
+      visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+    };
+  } else {
+    boxVariants = {
+      hidden: { opacity: 0, x: -200 },
+      visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+    };
+  }
+
   return (
     <div id="experience" className={style.experience_container}>
       <motion.h2
@@ -13,10 +29,7 @@ const Experience = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        variants={{
-          hidden: { opacity: 0, x: -1000 },
-          visible: { opacity: 1, x: 0, transition: { duration: 1 } },
-        }}
+        variants={boxVariants}
       >
         Experience
       </motion.h2>
@@ -840,10 +853,7 @@ const Experience = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        variants={{
-          hidden: { opacity: 0, x: 1000 },
-          visible: { opacity: 1, x: 0, transition: { duration: 1 } },
-        }}
+        variants={boxVariants}
       >
         Background
       </motion.h2>

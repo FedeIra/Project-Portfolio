@@ -1,14 +1,28 @@
-import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import React, { useRef } from 'react';
+import { Container } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import style from './Contact.module.css';
-import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { useToast } from '@chakra-ui/react';
 
 const Contact = () => {
   const form = useRef();
   const toast = useToast();
+
+  let boxVariants = {};
+  const isMobile = window.innerWidth < 768;
+
+  if (!isMobile) {
+    boxVariants = {
+      hidden: { opacity: 0, x: -1000 },
+      visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+    };
+  } else {
+    boxVariants = {
+      hidden: { opacity: 0, x: -200 },
+      visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+    };
+  }
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -54,10 +68,7 @@ const Contact = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        variants={{
-          hidden: { opacity: 0, x: -1000 },
-          visible: { opacity: 1, x: 0, transition: { duration: 1 } },
-        }}
+        variants={boxVariants}
       >
         Get in touch
       </motion.h2>

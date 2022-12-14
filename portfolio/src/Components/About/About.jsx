@@ -58,6 +58,22 @@ const About = () => {
     }
   };
 
+  /* variants for animations responsive */
+  let boxVariants = {};
+  const isMobile = window.innerWidth < 768;
+
+  if (!isMobile) {
+    boxVariants = {
+      hidden: { opacity: 0, x: -1000 },
+      visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+    };
+  } else {
+    boxVariants = {
+      hidden: { opacity: 0, x: -200 },
+      visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+    };
+  }
+
   return (
     <div
       className="
@@ -96,10 +112,7 @@ const About = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={{
-                hidden: { opacity: 0, x: -1000 },
-                visible: { opacity: 1, x: 0, transition: { duration: 1 } },
-              }}
+              variants={boxVariants}
               id="aboutMe"
             >
               About me
@@ -123,7 +136,6 @@ const About = () => {
                       hidden: { opacity: 0 },
                       visible: {
                         opacity: 1,
-
                         transition: { duration: 1 },
                       },
                     }}

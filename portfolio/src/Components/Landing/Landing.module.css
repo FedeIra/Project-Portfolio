@@ -26,7 +26,6 @@
 
 @media (max-width: 768px) {
   .landing {
-    /* background-image: url(../../Assets/Landing-gif-cell.gif);*/
     background-image: url(../../Assets/Landing-gif.gif);
     background-size: 90vh;
     height: 109vh;
@@ -36,5 +35,8 @@
     padding: 0px;
     padding-left: 14px;
     font-size: 16px;
+  }
+  .icon_arrow {
+    width: 1.4rem;
   }
 }

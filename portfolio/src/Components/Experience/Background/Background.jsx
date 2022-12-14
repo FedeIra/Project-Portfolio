@@ -5,10 +5,7 @@ import BackgroundEducation from './Background Education/Background_Education.jsx
 
 const Background = () => {
   return (
-    <Accordion
-      defaultActiveKey={['0']}
-      // alwaysOpen
-    >
+    <Accordion defaultActiveKey={['0']}>
       <Row>
         <Col xs={12} md={{ span: 10, offset: 1 }} lg={{ span: 10, offset: 1 }}>
           <Accordion.Item

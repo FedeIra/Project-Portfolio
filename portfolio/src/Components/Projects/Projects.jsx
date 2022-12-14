@@ -8,6 +8,21 @@ import Overlay from './Overlays/Overlay.jsx';
 import { IconButton } from '@chakra-ui/react';
 
 const Projects = () => {
+  let boxVariants = {};
+  const isMobile = window.innerWidth < 768;
+
+  if (!isMobile) {
+    boxVariants = {
+      hidden: { opacity: 0, x: -1000 },
+      visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+    };
+  } else {
+    boxVariants = {
+      hidden: { opacity: 0, x: -200 },
+      visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+    };
+  }
+
   return (
     <div id="projects">
       <motion.h2
@@ -15,14 +30,7 @@ const Projects = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        variants={{
-          hidden: { opacity: 0, x: -1000 },
-          visible: {
-            opacity: 1,
-            x: 0,
-            transition: { duration: 1 },
-          },
-        }}
+        variants={boxVariants}
       >
         Projects
       </motion.h2>
