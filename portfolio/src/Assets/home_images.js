@@ -35,3 +35,5 @@ export { default as kinema_logo } from './KinemaLogo.png';
 export { default as gaming1 } from './gaming&beyond1.png';
 
 export { default as gaming_logo } from './gamingLogo.png';
+
+export { default as cv_english } from './cv_english.pdf';

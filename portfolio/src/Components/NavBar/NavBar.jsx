@@ -1,11 +1,11 @@
 import React from 'react';
 import style from './NavBar.module.css';
 import * as images from '../../Assets/home_images.js';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import Icons from './Icons/Icons.jsx';
 import './NavBar.module.css';
-
-/* import and use styles from NavBar.module.css: */
+/* import pdf download link from react: */
+import { PDFDownloadLink } from 'react-pdf';
 
 function NavBar() {
   return (
@@ -83,6 +83,26 @@ function NavBar() {
             >
               Get in touch
             </Nav.Link>
+            <NavDropdown title="Download CV" id="basic-nav-dropdown">
+              <NavDropdown.Item>
+                <PDFDownloadLink
+                  /* document is cv_english in assets: */
+                  document={images.cv_english}
+                  fileName="CV.pdf"
+                  style={{
+                    color: 'black',
+                    textDecoration: 'none',
+                  }}
+                >
+                  {({ blob, url, loading, error }) =>
+                    loading ? 'Loading document...' : 'English'
+                  }
+                </PDFDownloadLink>
+              </NavDropdown.Item>
+              <NavDropdown.Item>Spanish</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item>Both</NavDropdown.Item>
+            </NavDropdown>
           </Nav>
           <div className={style.navbar_icons}>
             <Icons />
