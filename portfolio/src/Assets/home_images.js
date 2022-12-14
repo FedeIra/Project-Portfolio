@@ -37,3 +37,7 @@ export { default as gaming1 } from './gaming&beyond1.png';
 export { default as gaming_logo } from './gamingLogo.png';
 
 export { default as cv_english } from './cv_english.pdf';
+
+export { default as cv_spanish } from './cv_spanish.pdf';
+
+export { default as cv_both } from './cv_both.pdf';

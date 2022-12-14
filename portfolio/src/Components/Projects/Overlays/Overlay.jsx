@@ -70,8 +70,12 @@ const Overlay = ({ name }) => {
             variant="primary"
             onClick={handleClose}
             className={style.buttonCarousel}
+            style={{
+              borderRadius: '0',
+              display: 'flex',
+            }}
           >
-            View site
+            View Site
             <IconButton
               colorScheme="transparent"
               icon={<FaGlobe size="1rem" />}

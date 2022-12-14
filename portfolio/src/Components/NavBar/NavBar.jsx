@@ -3,9 +3,6 @@ import style from './NavBar.module.css';
 import * as images from '../../Assets/home_images.js';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import Icons from './Icons/Icons.jsx';
-import './NavBar.module.css';
-/* import pdf download link from react: */
-import { PDFDownloadLink } from 'react-pdf';
 
 function NavBar() {
   return (
@@ -83,25 +80,47 @@ function NavBar() {
             >
               Get in touch
             </Nav.Link>
-            <NavDropdown title="Download CV" id="basic-nav-dropdown">
-              <NavDropdown.Item>
-                <PDFDownloadLink
-                  /* document is cv_english in assets: */
-                  document={images.cv_english}
-                  fileName="CV.pdf"
+            <NavDropdown
+              title={
+                <span
                   style={{
-                    color: 'black',
-                    textDecoration: 'none',
+                    color: 'white',
                   }}
                 >
-                  {({ blob, url, loading, error }) =>
-                    loading ? 'Loading document...' : 'English'
-                  }
-                </PDFDownloadLink>
+                  Resume
+                </span>
+              }
+              id="basic-nav-dropdown"
+              className={style.navbar_dropdown}
+            >
+              <NavDropdown.Item>
+                <button
+                  onClick={() => {
+                    window.open(images.cv_english);
+                  }}
+                >
+                  English
+                </button>
               </NavDropdown.Item>
-              <NavDropdown.Item>Spanish</NavDropdown.Item>
+              <NavDropdown.Item>
+                <button
+                  onClick={() => {
+                    window.open(images.cv_spanish);
+                  }}
+                >
+                  Spanish
+                </button>
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item>Both</NavDropdown.Item>
+              <NavDropdown.Item>
+                <button
+                  onClick={() => {
+                    window.open(images.cv_both);
+                  }}
+                >
+                  Both Languages
+                </button>
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <div className={style.navbar_icons}>

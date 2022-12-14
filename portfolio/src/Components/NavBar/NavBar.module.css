@@ -6,6 +6,11 @@
   color: white;
 }
 
+.navbar_dropdown {
+  color: white;
+  margin-left: 15px;
+}
+
 @media (min-width: 769px) {
   .navbar_icons {
     position: absolute;
