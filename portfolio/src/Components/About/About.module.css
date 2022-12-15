@@ -36,6 +36,8 @@
   font-size: 3rem;
   font-weight: 600;
   margin-bottom: 2%;
+  border-top: 3px solid rgba(4, 1, 19, 0.9);
+  padding-top: 2%;
 }
 
 .about_techs {
