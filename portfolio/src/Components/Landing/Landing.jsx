@@ -33,7 +33,7 @@ const Landing = () => {
           <div className={style.divOnHover}>
             <IconButton
               backgroundColor="white"
-              size={isMobile1 ? 'sm' : isIpad1 ? 'md' : 'lg'}
+              size={isMobile1 ? 'md' : isIpad1 ? 'md' : 'lg'}
               icon={
                 <HiOutlineArrowDown size="2rem" className={style.icon_arrow} />
               }
@@ -43,7 +43,7 @@ const Landing = () => {
           <span>
             <IconButton
               backgroundColor="white"
-              size={isMobile1 ? 'sm' : isIpad1 ? 'md' : 'lg'}
+              size={isMobile1 ? 'md' : isIpad1 ? 'md' : 'lg'}
               icon={
                 <HiOutlineArrowRight size="2rem" className={style.icon_arrow} />
               }

@@ -67,7 +67,7 @@ const About = () => {
     };
   } else {
     boxVariants = {
-      hidden: { opacity: 0, x: -200 },
+      hidden: { opacity: 0, x: 0 },
       visible: { opacity: 1, x: 0, transition: { duration: 1 } },
     };
   }
@@ -88,7 +88,7 @@ const About = () => {
           style={{
             position: 'fixed',
             bottom: '15px',
-            right: '0',
+            right: '5px',
             margin: '1rem',
             backgroundColor: 'rgba(4, 1, 19, 0.9)',
             border: 'none',
