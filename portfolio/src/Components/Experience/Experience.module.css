@@ -24,7 +24,7 @@
   }
 }
 
-.construction {
+.construction_text {
   display: flex;
   align-items: center;
   margin-left: 5%;
@@ -37,7 +37,10 @@
 
 @media (max-width: 480px) {
   .construction_text {
-    font-size: 14px;
+    margin-left: 1%;
+    margin-right: 4%;
+    padding: 3%;
+    font-size: 12px;
     text-align: center;
   }
 }

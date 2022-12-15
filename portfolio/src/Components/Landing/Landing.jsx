@@ -8,13 +8,16 @@ import NavBar from '../NavBar/NavBar.jsx';
 const Landing = () => {
   const [buttonHover, setButtonHover] = React.useState(false);
 
+  const isMobile1 = window.innerWidth < 767;
+  const isIpad1 = window.innerWidth < 1024 && window.innerWidth > 767;
+
   const button = (
     <Nav.Link href="#aboutMe">
       <button
         className={style.buttonGeneral}
         style={{
           position: 'absolute',
-          top: '61.5vh',
+          top: isMobile1 ? '60vh' : '62vh',
           left: '50%',
           transform: 'translate(-50%, -50%)',
           display: 'inline-block',
@@ -30,7 +33,7 @@ const Landing = () => {
           <div className={style.divOnHover}>
             <IconButton
               backgroundColor="white"
-              size="lg"
+              size={isMobile1 ? 'sm' : isIpad1 ? 'md' : 'lg'}
               icon={
                 <HiOutlineArrowDown size="2rem" className={style.icon_arrow} />
               }
@@ -40,7 +43,7 @@ const Landing = () => {
           <span>
             <IconButton
               backgroundColor="white"
-              size="lg"
+              size={isMobile1 ? 'sm' : isIpad1 ? 'md' : 'lg'}
               icon={
                 <HiOutlineArrowRight size="2rem" className={style.icon_arrow} />
               }
