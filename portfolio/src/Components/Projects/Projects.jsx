@@ -9,16 +9,16 @@ import { IconButton } from '@chakra-ui/react';
 
 const Projects = () => {
   let boxVariants = {};
-  const isMobile = window.innerWidth < 768;
+  let boxVariants2 = {};
+  const isMobile5 = window.innerWidth < 768;
 
-  if (!isMobile) {
+  if (!isMobile5) {
     boxVariants = {
       hidden: { opacity: 0, x: -1000 },
       visible: { opacity: 1, x: 0, transition: { duration: 1 } },
     };
-  } else {
-    boxVariants = {
-      hidden: { opacity: 0, x: -200 },
+    boxVariants2 = {
+      hidden: { opacity: 0, x: 1000 },
       visible: { opacity: 1, x: 0, transition: { duration: 1 } },
     };
   }
@@ -41,14 +41,7 @@ const Projects = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={{
-                hidden: { opacity: 0, x: 1000 },
-                visible: {
-                  opacity: 1,
-                  x: 0,
-                  transition: { duration: 1 },
-                },
-              }}
+              variants={boxVariants2}
             >
               <div className={style.profile_area}>
                 <div>
@@ -166,7 +159,6 @@ const Projects = () => {
                     <div
                       className="
                       col-lg-4
- 
                     "
                     >
                       <Card

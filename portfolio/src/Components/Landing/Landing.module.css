@@ -16,7 +16,6 @@
   cursor: pointer;
   background-color: white;
   color: black;
-  font-size: 23px;
   font-weight: 600;
 }
 
@@ -32,11 +31,11 @@
     background-color: #161f37;
   }
   .buttonGeneral {
-    padding: 0px;
+    padding: 0;
     padding-left: 14px;
-    font-size: 16px;
+    font-size: 14px;
   }
   .icon_arrow {
-    width: 1.4rem;
+    width: 1.2rem;
   }
 }

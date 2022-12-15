@@ -58,9 +58,9 @@ const About = () => {
 
   /* variants for animations responsive */
   let boxVariants = {};
-  const isMobile = window.innerWidth < 768;
+  const isMobile2 = window.innerWidth < 768;
 
-  if (!isMobile) {
+  if (!isMobile2) {
     boxVariants = {
       hidden: { opacity: 0, x: -1000 },
       visible: { opacity: 1, x: 0, transition: { duration: 1 } },
