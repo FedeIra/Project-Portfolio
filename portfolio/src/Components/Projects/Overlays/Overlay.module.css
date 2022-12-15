@@ -1,0 +1,59 @@
+.title {
+  font-size: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin: 0 0 20px;
+}
+
+.buttonOverlay {
+  position: absolute;
+  left: 50%;
+  top: 34%;
+  height: 22%;
+  transform: translate(-50%, -50%);
+}
+
+.tooltip {
+  font-size: 15px;
+}
+
+@media (max-width: 460px) {
+  .buttonOverlay {
+    height: 19%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .buttonOverlay {
+    height: 27%;
+  }
+}
+
+.card_overlay {
+  width: 100%;
+  height: 100%;
+}
+
+.modal {
+  color: black;
+}
+
+.buttonCarousel {
+  position: absolute;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  left: 4%;
+  height: 2.5rem;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .buttonCarousel {
+    height: 2rem;
+    left: 1%;
+  }
+}

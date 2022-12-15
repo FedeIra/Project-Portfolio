@@ -12,13 +12,15 @@ const theme = extendTheme({
   styles: {
     global: () => ({
       body: {
-        bg: '',
+        bg: '#172139',
+        color: 'white',
       },
     }),
   },
   fonts: {
-    heading: 'Raleway',
-    body: 'Raleway',
+    heading: 'Roboto',
+    body: 'Roboto',
+    color: 'white',
   },
 });
 

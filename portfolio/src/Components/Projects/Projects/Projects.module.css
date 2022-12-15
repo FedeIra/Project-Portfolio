@@ -9,12 +9,23 @@
   left: 0;
   right: 0;
   bottom: 0;
-  border-bottom-right-radius: 15px;
-  border-bottom-left-radius: 15px;
 }
 
 h3 {
   position: absolute;
   bottom: 0;
-  left: 45%;
+  text-align: center;
+  width: 100%;
+}
+
+.carousel_item img {
+  width: 130rem;
+  height: 37rem;
+}
+
+@media (max-width: 768px) {
+  .carousel_item img {
+    width: 100%;
+    height: 100%;
+  }
 }

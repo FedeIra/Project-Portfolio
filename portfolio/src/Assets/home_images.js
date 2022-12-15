@@ -1,6 +1,6 @@
 export { default as landing_picture } from './Landing-gif.gif';
 
-export { default as building_picture } from './building.gif';
+export { default as hammer_picture } from './hammer.svg';
 
 export { default as henry_picture } from './henry.png';
 
@@ -35,3 +35,9 @@ export { default as kinema_logo } from './KinemaLogo.png';
 export { default as gaming1 } from './gaming&beyond1.png';
 
 export { default as gaming_logo } from './gamingLogo.png';
+
+export { default as cv_english } from './cv_english.pdf';
+
+export { default as cv_spanish } from './cv_spanish.pdf';
+
+export { default as cv_both } from './cv_both.pdf';

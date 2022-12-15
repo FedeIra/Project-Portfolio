@@ -1,31 +1,11 @@
-/* built footer: */
 import React from 'react';
-import {
-  FaLinkedin,
-  FaWhatsapp,
-  FaGithub,
-  FaFacebook,
-  FaInstagram,
-  FaEnvelope,
-} from 'react-icons/fa';
+import { FaLinkedin, FaWhatsapp, FaGithub, FaEnvelope } from 'react-icons/fa';
 import { IconButton } from '@chakra-ui/react';
+import style from './Footer.module.css';
 
 const Footer = () => {
   return (
-    <footer
-      className="footer"
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        height: '130px',
-        width: '100%',
-        background: 'linear-gradient(0deg, rgba(4, 1, 19, 0.5), #1a294e)',
-        color: 'white',
-        fontSize: '1.5rem',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-      }}
-    >
+    <footer className={style.footer}>
       <div className="footer__container">
         <div className="footer__links">
           <div className="footer__link-wrapper">
@@ -34,84 +14,73 @@ const Footer = () => {
               style={{
                 display: 'flex',
                 justifyContent: 'space-around',
-                width: '350px',
+                width: '300px',
               }}
             >
               <a
                 href="https://www.linkedin.com/in/federico-irarr%C3%A1zaval-314b89a1/"
                 target="blank"
                 rel="nofollow"
+                className={style.link_footer_linkedin_email}
               >
                 <IconButton
-                  colorScheme="whiteAlpha"
-                  aria-label="Call Segun"
                   size="lg"
-                  icon={<FaLinkedin size="1.5rem" color="white" />}
+                  icon={<FaLinkedin size="1.5rem" />}
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.1)',
+                    borderRadius: '0',
+                  }}
                 />
               </a>
               <a
                 href="https://github.com/FedeIra"
                 target="blank"
                 rel="nofollow"
+                className={style.link_footer_github}
               >
                 <IconButton
-                  colorScheme="whiteAlpha"
-                  aria-label="Call Segun"
                   size="lg"
-                  icon={<FaGithub size="1.5rem" color="white" />}
+                  icon={<FaGithub size="1.5rem" />}
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.1)',
+                    borderRadius: '0',
+                  }}
                 />
               </a>
               <a
                 href="mailto: fedeirar@gmail.com"
                 target="blank"
                 rel="nofollow"
+                className={style.link_footer_linkedin_email}
               >
                 <IconButton
-                  colorScheme="whiteAlpha"
-                  aria-label="Call Segun"
                   size="lg"
-                  icon={<FaEnvelope size="1.5rem" color="white" />}
+                  icon={<FaEnvelope size="1.5rem" />}
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.1)',
+                    borderRadius: '0',
+                  }}
                 />
               </a>
               <a
                 href="https://api.whatsapp.com/send?phone=5491167887879&text=Hey"
                 target="blank"
                 rel="nofollow"
+                className={style.link_footer_wa}
               >
                 <IconButton
-                  colorScheme="whiteAlpha"
-                  aria-label="Call Segun"
                   size="lg"
-                  icon={<FaWhatsapp size="1.5rem" color="white" />}
-                />
-              </a>
-              <a
-                href="https://www.instagram.com/fedeira/"
-                target="blank"
-                rel="nofollow"
-              >
-                <IconButton
-                  colorScheme="whiteAlpha"
-                  aria-label="Call Segun"
-                  size="lg"
-                  icon={<FaInstagram size="1.5rem" color="white" />}
-                />
-              </a>
-              <a
-                href="https://www.facebook.com/fede.irarrazaval"
-                target="blank"
-                rel="nofollow"
-              >
-                <IconButton
-                  colorScheme="whiteAlpha"
-                  aria-label="Call Segun"
-                  size="lg"
-                  icon={<FaFacebook size="1.5rem" color="white" />}
+                  icon={<FaWhatsapp size="1.5rem" />}
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.1)',
+                    borderRadius: '0',
+                  }}
                 />
               </a>
             </div>
           </div>
         </div>
+        <p className={style.copyright}> © 2022 Federico Irarrazaval</p>
       </div>
     </footer>
   );

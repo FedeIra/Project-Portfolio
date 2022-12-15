@@ -1,43 +1,42 @@
-.button {
-  padding: 15px;
-  font-size: 25px;
-  cursor: pointer;
-  width: 15%;
-}
-
-.button:hover {
-  background-color: #78839c;
-  border: 1px solid white;
-  color: white;
-}
-
-.button:hover::after {
-  content: '\2192';
-  color: rgb(5, 5, 5);
-}
-
 .landing {
   background-image: url(../../Assets/Landing-gif.gif);
-  background-size: cover;
+  background-size: 90vh;
+  background-size: 90vw;
+  background-color: #161f37;
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
   width: 100vw;
 }
 
-@media only screen and (max-width: 768px) {
-  .button {
-    width: 30%;
-  }
+.buttonGeneral {
+  padding: 12px;
+  padding-left: 18px;
+  font-size: 23px;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  font-size: 23px;
+  font-weight: 600;
 }
 
-@media (max-width: 420px) {
+.divOnHover {
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
   .landing {
-    background-image: url(../../Assets/Landing-gif-cell.gif);
+    background-image: url(../../Assets/Landing-gif.gif);
+    background-size: 90vh;
+    height: 109vh;
+    background-color: #161f37;
   }
-  .button {
-    font-size: 20px;
-    width: 50%;
-    padding: 10px;
+  .buttonGeneral {
+    padding: 0px;
+    padding-left: 14px;
+    font-size: 16px;
+  }
+  .icon_arrow {
+    width: 1.4rem;
   }
 }
