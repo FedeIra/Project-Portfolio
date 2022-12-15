@@ -58,7 +58,9 @@ const Projects = () => {
                   "
                   >
                     <div
-                      className="col-md-4"
+                      className="
+                      col-lg-4
+                      "
                       style={{
                         marginBottom: '30px',
                       }}
@@ -161,7 +163,12 @@ const Projects = () => {
                         </div>
                       </Card>
                     </div>
-                    <div className="col-md-4">
+                    <div
+                      className="
+                      col-lg-4
+ 
+                    "
+                    >
                       <Card
                         className={style.card}
                         style={{

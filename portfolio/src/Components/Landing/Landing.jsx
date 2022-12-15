@@ -1,8 +1,9 @@
 import React from 'react';
 import style from './Landing.module.css';
-import { Container, Nav } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 import { IconButton } from '@chakra-ui/react';
 import { HiOutlineArrowRight, HiOutlineArrowDown } from 'react-icons/hi';
+import NavBar from '../NavBar/NavBar.jsx';
 
 const Landing = () => {
   const [buttonHover, setButtonHover] = React.useState(false);
@@ -51,9 +52,12 @@ const Landing = () => {
   );
 
   return (
-    <Container fluid className={style.landing} id="landing">
-      {button}
-    </Container>
+    <div>
+      <div className={style.landing} id="landing">
+        <NavBar />
+        {button}
+      </div>
+    </div>
   );
 };
 

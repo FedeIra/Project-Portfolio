@@ -24,7 +24,7 @@ const Skills = () => {
       }}
     >
       <Row className={style.row}>
-        <Col xs={6} md={3}>
+        <Col xs={6} md={3} lg={3}>
           <div className={style.hexagon}>
             <div
               className={style.shape}
@@ -39,7 +39,7 @@ const Skills = () => {
           </div>
           <div className={style.text}>
             <h2 className={style.title}>User Oriented</h2>
-            <Col md={{ span: 11, offset: 2 }}>
+            <Col md={{ span: 11, offset: 1 }}>
               <p>Fulfill user's needs, my highest priority.</p>
             </Col>
           </div>

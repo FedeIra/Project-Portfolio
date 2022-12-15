@@ -33,7 +33,7 @@ const Overlay = ({ name }) => {
               borderRadius: '100%',
               border: '3px solid rgb(246, 246, 246)',
               fontSize: '18px',
-              padding: '16px',
+              padding: '7%',
             }}
             onClick={handleShow}
           >
@@ -49,6 +49,7 @@ const Overlay = ({ name }) => {
         className={style.modal}
       >
         <Modal.Body
+          className={style.modalBody}
           style={{
             border: '1px solid white',
             backgroundColor: 'black',

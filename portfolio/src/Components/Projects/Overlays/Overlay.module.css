@@ -8,29 +8,25 @@
 
 .buttonOverlay {
   position: absolute;
-  top: 34%;
   left: 50%;
+  top: 34%;
+  height: 22%;
   transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 3;
-  width: 26%;
-  height: 20%;
-  border-radius: 100%;
-  cursor: pointer;
-  font-weight: 900;
-  border: 3px solid rgb(246, 246, 246);
 }
 
 .tooltip {
   font-size: 15px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 460px) {
   .buttonOverlay {
-    top: 26%;
-    left: 50%;
-    width: 40%;
     height: 19%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .buttonOverlay {
+    height: 27%;
   }
 }
 

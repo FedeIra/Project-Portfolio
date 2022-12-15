@@ -5,7 +5,6 @@ import { Container, Row, Col } from 'react-bootstrap';
 import CardAbout from './CardAbout.jsx';
 import technologies from './technologies.json';
 import Landing from '../Landing/Landing.jsx';
-import NavBar from '../NavBar/NavBar.jsx';
 import Projects from '../Projects/Projects.jsx';
 import Experience from '../Experience/Experience.jsx';
 import Contact from '../Contact/Contact.jsx';
@@ -20,7 +19,7 @@ const About = () => {
   const navBarLinks = document.getElementsByClassName('nav-link');
 
   window.onscroll = function () {
-    const landing = document.getElementById('landing');
+    // const landing = document.getElementById('landing');
     const aboutMe = document.getElementById('aboutMe');
     const projects = document.getElementById('projects');
     const experience = document.getElementById('experience');
@@ -29,14 +28,14 @@ const About = () => {
     const navBarLinksArray = Array.from(navBarLinks);
     const navBarLinksArrayLength = navBarLinksArray.length;
 
-    const landingPosition = landing.getBoundingClientRect().top;
+    // const landingPosition = landing.getBoundingClientRect().top;
     const aboutMePosition = aboutMe.getBoundingClientRect().top;
     const projectsPosition = projects.getBoundingClientRect().top;
     const experiencePosition = experience.getBoundingClientRect().top;
     const contactPosition = contact.getBoundingClientRect().top;
 
     const navBarLinksArrayPositions = [
-      landingPosition,
+      // landingPosition,
       aboutMePosition,
       projectsPosition,
       experiencePosition,
@@ -46,7 +45,6 @@ const About = () => {
     for (let i = 0; i < navBarLinksArrayLength; i++) {
       if (navBarLinksArrayPositions[i] < 100) {
         navBarLinksArray[i].style.textDecoration = 'underline';
-        console.log(navBarLinksArray[i]);
         for (let j = 0; j < navBarLinksArrayLength; j++) {
           if (j !== i) {
             navBarLinksArray[j].style.textDecoration = 'none';
@@ -81,7 +79,6 @@ const About = () => {
       "
     >
       <Landing />
-      <NavBar />
       <div className={style.container_general}>
         <IconButton
           icon={<BsChevronDoubleUp />}
@@ -90,7 +87,7 @@ const About = () => {
           onClick={() => window.scrollTo(0, 0)}
           style={{
             position: 'fixed',
-            bottom: '0',
+            bottom: '15px',
             right: '0',
             margin: '1rem',
             backgroundColor: 'rgba(4, 1, 19, 0.9)',
@@ -122,7 +119,8 @@ const About = () => {
               <Row>
                 <Col
                   xs={12}
-                  md={{ span: 4, offset: 2 }}
+                  md={12}
+                  lg={{ span: 4, offset: 2 }}
                   className={style.about_col}
                 >
                   <motion.img
@@ -162,7 +160,7 @@ const About = () => {
                     </Col>
                   </motion.div>
                 </Col>
-                <Col xs={12} md={3}>
+                <Col xs={12} md={12} lg={3}>
                   <div
                     className={`d-flex flex-wrap justify-content-center ${style.about_techs}`}
                   >

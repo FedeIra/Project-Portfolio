@@ -21,6 +21,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/in/federico-irarr%C3%A1zaval-314b89a1/"
                 target="blank"
                 rel="nofollow"
+                className={style.link_footer_linkedin_email}
               >
                 <IconButton
                   size="lg"
@@ -35,6 +36,7 @@ const Footer = () => {
                 href="https://github.com/FedeIra"
                 target="blank"
                 rel="nofollow"
+                className={style.link_footer_github}
               >
                 <IconButton
                   size="lg"
@@ -49,6 +51,7 @@ const Footer = () => {
                 href="mailto: fedeirar@gmail.com"
                 target="blank"
                 rel="nofollow"
+                className={style.link_footer_linkedin_email}
               >
                 <IconButton
                   size="lg"
@@ -63,6 +66,7 @@ const Footer = () => {
                 href="https://api.whatsapp.com/send?phone=5491167887879&text=Hey"
                 target="blank"
                 rel="nofollow"
+                className={style.link_footer_wa}
               >
                 <IconButton
                   size="lg"

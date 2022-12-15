@@ -1,5 +1,7 @@
 import React from 'react';
 import style from './NavBar.module.css';
+/* import navBar css: */
+import './NavBar.module.css';
 import * as images from '../../Assets/home_images.js';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import Icons from './Icons/Icons.jsx';
@@ -13,7 +15,7 @@ function NavBar() {
       variant="dark"
       className={`
       navbar
-      sticky-top
+      fixed-top
       ${style.navbar_container}`}
     >
       <Container
@@ -90,7 +92,7 @@ function NavBar() {
                   Resume
                 </span>
               }
-              id="basic-nav-dropdown"
+              id="nav-dropdown"
               className={style.navbar_dropdown}
             >
               <NavDropdown.Item>

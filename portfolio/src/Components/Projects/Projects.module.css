@@ -102,6 +102,10 @@
 }
 
 .card:hover .img2 img {
+  display: none;
+}
+
+.card:hover .img2 img {
   border: 6px solid rgb(1, 1, 1);
   transform: scale(1.1);
   transition: 0.1s;
@@ -157,8 +161,6 @@
 }
 
 @media (max-width: 768px) {
-  .buttonCard {
-  }
   .buttonColumns {
     display: flex;
     justify-content: center;
