@@ -1,4 +1,4 @@
-This is my portfolio.
+# Portfolio.
 
 Includes e-mail and live notifications and was built with the following tools: 
 
