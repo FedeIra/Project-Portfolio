@@ -10,14 +10,16 @@ Hope you enjoy it!
 
 Below some pics.
 
-![Kinema](https://user-images.githubusercontent.com/93743323/200679106-52b8c8e3-2c3e-4175-b5aa-38836441d695.png)
+![portfolio1](https://user-images.githubusercontent.com/93743323/208002279-3d9c589e-3de4-4f50-835c-9b5fbc2f3664.png)
 
-![Kinema2](https://user-images.githubusercontent.com/93743323/200679131-ba16be54-c9af-4c9a-b131-21cb7b2db65c.png)
+![portfolio2](https://user-images.githubusercontent.com/93743323/208002379-88719cc8-75bd-47f7-8b69-23bf7e75b3f4.png)
 
-![Kinema3](https://user-images.githubusercontent.com/93743323/200679158-867f5044-c1c0-4fab-97d3-06af625366e7.png)
+![portfolio3](https://user-images.githubusercontent.com/93743323/208002484-8e04dd20-c92c-4f56-a99f-72fea3a96a40.png)
 
-![kinema4](https://user-images.githubusercontent.com/93743323/200681717-4374a74e-e8d9-48e5-b894-6f2b341a2957.png)
+![portfolio4](https://user-images.githubusercontent.com/93743323/208002587-1508b562-9034-4a49-a2ad-4c00e12e3cce.png)
 
-![kinema 5](https://user-images.githubusercontent.com/93743323/200680970-3aedeec4-91c0-4554-8696-732b15692716.png)
+![portfolio5](https://user-images.githubusercontent.com/93743323/208002711-117a266e-153b-47a6-902a-71f4797fcfbc.png)
 
-![kinema 6](https://user-images.githubusercontent.com/93743323/200680990-ebc99376-f763-43d0-a62b-f04036bf0b02.png)
+![portfolio6](https://user-images.githubusercontent.com/93743323/208002830-8a973c65-26fc-4aba-85fd-be54ec163a78.png)
+
+![portfolio7](https://user-images.githubusercontent.com/93743323/208003017-83a9db93-d8a0-48e0-bd7f-2bffe3c687f6.png)
