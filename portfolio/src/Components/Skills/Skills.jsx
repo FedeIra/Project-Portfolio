@@ -5,23 +5,29 @@ import { Row, Col } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 
 const Skills = () => {
+  let boxVariants = {};
+
+  const isMobile5 = window.innerWidth < 768;
+
+  if (!isMobile5) {
+    boxVariants = {
+      hidden: { opacity: 0, x: 1000 },
+      visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+    };
+  } else {
+    boxVariants = {
+      hidden: { opacity: 0, x: 0 },
+      visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+    };
+  }
+
   return (
     <motion.div
       className={style.container}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      variants={{
-        hidden: {
-          opasity: 0,
-          x: 1000,
-        },
-        visible: {
-          opasity: 1,
-          x: 0,
-          transition: { duration: 1 },
-        },
-      }}
+      variants={boxVariants}
     >
       <Row className={style.row}>
         <Col xs={6} md={3} lg={3}>
