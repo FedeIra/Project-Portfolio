@@ -13,6 +13,7 @@ import Footer from '../Footer/Footer.jsx';
 import { motion } from 'framer-motion';
 import { IconButton } from '@chakra-ui/react';
 import { BsChevronDoubleUp } from 'react-icons/bs';
+import OtherProjects from '../Other projects/Other_Projects.jsx';
 
 const About = () => {
   /* underline correspondant navlink when scrolling down through id: */
@@ -192,6 +193,7 @@ const About = () => {
           </Row>
         </Container>
         <Projects />
+        <OtherProjects />
         <Experience />
         <br />
         <Contact />

@@ -1,0 +1,14 @@
+.general_content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+  margin-bottom: 5%;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1750px) {
+  .general_content {
+    gap: 30px;
+  }
+}
