@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Weather App",
+    "technologies": ["React", "Node.js", "Bootstrap", "Chakra.UI"],
+    "avatar": "9.png",
+    "link": "https://project-weather-fi.vercel.app/"
+  },
+  {
+    "name": "Mug Clug Store",
+    "technologies": ["Shopify", "HTML", "CSS"],
+    "avatar": "10.png",
+    "link": "https://mugclubcoffee.myshopify.com/"
+  },
+  {
+    "name": "Task List",
+    "technologies": ["React", "Bootstrap", "Chakra.UI"],
+    "avatar": "7.png",
+    "link": "https://task-list-fedeira.vercel.app/"
+  },
+  {
+    "name": "Online Calculator",
+    "technologies": ["React", "Bootstrap"],
+    "avatar": "8.png",
+    "link": "https://calculator-project-fedeira.vercel.app/"
+  }
+]
