@@ -26,11 +26,20 @@
   margin: 10px 100px 10px;
 }
 
-@media (max-width: 780px) {
+@media (max-width: 767px) {
   .hexagon {
     width: 6rem;
     height: 6rem;
     margin: 10px 30px 10px;
+  }
+}
+
+/* for tablets: */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hexagon {
+    width: 8rem;
+    height: 8rem;
+    margin: 10px 10px 10px;
   }
 }
 

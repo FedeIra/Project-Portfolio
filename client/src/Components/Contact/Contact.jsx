@@ -31,9 +31,8 @@ const Contact = () => {
         'service_32xnf3d',
         'template_ryfevxx',
         form.current,
-        '_nvnYImGSQqlnQ5w1'
+        'irMjlZGiTzqJdGHet'
       )
-
       .then(
         (result) => {
           toast({
@@ -47,6 +46,7 @@ const Contact = () => {
           });
         },
         (error) => {
+          console.error(error.text);
           toast({
             title: 'Error.',
             description:
@@ -62,19 +62,19 @@ const Contact = () => {
   };
 
   return (
-    <div id="getInTouch" className={style.contact_container}>
+    <div id='getInTouch' className={style.contact_container}>
       <motion.h2
         className={`text-center ${style.getInTouch_heading}`}
-        initial="hidden"
-        whileInView="visible"
+        initial='hidden'
+        whileInView='visible'
         viewport={{ once: true }}
         variants={boxVariants}
       >
         Get in touch
       </motion.h2>
       <Container>
-        <section id="contact" className="full-height px-lg-5">
-          <div className="container">
+        <section id='contact' className='full-height px-lg-5'>
+          <div className='container'>
             <div
               className={`row justify-content-center text-center ${style.formContainer}`}
             >
@@ -85,16 +85,16 @@ const Contact = () => {
               <br />
               <br />
               <br />
-              <div className="col-lg-8" data-aos="fade-up" data-aos-delay="300">
+              <div className='col-lg-8' data-aos='fade-up' data-aos-delay='300'>
                 <form
                   ref={form}
                   onSubmit={sendEmail}
-                  className="row g-lg-3 gy-3"
+                  className='row g-lg-3 gy-3'
                 >
-                  <div className="form-group col-md-6">
+                  <div className='form-group col-md-6'>
                     <input
-                      type="text"
-                      name="user_name"
+                      type='text'
+                      name='user_name'
                       required
                       className={`form-control
                       form-control-lg `}
@@ -105,13 +105,13 @@ const Contact = () => {
                         boxShadow: 'none',
                         borderRadius: '0',
                       }}
-                      placeholder="Name"
+                      placeholder='Name'
                     />
                   </div>
-                  <div className="form-group col-md-6">
+                  <div className='form-group col-md-6'>
                     <input
-                      type="email"
-                      name="user_email"
+                      type='email'
+                      name='user_email'
                       required
                       className={`form-control
                       form-control-lg ${style.placeholder}`}
@@ -122,13 +122,13 @@ const Contact = () => {
                         boxShadow: 'none',
                         borderRadius: '0',
                       }}
-                      placeholder="Enter email"
+                      placeholder='Enter email'
                     />
                   </div>
-                  <div className="form-group col-12">
+                  <div className='form-group col-12'>
                     <input
-                      type="text"
-                      name="subject"
+                      type='text'
+                      name='subject'
                       required
                       className={`form-control
                       form-control-lg ${style.placeholder}`}
@@ -139,14 +139,14 @@ const Contact = () => {
                         boxShadow: 'none',
                         borderRadius: '0',
                       }}
-                      placeholder="Enter subject"
+                      placeholder='Enter subject'
                     />
                   </div>
-                  <div className="form-group col-12">
+                  <div className='form-group col-12'>
                     <textarea
-                      name="message"
+                      name='message'
                       required
-                      rows="5"
+                      rows='5'
                       className={`form-control
                       form-control-lg ${style.placeholder}`}
                       style={{
@@ -156,12 +156,12 @@ const Contact = () => {
                         boxShadow: 'none',
                         borderRadius: '0',
                       }}
-                      placeholder="Your Message"
+                      placeholder='Your Message'
                     ></textarea>
                   </div>
-                  <div className="form-group col-12 d-grid">
+                  <div className='form-group col-12 d-grid'>
                     <button
-                      type="submit"
+                      type='submit'
                       className={`btn btn-brand`}
                       style={{
                         backgroundColor: 'rgba(4, 1, 19, 0.5)',

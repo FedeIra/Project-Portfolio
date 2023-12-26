@@ -1,7 +1,5 @@
 .landing {
   background-image: url(../../Assets/Landing-gif.gif);
-  background-size: 90vh;
-  background-size: 90vw;
   background-color: #161f37;
   background-position: center;
   background-repeat: no-repeat;
@@ -10,8 +8,7 @@
 }
 
 .buttonGeneral {
-  padding: 12px;
-  padding-left: 18px;
+  padding: 0.5rem 1rem 0.5rem 2rem;
   font-size: 23px;
   cursor: pointer;
   background-color: white;
@@ -26,14 +23,14 @@
 @media (max-width: 768px) {
   .landing {
     background-image: url(../../Assets/Landing-gif.gif);
-    background-size: 90vh;
-    height: 109vh;
+    background-size: 100vh;
+    height: 100vh;
     background-color: #161f37;
   }
   .buttonGeneral {
     padding: 0;
     padding-left: 14px;
-    font-size: 14px;
+    font-size: 4vw;
   }
   .icon_arrow {
     width: 1.2rem;

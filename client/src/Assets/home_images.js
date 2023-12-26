@@ -10,6 +10,8 @@ export { default as pildoras_picture } from './pildorasInformaticas.png';
 
 export { default as linkedin_picture } from './linkedinLearning.png';
 
+export { default as platzi_picture } from './platzi.png';
+
 export { default as baker_picture } from './Baker.png';
 
 export { default as mansueti_picture } from './mansueti.png';
@@ -25,6 +27,8 @@ export { default as molinos_picture } from './molinos.png';
 export { default as landing_picture_cell } from './Landing-gif-cell.gif';
 
 export { default as portfolio_picture } from './portfolio-image.png';
+
+export { default as itglobers_picture } from './itGlobers.png';
 
 export { default as profile_picture } from './profile-pic2.jpg';
 

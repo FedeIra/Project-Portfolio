@@ -9,28 +9,28 @@ import Icons from './Icons/Icons.jsx';
 function NavBar() {
   return (
     <Navbar
-      id="navbar"
+      id='navbar'
       collapseOnSelect
-      expand="lg"
-      variant="dark"
+      expand='lg'
+      variant='dark'
       className={`
       navbar
       fixed-top
       ${style.navbar_container}`}
     >
       <Container
-        color="white"
+        color='white'
         style={{
           marginLeft: '5%',
           width: '100%',
         }}
       >
-        <Navbar.Brand href="#landing">
+        <Navbar.Brand href='#landing'>
           <img
             src={images.portfolio_picture}
             style={{ filter: 'invert(100%)', marginLeft: '15px' }}
-            width="30"
-            alt="portfolio_image"
+            width='30'
+            alt='portfolio_image'
           />
         </Navbar.Brand>
         <a
@@ -38,47 +38,47 @@ function NavBar() {
             color: 'white',
             marginLeft: '15px',
           }}
-          className="d-lg-none"
-          href="#getInTouch"
+          className='d-lg-none'
+          href='#getInTouch'
         >
           Get in touch!
         </a>
         <Navbar.Toggle
-          aria-controls="responsive-navbar-nav "
+          aria-controls='responsive-navbar-nav '
           style={{
             boxShadow: 'none',
           }}
         />
-        <Navbar.Collapse id="responsive-navbar-nav">
+        <Navbar.Collapse id='responsive-navbar-nav'>
           <Nav>
             <Nav.Link
-              className="nav-link"
+              className='nav-link'
               style={{
                 color: 'white',
                 marginLeft: '15px',
               }}
-              href="#aboutMe"
+              href='#aboutMe'
             >
               About me
             </Nav.Link>
             <Nav.Link
-              className="nav-link "
+              className='nav-link '
               style={{ color: 'white', marginLeft: '15px' }}
-              href="#projects"
+              href='#projects'
             >
-              Projects
+              Personal Projects
             </Nav.Link>
             <Nav.Link
-              className="nav-link"
+              className='nav-link'
               style={{ color: 'white', marginLeft: '15px' }}
-              href="#experience"
+              href='#experience'
             >
               Experience
             </Nav.Link>
             <Nav.Link
-              className="nav-link"
+              className='nav-link'
               style={{ color: 'white', marginLeft: '15px' }}
-              href="#getInTouch"
+              href='#getInTouch'
             >
               Get in touch
             </Nav.Link>
@@ -92,7 +92,7 @@ function NavBar() {
                   Resume
                 </span>
               }
-              id="nav-dropdown"
+              id='nav-dropdown'
               className={style.navbar_dropdown}
             >
               <NavDropdown.Item>

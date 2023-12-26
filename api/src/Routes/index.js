@@ -27,3 +27,5 @@ router.post('/comments', async (req, res) => {
     return res.status(204).json({ Error: error.message });
   }
 });
+
+module.exports = router;

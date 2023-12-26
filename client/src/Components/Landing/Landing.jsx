@@ -8,23 +8,42 @@ import NavBar from '../NavBar/NavBar.jsx';
 const Landing = () => {
   const [buttonHover, setButtonHover] = React.useState(false);
 
-  const isMobile1 = window.innerWidth < 767;
-  const isIpad1 = window.innerWidth < 1024 && window.innerWidth > 767;
+  const [windowSize, setWindowSize] = React.useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const isMobile = window.innerWidth < 767;
+  const isIpad = window.innerWidth < 1024 && window.innerWidth > 767;
+
+  const buttonStyles = {
+    position: 'absolute',
+    top: isMobile || isIpad ? '56vh' : '62vh',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    display: 'inline-block',
+    width: 'auto',
+    whiteSpace: 'nowrap',
+  };
 
   const button = (
-    <Nav.Link href="#aboutMe">
+    <Nav.Link href='#aboutMe'>
       <button
         className={style.buttonGeneral}
-        style={{
-          position: 'absolute',
-          top: isMobile1 ? '60vh' : '62vh',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          display: 'inline-block',
-          width: 'auto',
-          whiteSpace: 'nowrap',
-        }}
-        variant="outline-light"
+        style={buttonStyles}
+        variant='outline-light'
         onMouseEnter={() => setButtonHover(true)}
         onMouseLeave={() => setButtonHover(false)}
       >
@@ -32,20 +51,20 @@ const Landing = () => {
         {buttonHover ? (
           <div className={style.divOnHover}>
             <IconButton
-              backgroundColor="white"
-              size={isMobile1 ? 'md' : isIpad1 ? 'md' : 'lg'}
+              backgroundColor='white'
+              size={isMobile || isIpad ? 'md' : 'lg'}
               icon={
-                <HiOutlineArrowDown size="2rem" className={style.icon_arrow} />
+                <HiOutlineArrowDown size='2rem' className={style.icon_arrow} />
               }
             />
           </div>
         ) : (
           <span>
             <IconButton
-              backgroundColor="white"
-              size={isMobile1 ? 'md' : isIpad1 ? 'md' : 'lg'}
+              backgroundColor='white'
+              size={isMobile || isIpad ? 'md' : 'lg'}
               icon={
-                <HiOutlineArrowRight size="2rem" className={style.icon_arrow} />
+                <HiOutlineArrowRight size='2rem' className={style.icon_arrow} />
               }
             />
           </span>
@@ -56,7 +75,7 @@ const Landing = () => {
 
   return (
     <div>
-      <div className={style.landing} id="landing">
+      <div className={style.landing} id='landing'>
         <NavBar />
         {button}
       </div>

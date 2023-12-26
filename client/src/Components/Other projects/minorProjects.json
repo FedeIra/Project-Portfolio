@@ -22,5 +22,11 @@
     "technologies": ["React", "Bootstrap"],
     "avatar": "8.png",
     "link": "https://calculator-project-fedeira.vercel.app/"
+  },
+  {
+    "name": "Online Resume",
+    "technologies": ["AWS S3", "AWS Route53", "HTML", "CSS"],
+    "avatar": "11.png",
+    "link": "http://fedeira.xyz.s3-website.us-east-2.amazonaws.com/"
   }
 ]

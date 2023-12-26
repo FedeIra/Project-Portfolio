@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 const Skills = () => {
   let boxVariants = {};
 
-  const isMobile5 = window.innerWidth < 768;
+  const isMobile5 = window.innerWidth < 767;
 
   if (!isMobile5) {
     boxVariants = {
@@ -24,8 +24,8 @@ const Skills = () => {
   return (
     <motion.div
       className={style.container}
-      initial="hidden"
-      whileInView="visible"
+      initial='hidden'
+      whileInView='visible'
       viewport={{ once: true }}
       variants={boxVariants}
     >

@@ -59,11 +59,17 @@ const About = () => {
 
   /* variants for animations responsive */
   let boxVariants = {};
-  const isMobile2 = window.innerWidth < 768;
+  const isMobile2 = window.innerWidth < 767;
+  const isIpad = window.innerWidth < 1024 && window.innerWidth > 767;
 
   if (!isMobile2) {
     boxVariants = {
       hidden: { opacity: 0, x: -1000 },
+      visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+    };
+  } else if (isIpad) {
+    boxVariants = {
+      hidden: { opacity: 0, x: 0 },
       visible: { opacity: 1, x: 0, transition: { duration: 1 } },
     };
   } else {
@@ -75,16 +81,16 @@ const About = () => {
 
   return (
     <div
-      className="
+      className='
       scrollspy-example
-      "
+      '
     >
       <Landing />
       <div className={style.container_general}>
         <IconButton
           icon={<BsChevronDoubleUp />}
-          id="scrollUp"
-          size="lg"
+          id='scrollUp'
+          size='lg'
           onClick={() => window.scrollTo(0, 0)}
           style={{
             position: 'fixed',
@@ -107,11 +113,11 @@ const About = () => {
           <Row>
             <motion.h2
               className={`text-center ${style.about_heading}`}
-              initial="hidden"
-              whileInView="visible"
+              initial='hidden'
+              whileInView='visible'
               viewport={{ once: true }}
               variants={boxVariants}
-              id="aboutMe"
+              id='aboutMe'
             >
               About me
             </motion.h2>
@@ -126,10 +132,10 @@ const About = () => {
                 >
                   <motion.img
                     src={images.profile_picture}
-                    alt="profile-pic"
+                    alt='profile-pic'
                     className={style.about_img}
-                    initial="hidden"
-                    whileInView="visible"
+                    initial='hidden'
+                    whileInView='visible'
                     viewport={{ once: true }}
                     variants={{
                       hidden: { opacity: 0 },
@@ -147,10 +153,10 @@ const About = () => {
                     <Col xs={12} md={{ span: 8, offset: 2 }}>
                       <p className={`text-center `}>
                         I'm a Full Stack Web Developer. I strive to deliver high
-                        quality, responsive and dinamic products, always
-                        prioritizing user experience above all. <br />
+                        quality and well-organized code, ensuring optimal user
+                        experiences are prioritized at all times. <br />
                         <a
-                          href="#getInTouch"
+                          href='#getInTouch'
                           style={{
                             textDecoration: 'underline',
                           }}
@@ -168,8 +174,8 @@ const About = () => {
                     {technologies.map((tech, index) => (
                       <motion.div
                         key={index}
-                        initial="hidden"
-                        whileInView="visible"
+                        initial='hidden'
+                        whileInView='visible'
                         viewport={{ once: true }}
                         variants={{
                           hidden: { opacity: 0 },

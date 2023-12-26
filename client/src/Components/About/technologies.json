@@ -4,6 +4,10 @@
     "avatar": "javascript.png"
   },
   {
+    "name": "Typescript",
+    "avatar": "typescript.png"
+  },
+  {
     "name": "Node.js",
     "avatar": "nodejs.png"
   },
@@ -16,22 +20,6 @@
     "avatar": "mongoose.png"
   },
   {
-    "name": "PostgreSQL",
-    "avatar": "postgressSQL.png"
-  },
-  {
-    "name": "Sequelize",
-    "avatar": "sequelize.png"
-  },
-  {
-    "name": "Firebase",
-    "avatar": "firebase.png"
-  },
-  {
-    "name": "HTML",
-    "avatar": "html.png"
-  },
-  {
     "name": "ReactJS",
     "avatar": "react.png"
   },
@@ -40,10 +28,22 @@
     "avatar": "redux.png"
   },
   {
+    "name": "PostgreSQL",
+    "avatar": "postgressSQL.png"
+  },
+  {
+    "name": "Sequelize",
+    "avatar": "sequelize.png"
+  },
+  {
+    "name": "HTML",
+    "avatar": "html.png"
+  },
+
+  {
     "name": "CSS",
     "avatar": "css.png"
   },
-
   {
     "name": "Chakra UI",
     "avatar": "chakra.png"
