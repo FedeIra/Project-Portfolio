@@ -13,8 +13,8 @@ const Background = () => {
       <Row>
         <Col xs={12} md={{ span: 10, offset: 1 }} lg={{ span: 10, offset: 1 }}>
           <Accordion.Item
-            active={false}
-            eventKey="1"
+            active={true}
+            eventKey="courses"
             style={{
               backgroundColor: "white",
               border: "1px solid #172139",
@@ -36,8 +36,8 @@ const Background = () => {
           </Accordion.Item>
           <br />
           <Accordion.Item
-            eventKey="0"
-            active={true}
+            eventKey="experience"
+            active={false}
             style={{
               backgroundColor: "white",
               border: "1px solid #172139",
@@ -60,7 +60,7 @@ const Background = () => {
           <br />
           <Accordion.Item
             active={false}
-            eventKey="1"
+            eventKey="education"
             style={{
               backgroundColor: "white",
               border: "1px solid #172139",

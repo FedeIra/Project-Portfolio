@@ -1,14 +1,14 @@
 /* built footer: */
-import React from 'react';
-import { FaLinkedin, FaWhatsapp, FaGithub, FaEnvelope } from 'react-icons/fa';
-import { IconButton } from '@chakra-ui/react';
+import React from "react";
+import { FaLinkedin, FaWhatsapp, FaGithub, FaEnvelope } from "react-icons/fa";
+import { IconButton } from "@chakra-ui/react";
 
 const Icons = () => {
   return (
     <div>
       <a
         href="https://www.linkedin.com/in/federico-irarr%C3%A1zaval-314b89a1/"
-        target="blank"
+        target="_blank"
         rel="nofollow"
       >
         <IconButton
@@ -18,7 +18,11 @@ const Icons = () => {
           icon={<FaLinkedin size="1.7rem" color="white" />}
         />
       </a>
-      <a href="https://github.com/FedeIra" target="blank" rel="nofollow">
+      <a
+        href="https://github.com/FedeIra"
+        target="_blank"
+        rel="nofollow noreferrer"
+      >
         <IconButton
           colorScheme="transparent"
           aria-label="Call Segun"
@@ -26,7 +30,11 @@ const Icons = () => {
           icon={<FaGithub size="1.7rem" color="white" />}
         />
       </a>
-      <a href="mailto: fedeirar@gmail.com" target="blank" rel="nofollow">
+      <a
+        href="mailto: fedeirar@gmail.com"
+        target="_blank"
+        rel="nofollow noreferrer"
+      >
         <IconButton
           colorScheme="transparent"
           aria-label="Call Segun"
@@ -36,8 +44,8 @@ const Icons = () => {
       </a>
       <a
         href="https://api.whatsapp.com/send?phone=5491167887879&text=Hey"
-        target="blank"
-        rel="nofollow"
+        target="_blank"
+        rel="nofollow noreferrer"
       >
         <IconButton
           colorScheme="transparent"

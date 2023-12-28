@@ -1,84 +1,86 @@
-import React from 'react';
-import style from './NavBar.module.css';
-/* import navBar css: */
-import './NavBar.module.css';
-import * as images from '../../Assets/home_images.js';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import Icons from './Icons/Icons.jsx';
+// import external dependencies:
+import React from "react";
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+
+// import local components:
+import style from "./NavBar.module.css";
+import "./NavBar.module.css";
+import * as images from "../../Assets/home_images.js";
+import Icons from "./Icons/Icons.jsx";
 
 function NavBar() {
   return (
     <Navbar
-      id='navbar'
+      id="navbar"
       collapseOnSelect
-      expand='lg'
-      variant='dark'
+      expand="lg"
+      variant="dark"
       className={`
       navbar
       fixed-top
       ${style.navbar_container}`}
     >
       <Container
-        color='white'
+        color="white"
         style={{
-          marginLeft: '5%',
-          width: '100%',
+          marginLeft: "5%",
+          width: "100%",
         }}
       >
-        <Navbar.Brand href='#landing'>
+        <Navbar.Brand href="#landing">
           <img
             src={images.portfolio_picture}
-            style={{ filter: 'invert(100%)', marginLeft: '15px' }}
-            width='30'
-            alt='portfolio_image'
+            style={{ filter: "invert(100%)", marginLeft: "15px" }}
+            width="30"
+            alt="portfolio_image"
           />
         </Navbar.Brand>
         <a
           style={{
-            color: 'white',
-            marginLeft: '15px',
+            color: "white",
+            marginLeft: "15px",
           }}
-          className='d-lg-none'
-          href='#getInTouch'
+          className="d-lg-none"
+          href="#getInTouch"
         >
           Get in touch!
         </a>
         <Navbar.Toggle
-          aria-controls='responsive-navbar-nav '
+          aria-controls="responsive-navbar-nav "
           style={{
-            boxShadow: 'none',
+            boxShadow: "none",
           }}
         />
-        <Navbar.Collapse id='responsive-navbar-nav'>
+        <Navbar.Collapse id="responsive-navbar-nav">
           <Nav>
             <Nav.Link
-              className='nav-link'
+              className="nav-link"
               style={{
-                color: 'white',
-                marginLeft: '15px',
+                color: "white",
+                marginLeft: "15px",
               }}
-              href='#aboutMe'
+              href="#aboutMe"
             >
               About me
             </Nav.Link>
             <Nav.Link
-              className='nav-link '
-              style={{ color: 'white', marginLeft: '15px' }}
-              href='#projects'
+              className="nav-link "
+              style={{ color: "white", marginLeft: "15px" }}
+              href="#projects"
             >
               Personal Projects
             </Nav.Link>
             <Nav.Link
-              className='nav-link'
-              style={{ color: 'white', marginLeft: '15px' }}
-              href='#experience'
+              className="nav-link"
+              style={{ color: "white", marginLeft: "15px" }}
+              href="#experience"
             >
               Experience
             </Nav.Link>
             <Nav.Link
-              className='nav-link'
-              style={{ color: 'white', marginLeft: '15px' }}
-              href='#getInTouch'
+              className="nav-link"
+              style={{ color: "white", marginLeft: "15px" }}
+              href="#getInTouch"
             >
               Get in touch
             </Nav.Link>
@@ -86,13 +88,13 @@ function NavBar() {
               title={
                 <span
                   style={{
-                    color: 'white',
+                    color: "white",
                   }}
                 >
                   Resume
                 </span>
               }
-              id='nav-dropdown'
+              id="nav-dropdown"
               className={style.navbar_dropdown}
             >
               <NavDropdown.Item>

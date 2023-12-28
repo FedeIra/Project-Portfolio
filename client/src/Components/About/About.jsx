@@ -1,9 +1,9 @@
 // Import external dependencies:
-import React, { useState, useEffect } from "react";
-import { BsChevronDoubleUp } from "react-icons/bs";
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { IconButton } from "@chakra-ui/react";
+import { BsChevronDoubleUp } from "react-icons/bs";
 
 // Import local dependencies:
 import * as images from "../../Assets/home_images";
@@ -19,33 +19,43 @@ import Footer from "../Footer/Footer.jsx";
 import OtherProjects from "../Other projects/Other_Projects.jsx";
 
 const About = () => {
-  // State:
-  const [activeSection, setActiveSection] = useState("");
+  // Function to handle scroll:
+  const navBarLinks = document.getElementsByClassName("nav-link");
 
-  // Functions to handle scroll:
-  const handleScroll = () => {
-    const sections = ["aboutMe", "projects", "experience", "getInTouch"];
-    const scrollPosition = window.scrollY;
+  window.onscroll = function () {
+    const aboutMe = document.getElementById("aboutMe");
+    const projects = document.getElementById("projects");
+    const experience = document.getElementById("experience");
+    const contact = document.getElementById("getInTouch");
 
-    const newActiveSection = sections.find((section) => {
-      const element = document.getElementById(section);
-      return element && element.offsetTop <= scrollPosition + 100;
-    });
+    const navBarLinksArray = Array.from(navBarLinks);
+    const navBarLinksArrayLength = navBarLinksArray.length;
 
-    setActiveSection(newActiveSection || "");
+    const aboutMePosition = aboutMe.getBoundingClientRect().top;
+    const projectsPosition = projects.getBoundingClientRect().top;
+    const experiencePosition = experience.getBoundingClientRect().top;
+    const contactPosition = contact.getBoundingClientRect().top;
+
+    const navBarLinksArrayPositions = [
+      aboutMePosition,
+      projectsPosition,
+      experiencePosition,
+      contactPosition,
+    ];
+
+    for (let i = 0; i < navBarLinksArrayLength; i++) {
+      if (navBarLinksArrayPositions[i] < 100) {
+        navBarLinksArray[i].style.textDecoration = "underline";
+        for (let j = 0; j < navBarLinksArrayLength; j++) {
+          if (j !== i) {
+            navBarLinksArray[j].style.textDecoration = "none";
+          }
+        }
+      } else {
+        navBarLinksArray[i].style.textDecoration = "none";
+      }
+    }
   };
-
-  // UseEffect to handle scroll:
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  // Function to get the active section:
-  const getNavLinkClass = (section) =>
-    section === activeSection ? style.underline : "";
 
   // Framer motion variants:
   const boxVariants = {
@@ -71,9 +81,7 @@ const About = () => {
         <Container fluid className={style.about}>
           <Row>
             <motion.h2
-              className={`text-center ${style.about_heading} ${getNavLinkClass(
-                "aboutMe"
-              )}`}
+              className={`text-center ${style.about_heading}`}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -114,8 +122,8 @@ const About = () => {
                     <Col xs={12} md={{ span: 8, offset: 2 }}>
                       <p className={`text-center `}>
                         I'm a Full Stack Web Developer. I strive to deliver high
-                        quality and well-organized code, ensuring optimal user
-                        experiences are prioritized at all times. <br />
+                        quality, responsive and dinamic products, always
+                        prioritizing user experience above all. <br />
                         <a
                           href="#getInTouch"
                           style={{
