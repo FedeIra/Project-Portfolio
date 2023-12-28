@@ -1,123 +1,84 @@
-import React from 'react';
-import * as images from '../../Assets/home_images';
-import style from './About.module.css';
-import { Container, Row, Col } from 'react-bootstrap';
-import CardAbout from './CardAbout.jsx';
-import technologies from './technologies.json';
-import Landing from '../Landing/Landing.jsx';
-import Projects from '../Projects/Projects.jsx';
-import Experience from '../Experience/Experience.jsx';
-import Contact from '../Contact/Contact.jsx';
-import Skills from '../Skills/Skills.jsx';
-import Footer from '../Footer/Footer.jsx';
-import { motion } from 'framer-motion';
-import { IconButton } from '@chakra-ui/react';
-import { BsChevronDoubleUp } from 'react-icons/bs';
-import OtherProjects from '../Other projects/Other_Projects.jsx';
+// Import external dependencies:
+import React, { useState, useEffect } from "react";
+import { BsChevronDoubleUp } from "react-icons/bs";
+import { Container, Row, Col } from "react-bootstrap";
+import { motion } from "framer-motion";
+import { IconButton } from "@chakra-ui/react";
+
+// Import local dependencies:
+import * as images from "../../Assets/home_images";
+import style from "./About.module.css";
+import CardAbout from "./CardAbout.jsx";
+import technologies from "./technologies.json";
+import Landing from "../Landing/Landing.jsx";
+import Projects from "../Projects/Projects.jsx";
+import Experience from "../Experience/Experience.jsx";
+import Contact from "../Contact/Contact.jsx";
+import Skills from "../Skills/Skills.jsx";
+import Footer from "../Footer/Footer.jsx";
+import OtherProjects from "../Other projects/Other_Projects.jsx";
 
 const About = () => {
-  /* underline correspondant navlink when scrolling down through id: */
-  const navBarLinks = document.getElementsByClassName('nav-link');
+  // State:
+  const [activeSection, setActiveSection] = useState("");
 
-  window.onscroll = function () {
-    // const landing = document.getElementById('landing');
-    const aboutMe = document.getElementById('aboutMe');
-    const projects = document.getElementById('projects');
-    const experience = document.getElementById('experience');
-    const contact = document.getElementById('getInTouch');
+  // Functions to handle scroll:
+  const handleScroll = () => {
+    const sections = ["aboutMe", "projects", "experience", "getInTouch"];
+    const scrollPosition = window.scrollY;
 
-    const navBarLinksArray = Array.from(navBarLinks);
-    const navBarLinksArrayLength = navBarLinksArray.length;
+    const newActiveSection = sections.find((section) => {
+      const element = document.getElementById(section);
+      return element && element.offsetTop <= scrollPosition + 100;
+    });
 
-    // const landingPosition = landing.getBoundingClientRect().top;
-    const aboutMePosition = aboutMe.getBoundingClientRect().top;
-    const projectsPosition = projects.getBoundingClientRect().top;
-    const experiencePosition = experience.getBoundingClientRect().top;
-    const contactPosition = contact.getBoundingClientRect().top;
-
-    const navBarLinksArrayPositions = [
-      // landingPosition,
-      aboutMePosition,
-      projectsPosition,
-      experiencePosition,
-      contactPosition,
-    ];
-
-    for (let i = 0; i < navBarLinksArrayLength; i++) {
-      if (navBarLinksArrayPositions[i] < 100) {
-        navBarLinksArray[i].style.textDecoration = 'underline';
-        for (let j = 0; j < navBarLinksArrayLength; j++) {
-          if (j !== i) {
-            navBarLinksArray[j].style.textDecoration = 'none';
-          }
-        }
-      } else {
-        navBarLinksArray[i].style.textDecoration = 'none';
-      }
-    }
+    setActiveSection(newActiveSection || "");
   };
 
-  /* variants for animations responsive */
-  let boxVariants = {};
-  const isMobile2 = window.innerWidth < 767;
-  const isIpad = window.innerWidth < 1024 && window.innerWidth > 767;
+  // UseEffect to handle scroll:
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
-  if (!isMobile2) {
-    boxVariants = {
-      hidden: { opacity: 0, x: -1000 },
-      visible: { opacity: 1, x: 0, transition: { duration: 1 } },
-    };
-  } else if (isIpad) {
-    boxVariants = {
-      hidden: { opacity: 0, x: 0 },
-      visible: { opacity: 1, x: 0, transition: { duration: 1 } },
-    };
-  } else {
-    boxVariants = {
-      hidden: { opacity: 0, x: 0 },
-      visible: { opacity: 1, x: 0, transition: { duration: 1 } },
-    };
-  }
+  // Function to get the active section:
+  const getNavLinkClass = (section) =>
+    section === activeSection ? style.underline : "";
+
+  // Framer motion variants:
+  const boxVariants = {
+    hidden: { opacity: 0, x: window.innerWidth < 767 ? 0 : -1000 },
+    visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+  };
 
   return (
     <div
-      className='
+      className="
       scrollspy-example
-      '
+      "
     >
       <Landing />
       <div className={style.container_general}>
         <IconButton
           icon={<BsChevronDoubleUp />}
-          id='scrollUp'
-          size='lg'
+          id="scrollUp"
+          size="lg"
           onClick={() => window.scrollTo(0, 0)}
-          style={{
-            position: 'fixed',
-            bottom: '15px',
-            right: '5px',
-            margin: '1rem',
-            backgroundColor: 'rgba(4, 1, 19, 0.9)',
-            border: 'none',
-            borderRadius: '50%',
-            width: '3rem',
-            height: '3rem',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease-in-out',
-          }}
-          _hover={{
-            transform: 'scale(1.1)',
-          }}
+          className={style.scrollUp}
         />
         <Container fluid className={style.about}>
           <Row>
             <motion.h2
-              className={`text-center ${style.about_heading}`}
-              initial='hidden'
-              whileInView='visible'
+              className={`text-center ${style.about_heading} ${getNavLinkClass(
+                "aboutMe"
+              )}`}
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true }}
               variants={boxVariants}
-              id='aboutMe'
+              id="aboutMe"
             >
               About me
             </motion.h2>
@@ -132,10 +93,10 @@ const About = () => {
                 >
                   <motion.img
                     src={images.profile_picture}
-                    alt='profile-pic'
+                    alt="profile-pic"
                     className={style.about_img}
-                    initial='hidden'
-                    whileInView='visible'
+                    initial="hidden"
+                    whileInView="visible"
                     viewport={{ once: true }}
                     variants={{
                       hidden: { opacity: 0 },
@@ -156,9 +117,9 @@ const About = () => {
                         quality and well-organized code, ensuring optimal user
                         experiences are prioritized at all times. <br />
                         <a
-                          href='#getInTouch'
+                          href="#getInTouch"
                           style={{
-                            textDecoration: 'underline',
+                            textDecoration: "underline",
                           }}
                         >
                           Let's work together.
@@ -174,8 +135,8 @@ const About = () => {
                     {technologies.map((tech, index) => (
                       <motion.div
                         key={index}
-                        initial='hidden'
-                        whileInView='visible'
+                        initial="hidden"
+                        whileInView="visible"
                         viewport={{ once: true }}
                         variants={{
                           hidden: { opacity: 0 },

@@ -1,28 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import { BrowserRouter } from 'react-router-dom';
-import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// Import external utilities:
+import React from "react";
+import { createRoot } from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// Import local utilities:
+import "./index.css";
+import App from "./App";
 
+// Define and export theme for Chakra UI:
 const theme = extendTheme({
   styles: {
     global: () => ({
       body: {
-        bg: '#172139',
-        color: 'white',
+        bg: "#172139",
+        color: "white",
       },
     }),
   },
   fonts: {
-    heading: 'Roboto',
-    body: 'Roboto',
-    color: 'white',
+    heading: "Roboto",
+    body: "Roboto",
   },
 });
+
+// Render App component:
+const root = createRoot(document.getElementById("root"));
 
 root.render(
   <ChakraProvider theme={theme}>

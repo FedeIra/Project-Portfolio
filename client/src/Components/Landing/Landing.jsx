@@ -1,70 +1,70 @@
-import React from 'react';
-import style from './Landing.module.css';
-import { Nav } from 'react-bootstrap';
-import { IconButton } from '@chakra-ui/react';
-import { HiOutlineArrowRight, HiOutlineArrowDown } from 'react-icons/hi';
-import NavBar from '../NavBar/NavBar.jsx';
+// Import external dependencies:
+import React, { useState, useEffect } from "react";
+import { Nav } from "react-bootstrap";
+import { HiOutlineArrowRight, HiOutlineArrowDown } from "react-icons/hi";
+import { IconButton } from "@chakra-ui/react";
 
+// Import local dependencies:
+import NavBar from "../NavBar/NavBar.jsx";
+import style from "./Landing.module.css";
+
+// Component definition:
 const Landing = () => {
-  const [buttonHover, setButtonHover] = React.useState(false);
+  // State management:
+  const [buttonHover, setButtonHover] = useState(false);
+  const handleMouseEnter = () => setButtonHover(true);
+  const handleMouseLeave = () => setButtonHover(false);
 
-  const [windowSize, setWindowSize] = React.useState({
+  const [, setWindowSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
   });
 
-  React.useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-    window.addEventListener('resize', handleResize);
+  const handleWindowSize = () => {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  };
 
-    return () => window.removeEventListener('resize', handleResize);
+  useEffect(() => {
+    const handleResize = () => {
+      handleWindowSize();
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const isMobile = window.innerWidth < 767;
   const isIpad = window.innerWidth < 1024 && window.innerWidth > 767;
 
-  const buttonStyles = {
-    position: 'absolute',
-    top: isMobile || isIpad ? '56vh' : '62vh',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    display: 'inline-block',
-    width: 'auto',
-    whiteSpace: 'nowrap',
-  };
-
   const button = (
-    <Nav.Link href='#aboutMe'>
+    <Nav.Link href="#aboutMe">
       <button
-        className={style.buttonGeneral}
-        style={buttonStyles}
-        variant='outline-light'
-        onMouseEnter={() => setButtonHover(true)}
-        onMouseLeave={() => setButtonHover(false)}
+        className={`${style.buttonGeneral} ${style.buttonStyles}`}
+        variant="outline-light"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         View my profile!
         {buttonHover ? (
           <div className={style.divOnHover}>
             <IconButton
-              backgroundColor='white'
-              size={isMobile || isIpad ? 'md' : 'lg'}
+              backgroundColor="white"
+              size={isMobile || isIpad ? "md" : "lg"}
               icon={
-                <HiOutlineArrowDown size='2rem' className={style.icon_arrow} />
+                <HiOutlineArrowDown size="2rem" className={style.icon_arrow} />
               }
             />
           </div>
         ) : (
           <span>
             <IconButton
-              backgroundColor='white'
-              size={isMobile || isIpad ? 'md' : 'lg'}
+              backgroundColor="white"
+              size={isMobile || isIpad ? "md" : "lg"}
               icon={
-                <HiOutlineArrowRight size='2rem' className={style.icon_arrow} />
+                <HiOutlineArrowRight size="2rem" className={style.icon_arrow} />
               }
             />
           </span>
@@ -75,7 +75,7 @@ const Landing = () => {
 
   return (
     <div>
-      <div className={style.landing} id='landing'>
+      <div className={style.landing} id="landing">
         <NavBar />
         {button}
       </div>

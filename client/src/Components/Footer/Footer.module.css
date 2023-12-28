@@ -9,22 +9,18 @@
   padding: 3.5rem;
 }
 
+.link_footer_github:hover {
+  color: black;
+  background-color: white;
+}
+
+.link_footer_wa:hover {
+  color: green;
+  background-color: white;
+}
+
 .copyright {
   text-align: center;
   font-size: 14px;
   margin-top: 1.5rem;
-}
-
-.link_footer_linkedin_email:hover {
-  background-color: white;
-}
-
-.link_footer_github:hover {
-  background-color: white;
-  color: black;
-}
-
-.link_footer_wa:hover {
-  background-color: white;
-  color: green;
 }

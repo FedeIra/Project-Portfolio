@@ -1,0 +1,92 @@
+[
+  {
+    "date": "2023",
+    "title": "Platzi",
+    "description": "Introduction to AWS. Computing, storage and databases.",
+    "picture": "platzi.png"
+  },
+  {
+    "date": "2023",
+    "title": "Platzi",
+    "description": "Introduction to AWS. Cloud computing basics.",
+    "picture": "platzi.png"
+  },
+  {
+    "date": "2023",
+    "title": "Platzi",
+    "description": "Introduction to cloud computing.",
+    "picture": "platzi.png"
+  },
+  {
+    "date": "2023",
+    "title": "Platzi",
+    "description": "Practice Node.js: Authentication.",
+    "picture": "platzi.png"
+  },
+  {
+    "date": "2023",
+    "title": "Platzi",
+    "description": "Backend with NodeJS. Authentication with Passport.js and JWT.",
+    "picture": "platzi.png"
+  },
+  {
+    "date": "2023",
+    "title": "Platzi",
+    "description": "Backend with Node.js: API REST with express.js.",
+    "picture": "platzi.png"
+  },
+  {
+    "date": "2023",
+    "title": "Platzi",
+    "description": "Node.js Fundamentals.",
+    "picture": "platzi.png"
+  },
+  {
+    "date": "2023",
+    "title": "Platzi",
+    "description": "Database fundamentals.",
+    "picture": "platzi.png"
+  },
+  {
+    "date": "2023",
+    "title": "Platzi",
+    "description": "Typescript POO and asynchronism.",
+    "picture": "platzi.png"
+  },
+  {
+    "date": "2023",
+    "title": "Platzi",
+    "description": "Typescript Advanced types and functions.",
+    "picture": "platzi.png"
+  },
+  {
+    "date": "2023",
+    "title": "Platzi",
+    "description": "Typescript Fundamentals.",
+    "picture": "platzi.png"
+  },
+  {
+    "date": "2022",
+    "title": "EducacionIT",
+    "description": "Online Course, Python Programming.",
+    "picture": "educacionIT.png"
+  },
+  {
+    "date": "2021",
+    "title": "Píldoras Informáticas",
+    "description": "Online Course, Python programming.",
+    "picture": "pildorasInformaticas.png"
+  },
+  {
+    "date": "2021",
+    "title": "EducacionIT",
+    "description": "Online Course, Python for non-programmers.",
+    "picture": "educacionIT.png"
+  },
+  {
+    "date": "2021",
+    "title": "LinkedIn Learning",
+    "description": "Online Course, Intro to Python.",
+    "picture": "linkedinLearning.png"
+  }
+]
