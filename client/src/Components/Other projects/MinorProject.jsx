@@ -1,6 +1,5 @@
-import React from 'react';
-import './Minor_Project.css';
-import { Container, Row, Col, Modal } from 'react-bootstrap';
+import React from "react";
+import "./Minor_Project.css";
 
 function Card({ name, technologies, avatar, link }) {
   const imageProject = require(`./Images/${avatar}`);

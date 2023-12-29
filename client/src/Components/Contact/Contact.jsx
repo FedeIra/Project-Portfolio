@@ -1,31 +1,32 @@
 // Import external dependencies:
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { useToast } from "@chakra-ui/react";
-import emailjs from "@emailjs/browser";
+import { useDispatch, useSelector } from "react-redux";
 
 // Import local dependencies:
 import style from "./Contact.module.css";
+import { sendEmail } from "../../actions";
 
 const Contact = () => {
-  const form = useRef();
+  const dispatch = useDispatch();
   const toast = useToast();
+  const form = useRef();
 
-  const boxVariants = {
-    hidden: { opacity: 0, x: window.innerWidth < 768 ? -1000 : 0 },
-    visible: { opacity: 1, x: 0, transition: { duration: 1 } },
-  };
+  const { loading, email, error } = useSelector((state) => state);
 
-  const sendEmail = async (e) => {
-    e.preventDefault();
-    try {
-      await emailjs.sendForm(
-        "service_32xnf3d",
-        "template_ryfevxx",
-        form.current,
-        "irMjlZGiTzqJdGHet"
-      );
+  useEffect(() => {
+    if (error) {
+      toast({
+        title: "Error.",
+        description: "Error sending email. Please try again.",
+        status: "error",
+        duration: 3000,
+        position: "top-right",
+        isClosable: true,
+      });
+    } else if (email) {
       toast({
         title: "Email sent.",
         description: "I appreciate your email and will respond soon.",
@@ -34,17 +35,32 @@ const Contact = () => {
         position: "top-right",
         isClosable: true,
       });
-    } catch (error) {
+    } else if (loading) {
       toast({
-        title: "Error.",
-        description:
-          "Apologies. It seems we have encountered an error. Please try again.",
-        status: "error",
+        title: "Loading.",
+        description: "Sending email...",
+        status: "info",
         duration: 3000,
-        position: "top-center",
+        position: "top-right",
         isClosable: true,
       });
     }
+  }, [loading, email, error, toast]);
+
+  const boxVariants = {
+    hidden: { opacity: 0, x: window.innerWidth < 768 ? -1000 : 0 },
+    visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = {
+      user_name: e.target.user_name.value,
+      user_email: e.target.user_email.value,
+      subject: e.target.subject.value,
+      message: e.target.message.value,
+    };
+    await dispatch(sendEmail(formData));
     e.target.reset();
   };
 
@@ -74,8 +90,8 @@ const Contact = () => {
               <br />
               <div className="col-lg-8" data-aos="fade-up" data-aos-delay="300">
                 <form
+                  onSubmit={(e) => handleSubmit(e)}
                   ref={form}
-                  onSubmit={sendEmail}
                   className="row g-lg-3 gy-3"
                 >
                   <div className="form-group col-md-6">
