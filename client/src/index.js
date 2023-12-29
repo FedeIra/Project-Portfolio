@@ -30,7 +30,7 @@ const theme = extendTheme({
 
 // Set base URL for axios:
 axios.defaults.baseURL =
-  // `https://project-gaming-beyond-v2-production.up.railway.app/` ||
+  `https://project-portfolio-production-a234.up.railway.app/` ||
   "http://localhost:3001";
 
 // Render App component:
