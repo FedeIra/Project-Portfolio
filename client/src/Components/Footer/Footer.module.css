@@ -1,0 +1,26 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(4, 1, 19, 0.5);
+  width: 100%;
+  height: auto;
+  padding: 3.5rem;
+}
+
+.link_footer_github:hover {
+  color: black;
+  background-color: white;
+}
+
+.link_footer_wa:hover {
+  color: green;
+  background-color: white;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 1.5rem;
+}

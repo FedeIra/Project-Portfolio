@@ -1,0 +1,81 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4%;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+  width: 75%;
+  flex-direction: row;
+}
+
+@media (max-width: 780px) {
+  .row {
+    width: 100%;
+  }
+}
+
+.hexagon {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  margin: 10px 100px 10px;
+}
+
+@media (max-width: 767px) {
+  .hexagon {
+    width: 6rem;
+    height: 6rem;
+    margin: 10px 30px 10px;
+  }
+}
+
+/* for tablets: */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hexagon {
+    width: 8rem;
+    height: 8rem;
+    margin: 10px 10px 10px;
+  }
+}
+
+.shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(76, 84, 111);
+  clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@media (max-width: 780px) {
+  .text {
+    font-size: 14px;
+  }
+}
+.title {
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: #fff;
+  margin-left: 10%;
+}
+
+@media (max-width: 780px) {
+  .title {
+    font-size: 1.1rem;
+    margin-left: 0;
+  }
+}

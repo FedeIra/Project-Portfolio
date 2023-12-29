@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Weather App",
+    "technologies": ["React", "Node.js", "Bootstrap", "Chakra.UI"],
+    "avatar": "9.png",
+    "link": "https://project-weather-fi.vercel.app/"
+  },
+  {
+    "name": "Mug Clug Store",
+    "technologies": ["Shopify", "HTML", "CSS"],
+    "avatar": "10.png",
+    "link": "https://www.youtube.com/watch?v=ZcsY4dQkY8w"
+  },
+  {
+    "name": "Task List",
+    "technologies": ["React", "Bootstrap", "Chakra.UI"],
+    "avatar": "7.png",
+    "link": "https://task-list-fedeira.vercel.app/"
+  },
+  {
+    "name": "Online Calculator",
+    "technologies": ["React", "Bootstrap"],
+    "avatar": "8.png",
+    "link": "https://calculator-project-fedeira.vercel.app/"
+  },
+  {
+    "name": "Online Resume",
+    "technologies": ["AWS S3", "AWS Route53", "HTML", "CSS"],
+    "avatar": "11.png",
+    "link": "http://fedeira.xyz.s3-website.us-east-2.amazonaws.com/"
+  }
+]
