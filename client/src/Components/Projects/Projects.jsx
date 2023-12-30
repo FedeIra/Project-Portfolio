@@ -1,11 +1,11 @@
-import React from 'react';
-import { Container, Row, Col, Button, Card } from 'react-bootstrap';
-import { motion } from 'framer-motion';
-import style from './Projects.module.css';
-import * as images from '../../Assets/home_images';
-import { FaGithub, FaGlobe, FaStar } from 'react-icons/fa';
-import Overlay from './Overlays/Overlay.jsx';
-import { IconButton } from '@chakra-ui/react';
+import React from "react";
+import { Container, Row, Col, Button, Card } from "react-bootstrap";
+import { motion } from "framer-motion";
+import style from "./Projects.module.css";
+import * as images from "../../Assets/home_images";
+import { FaGithub, FaGlobe, FaStar } from "react-icons/fa";
+import Overlay from "./Overlays/Overlay.jsx";
+import { IconButton } from "@chakra-ui/react";
 
 const Projects = () => {
   let boxVariants = {};
@@ -30,11 +30,11 @@ const Projects = () => {
   }
 
   return (
-    <div id='projects'>
+    <div id="projects">
       <motion.h2
         className={`text-center ${style.projects_heading}`}
-        initial='hidden'
-        whileInView='visible'
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true }}
         variants={boxVariants}
       >
@@ -44,40 +44,40 @@ const Projects = () => {
         <Row>
           <Col xs={12} md={12}>
             <motion.div
-              initial='hidden'
-              whileInView='visible'
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true }}
               variants={boxVariants2}
             >
               <div className={style.profile_area}>
                 <div>
                   <Row
-                    className='
+                    className="
                   justify-content-center
-                  '
+                  "
                   >
                     <div
-                      className='
+                      className="
                       col-lg-4
-                      '
+                      "
                       style={{
-                        marginBottom: '30px',
+                        marginBottom: "30px",
                       }}
                     >
                       <Card
                         className={style.card}
                         style={{
-                          borderRadius: '0',
+                          borderRadius: "0",
                         }}
                       >
                         <div className={style.img1}>
-                          <Card.Img src={images.kinema_picture2} alt='kinema' />
+                          <Card.Img src={images.kinema_picture2} alt="kinema" />
                           <Card.ImgOverlay className={style.card_overlay}>
-                            <Overlay name={'Kinema'} />
+                            <Overlay name={"Kinema"} />
                           </Card.ImgOverlay>
                         </div>
                         <div className={style.img2}>
-                          <img src={images.kinema_logo} alt='kinema-logo' />
+                          <img src={images.kinema_logo} alt="kinema-logo" />
                         </div>
 
                         <div className={style.main_text}>
@@ -94,12 +94,12 @@ const Projects = () => {
                           <br />
                           <div className={style.stars}>
                             <IconButton
-                              colorScheme='transparent'
-                              fontSize='20px'
+                              colorScheme="transparent"
+                              fontSize="20px"
                               icon={
                                 <FaStar
-                                  size='1.4rem'
-                                  color='orange'
+                                  size="1.4rem"
+                                  color="orange"
                                   className={style.iconStar}
                                 />
                               }
@@ -114,46 +114,46 @@ const Projects = () => {
                           <Row>
                             <Col xs={12} md={6} className={style.buttonColumns}>
                               <a
-                                href='https://kinema-entertainment.vercel.app/'
-                                target='blank'
-                                rel='nofollow'
+                                href="https://kinema-showcase.vercel.app/"
+                                target="blank"
+                                rel="nofollow"
                               >
                                 <Button
-                                  variant='primary'
+                                  variant="primary"
                                   className={style.buttonCard}
                                   style={{
-                                    borderRadius: '0',
-                                    paddingRight: '20px',
+                                    borderRadius: "0",
+                                    paddingRight: "20px",
                                   }}
                                 >
                                   View Site
                                   <IconButton
-                                    colorScheme='transparent'
-                                    aria-label='Call Segun'
-                                    fontSize='20px'
-                                    icon={<FaGlobe size='1.4rem' />}
+                                    colorScheme="transparent"
+                                    aria-label="Call Segun"
+                                    fontSize="20px"
+                                    icon={<FaGlobe size="1.4rem" />}
                                   />
                                 </Button>
                               </a>
                             </Col>
                             <Col xs={12} md={6} className={style.buttonColumns}>
                               <a
-                                href='https://github.com/PG-Movies-Group-1/Kinema-Project'
-                                target='blank'
-                                rel='nofollow'
+                                href="https://github.com/PG-Movies-Group-1/Kinema-Project"
+                                target="blank"
+                                rel="nofollow"
                               >
                                 <Button
-                                  variant='secondary'
+                                  variant="secondary"
                                   className={style.buttonCard}
                                   style={{
-                                    borderRadius: '0',
+                                    borderRadius: "0",
                                   }}
                                 >
                                   View Code
                                   <IconButton
-                                    colorScheme='transparent'
-                                    fontSize='20px'
-                                    icon={<FaGithub size='1.4rem' />}
+                                    colorScheme="transparent"
+                                    fontSize="20px"
+                                    icon={<FaGithub size="1.4rem" />}
                                   />
                                 </Button>
                               </a>
@@ -163,30 +163,30 @@ const Projects = () => {
                       </Card>
                     </div>
                     <div
-                      className='
+                      className="
                       col-lg-4
-                    '
+                    "
                     >
                       <Card
                         className={style.card}
                         style={{
-                          borderRadius: '0',
+                          borderRadius: "0",
                         }}
                       >
                         <div className={style.img1}>
-                          <Card.Img src={images.gaming1} alt='gaming' />
+                          <Card.Img src={images.gaming1} alt="gaming" />
                           <Card.ImgOverlay className={style.card_overlay}>
-                            <Overlay name={'G&B'} />
+                            <Overlay name={"G&B"} />
                           </Card.ImgOverlay>
                         </div>
                         <div className={style.img2}>
-                          <img src={images.gaming_logo} alt='gaming-logo' />
+                          <img src={images.gaming_logo} alt="gaming-logo" />
                         </div>
                         <div className={style.main_text}>
                           <h2>Gaming & Beyond</h2>
                           <p
                             style={{
-                              marginBottom: '17px',
+                              marginBottom: "17px",
                             }}
                           >
                             G&B is a gaming website with the following features:
@@ -204,45 +204,45 @@ const Projects = () => {
                           <Row>
                             <Col xs={12} md={6} className={style.buttonColumns}>
                               <a
-                                href='https://gamingweb.vercel.app/'
-                                target='blank'
-                                rel='nofollow'
+                                href="https://gamingweb.vercel.app/"
+                                target="blank"
+                                rel="nofollow"
                               >
                                 <Button
-                                  variant='primary'
+                                  variant="primary"
                                   className={style.buttonCard}
                                   style={{
-                                    borderRadius: '0',
-                                    paddingRight: '20px',
+                                    borderRadius: "0",
+                                    paddingRight: "20px",
                                   }}
                                 >
                                   View Site
                                   <IconButton
-                                    colorScheme='transparent'
-                                    fontSize='20px'
-                                    icon={<FaGlobe size='1.4rem' />}
+                                    colorScheme="transparent"
+                                    fontSize="20px"
+                                    icon={<FaGlobe size="1.4rem" />}
                                   />
                                 </Button>
                               </a>
                             </Col>
                             <Col xs={12} md={6} className={style.buttonColumns}>
                               <a
-                                href='https://github.com/FedeIra/Project-Gaming-Beyond-v2'
-                                target='blank'
-                                rel='nofollow'
+                                href="https://github.com/FedeIra/Project-Gaming-Beyond-v2"
+                                target="blank"
+                                rel="nofollow"
                               >
                                 <Button
-                                  variant='secondary'
+                                  variant="secondary"
                                   className={style.buttonCard}
                                   style={{
-                                    borderRadius: '0',
+                                    borderRadius: "0",
                                   }}
                                 >
                                   View Code
                                   <IconButton
-                                    colorScheme='transparent'
-                                    fontSize='20px'
-                                    icon={<FaGithub size='1.4rem' />}
+                                    colorScheme="transparent"
+                                    fontSize="20px"
+                                    icon={<FaGithub size="1.4rem" />}
                                   />
                                 </Button>
                               </a>
