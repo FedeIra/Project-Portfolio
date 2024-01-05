@@ -41,7 +41,6 @@ router.post('/sendEmail', async (req, res) => {
 router.get('/comments', async (req, res) => {
   try {
     const comments = await getAllComments();
-    console.info(comments);
     res.status(200).json(comments);
   } catch (error) {
     return res.status(204).json({ Error: error.message });
