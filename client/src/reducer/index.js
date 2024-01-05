@@ -3,10 +3,15 @@ import {
   SEND_EMAIL_REQUEST,
   SEND_EMAIL_SUCCESS,
   SEND_EMAIL_FAILURE,
+  GET_COMMENTS_DATA,
+  ERROR_FOUND,
 } from "../actions/index.js";
 
 // Set initial global state:
-const initialState = {};
+const initialState = {
+  error: false,
+  comments: [],
+};
 
 // Create reducer functions:
 const rootReducer = (state = initialState, action) => {
@@ -28,6 +33,16 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: action.payload,
+      };
+    case GET_COMMENTS_DATA:
+      return {
+        ...state,
+        comments: action.payload,
+      };
+    case ERROR_FOUND:
+      return {
+        ...state,
+        error: true,
       };
     default:
       return state;

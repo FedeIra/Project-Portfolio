@@ -30,8 +30,8 @@ const theme = extendTheme({
 
 // Set base URL for axios:
 axios.defaults.baseURL =
-  `https://project-portfolio-production-a234.up.railway.app/` ||
-  "http://localhost:3001";
+  // `https://project-portfolio-production-a234.up.railway.app/` ||
+  "http://localhost:3000";
 
 // Render App component:
 const root = createRoot(document.getElementById("root"));

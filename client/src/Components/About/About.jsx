@@ -17,6 +17,7 @@ import Contact from "../Contact/Contact.jsx";
 import Skills from "../Skills/Skills.jsx";
 import Footer from "../Footer/Footer.jsx";
 import OtherProjects from "../Other projects/Other_Projects.jsx";
+import Comments from "../Comments/Comments.jsx";
 
 const About = () => {
   // Function to handle scroll:
@@ -27,6 +28,7 @@ const About = () => {
     const projects = document.getElementById("projects");
     const experience = document.getElementById("experience");
     const contact = document.getElementById("getInTouch");
+    const comments = document.getElementById("userComments");
 
     const navBarLinksArray = Array.from(navBarLinks);
     const navBarLinksArrayLength = navBarLinksArray.length;
@@ -35,12 +37,14 @@ const About = () => {
     const projectsPosition = projects.getBoundingClientRect().top;
     const experiencePosition = experience.getBoundingClientRect().top;
     const contactPosition = contact.getBoundingClientRect().top;
+    const commentsPosition = comments.getBoundingClientRect().top;
 
     const navBarLinksArrayPositions = [
       aboutMePosition,
       projectsPosition,
       experiencePosition,
       contactPosition,
+      commentsPosition,
     ];
 
     for (let i = 0; i < navBarLinksArrayLength; i++) {
@@ -172,6 +176,7 @@ const About = () => {
         <Experience />
         <br />
         <Contact />
+        <Comments />
         <Footer />
       </div>
     </div>

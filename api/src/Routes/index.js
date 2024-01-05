@@ -2,6 +2,12 @@ const { Router } = require('express');
 const router = Router();
 const emailjs = require('@emailjs/nodejs');
 require(`dotenv`).config();
+const Comment = require('../Db/Schema/comment.js');
+
+const {
+  getAllComments,
+  createComment,
+} = require('../Db/ControllersDB/comments.js');
 
 const {
   EMAIL_JS_SERVICEID,
@@ -31,32 +37,26 @@ router.post('/sendEmail', async (req, res) => {
   }
 });
 
+// Route to get all comments
+router.get('/comments', async (req, res) => {
+  try {
+    const comments = await getAllComments();
+    console.info(comments);
+    res.status(200).json(comments);
+  } catch (error) {
+    return res.status(204).json({ Error: error.message });
+  }
+});
+
+// Route to post comment
+router.post('/comments', async (req, res) => {
+  const { commentId, userName, content, date } = req.body;
+  try {
+    Comment.create({ commentId, userName, content, date });
+    res.status(201).json('created!');
+  } catch (error) {
+    return res.status(204).json({ Error: error.message });
+  }
+});
+
 module.exports = router;
-
-// TODO: Add routes for comments:
-// const Comment = require('../Db/Schema/comment.js');
-// const {
-//   getAllComments,
-//   createComment,
-// } = require('../Db/ControllersDB/comments.js');
-
-// Get comments
-// router.get('/comments', async (req, res) => {
-//   try {
-//     const comments = await getAllComments();
-//     res.status(200).json(comments);
-//   } catch (error) {
-//     return res.status(204).json({ Error: error.message });
-//   }
-// });
-
-// Post comment
-// router.post('/comments', async (req, res) => {
-//   const { userId, content, date, idReference } = req.body;
-//   try {
-//     Comment.create({ userId, content, date, idReference });
-//     res.status(201).json('created!');
-//   } catch (error) {
-//     return res.status(204).json({ Error: error.message });
-//   }
-// });
