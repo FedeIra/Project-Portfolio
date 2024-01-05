@@ -238,8 +238,9 @@ const Experience = () => {
                   <p className="card-text text-white">
                     Building my portfolio using the following techs:
                     <br />
-                    Javascript | JSON | HTML | React.js | CSS | Chakra UI |
-                    Bootstrap | Email.js | Toastify | Node.js
+                    Javascript | Node.js | Express.js | MongoDB | JSON |
+                    Email.js | React.js | Redux | HTML | CSS | Chakra UI |
+                    Bootstrap | Toastify
                   </p>
                 </div>
               </div>
