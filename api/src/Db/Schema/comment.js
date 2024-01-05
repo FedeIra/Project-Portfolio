@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 
 // Create database collection:
 const dataSchema = new mongoose.Schema({
+  commentId: {
+    type: Number,
+    required: true,
+  },
   userName: {
     type: String,
     required: false,

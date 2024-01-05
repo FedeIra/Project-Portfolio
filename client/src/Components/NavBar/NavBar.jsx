@@ -84,6 +84,13 @@ function NavBar() {
             >
               Get in touch
             </Nav.Link>
+            <Nav.Link
+              className="nav-link"
+              style={{ color: "white", marginLeft: "15px" }}
+              href="#userComments"
+            >
+              Post comments
+            </Nav.Link>
             <NavDropdown
               title={
                 <span
