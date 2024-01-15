@@ -204,7 +204,7 @@ const Projects = () => {
                           <Row>
                             <Col xs={12} md={6} className={style.buttonColumns}>
                               <a
-                                href="https://gamingweb.vercel.app/"
+                                href="https://gaming-beyond-v2.vercel.app/"
                                 target="blank"
                                 rel="nofollow"
                               >
