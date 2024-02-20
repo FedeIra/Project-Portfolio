@@ -1,13 +1,18 @@
-const { Router } = require('express');
+import { Router } from 'express';
+import emailjs from '@emailjs/nodejs';
 const router = Router();
-const emailjs = require('@emailjs/nodejs');
-require(`dotenv`).config();
-const Comment = require('../Db/Schema/comment.js');
+import dotenv from 'dotenv';
 
-const {
-  getAllComments,
-  createComment,
-} = require('../Db/ControllersDB/comments.js');
+import { Comment } from '../Db/Schema/comment.js';
+import { getAllComments, createComment } from '../Db/ControllersDB/comments.js';
+
+import { validatorHandler } from '../middlewares/validator.handler.js';
+import { UserService } from '../userServices/user.service.js';
+const service = new UserService();
+
+import { createUserSchema } from '../schemasValidation/user.schema.js';
+
+import { boomErrorHandler } from '../middlewares/error.handler.js';
 
 const {
   EMAIL_JS_SERVICEID,
@@ -58,4 +63,19 @@ router.post('/comments', async (req, res) => {
   }
 });
 
-module.exports = router;
+// Route to user sign-up
+router.post(
+  '/sign-up',
+  validatorHandler(createUserSchema, 'body'),
+  async (req, res, next) => {
+    try {
+      const body = req.body;
+      const newUser = await service.createUser(body);
+      res.status(201).json(newUser);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+export default router;
