@@ -40,7 +40,6 @@ router.post('/sendEmail', async (req, res) => {
     res.status(200).json({ success: true, message: 'Email sent successfully' });
   } catch (error) {
     res.status(500).json({ success: false, message: 'Error sending email' });
-    console.log(error);
   }
 });
 
@@ -84,11 +83,11 @@ router.post(
 router.post(
   '/login',
   passport.authenticate('local', { session: false }),
-  async (request, response, next) => {
+  async (req, res, next) => {
     try {
-      const user = request.user;
+      const user = req.user;
       const token = await loginService.signToken(user);
-      response.status(200).json(token);
+      res.status(200).json(token);
     } catch (error) {
       next(error);
     }

@@ -6,6 +6,7 @@ import { UserService } from './user.service.js';
 
 const service = new UserService();
 
+dotenv.config();
 const { JWT_SECRET } = process.env;
 
 class AuthService {
@@ -26,6 +27,7 @@ class AuthService {
     const payload = {
       sub: user.id,
     };
+
     const token = jwtService.sign(payload, JWT_SECRET);
 
     return {
