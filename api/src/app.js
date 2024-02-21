@@ -8,6 +8,7 @@ import { boomErrorHandler } from './middlewares/error.handler.js';
 const server = express();
 
 import cors from 'cors';
+import './utils/authentication/index.js';
 
 // server.name = 'API';
 server.use(cors());

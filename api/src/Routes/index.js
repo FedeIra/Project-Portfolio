@@ -8,11 +8,13 @@ import { getAllComments, createComment } from '../Db/ControllersDB/comments.js';
 
 import { validatorHandler } from '../middlewares/validator.handler.js';
 import { UserService } from '../userServices/user.service.js';
-const service = new UserService();
+const userService = new UserService();
 
 import { createUserSchema } from '../schemasValidation/user.schema.js';
 
-import { boomErrorHandler } from '../middlewares/error.handler.js';
+import passport from 'passport';
+import AuthService from '../userServices/login.service.js';
+const loginService = new AuthService();
 
 const {
   EMAIL_JS_SERVICEID,
@@ -70,8 +72,23 @@ router.post(
   async (req, res, next) => {
     try {
       const body = req.body;
-      const newUser = await service.createUser(body);
+      const newUser = await userService.createUser(body);
       res.status(201).json(newUser);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+// Route to user login
+router.post(
+  '/login',
+  passport.authenticate('local', { session: false }),
+  async (request, response, next) => {
+    try {
+      const user = request.user;
+      const token = await loginService.signToken(user);
+      response.status(200).json(token);
     } catch (error) {
       next(error);
     }
