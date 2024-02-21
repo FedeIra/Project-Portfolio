@@ -2,6 +2,7 @@ import { Router } from 'express';
 import emailjs from '@emailjs/nodejs';
 const router = Router();
 import dotenv from 'dotenv';
+dotenv.config();
 
 import { Comment } from '../Db/Schema/comment.js';
 import { getAllComments, createComment } from '../Db/ControllersDB/comments.js';
@@ -54,15 +55,19 @@ router.get('/comments', async (req, res) => {
 });
 
 // Route to post comment
-router.post('/comments', async (req, res) => {
-  const { commentId, userName, content, date } = req.body;
-  try {
-    Comment.create({ commentId, userName, content, date });
-    res.status(201).json('created!');
-  } catch (error) {
-    return res.status(204).json({ Error: error.message });
+router.post(
+  '/comments',
+  passport.authenticate('jwt', { session: false }),
+  async (req, res) => {
+    const { commentId, userName, content, date } = req.body;
+    try {
+      Comment.create({ commentId, userName, content, date });
+      res.status(201).json('created!');
+    } catch (error) {
+      return res.status(204).json({ Error: error.message });
+    }
   }
-});
+);
 
 // Route to user sign-up
 router.post(
