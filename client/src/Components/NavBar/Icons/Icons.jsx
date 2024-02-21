@@ -1,15 +1,23 @@
 /* built footer: */
-import React from "react";
-import { FaLinkedin, FaWhatsapp, FaGithub, FaEnvelope } from "react-icons/fa";
-import { IconButton } from "@chakra-ui/react";
+import React from 'react';
+import { FaLinkedin, FaWhatsapp, FaGithub, FaEnvelope } from 'react-icons/fa';
+import { IconButton, Button, Text } from '@chakra-ui/react';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { Link as RouteLink, useNavigate } from 'react-router-dom';
 
 const Icons = () => {
+  const user = useSelector((state) => state.user);
+  const navigate = useNavigate();
+
+  useEffect(() => {}, [user]);
+
   return (
     <div>
       <a
         href="https://www.linkedin.com/in/federico-irarr%C3%A1zaval-314b89a1/"
         target="_blank"
-        rel="nofollow"
+        rel="nofollow noreferrer"
       >
         <IconButton
           colorScheme="transparent"
@@ -54,6 +62,31 @@ const Icons = () => {
           icon={<FaWhatsapp size="1.7rem" color="white" />}
         />
       </a>
+      {user ? (
+        <Button colorScheme="transparent" mr={2}>
+          {user}
+        </Button>
+      ) : (
+        <>
+          <Button
+            colorScheme="transparent"
+            borderColor={'white'}
+            border={'1px'}
+            mr={2}
+            onClick={() => navigate('/login')}
+          >
+            Log In
+          </Button>
+          <Button
+            colorScheme="transparent"
+            borderColor={'white'}
+            border={'1px'}
+            onClick={() => navigate('/register')}
+          >
+            Register
+          </Button>
+        </>
+      )}
     </div>
   );
 };

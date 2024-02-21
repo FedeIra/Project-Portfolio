@@ -5,12 +5,13 @@ import {
   SEND_EMAIL_FAILURE,
   GET_COMMENTS_DATA,
   ERROR_FOUND,
-} from "../actions/index.js";
+} from '../actions/index.js';
 
 // Set initial global state:
 const initialState = {
   error: false,
   comments: [],
+  user: '',
 };
 
 // Create reducer functions:
