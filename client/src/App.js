@@ -4,7 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 
 // Import local utilities:
 import About from './Components/About/About.jsx';
-// import Login from './Components/Login/Login.jsx';
+import Login from './Components/Login/Login.jsx';
 import Register from './Components/Register/Register.jsx';
 import './App.css';
 
@@ -14,7 +14,7 @@ export default function App() {
     <AnimatePresence>
       <Routes>
         <Route path="/" element={<About />} />
-        {/* <Route path="/login" element={<Login />} /> */}
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
     </AnimatePresence>

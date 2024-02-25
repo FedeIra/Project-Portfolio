@@ -5,6 +5,8 @@ import {
   SEND_EMAIL_FAILURE,
   GET_COMMENTS_DATA,
   ERROR_FOUND,
+  SIGN_UP,
+  LOG_IN,
 } from '../actions/index.js';
 
 // Set initial global state:
@@ -44,6 +46,16 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         error: true,
+      };
+    case SIGN_UP:
+      return {
+        ...state,
+        user: action.payload,
+      };
+    case LOG_IN:
+      return {
+        ...state,
+        user: action.payload,
       };
     default:
       return state;
