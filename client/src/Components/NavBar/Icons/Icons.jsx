@@ -62,9 +62,9 @@ const Icons = () => {
           icon={<FaWhatsapp size="1.7rem" color="white" />}
         />
       </a>
-      {user ? (
+      {user.token ? (
         <Button colorScheme="transparent" mr={2}>
-          {user}
+          {user.user.userName}
         </Button>
       ) : (
         <>

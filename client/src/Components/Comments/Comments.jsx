@@ -19,8 +19,11 @@ import CommentCard from './CommentCard/CommentCard.jsx';
 import style from './Comments.module.css';
 
 const Comments = () => {
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const comments = useSelector((state) => state.comments);
+
+  useEffect(() => {}, [user]);
 
   const toast = useToast();
 
@@ -99,7 +102,10 @@ const Comments = () => {
       let year = date.getFullYear();
       let currentDate = `${day}-${month}-${year}`;
       let commentId = Math.random();
-      dispatch(postNewComment(commentId, userName, commentArea, currentDate));
+      let token = user.token;
+      dispatch(
+        postNewComment(commentId, userName, commentArea, currentDate, token)
+      );
       setCommentsLocal([
         ...commentsLocal,
         { _id: commentId, userName, content: commentArea, date: currentDate },
@@ -224,17 +230,29 @@ const Comments = () => {
             ) : (
               <></>
             )}
-            <Button
-              mr="5%"
-              mb={5}
-              backgroundColor="gray.800"
-              borderRadius={0}
-              _hover={{ backgroundColor: 'gray.600' }}
-              onClick={handleSubmitComment}
-              disabled={errorCommentArea}
-            >
-              Submit
-            </Button>
+            {!user.token ? (
+              <Button
+                mr="5%"
+                mb={5}
+                backgroundColor="gray.800"
+                borderRadius={0}
+                _hover={{ backgroundColor: 'gray.600' }}
+              >
+                Login to Comment
+              </Button>
+            ) : (
+              <Button
+                mr="5%"
+                mb={5}
+                backgroundColor="gray.800"
+                borderRadius={0}
+                _hover={{ backgroundColor: 'gray.600' }}
+                onClick={handleSubmitComment}
+                disabled={errorCommentArea}
+              >
+                Submit
+              </Button>
+            )}
           </Flex>
         </Box>
       </Flex>

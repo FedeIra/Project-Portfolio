@@ -30,37 +30,37 @@ export default function Register() {
     error: false,
   });
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     e.preventDefault();
     setUser({
       ...userLog,
       [e.target.name]: e.target.value,
     });
-    if (userLog.displayName === '') {
+    if (userLog.displayName.length < 6) {
       setValidName(false);
       return;
     }
     setValidName(true);
-    if (userLog.password === '') {
+    if (userLog.password.length < 6) {
       setValidPass(false);
       return;
     }
     setValidPass(true);
-  }
+  };
 
-  function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const userForm = {
-      username: userLog.displayName,
+      userName: userLog.displayName,
       password: userLog.password,
     };
-    try {
-      dispatch(signUp(userForm));
-      navigate('/login');
-    } catch (error) {
-      console.log(error);
+    const response = await dispatch(signUp(userForm));
+    if (response.type === 'SIGN_UP_FAILURE') {
+      setUser({ ...userLog, error: true });
+      return;
     }
-  }
+    navigate('/login');
+  };
 
   return (
     <div>

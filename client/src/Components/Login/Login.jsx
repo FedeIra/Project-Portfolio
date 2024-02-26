@@ -14,49 +14,46 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 
-export default function Login() {
-  const [error, setError] = useState();
-  const [notFound, setNotFound] = useState();
-  const [incomplete, setIncomplete] = useState(true);
-  const [loading, setLoading] = useState(false);
+import { logIn } from '../../actions';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-  const [user, setUser] = useState({
-    username: '',
+export default function Login() {
+  const [incomplete, setIncomplete] = useState(true);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [userLogin, setUser] = useState({
+    displayName: '',
     password: '',
   });
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     e.preventDefault();
     setUser({
-      ...user,
+      ...userLogin,
       [e.target.name]: e.target.value,
     });
-  }
+    if (userLogin.password.length < 6 || userLogin.displayName.length < 6) {
+      setIncomplete(false);
+      return;
+    }
+    setIncomplete(true);
+  };
 
-  // async function handleSubmit(e) {
-  //   e.preventDefault();
-  //   setLoading(true);
-  //   try {
-  //     if (!user.password) {
-  //       setIncomplete(false);
-  //     } else {
-  //       setIncomplete(true);
-  //     }
-  //     await login(user.username, user.password);
-  //   } catch (error) {
-  //     if (error.message.includes('wrong')) {
-  //       setError(true);
-  //     } else {
-  //       setError(false);
-  //     }
-  //     if (error.message.includes('not-found')) {
-  //       setNotFound(true);
-  //     } else {
-  //       setNotFound(false);
-  //     }
-  //   }
-  //   setLoading(false);
-  // }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const userForm = {
+      userName: userLogin.displayName,
+      password: userLogin.password,
+    };
+    const response = await dispatch(logIn(userForm));
+    if (response.type === 'LOG_IN_FAILURE') {
+      return;
+    }
+    navigate('/');
+  };
 
   return (
     <Box
@@ -99,10 +96,10 @@ export default function Login() {
                   placeholder="Your Username"
                   bg={'gray.100'}
                   border={0}
-                  username="username"
-                  type="usermail"
+                  name="displayName"
+                  type="text"
                   id={1}
-                  value={user.username}
+                  value={userLogin.displayName}
                   onChange={(e) => {
                     handleChange(e);
                   }}
@@ -120,7 +117,7 @@ export default function Login() {
                   id={2}
                   autoComplete={'none'}
                   name="password"
-                  value={user.password}
+                  value={userLogin.password}
                   onChange={(e) => {
                     handleChange(e);
                   }}
@@ -134,7 +131,7 @@ export default function Login() {
                     <Text color={'#cd6155'} fontWeight={'600'}>
                       Add your password
                     </Text>
-                  )}{' '}
+                  )}
                 </Center>
                 <Button
                   fontFamily={'heading'}
@@ -142,7 +139,7 @@ export default function Login() {
                   w={'full'}
                   backgroundColor={'gray.800'}
                   color={'white'}
-                  /* onClick={handleSubmit} */
+                  onClick={handleSubmit}
                   _hover={{
                     backgroundColor: 'gray.600',
                     boxShadow: 'xl',
@@ -150,19 +147,6 @@ export default function Login() {
                 >
                   Log in
                 </Button>
-
-                <Center>
-                  {error && (
-                    <Text color={'#cd6155'} fontWeight={'600'}>
-                      Wrong password
-                    </Text>
-                  )}
-                  {notFound && (
-                    <Text color={'#cd6155'} fontWeight={'600'}>
-                      User not found
-                    </Text>
-                  )}{' '}
-                </Center>
               </FormControl>
             </Stack>
           </Box>

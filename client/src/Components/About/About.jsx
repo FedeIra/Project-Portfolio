@@ -1,34 +1,38 @@
 // Import external dependencies:
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import { motion } from "framer-motion";
-import { IconButton } from "@chakra-ui/react";
-import { BsChevronDoubleUp } from "react-icons/bs";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Container, Row, Col } from 'react-bootstrap';
+import { motion } from 'framer-motion';
+import { IconButton } from '@chakra-ui/react';
+import { BsChevronDoubleUp } from 'react-icons/bs';
+// import user from store:
 
 // Import local dependencies:
-import * as images from "../../Assets/home_images";
-import style from "./About.module.css";
-import CardAbout from "./CardAbout.jsx";
-import technologies from "./technologies.json";
-import Landing from "../Landing/Landing.jsx";
-import Projects from "../Projects/Projects.jsx";
-import Experience from "../Experience/Experience.jsx";
-import Contact from "../Contact/Contact.jsx";
-import Skills from "../Skills/Skills.jsx";
-import Footer from "../Footer/Footer.jsx";
-import OtherProjects from "../Other projects/Other_Projects.jsx";
-import Comments from "../Comments/Comments.jsx";
+import * as images from '../../Assets/home_images';
+import style from './About.module.css';
+import CardAbout from './CardAbout.jsx';
+import technologies from './technologies.json';
+import Landing from '../Landing/Landing.jsx';
+import Projects from '../Projects/Projects.jsx';
+import Experience from '../Experience/Experience.jsx';
+import Contact from '../Contact/Contact.jsx';
+import Skills from '../Skills/Skills.jsx';
+import Footer from '../Footer/Footer.jsx';
+import OtherProjects from '../Other projects/Other_Projects.jsx';
+import Comments from '../Comments/Comments.jsx';
 
 const About = () => {
+  const userData = useSelector((state) => state.user);
+  console.log(userData);
   // Function to handle scroll:
-  const navBarLinks = document.getElementsByClassName("nav-link");
+  const navBarLinks = document.getElementsByClassName('nav-link');
 
   window.onscroll = function () {
-    const aboutMe = document.getElementById("aboutMe");
-    const projects = document.getElementById("projects");
-    const experience = document.getElementById("experience");
-    const contact = document.getElementById("getInTouch");
-    const comments = document.getElementById("userComments");
+    const aboutMe = document.getElementById('aboutMe');
+    const projects = document.getElementById('projects');
+    const experience = document.getElementById('experience');
+    const contact = document.getElementById('getInTouch');
+    const comments = document.getElementById('userComments');
 
     const navBarLinksArray = Array.from(navBarLinks);
     const navBarLinksArrayLength = navBarLinksArray.length;
@@ -49,14 +53,14 @@ const About = () => {
 
     for (let i = 0; i < navBarLinksArrayLength; i++) {
       if (navBarLinksArrayPositions[i] < 100) {
-        navBarLinksArray[i].style.textDecoration = "underline";
+        navBarLinksArray[i].style.textDecoration = 'underline';
         for (let j = 0; j < navBarLinksArrayLength; j++) {
           if (j !== i) {
-            navBarLinksArray[j].style.textDecoration = "none";
+            navBarLinksArray[j].style.textDecoration = 'none';
           }
         }
       } else {
-        navBarLinksArray[i].style.textDecoration = "none";
+        navBarLinksArray[i].style.textDecoration = 'none';
       }
     }
   };
@@ -131,7 +135,7 @@ const About = () => {
                         <a
                           href="#getInTouch"
                           style={{
-                            textDecoration: "underline",
+                            textDecoration: 'underline',
                           }}
                         >
                           Let's work together.

@@ -6,6 +6,7 @@ import {
   GET_COMMENTS_DATA,
   ERROR_FOUND,
   SIGN_UP,
+  SIGN_UP_FAILURE,
   LOG_IN,
 } from '../actions/index.js';
 
@@ -13,7 +14,13 @@ import {
 const initialState = {
   error: false,
   comments: [],
-  user: '',
+  user: {
+    token: '',
+    user: {
+      userName: '',
+      password: '',
+    },
+  },
 };
 
 // Create reducer functions:
@@ -51,6 +58,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         user: action.payload,
+      };
+    case SIGN_UP_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
       };
     case LOG_IN:
       return {
