@@ -1,11 +1,11 @@
 // import external dependencies:
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 
 // import local components:
-import * as images from "../../../../Assets/home_images";
-import style from "./Background_Courses.module.css";
-import backgroundCourses from "./Background Courses Data/Background_Courses.json";
+import * as images from '../../../../Assets/home_images';
+import style from './Background_Courses.module.css';
+import backgroundCourses from './Background Courses Data/Background_Courses.json';
 
 // Define CourseItem for Background_Courses
 const CourseItem = ({ course }) => {
@@ -28,14 +28,7 @@ const CourseItem = ({ course }) => {
           <Col>&nbsp;</Col>
         </Row>
         <h5 className={`m-0`}>
-          <span
-            className={`badge border`}
-            style={{
-              backgroundColor: "#2ECC71",
-            }}
-          >
-            &nbsp;
-          </span>
+          <span className={`badge bg-success border`}>&nbsp;</span>
         </h5>
         <Row className={`h-100`}>
           <Col className={`border-end`}>&nbsp;</Col>
@@ -46,13 +39,13 @@ const CourseItem = ({ course }) => {
         <div
           className="card"
           style={{
-            borderRadius: "0",
+            borderRadius: '0',
           }}
         >
           <div
             className="card-body"
             style={{
-              backgroundColor: "rgba(4, 1, 19, 0.9)",
+              backgroundColor: 'rgba(4, 1, 19, 0.9)',
             }}
           >
             <div className="float-end text-white">
@@ -97,9 +90,9 @@ const Background_Courses = () => {
             </Row>
             <h5 className={`m-0`}>
               <span
-                className={`badge bg-success border`}
+                className={`badge border`}
                 style={{
-                  backgroundColor: "#2ECC71",
+                  backgroundColor: '#2ECC71',
                 }}
               >
                 &nbsp;
@@ -127,14 +120,14 @@ const Background_Courses = () => {
             <div
               className="card"
               style={{
-                borderRadius: "0",
+                borderRadius: '0',
               }}
             >
               <div
                 className="card-body
               "
                 style={{
-                  backgroundColor: "rgba(4, 1, 19, 0.9)",
+                  backgroundColor: 'rgba(4, 1, 19, 0.9)',
                 }}
               >
                 <div className="float-end text-white">

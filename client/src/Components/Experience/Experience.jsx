@@ -1,9 +1,9 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import { motion } from "framer-motion";
-import style from "./Experience.module.css";
-import * as images from "../../Assets/home_images.js";
-import Background from "./Background/Background.jsx";
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import { motion } from 'framer-motion';
+import style from './Experience.module.css';
+import * as images from '../../Assets/home_images.js';
+import Background from './Background/Background.jsx';
 
 const Experience = () => {
   let boxVariants = {};
@@ -67,7 +67,15 @@ const Experience = () => {
                 className={`m-0
             `}
               >
-                <span className={`badge bg-success border`}>&nbsp;</span>
+                <span
+                  className={`badge
+                  border`}
+                  style={{
+                    backgroundColor: '#2ECC71',
+                  }}
+                >
+                  &nbsp;
+                </span>
               </h5>
               <Row
                 className={`
@@ -92,13 +100,13 @@ const Experience = () => {
               <div
                 className="card"
                 style={{
-                  borderRadius: "0",
+                  borderRadius: '0',
                 }}
               >
                 <div
                   className="card-body"
                   style={{
-                    backgroundColor: "rgba(4, 1, 19, 0.9)",
+                    backgroundColor: 'rgba(4, 1, 19, 0.9)',
                   }}
                 >
                   <div className="float-end text-white">
@@ -126,7 +134,7 @@ const Experience = () => {
                     the creation of a middleware designed to facilitate the
                     utilization of payment services from a payment provider.
                     Leading a team in this project, I played a pivotal role in
-                    ensuring its successful implementation; <br />•{" "}
+                    ensuring its successful implementation; <br />•{' '}
                     <b> OBI: </b> I actively participated in the development of
                     a service dedicated to synchronizing product stock levels
                     between two warehouses; and <br />•
@@ -174,10 +182,7 @@ const Experience = () => {
                 className={`
               h-0
               `}
-              >
-                <Col>&nbsp;</Col>
-                <Col>&nbsp;</Col>
-              </Row>
+              ></Row>
               <h5
                 className={`m-0
             `}
@@ -207,13 +212,13 @@ const Experience = () => {
               <div
                 className="card"
                 style={{
-                  borderRadius: "0",
+                  borderRadius: '0',
                 }}
               >
                 <div
                   className="card-body"
                   style={{
-                    backgroundColor: "rgba(4, 1, 19, 0.9)",
+                    backgroundColor: 'rgba(4, 1, 19, 0.9)',
                   }}
                 >
                   <div className="float-end text-white">
@@ -230,7 +235,7 @@ const Experience = () => {
                       width="40"
                       className="me-2"
                       style={{
-                        filter: "invert(100%)",
+                        filter: 'invert(100%)',
                       }}
                     />
                     <strong> Project Portfolio </strong>
@@ -284,15 +289,7 @@ const Experience = () => {
                 <Col>&nbsp;</Col>
               </Row>
               <h5 className={`m-0`}>
-                <span
-                  className={`badge
-                  border`}
-                  style={{
-                    backgroundColor: "#2ECC71",
-                  }}
-                >
-                  &nbsp;
-                </span>
+                <span className={`badge bg-success border`}>&nbsp;</span>
               </h5>
               <Row
                 className={`
@@ -316,13 +313,13 @@ const Experience = () => {
               <div
                 className="card"
                 style={{
-                  borderRadius: "0",
+                  borderRadius: '0',
                 }}
               >
                 <div
                   className="card-body"
                   style={{
-                    backgroundColor: "rgba(4, 1, 19, 0.9)",
+                    backgroundColor: 'rgba(4, 1, 19, 0.9)',
                   }}
                 >
                   <div className="float-end text-white">
@@ -342,7 +339,7 @@ const Experience = () => {
                     that includes the following features: <br /> • Third-party
                     authentication (Google);
                     <br /> • Stripe payment platform integration; <br />•
-                    Combined filters; <br />• Image loading with Cloudinary;{" "}
+                    Combined filters; <br />• Image loading with Cloudinary;{' '}
                     <br />• Cloudinary/upload/bucket; <br />• E-mail and live
                     notifications; <br />• Logic user delete; <br />• Redux
                     persist; <br />• Likes and review system; and <br />•
@@ -398,14 +395,7 @@ const Experience = () => {
                 <Col>&nbsp;</Col>
               </Row>
               <h5 className={`m-0`}>
-                <span
-                  className={`badge border`}
-                  style={{
-                    backgroundColor: "#2ECC71",
-                  }}
-                >
-                  &nbsp;
-                </span>
+                <span className={`badge bg-success border`}>&nbsp;</span>
               </h5>
               <Row
                 className={`
@@ -429,14 +419,14 @@ const Experience = () => {
               <div
                 className="card"
                 style={{
-                  borderRadius: "0",
+                  borderRadius: '0',
                 }}
               >
                 <div
                   className="card-body
               "
                   style={{
-                    backgroundColor: "rgba(4, 1, 19, 0.9)",
+                    backgroundColor: 'rgba(4, 1, 19, 0.9)',
                   }}
                 >
                   <div className="float-end text-white">
@@ -510,14 +500,7 @@ const Experience = () => {
                 <Col>&nbsp;</Col>
               </Row>
               <h5 className={`m-0`}>
-                <span
-                  className={`badge border`}
-                  style={{
-                    backgroundColor: "#2ECC71",
-                  }}
-                >
-                  &nbsp;
-                </span>
+                <span className={`badge bg-success border`}>&nbsp;</span>
               </h5>
               <Row
                 className={`
@@ -543,14 +526,14 @@ const Experience = () => {
               <div
                 className="card"
                 style={{
-                  borderRadius: "0",
+                  borderRadius: '0',
                 }}
               >
                 <div
                   className="card-body
               "
                   style={{
-                    backgroundColor: "rgba(4, 1, 19, 0.9)",
+                    backgroundColor: 'rgba(4, 1, 19, 0.9)',
                   }}
                 >
                   <div className="float-end text-white">

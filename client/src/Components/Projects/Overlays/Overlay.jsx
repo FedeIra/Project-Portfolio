@@ -66,23 +66,7 @@ const Overlay = ({ name }) => {
             backgroundColor: 'white',
           }}
           closeButton
-        >
-          <Button
-            variant="primary"
-            onClick={handleClose}
-            className={style.buttonCarousel}
-            style={{
-              borderRadius: '0',
-              display: 'flex',
-            }}
-          >
-            View Site
-            <IconButton
-              colorScheme="transparent"
-              icon={<FaGlobe size="1rem" />}
-            />
-          </Button>
-        </Modal.Header>
+        ></Modal.Header>
       </Modal>
     </Card.ImgOverlay>
   );

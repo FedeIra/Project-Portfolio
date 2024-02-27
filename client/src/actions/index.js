@@ -4,12 +4,15 @@ export const SEND_EMAIL_REQUEST = 'SEND_EMAIL_REQUEST';
 export const SEND_EMAIL_SUCCESS = 'SEND_EMAIL_SUCCESS';
 export const SEND_EMAIL_FAILURE = 'SEND_EMAIL_FAILURE';
 export const GET_COMMENTS_DATA = 'GET_COMMENTS_DATA';
-export const POST_COMMENT = 'POST_COMMENT';
+export const SEND_COMMENT_REQUEST = 'SEND_COMMENT_REQUEST';
+export const SEND_COMMENT_SUCCESS = 'SEND_COMMENT_SUCCESS';
+export const SEND_COMMENT_FAILURE = 'SEND_COMMENT_FAILURE';
 export const ERROR_FOUND = 'ERROR_FOUND';
 export const SIGN_UP = 'SIGN_UP';
 export const SIGN_UP_FAILURE = 'SIGN_UP_FAILURE';
 export const LOG_IN = 'LOG_IN';
 export const LOG_IN_FAILURE = 'LOG_IN_FAILURE';
+export const LOG_OUT = 'LOG_OUT';
 
 // Use route to send email:
 export const sendEmail = (form) => {
@@ -57,6 +60,9 @@ export const getComments = (id) => {
 // Use route to post new comment:
 export const postNewComment = (commentId, userName, content, date, token) => {
   return async function (dispatch) {
+    dispatch({
+      type: SEND_COMMENT_REQUEST,
+    });
     try {
       const config = {
         headers: {
@@ -74,12 +80,13 @@ export const postNewComment = (commentId, userName, content, date, token) => {
         config
       );
       return dispatch({
-        type: POST_COMMENT,
+        type: SEND_COMMENT_SUCCESS,
         payload: json.data,
       });
     } catch (error) {
       return dispatch({
-        type: ERROR_FOUND,
+        type: SEND_COMMENT_FAILURE,
+        payload: error.message,
       });
     }
   };
@@ -95,7 +102,10 @@ export const signUp = (signForm) => {
         payload: json.data,
       });
     } catch (error) {
-      return dispatch({
+      if (error.response.data === 'Username already exists.') {
+        return error.response.data;
+      }
+      dispatch({
         type: SIGN_UP_FAILURE,
         payload: error.message,
       });
@@ -113,10 +123,22 @@ export const logIn = (logForm) => {
         payload: json.data,
       });
     } catch (error) {
+      if (error.response.data === 'Invalid username or password.') {
+        return error.response.data;
+      }
       return dispatch({
         type: LOG_IN_FAILURE,
         payload: error.message,
       });
     }
+  };
+};
+
+// Use route to log out:
+export const logOut = () => {
+  return async function (dispatch) {
+    return dispatch({
+      type: LOG_OUT,
+    });
   };
 };

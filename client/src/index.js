@@ -7,6 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from 'react-redux';
 import { store } from './store/index.js';
 import axios from 'axios';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistStore } from 'redux-persist';
 
 // Import local utilities:
 import './index.css';
@@ -35,13 +37,16 @@ axios.defaults.baseURL =
 
 // Render App component:
 const root = createRoot(document.getElementById('root'));
+let persistor = persistStore(store);
 
 root.render(
-  <Provider store={store}>
-    <ChakraProvider theme={theme}>
+  <ChakraProvider theme={theme}>
+    <Provider store={store}>
       <BrowserRouter>
-        <App />
+        <PersistGate persistor={persistor}>
+          <App />
+        </PersistGate>
       </BrowserRouter>
-    </ChakraProvider>
-  </Provider>
+    </Provider>
+  </ChakraProvider>
 );

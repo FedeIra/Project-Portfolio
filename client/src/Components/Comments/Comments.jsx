@@ -25,22 +25,24 @@ const Comments = () => {
 
   useEffect(() => {}, [user]);
 
-  const toast = useToast();
+  const commentToast = useToast();
 
-  const { loading, email, error } = useSelector((state) => state);
+  const { loadingComment, postedComment, errorComment } = useSelector(
+    (state) => state
+  );
 
   useEffect(() => {
-    if (error) {
-      toast({
-        title: 'Error.',
-        description: 'Error posting comment. Please try again.',
-        status: 'error',
-        duration: 3000,
+    if (loadingComment) {
+      commentToast({
+        title: 'Loading.',
+        description: 'Posting comment...',
+        status: 'info',
+        duration: 2000,
         position: 'top-right',
         isClosable: true,
       });
-    } else if (email) {
-      toast({
+    } else if (postedComment) {
+      commentToast({
         title: 'Comment posted.',
         description: 'I appreciate your comment.',
         status: 'success',
@@ -48,17 +50,17 @@ const Comments = () => {
         position: 'top-right',
         isClosable: true,
       });
-    } else if (loading) {
-      toast({
-        title: 'Loading.',
-        description: 'Posting comment...',
-        status: 'info',
+    } else if (errorComment) {
+      commentToast({
+        title: 'Error.',
+        description: 'Error posting comment. Please try again.',
+        status: 'error',
         duration: 3000,
         position: 'top-right',
         isClosable: true,
       });
     }
-  }, [loading, email, error, toast]);
+  }, [loadingComment, postedComment, errorComment, commentToast]);
 
   const [commentsLocal, setCommentsLocal] = useState([]);
   const [commentArea, setCommentArea] = useState('');

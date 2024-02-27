@@ -79,6 +79,7 @@ router.post(
       const newUser = await userService.createUser(body);
       res.status(201).json(newUser);
     } catch (error) {
+      console.log(error.message);
       next(error);
     }
   }

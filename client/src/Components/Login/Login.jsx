@@ -11,8 +11,9 @@ import {
   FormControl,
   Link,
   Flex,
+  useToast,
 } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { logIn } from '../../actions';
 import { useDispatch } from 'react-redux';
@@ -23,11 +24,36 @@ export default function Login() {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const toast = useToast();
 
   const [userLogin, setUser] = useState({
     displayName: '',
     password: '',
+    error: false,
+    errorMessage: '',
   });
+
+  useEffect(() => {
+    if (userLogin.error) {
+      toast({
+        title: 'Error.',
+        description: userLogin.errorMessage,
+        status: 'error',
+        duration: 3000,
+        position: 'top-right',
+        isClosable: true,
+      });
+    } else if (userLogin.errorMessage === 'No error') {
+      toast({
+        title: 'Welcome!',
+        description: 'You have logged in successfully',
+        status: 'success',
+        duration: 3000,
+        position: 'top-right',
+        isClosable: true,
+      });
+    }
+  }, [userLogin.error, userLogin.errorMessage, toast]);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -48,11 +74,30 @@ export default function Login() {
       userName: userLogin.displayName,
       password: userLogin.password,
     };
-    const response = await dispatch(logIn(userForm));
-    if (response.type === 'LOG_IN_FAILURE') {
-      return;
+    try {
+      const response = await dispatch(logIn(userForm));
+      if (response === 'Invalid username or password.') {
+        setUser({
+          displayName: '',
+          password: '',
+          error: true,
+          errorMessage: response,
+        });
+        return;
+      }
+      setUser({
+        errorMessage: 'No error',
+      });
+      setTimeout(() => {
+        navigate('/');
+      }, 1000);
+    } catch (error) {
+      setUser({
+        ...userLogin,
+        error: true,
+        errorMessage: 'Error logging in. Please try again.',
+      });
     }
-    navigate('/');
   };
 
   return (
@@ -169,6 +214,16 @@ export default function Login() {
           ></Stack>
         </Stack>
       </Container>
+      <Box position="absolute" top="2rem" left="2rem">
+        <Button
+          backgroundColor={'rgba(4, 1, 19, 0.9)'}
+          fontSize={'2xl'}
+          size={'lg'}
+          onClick={() => navigate('/')}
+        >
+          Back
+        </Button>
+      </Box>
     </Box>
   );
 }

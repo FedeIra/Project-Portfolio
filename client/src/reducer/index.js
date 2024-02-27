@@ -4,10 +4,14 @@ import {
   SEND_EMAIL_SUCCESS,
   SEND_EMAIL_FAILURE,
   GET_COMMENTS_DATA,
+  SEND_COMMENT_REQUEST,
+  SEND_COMMENT_SUCCESS,
+  SEND_COMMENT_FAILURE,
   ERROR_FOUND,
   SIGN_UP,
   SIGN_UP_FAILURE,
   LOG_IN,
+  LOG_OUT,
 } from '../actions/index.js';
 
 // Set initial global state:
@@ -44,6 +48,24 @@ const rootReducer = (state = initialState, action) => {
         loading: false,
         error: action.payload,
       };
+    case SEND_COMMENT_REQUEST:
+      return {
+        ...state,
+        loadingComment: true,
+        errorComment: null,
+      };
+    case SEND_COMMENT_SUCCESS:
+      return {
+        ...state,
+        loadingComment: false,
+        postedComment: action.payload,
+      };
+    case SEND_COMMENT_FAILURE:
+      return {
+        ...state,
+        loadingComment: false,
+        errorComment: action.payload,
+      };
     case GET_COMMENTS_DATA:
       return {
         ...state,
@@ -68,6 +90,17 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         user: action.payload,
+      };
+    case LOG_OUT:
+      return {
+        ...state,
+        user: {
+          token: '',
+          user: {
+            userName: '',
+            password: '',
+          },
+        },
       };
     default:
       return state;

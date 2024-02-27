@@ -11,9 +11,10 @@ import {
   Center,
   Link,
   FormControl,
+  useToast,
 } from '@chakra-ui/react';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { signUp } from '../../actions';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -21,6 +22,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Register() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const toast = useToast();
   const [validName, setValidName] = useState(true);
   const [validPass, setValidPass] = useState(true);
 
@@ -28,7 +30,30 @@ export default function Register() {
     displayName: '',
     password: '',
     error: false,
+    errorMessage: '',
   });
+
+  useEffect(() => {
+    if (userLog.error) {
+      toast({
+        title: 'Error.',
+        description: userLog.errorMessage,
+        status: 'error',
+        duration: 3000,
+        position: 'top-right',
+        isClosable: true,
+      });
+    } else if (userLog.errorMessage === 'No error') {
+      toast({
+        title: 'Welcome!',
+        description: 'You are now registered.',
+        status: 'success',
+        duration: 3000,
+        position: 'top-right',
+        isClosable: true,
+      });
+    }
+  }, [userLog.error, userLog.errorMessage, toast]);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -54,12 +79,30 @@ export default function Register() {
       userName: userLog.displayName,
       password: userLog.password,
     };
-    const response = await dispatch(signUp(userForm));
-    if (response.type === 'SIGN_UP_FAILURE') {
-      setUser({ ...userLog, error: true });
-      return;
+    try {
+      const response = await dispatch(signUp(userForm));
+      if (response === 'Username already exists.') {
+        setUser({
+          displayName: '',
+          password: '',
+          error: true,
+          errorMessage: response,
+        });
+        return;
+      }
+      setUser({
+        errorMessage: 'No error',
+      });
+      setTimeout(() => {
+        navigate('/login');
+      }, 1000);
+    } catch (error) {
+      setUser({
+        ...userLog,
+        error: true,
+        errorMessage: 'Error signing up. Please try again.',
+      });
     }
-    navigate('/login');
   };
 
   return (
@@ -119,7 +162,7 @@ export default function Register() {
                 <Center>
                   {!validName && (
                     <Text color={'#cd6155'} fontWeight={'600'}>
-                      You need to add a username
+                      Username must be at least 6 characters long
                     </Text>
                   )}
                 </Center>
@@ -145,7 +188,7 @@ export default function Register() {
                   <Center>
                     {!validPass && (
                       <Text color={'#cd6155'} fontWeight={'600'}>
-                        You need to add a password
+                        Password must be at least 6 characters long
                       </Text>
                     )}
                   </Center>
@@ -178,6 +221,16 @@ export default function Register() {
             </Stack>
           </Stack>
         </Container>
+        <Box position="absolute" top="2rem" left="2rem">
+          <Button
+            backgroundColor={'rgba(4, 1, 19, 0.9)'}
+            fontSize={'2xl'}
+            size={'lg'}
+            onClick={() => navigate('/')}
+          >
+            Back
+          </Button>
+        </Box>
       </Box>
     </div>
   );

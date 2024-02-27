@@ -32,7 +32,14 @@ const Background_Education = () => {
               className={`m-0
             `}
             >
-              <span className={`badge bg-success border`}>&nbsp;</span>
+              <span
+                className={`badge border`}
+                style={{
+                  backgroundColor: '#2ECC71',
+                }}
+              >
+                &nbsp;
+              </span>
             </h5>
             <Row
               className={`
@@ -114,14 +121,7 @@ const Background_Education = () => {
               <Col>&nbsp;</Col>
             </Row>
             <h5 className={`m-0`}>
-              <span
-                className={`badge border`}
-                style={{
-                  backgroundColor: '#2ECC71',
-                }}
-              >
-                &nbsp;
-              </span>
+              <span className={`badge bg-success border`}>&nbsp;</span>
             </h5>
             <Row
               className={`
@@ -202,14 +202,7 @@ const Background_Education = () => {
               <Col>&nbsp;</Col>
             </Row>
             <h5 className={`m-0`}>
-              <span
-                className={`badge border`}
-                style={{
-                  backgroundColor: '#2ECC71',
-                }}
-              >
-                &nbsp;
-              </span>
+              <span className={`badge bg-success border`}>&nbsp;</span>
             </h5>
             <Row
               className={`
@@ -288,14 +281,7 @@ const Background_Education = () => {
               <Col>&nbsp;</Col>
             </Row>
             <h5 className={`m-0`}>
-              <span
-                className={`badge border`}
-                style={{
-                  backgroundColor: '#2ECC71',
-                }}
-              >
-                &nbsp;
-              </span>
+              <span className={`badge bg-success border`}>&nbsp;</span>
             </h5>
             <Row
               className={`
@@ -373,14 +359,7 @@ const Background_Education = () => {
               <Col>&nbsp;</Col>
             </Row>
             <h5 className={`m-0`}>
-              <span
-                className={`badge border`}
-                style={{
-                  backgroundColor: '#2ECC71',
-                }}
-              >
-                &nbsp;
-              </span>
+              <span className={`badge bg-success border`}>&nbsp;</span>
             </h5>
           </Col>
           <Col
