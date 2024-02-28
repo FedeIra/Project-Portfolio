@@ -126,7 +126,7 @@ const Comments = () => {
     <div id="userComments" className={style.comments_container}>
       <motion.h2
         className={`text-center ${style.comments_heading}`}
-        initial="hidden"
+        initial={window.innerWidth < 769 ? "visible" : "hidden"}
         whileInView="visible"
         viewport={{ once: true }}
         variants={boxVariants}

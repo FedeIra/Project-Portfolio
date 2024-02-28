@@ -8,21 +8,32 @@ import Overlay from "./Overlays/Overlay.jsx";
 import { IconButton } from "@chakra-ui/react";
 
 const Projects = () => {
-  const boxVariants = {
-    hidden: { opacity: 0, x: window.innerWidth < 769 ? 1000 : 0 },
-    visible: { opacity: 1, x: 0, transition: { duration: 1 } },
-  };
+  let boxVariants = {};
+  let boxVariants2 = {};
+  const isMobile5 = window.innerWidth < 769;
 
-  const boxVariants2 = {
-    hidden: { opacity: 0, x: window.innerWidth < 769 ? -1000 : 0 },
-    visible: { opacity: 1, x: 0, transition: { duration: 1 } },
-  };
+  if (!isMobile5) {
+    boxVariants = {
+      hidden: { opacity: 0, x: -1000 },
+      visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+    };
+    boxVariants2 = {
+      hidden: { opacity: 0, x: 1000 },
+      visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+    };
+  } else {
+    boxVariants = {
+      hidden: { opacity: 0, x: 0 },
+      visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+    };
+    boxVariants2 = boxVariants;
+  }
 
   return (
     <div id="projects">
       <motion.h2
         className={`text-center ${style.projects_heading}`}
-        initial="hidden"
+        initial={window.innerWidth < 769 ? "visible" : "hidden"}
         whileInView="visible"
         viewport={{ once: true }}
         variants={boxVariants}
@@ -33,7 +44,7 @@ const Projects = () => {
         <Row>
           <Col xs={12} md={12}>
             <motion.div
-              initial="hidden"
+              initial={window.innerWidth < 769 ? "visible" : "hidden"}
               whileInView="visible"
               viewport={{ once: true }}
               variants={boxVariants2}

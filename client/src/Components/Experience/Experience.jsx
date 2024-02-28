@@ -6,16 +6,26 @@ import * as images from "../../Assets/home_images.js";
 import Background from "./Background/Background.jsx";
 
 const Experience = () => {
-  const boxVariants = {
-    hidden: { opacity: 0, x: window.innerWidth < 769 ? 1000 : 0 },
-    visible: { opacity: 1, x: 0, transition: { duration: 1 } },
-  };
+  let boxVariants = {};
+  const isMobile4 = window.innerWidth < 769;
+
+  if (!isMobile4) {
+    boxVariants = {
+      hidden: { opacity: 0, x: -1000 },
+      visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+    };
+  } else {
+    boxVariants = {
+      hidden: { opacity: 0, x: 0 },
+      visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+    };
+  }
 
   return (
     <div id="experience" className={style.experience_container}>
       <motion.h2
         className={`text-center ${style.about_heading}`}
-        initial="hidden"
+        initial={window.innerWidth < 769 ? "visible" : "hidden"}
         whileInView="visible"
         viewport={{ once: true }}
         variants={boxVariants}
@@ -35,6 +45,7 @@ const Experience = () => {
         >
           <Row>
             <Col
+              pro
               className={`
             text-center
             flex-column
@@ -560,7 +571,7 @@ const Experience = () => {
       <br />
       <motion.h2
         className={`text-center ${style.about_heading}`}
-        initial="hidden"
+        initial={window.innerWidth < 769 ? "visible" : "hidden"}
         whileInView="visible"
         viewport={{ once: true }}
         variants={boxVariants}

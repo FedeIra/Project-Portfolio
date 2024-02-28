@@ -68,7 +68,7 @@ const Contact = () => {
     <div id="getInTouch" className={style.contact_container}>
       <motion.h2
         className={`text-center ${style.getInTouch_heading}`}
-        initial="hidden"
+        initial={window.innerWidth < 769 ? "visible" : "hidden"}
         whileInView="visible"
         viewport={{ once: true }}
         variants={boxVariants}

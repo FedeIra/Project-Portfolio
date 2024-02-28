@@ -63,7 +63,7 @@ const About = () => {
 
   // Framer motion variants:
   const boxVariants = {
-    hidden: { opacity: 0, x: window.innerWidth < 769 ? 1000 : 0 },
+    hidden: { opacity: 0, x: window.innerWidth < 767 ? 0 : -1000 },
     visible: { opacity: 1, x: 0, transition: { duration: 1 } },
   };
 
@@ -86,7 +86,7 @@ const About = () => {
           <Row>
             <motion.h2
               className={`text-center ${style.about_heading}`}
-              initial="hidden"
+              initial={window.innerWidth < 769 ? "visible" : "hidden"}
               whileInView="visible"
               viewport={{ once: true }}
               variants={boxVariants}
