@@ -1,11 +1,9 @@
 // Import external dependencies:
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { IconButton } from '@chakra-ui/react';
 import { BsChevronDoubleUp } from 'react-icons/bs';
-// import user from store:
 
 // Import local dependencies:
 import * as images from '../../Assets/home_images';
@@ -22,8 +20,6 @@ import OtherProjects from '../Other projects/Other_Projects.jsx';
 import Comments from '../Comments/Comments.jsx';
 
 const About = () => {
-  const userData = useSelector((state) => state.user);
-  console.log(userData);
   // Function to handle scroll:
   const navBarLinks = document.getElementsByClassName('nav-link');
 

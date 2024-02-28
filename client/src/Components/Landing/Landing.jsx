@@ -1,12 +1,12 @@
 // Import external dependencies:
-import React, { useState, useEffect } from "react";
-import { Nav } from "react-bootstrap";
-import { HiOutlineArrowRight, HiOutlineArrowDown } from "react-icons/hi";
-import { IconButton } from "@chakra-ui/react";
+import React, { useState, useEffect } from 'react';
+import { Nav } from 'react-bootstrap';
+import { HiOutlineArrowRight, HiOutlineArrowDown } from 'react-icons/hi';
+import { IconButton } from '@chakra-ui/react';
 
 // Import local dependencies:
-import NavBar from "../NavBar/NavBar.jsx";
-import style from "./Landing.module.css";
+import NavBar from '../NavBar/NavBar.jsx';
+import style from './Landing.module.css';
 
 // Component definition:
 const Landing = () => {
@@ -31,9 +31,9 @@ const Landing = () => {
     const handleResize = () => {
       handleWindowSize();
     };
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
-    return () => window.removeEventListener("resize", handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const isMobile = window.innerWidth < 767;
@@ -52,7 +52,7 @@ const Landing = () => {
           <div className={style.divOnHover}>
             <IconButton
               backgroundColor="white"
-              size={isMobile || isIpad ? "md" : "lg"}
+              size={isMobile || isIpad ? 'md' : 'lg'}
               icon={
                 <HiOutlineArrowDown size="2rem" className={style.icon_arrow} />
               }
@@ -62,7 +62,7 @@ const Landing = () => {
           <span>
             <IconButton
               backgroundColor="white"
-              size={isMobile || isIpad ? "md" : "lg"}
+              size={isMobile || isIpad ? 'md' : 'lg'}
               icon={
                 <HiOutlineArrowRight size="2rem" className={style.icon_arrow} />
               }
