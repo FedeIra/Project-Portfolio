@@ -6,20 +6,10 @@ import * as images from "../../Assets/home_images.js";
 import Background from "./Background/Background.jsx";
 
 const Experience = () => {
-  let boxVariants = {};
-  const isMobile4 = window.innerWidth < 769;
-
-  if (!isMobile4) {
-    boxVariants = {
-      hidden: { opacity: 0, x: -1000 },
-      visible: { opacity: 1, x: 0, transition: { duration: 1 } },
-    };
-  } else {
-    boxVariants = {
-      hidden: { opacity: 0, x: 0 },
-      visible: { opacity: 1, x: 0, transition: { duration: 1 } },
-    };
-  }
+  const boxVariants = {
+    hidden: { opacity: 0, x: window.innerWidth < 769 ? 1000 : 0 },
+    visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+  };
 
   return (
     <div id="experience" className={style.experience_container}>

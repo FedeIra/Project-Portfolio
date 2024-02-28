@@ -63,7 +63,7 @@ const About = () => {
 
   // Framer motion variants:
   const boxVariants = {
-    hidden: { opacity: 0, x: window.innerWidth < 769 ? 0 : -1000 },
+    hidden: { opacity: 0, x: window.innerWidth < 769 ? 1000 : 0 },
     visible: { opacity: 1, x: 0, transition: { duration: 1 } },
   };
 
