@@ -1,13 +1,21 @@
-const { Router } = require('express');
+import { Router } from 'express';
+import emailjs from '@emailjs/nodejs';
 const router = Router();
-const emailjs = require('@emailjs/nodejs');
-require(`dotenv`).config();
-const Comment = require('../Db/Schema/comment.js');
+import dotenv from 'dotenv';
+dotenv.config();
 
-const {
-  getAllComments,
-  createComment,
-} = require('../Db/ControllersDB/comments.js');
+import { Comment } from '../Db/Schema/comment.js';
+import { getAllComments, createComment } from '../Db/ControllersDB/comments.js';
+
+import { validatorHandler } from '../middlewares/validator.handler.js';
+import { UserService } from '../userServices/user.service.js';
+const userService = new UserService();
+
+import { createUserSchema } from '../schemasValidation/user.schema.js';
+
+import passport from 'passport';
+import AuthService from '../userServices/login.service.js';
+const loginService = new AuthService();
 
 const {
   EMAIL_JS_SERVICEID,
@@ -33,7 +41,6 @@ router.post('/sendEmail', async (req, res) => {
     res.status(200).json({ success: true, message: 'Email sent successfully' });
   } catch (error) {
     res.status(500).json({ success: false, message: 'Error sending email' });
-    console.log(error);
   }
 });
 
@@ -48,14 +55,49 @@ router.get('/comments', async (req, res) => {
 });
 
 // Route to post comment
-router.post('/comments', async (req, res) => {
-  const { commentId, userName, content, date } = req.body;
-  try {
-    Comment.create({ commentId, userName, content, date });
-    res.status(201).json('created!');
-  } catch (error) {
-    return res.status(204).json({ Error: error.message });
+router.post(
+  '/comments',
+  passport.authenticate('jwt', { session: false }),
+  async (req, res) => {
+    const { commentId, userName, content, date } = req.body;
+    try {
+      Comment.create({ commentId, userName, content, date });
+      res.status(201).json('created!');
+    } catch (error) {
+      return res.status(204).json({ Error: error.message });
+    }
   }
-});
+);
 
-module.exports = router;
+// Route to user sign-up
+router.post(
+  '/sign-up',
+  validatorHandler(createUserSchema, 'body'),
+  async (req, res, next) => {
+    try {
+      const body = req.body;
+      const newUser = await userService.createUser(body);
+      res.status(201).json(newUser);
+    } catch (error) {
+      console.log(error.message);
+      next(error);
+    }
+  }
+);
+
+// Route to user login
+router.post(
+  '/login',
+  passport.authenticate('local', { session: false }),
+  async (req, res, next) => {
+    try {
+      const user = req.user;
+      const token = await loginService.signToken(user);
+      res.status(200).json(token);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+export default router;

@@ -1,10 +1,12 @@
 // Import external utilities:
-import { Routes, Route } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+import { Routes, Route } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 
 // Import local utilities:
-import About from "./Components/About/About.jsx";
-import "./App.css";
+import About from './Components/About/About.jsx';
+import Login from './Components/Login/Login.jsx';
+import Register from './Components/Register/Register.jsx';
+import './App.css';
 
 // Define and export main App component:
 export default function App() {
@@ -12,6 +14,8 @@ export default function App() {
     <AnimatePresence>
       <Routes>
         <Route path="/" element={<About />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </AnimatePresence>
   );

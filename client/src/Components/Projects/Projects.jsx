@@ -1,11 +1,11 @@
-import React from "react";
-import { Container, Row, Col, Button, Card } from "react-bootstrap";
-import { motion } from "framer-motion";
-import style from "./Projects.module.css";
-import * as images from "../../Assets/home_images";
-import { FaGithub, FaGlobe, FaStar } from "react-icons/fa";
-import Overlay from "./Overlays/Overlay.jsx";
-import { IconButton } from "@chakra-ui/react";
+import React from 'react';
+import { Container, Row, Col, Button, Card } from 'react-bootstrap';
+import { motion } from 'framer-motion';
+import style from './Projects.module.css';
+import * as images from '../../Assets/home_images';
+import { FaGithub, FaGlobe, FaStar } from 'react-icons/fa';
+import Overlay from './Overlays/Overlay.jsx';
+import { IconButton } from '@chakra-ui/react';
 
 const Projects = () => {
   let boxVariants = {};
@@ -61,19 +61,19 @@ const Projects = () => {
                       col-lg-4
                       "
                       style={{
-                        marginBottom: "30px",
+                        marginBottom: '30px',
                       }}
                     >
                       <Card
                         className={style.card}
                         style={{
-                          borderRadius: "0",
+                          borderRadius: '0',
                         }}
                       >
                         <div className={style.img1}>
                           <Card.Img src={images.kinema_picture2} alt="kinema" />
                           <Card.ImgOverlay className={style.card_overlay}>
-                            <Overlay name={"Kinema"} />
+                            <Overlay name={'Kinema'} />
                           </Card.ImgOverlay>
                         </div>
                         <div className={style.img2}>
@@ -122,8 +122,8 @@ const Projects = () => {
                                   variant="primary"
                                   className={style.buttonCard}
                                   style={{
-                                    borderRadius: "0",
-                                    paddingRight: "20px",
+                                    borderRadius: '0',
+                                    paddingRight: '20px',
                                   }}
                                 >
                                   View Site
@@ -146,7 +146,7 @@ const Projects = () => {
                                   variant="secondary"
                                   className={style.buttonCard}
                                   style={{
-                                    borderRadius: "0",
+                                    borderRadius: '0',
                                   }}
                                 >
                                   View Code
@@ -170,13 +170,13 @@ const Projects = () => {
                       <Card
                         className={style.card}
                         style={{
-                          borderRadius: "0",
+                          borderRadius: '0',
                         }}
                       >
                         <div className={style.img1}>
                           <Card.Img src={images.gaming1} alt="gaming" />
                           <Card.ImgOverlay className={style.card_overlay}>
-                            <Overlay name={"G&B"} />
+                            <Overlay name={'G&B'} />
                           </Card.ImgOverlay>
                         </div>
                         <div className={style.img2}>
@@ -186,7 +186,7 @@ const Projects = () => {
                           <h2>Gaming & Beyond</h2>
                           <p
                             style={{
-                              marginBottom: "17px",
+                              marginBottom: '17px',
                             }}
                           >
                             G&B is a gaming website with the following features:
@@ -194,7 +194,6 @@ const Projects = () => {
                             User interaction to create, delete and modify
                             videogames added by users.
                           </p>
-                          <br />
                           <br />
                           <br />
                           <br />
@@ -212,8 +211,8 @@ const Projects = () => {
                                   variant="primary"
                                   className={style.buttonCard}
                                   style={{
-                                    borderRadius: "0",
-                                    paddingRight: "20px",
+                                    borderRadius: '0',
+                                    paddingRight: '20px',
                                   }}
                                 >
                                   View Site
@@ -235,7 +234,7 @@ const Projects = () => {
                                   variant="secondary"
                                   className={style.buttonCard}
                                   style={{
-                                    borderRadius: "0",
+                                    borderRadius: '0',
                                   }}
                                 >
                                   View Code

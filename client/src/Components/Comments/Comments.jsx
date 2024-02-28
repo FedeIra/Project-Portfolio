@@ -1,6 +1,6 @@
 // Import external dependencies:
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   Box,
   Flex,
@@ -11,57 +11,62 @@ import {
   Divider,
   useMediaQuery,
   useToast,
-} from "@chakra-ui/react";
-import { motion } from "framer-motion";
+} from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 // Import local dependencies:
-import { getComments, postNewComment } from "../../actions";
-import CommentCard from "./CommentCard/CommentCard.jsx";
-import style from "./Comments.module.css";
+import { getComments, postNewComment } from '../../actions';
+import CommentCard from './CommentCard/CommentCard.jsx';
+import style from './Comments.module.css';
 
 const Comments = () => {
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const comments = useSelector((state) => state.comments);
 
-  const toast = useToast();
+  useEffect(() => {}, [user]);
 
-  const { loading, email, error } = useSelector((state) => state);
+  const commentToast = useToast();
+
+  const { loadingComment, postedComment, errorComment } = useSelector(
+    (state) => state
+  );
 
   useEffect(() => {
-    if (error) {
-      toast({
-        title: "Error.",
-        description: "Error posting comment. Please try again.",
-        status: "error",
-        duration: 3000,
-        position: "top-right",
+    if (loadingComment) {
+      commentToast({
+        title: 'Loading.',
+        description: 'Posting comment...',
+        status: 'info',
+        duration: 2000,
+        position: 'top-right',
         isClosable: true,
       });
-    } else if (email) {
-      toast({
-        title: "Comment posted.",
-        description: "I appreciate your comment.",
-        status: "success",
+    } else if (postedComment) {
+      commentToast({
+        title: 'Comment posted.',
+        description: 'I appreciate your comment.',
+        status: 'success',
         duration: 3000,
-        position: "top-right",
+        position: 'top-right',
         isClosable: true,
       });
-    } else if (loading) {
-      toast({
-        title: "Loading.",
-        description: "Posting comment...",
-        status: "info",
+    } else if (errorComment) {
+      commentToast({
+        title: 'Error.',
+        description: 'Error posting comment. Please try again.',
+        status: 'error',
         duration: 3000,
-        position: "top-right",
+        position: 'top-right',
         isClosable: true,
       });
     }
-  }, [loading, email, error, toast]);
+  }, [loadingComment, postedComment, errorComment, commentToast]);
 
   const [commentsLocal, setCommentsLocal] = useState([]);
-  const [commentArea, setCommentArea] = useState("");
-  const [userName, setUserName] = useState("");
+  const [commentArea, setCommentArea] = useState('');
+  const [userName, setUserName] = useState('');
   const [errorCommentArea, setErrorCommentArea] = useState(false);
-  const [isShortThan960px] = useMediaQuery("(max-width: 960px)");
+  const [isShortThan960px] = useMediaQuery('(max-width: 960px)');
 
   useEffect(() => {
     dispatch(getComments());
@@ -99,13 +104,16 @@ const Comments = () => {
       let year = date.getFullYear();
       let currentDate = `${day}-${month}-${year}`;
       let commentId = Math.random();
-      dispatch(postNewComment(commentId, userName, commentArea, currentDate));
+      let token = user.token;
+      dispatch(
+        postNewComment(commentId, userName, commentArea, currentDate, token)
+      );
       setCommentsLocal([
-        ...commentsLocal,
         { _id: commentId, userName, content: commentArea, date: currentDate },
+        ...commentsLocal,
       ]);
-      setCommentArea("");
-      setUserName("");
+      setCommentArea('');
+      setUserName('');
     }
   };
 
@@ -127,10 +135,10 @@ const Comments = () => {
       </motion.h2>
       <Flex
         flexDirection="column"
-        ml={isShortThan960px ? "6vw" : "25vw"}
+        ml={isShortThan960px ? '6vw' : '25vw'}
         mt={85}
         mb={50}
-        w={isShortThan960px ? "85%" : "50%"}
+        w={isShortThan960px ? '85%' : '50%'}
       >
         <Flex
           maxH={500}
@@ -138,16 +146,16 @@ const Comments = () => {
           flexDirection="column"
           alignItems="center"
           css={{
-            "&::-webkit-scrollbar": {
-              backgroundColor: "rgba(4, 1, 19, 0.9)",
-              width: "10px",
+            '&::-webkit-scrollbar': {
+              backgroundColor: 'rgba(4, 1, 19, 0.9)',
+              width: '10px',
             },
-            "&::-webkit-scrollbar-track": {
-              width: "1px",
+            '&::-webkit-scrollbar-track': {
+              width: '1px',
             },
-            "&::-webkit-scrollbar-thumb": {
-              background: "white",
-              borderRadius: "24px",
+            '&::-webkit-scrollbar-thumb': {
+              background: 'white',
+              borderRadius: '24px',
             },
           }}
         >
@@ -224,17 +232,29 @@ const Comments = () => {
             ) : (
               <></>
             )}
-            <Button
-              mr="5%"
-              mb={5}
-              backgroundColor="gray.800"
-              borderRadius={0}
-              _hover={{ backgroundColor: "gray.600" }}
-              onClick={handleSubmitComment}
-              disabled={errorCommentArea}
-            >
-              Submit
-            </Button>
+            {!user.token ? (
+              <Button
+                mr="5%"
+                mb={5}
+                backgroundColor="gray.800"
+                borderRadius={0}
+                _hover={{ backgroundColor: 'gray.600' }}
+              >
+                Login to Comment
+              </Button>
+            ) : (
+              <Button
+                mr="5%"
+                mb={5}
+                backgroundColor="gray.800"
+                borderRadius={0}
+                _hover={{ backgroundColor: 'gray.600' }}
+                onClick={handleSubmitComment}
+                disabled={errorCommentArea}
+              >
+                Submit
+              </Button>
+            )}
           </Flex>
         </Box>
       </Flex>

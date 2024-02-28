@@ -1,51 +1,51 @@
 // Import external dependencies:
-import React, { useRef, useEffect } from "react";
-import { Container } from "react-bootstrap";
-import { motion } from "framer-motion";
-import { useToast } from "@chakra-ui/react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useRef, useEffect } from 'react';
+import { Container } from 'react-bootstrap';
+import { motion } from 'framer-motion';
+import { useToast } from '@chakra-ui/react';
+import { useDispatch, useSelector } from 'react-redux';
 
 // Import local dependencies:
-import style from "./Contact.module.css";
-import { sendEmail } from "../../actions";
+import style from './Contact.module.css';
+import { sendEmail } from '../../actions';
 
 const Contact = () => {
   const dispatch = useDispatch();
-  const toast = useToast();
+  const emailToast = useToast();
   const form = useRef();
 
   const { loading, email, error } = useSelector((state) => state);
 
   useEffect(() => {
-    if (error) {
-      toast({
-        title: "Error.",
-        description: "Error sending email. Please try again.",
-        status: "error",
-        duration: 3000,
-        position: "top-right",
+    if (loading) {
+      emailToast({
+        title: 'Loading.',
+        description: 'Sending email...',
+        status: 'info',
+        duration: 2000,
+        position: 'top-right',
         isClosable: true,
       });
     } else if (email) {
-      toast({
-        title: "Email sent.",
-        description: "I appreciate your email and will respond soon.",
-        status: "success",
+      emailToast({
+        title: 'Email sent.',
+        description: 'I appreciate your email and will respond soon.',
+        status: 'success',
         duration: 3000,
-        position: "top-right",
+        position: 'top-right',
         isClosable: true,
       });
-    } else if (loading) {
-      toast({
-        title: "Loading.",
-        description: "Sending email...",
-        status: "info",
+    } else if (error) {
+      emailToast({
+        title: 'Error.',
+        description: 'Error sending email. Please try again.',
+        status: 'error',
         duration: 3000,
-        position: "top-right",
+        position: 'top-right',
         isClosable: true,
       });
     }
-  }, [loading, email, error, toast]);
+  }, [loading, email, error, emailToast]);
 
   const boxVariants = {
     hidden: { opacity: 0, x: window.innerWidth < 768 ? -1000 : 0 },
@@ -75,7 +75,7 @@ const Contact = () => {
       >
         Get in touch
       </motion.h2>
-      <Container>
+      <Container fluid>
         <section id="contact" className="full-height px-lg-5">
           <div className="container">
             <div
@@ -112,6 +112,8 @@ const Contact = () => {
                       className={`form-control
                       form-control-lg ${style.form_container}`}
                       placeholder="Enter email"
+                      value="fedeirar@gmail.com"
+                      readOnly
                     />
                   </div>
                   <div className="form-group col-12">
@@ -132,6 +134,14 @@ const Contact = () => {
                       className={`form-control
                       form-control-lg ${style.form_container}`}
                       placeholder="Your Message"
+                      style={{
+                        height: 'auto',
+                        overflow: 'auto',
+                        WebkitOverflowScrolling: 'touch',
+                        scrollbarWidth: 'thin',
+                        scrollbarColor: 'white rgba(4, 1, 19, 0.9)',
+                        maxHeight: '230px',
+                      }}
                     ></textarea>
                   </div>
                   <div className="form-group col-12 d-grid">

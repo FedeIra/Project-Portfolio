@@ -1,9 +1,15 @@
-const Comment = require('../Schema/comment.js');
+import { Comment } from '../Schema/comment.js';
 
 /* Get all comments from database: */
 const getAllComments = async () => {
-  const comments = await Comment.find();
-  return comments;
+  try {
+    const comments = await Comment.find();
+
+    const orderComments = comments.reverse();
+    return orderComments;
+  } catch (error) {
+    return error;
+  }
 };
 
 // Create comment for database:
@@ -15,7 +21,4 @@ const createComment = async (id, userName, content, date) => {
   }
 };
 
-module.exports = {
-  getAllComments,
-  createComment,
-};
+export { getAllComments, createComment };

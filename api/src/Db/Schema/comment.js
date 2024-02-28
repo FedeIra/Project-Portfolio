@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 // Create database collection:
 const dataSchema = new mongoose.Schema({
@@ -22,4 +22,4 @@ const dataSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('comment', dataSchema);
+export const Comment = mongoose.model('comment', dataSchema);
