@@ -1,6 +1,6 @@
 // Import external dependencies:
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Box,
   Flex,
@@ -11,12 +11,12 @@ import {
   Divider,
   useMediaQuery,
   useToast,
-} from '@chakra-ui/react';
-import { motion } from 'framer-motion';
+} from "@chakra-ui/react";
+import { motion } from "framer-motion";
 // Import local dependencies:
-import { getComments, postNewComment } from '../../actions';
-import CommentCard from './CommentCard/CommentCard.jsx';
-import style from './Comments.module.css';
+import { getComments, postNewComment } from "../../actions";
+import CommentCard from "./CommentCard/CommentCard.jsx";
+import style from "./Comments.module.css";
 
 const Comments = () => {
   const user = useSelector((state) => state.user);
@@ -34,39 +34,39 @@ const Comments = () => {
   useEffect(() => {
     if (loadingComment) {
       commentToast({
-        title: 'Loading.',
-        description: 'Posting comment...',
-        status: 'info',
+        title: "Loading.",
+        description: "Posting comment...",
+        status: "info",
         duration: 2000,
-        position: 'top-right',
+        position: "top-right",
         isClosable: true,
       });
     } else if (postedComment) {
       commentToast({
-        title: 'Comment posted.',
-        description: 'I appreciate your comment.',
-        status: 'success',
+        title: "Comment posted.",
+        description: "I appreciate your comment.",
+        status: "success",
         duration: 3000,
-        position: 'top-right',
+        position: "top-right",
         isClosable: true,
       });
     } else if (errorComment) {
       commentToast({
-        title: 'Error.',
-        description: 'Error posting comment. Please try again.',
-        status: 'error',
+        title: "Error.",
+        description: "Error posting comment. Please try again.",
+        status: "error",
         duration: 3000,
-        position: 'top-right',
+        position: "top-right",
         isClosable: true,
       });
     }
   }, [loadingComment, postedComment, errorComment, commentToast]);
 
   const [commentsLocal, setCommentsLocal] = useState([]);
-  const [commentArea, setCommentArea] = useState('');
-  const [userName, setUserName] = useState('');
+  const [commentArea, setCommentArea] = useState("");
+  const [userName, setUserName] = useState("");
   const [errorCommentArea, setErrorCommentArea] = useState(false);
-  const [isShortThan960px] = useMediaQuery('(max-width: 960px)');
+  const [isShortThan960px] = useMediaQuery("(max-width: 960px)");
 
   useEffect(() => {
     dispatch(getComments());
@@ -112,13 +112,13 @@ const Comments = () => {
         { _id: commentId, userName, content: commentArea, date: currentDate },
         ...commentsLocal,
       ]);
-      setCommentArea('');
-      setUserName('');
+      setCommentArea("");
+      setUserName("");
     }
   };
 
   const boxVariants = {
-    hidden: { opacity: 0, x: window.innerWidth < 768 ? -1000 : 0 },
+    hidden: { opacity: 0, x: window.innerWidth < 769 ? 0 : -1000 },
     visible: { opacity: 1, x: 0, transition: { duration: 1 } },
   };
 
@@ -135,10 +135,10 @@ const Comments = () => {
       </motion.h2>
       <Flex
         flexDirection="column"
-        ml={isShortThan960px ? '6vw' : '25vw'}
+        ml={isShortThan960px ? "6vw" : "25vw"}
         mt={85}
         mb={50}
-        w={isShortThan960px ? '85%' : '50%'}
+        w={isShortThan960px ? "85%" : "50%"}
       >
         <Flex
           maxH={500}
@@ -146,16 +146,16 @@ const Comments = () => {
           flexDirection="column"
           alignItems="center"
           css={{
-            '&::-webkit-scrollbar': {
-              backgroundColor: 'rgba(4, 1, 19, 0.9)',
-              width: '10px',
+            "&::-webkit-scrollbar": {
+              backgroundColor: "rgba(4, 1, 19, 0.9)",
+              width: "10px",
             },
-            '&::-webkit-scrollbar-track': {
-              width: '1px',
+            "&::-webkit-scrollbar-track": {
+              width: "1px",
             },
-            '&::-webkit-scrollbar-thumb': {
-              background: 'white',
-              borderRadius: '24px',
+            "&::-webkit-scrollbar-thumb": {
+              background: "white",
+              borderRadius: "24px",
             },
           }}
         >
@@ -238,7 +238,7 @@ const Comments = () => {
                 mb={5}
                 backgroundColor="gray.800"
                 borderRadius={0}
-                _hover={{ backgroundColor: 'gray.600' }}
+                _hover={{ backgroundColor: "gray.600" }}
               >
                 Login to Comment
               </Button>
@@ -248,7 +248,7 @@ const Comments = () => {
                 mb={5}
                 backgroundColor="gray.800"
                 borderRadius={0}
-                _hover={{ backgroundColor: 'gray.600' }}
+                _hover={{ backgroundColor: "gray.600" }}
                 onClick={handleSubmitComment}
                 disabled={errorCommentArea}
               >

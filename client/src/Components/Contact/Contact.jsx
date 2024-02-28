@@ -1,13 +1,13 @@
 // Import external dependencies:
-import React, { useRef, useEffect } from 'react';
-import { Container } from 'react-bootstrap';
-import { motion } from 'framer-motion';
-import { useToast } from '@chakra-ui/react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useRef, useEffect } from "react";
+import { Container } from "react-bootstrap";
+import { motion } from "framer-motion";
+import { useToast } from "@chakra-ui/react";
+import { useDispatch, useSelector } from "react-redux";
 
 // Import local dependencies:
-import style from './Contact.module.css';
-import { sendEmail } from '../../actions';
+import style from "./Contact.module.css";
+import { sendEmail } from "../../actions";
 
 const Contact = () => {
   const dispatch = useDispatch();
@@ -19,36 +19,36 @@ const Contact = () => {
   useEffect(() => {
     if (loading) {
       emailToast({
-        title: 'Loading.',
-        description: 'Sending email...',
-        status: 'info',
+        title: "Loading.",
+        description: "Sending email...",
+        status: "info",
         duration: 2000,
-        position: 'top-right',
+        position: "top-right",
         isClosable: true,
       });
     } else if (email) {
       emailToast({
-        title: 'Email sent.',
-        description: 'I appreciate your email and will respond soon.',
-        status: 'success',
+        title: "Email sent.",
+        description: "I appreciate your email and will respond soon.",
+        status: "success",
         duration: 3000,
-        position: 'top-right',
+        position: "top-right",
         isClosable: true,
       });
     } else if (error) {
       emailToast({
-        title: 'Error.',
-        description: 'Error sending email. Please try again.',
-        status: 'error',
+        title: "Error.",
+        description: "Error sending email. Please try again.",
+        status: "error",
         duration: 3000,
-        position: 'top-right',
+        position: "top-right",
         isClosable: true,
       });
     }
   }, [loading, email, error, emailToast]);
 
   const boxVariants = {
-    hidden: { opacity: 0, x: window.innerWidth < 768 ? -1000 : 0 },
+    hidden: { opacity: 0, x: window.innerWidth < 769 ? 1000 : 0 },
     visible: { opacity: 1, x: 0, transition: { duration: 1 } },
   };
 
@@ -135,12 +135,12 @@ const Contact = () => {
                       form-control-lg ${style.form_container}`}
                       placeholder="Your Message"
                       style={{
-                        height: 'auto',
-                        overflow: 'auto',
-                        WebkitOverflowScrolling: 'touch',
-                        scrollbarWidth: 'thin',
-                        scrollbarColor: 'white rgba(4, 1, 19, 0.9)',
-                        maxHeight: '230px',
+                        height: "auto",
+                        overflow: "auto",
+                        WebkitOverflowScrolling: "touch",
+                        scrollbarWidth: "thin",
+                        scrollbarColor: "white rgba(4, 1, 19, 0.9)",
+                        maxHeight: "230px",
                       }}
                     ></textarea>
                   </div>
