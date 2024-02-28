@@ -12,12 +12,12 @@ import {
   Link,
   FormControl,
   useToast,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 
-import { useState, useEffect } from 'react';
-import { signUp } from '../../actions';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { signUp } from "../../actions";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -27,29 +27,29 @@ export default function Register() {
   const [validPass, setValidPass] = useState(true);
 
   const [userLog, setUser] = useState({
-    displayName: '',
-    password: '',
+    displayName: "",
+    password: "",
     error: false,
-    errorMessage: '',
+    errorMessage: "",
   });
 
   useEffect(() => {
     if (userLog.error) {
       toast({
-        title: 'Error.',
+        title: "Error.",
         description: userLog.errorMessage,
-        status: 'error',
+        status: "error",
         duration: 3000,
-        position: 'top-right',
+        position: "top-right",
         isClosable: true,
       });
-    } else if (userLog.errorMessage === 'No error') {
+    } else if (userLog.errorMessage === "No error") {
       toast({
-        title: 'Welcome!',
-        description: 'You are now registered.',
-        status: 'success',
+        title: "Welcome!",
+        description: "You are now registered.",
+        status: "success",
         duration: 3000,
-        position: 'top-right',
+        position: "top-right",
         isClosable: true,
       });
     }
@@ -81,26 +81,26 @@ export default function Register() {
     };
     try {
       const response = await dispatch(signUp(userForm));
-      if (response === 'Username already exists.') {
+      if (response === "Username already exists.") {
         setUser({
-          displayName: '',
-          password: '',
+          displayName: "",
+          password: "",
           error: true,
           errorMessage: response,
         });
         return;
       }
       setUser({
-        errorMessage: 'No error',
+        errorMessage: "No error",
       });
       setTimeout(() => {
-        navigate('/login');
+        navigate("/login");
       }, 1000);
     } catch (error) {
       setUser({
         ...userLog,
         error: true,
-        errorMessage: 'Error signing up. Please try again.',
+        errorMessage: "Error signing up. Please try again.",
       });
     }
   };
@@ -108,45 +108,45 @@ export default function Register() {
   return (
     <div>
       <Box
-        position={'relative'}
-        height={'100vh'}
-        backgroundColor={'#rgba(4, 1, 19, 0.9)'}
-        backgroundRepeat={'no-repeat'}
-        backgroundSize={'cover'}
+        position={"relative"}
+        height={"100vh"}
+        backgroundColor={"#rgba(4, 1, 19, 0.9)"}
+        backgroundRepeat={"no-repeat"}
+        backgroundSize={"cover"}
       >
         <Container
           as={SimpleGrid}
-          maxW={'7xl'}
+          maxW={"7xl"}
           columns={{ base: 1, md: 2 }}
           spacing={{ base: 10, lg: 32 }}
           py={{ base: 10, sm: 20, lg: 32 }}
           display="flex"
-          alignItems={'center'}
+          alignItems={"center"}
           justifyContent="center"
         >
           <Stack
-            bg={'rgba(4, 1, 19, 0.9)'}
-            backdropFilter={'blur(10px)'}
+            bg={"rgba(4, 1, 19, 0.9)"}
+            backdropFilter={"blur(10px)"}
             p={{ base: 4, sm: 6, md: 8 }}
             spacing={{ base: 8 }}
-            maxW={{ lg: 'lg' }}
+            maxW={{ lg: "lg" }}
           >
             <Stack spacing={4}>
               <Flex justify="center" align="center" h="60px">
                 <Heading
-                  color={'white'}
+                  color={"white"}
                   lineHeight={1.1}
-                  fontSize={{ base: '2xl', sm: '3xl', md: '4xl' }}
+                  fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}
                 >
                   Sign Up!
                 </Heading>
               </Flex>
             </Stack>
-            <Box as={'form'} mt={10}>
+            <Box as={"form"} mt={10}>
               <Stack spacing={1}>
                 <Input
                   placeholder="Username"
-                  bg={'gray.100'}
+                  bg={"gray.100"}
                   border={0}
                   name="displayName"
                   type="text"
@@ -154,14 +154,14 @@ export default function Register() {
                   onChange={(e) => {
                     handleChange(e);
                   }}
-                  color={'gray.500'}
+                  color={"gray.500"}
                   _placeholder={{
-                    color: 'gray.500',
+                    color: "gray.500",
                   }}
                 />
                 <Center>
                   {!validName && (
-                    <Text color={'#cd6155'} fontWeight={'600'}>
+                    <Text color={"#cd6155"} fontWeight={"600"}>
                       Username must be at least 6 characters long
                     </Text>
                   )}
@@ -170,38 +170,38 @@ export default function Register() {
                   <Input
                     placeholder="Password"
                     type="password"
-                    bg={'gray.100'}
+                    bg={"gray.100"}
                     border={0}
                     id={3}
-                    autoComplete={'none'}
-                    marginTop={'20px'}
+                    autoComplete={"none"}
+                    marginTop={"20px"}
                     name="password"
                     value={userLog.password}
                     onChange={(e) => {
                       handleChange(e);
                     }}
-                    color={'gray.500'}
+                    color={"gray.500"}
                     _placeholder={{
-                      color: 'gray.500',
+                      color: "gray.500",
                     }}
                   />
                   <Center>
                     {!validPass && (
-                      <Text color={'#cd6155'} fontWeight={'600'}>
+                      <Text color={"#cd6155"} fontWeight={"600"}>
                         Password must be at least 6 characters long
                       </Text>
                     )}
                   </Center>
                   <Button
-                    fontFamily={'heading'}
+                    fontFamily={"heading"}
                     mt={8}
-                    w={'full'}
-                    backgroundColor={'gray.800'}
-                    color={'white'}
+                    w={"full"}
+                    backgroundColor={"gray.800"}
+                    color={"white"}
                     onClick={handleSubmit}
                     _hover={{
-                      backgroundColor: 'gray.600',
-                      boxShadow: 'xl',
+                      backgroundColor: "gray.600",
+                      boxShadow: "xl",
                     }}
                   >
                     Sign Up
@@ -210,23 +210,26 @@ export default function Register() {
               </Stack>
             </Box>
             <Stack
-              direction={{ base: 'flex', sm: 'row' }}
+              direction={{ base: "flex", sm: "row" }}
               gap={1}
-              justifyContent={'center'}
+              justifyContent={"center"}
             >
-              <Text color={'white'}>Are you already registered? </Text>
-              <Link href="/login" color={'gray'}>
+              <Text color={"white"}>Are you already registered? </Text>
+              <Link href="/login" color={"gray"}>
                 Log in
               </Link>
             </Stack>
           </Stack>
         </Container>
-        <Box position="absolute" top="2rem" left="2rem">
+        <Box
+          position="absolute"
+          top={window.innerWidth < 769 ? "0.5rem" : "2rem"}
+          left={window.innerWidth < 769 ? "0.5rem" : "2rem"}
+        >
           <Button
-            backgroundColor={'rgba(4, 1, 19, 0.9)'}
-            fontSize={'2xl'}
-            size={'lg'}
-            onClick={() => navigate('/')}
+            backgroundColor={"rgba(4, 1, 19, 0.9)"}
+            size={window.innerWidth < 769 ? "sm" : "lg"}
+            onClick={() => navigate("/")}
           >
             Back
           </Button>
