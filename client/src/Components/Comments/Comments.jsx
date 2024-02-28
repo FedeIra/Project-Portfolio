@@ -109,8 +109,8 @@ const Comments = () => {
         postNewComment(commentId, userName, commentArea, currentDate, token)
       );
       setCommentsLocal([
-        ...commentsLocal,
         { _id: commentId, userName, content: commentArea, date: currentDate },
+        ...commentsLocal,
       ]);
       setCommentArea('');
       setUserName('');

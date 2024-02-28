@@ -2,8 +2,14 @@ import { Comment } from '../Schema/comment.js';
 
 /* Get all comments from database: */
 const getAllComments = async () => {
-  const comments = await Comment.find();
-  return comments;
+  try {
+    const comments = await Comment.find();
+
+    const orderComments = comments.reverse();
+    return orderComments;
+  } catch (error) {
+    return error;
+  }
 };
 
 // Create comment for database:

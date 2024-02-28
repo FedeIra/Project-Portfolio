@@ -243,9 +243,9 @@ const Experience = () => {
                   <p className="card-text text-white">
                     Building my portfolio using the following techs:
                     <br />
-                    Javascript | Node.js | Express.js | MongoDB | JSON |
-                    Email.js | React.js | Redux | HTML | CSS | Chakra UI |
-                    Bootstrap | Toastify
+                    Javascript | Node.js | Express.js | JWS and Passpprt |
+                    MongoDB | JSON | Email.js | React.js | Redux | HTML | CSS |
+                    Chakra UI | Bootstrap | Toastify
                   </p>
                 </div>
               </div>
@@ -445,7 +445,7 @@ const Experience = () => {
                     Individual Project to build a single page application
                     consisting of videogames information with the following
                     features:
-                    <br /> • Interaction with API data;;
+                    <br /> • Interaction with API data;
                     <br /> • Combined filters and sorts; <br />• Combined
                     filters;
                     <br />• Paginate; and <br />• User can create, modify and
@@ -455,9 +455,9 @@ const Experience = () => {
                   <p className="card-text text-white">
                     G&B was built using the following tools:
                     <br />
-                    Javascript | Node.js | Express.js | JSON | PostgreSQL |
-                    Sequelize | HTML | React.js | Redux.js | CSS Railway |
-                    Vercel | Railway
+                    Javascript | Typescript | Node.js | Express.js | Fastify |
+                    JSON | PostgreSQL | MongoDB Sequelize | HTML | React.js |
+                    Redux.js | CSS Railway | Vercel | Railway
                   </p>
                 </div>
               </div>

@@ -75,7 +75,7 @@ const Contact = () => {
       >
         Get in touch
       </motion.h2>
-      <Container>
+      <Container fluid>
         <section id="contact" className="full-height px-lg-5">
           <div className="container">
             <div
@@ -134,6 +134,14 @@ const Contact = () => {
                       className={`form-control
                       form-control-lg ${style.form_container}`}
                       placeholder="Your Message"
+                      style={{
+                        height: 'auto',
+                        overflow: 'auto',
+                        WebkitOverflowScrolling: 'touch',
+                        scrollbarWidth: 'thin',
+                        scrollbarColor: 'white rgba(4, 1, 19, 0.9)',
+                        maxHeight: '230px',
+                      }}
                     ></textarea>
                   </div>
                   <div className="form-group col-12 d-grid">
