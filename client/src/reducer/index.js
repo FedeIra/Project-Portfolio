@@ -1,106 +1,104 @@
 // Import action types variables:
 import {
-  SEND_EMAIL_REQUEST,
-  SEND_EMAIL_SUCCESS,
-  SEND_EMAIL_FAILURE,
-  GET_COMMENTS_DATA,
-  SEND_COMMENT_REQUEST,
-  SEND_COMMENT_SUCCESS,
-  SEND_COMMENT_FAILURE,
-  ERROR_FOUND,
-  SIGN_UP,
-  SIGN_UP_FAILURE,
-  LOG_IN,
-  LOG_OUT,
-} from '../actions/index.js';
+  EMAIL_ACTIONS,
+  COMMENTS_ACTIONS,
+  ERROR_ACTION,
+  SIGNUP_ACTIONS,
+  LOGIN_ACTIONS,
+  LOGOUT_ACTIONS,
+} from "../actions/index.js";
 
-// Set initial global state:
+// Initial global state:
 const initialState = {
   error: false,
   comments: [],
   user: {
-    token: '',
+    token: "",
     user: {
-      userName: '',
-      password: '',
+      userName: "",
+      password: "",
     },
   },
 };
 
-// Create reducer functions:
+// Reducer function to update global state according to actions:
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SEND_EMAIL_REQUEST:
+    case EMAIL_ACTIONS.REQUEST:
       return {
         ...state,
         loading: true,
         error: null,
       };
-    case SEND_EMAIL_SUCCESS:
+    case EMAIL_ACTIONS.SUCCESS:
       return {
         ...state,
         email: action.payload,
         loading: false,
       };
-    case SEND_EMAIL_FAILURE:
+    case EMAIL_ACTIONS.FAILURE:
       return {
         ...state,
         loading: false,
         error: action.payload,
       };
-    case SEND_COMMENT_REQUEST:
+    case COMMENTS_ACTIONS.REQUEST:
       return {
         ...state,
         loadingComment: true,
         errorComment: null,
       };
-    case SEND_COMMENT_SUCCESS:
+    case COMMENTS_ACTIONS.SUCCESS:
       return {
         ...state,
         loadingComment: false,
         postedComment: action.payload,
       };
-    case SEND_COMMENT_FAILURE:
+    case COMMENTS_ACTIONS.FAILURE:
       return {
         ...state,
         loadingComment: false,
         errorComment: action.payload,
       };
-    case GET_COMMENTS_DATA:
+    case COMMENTS_ACTIONS.READ:
       return {
         ...state,
         comments: action.payload,
       };
-    case ERROR_FOUND:
+    case ERROR_ACTION.FOUND:
       return {
         ...state,
         error: true,
       };
-    case SIGN_UP:
+    case SIGNUP_ACTIONS.REQUEST:
       return {
         ...state,
         user: action.payload,
       };
-    case SIGN_UP_FAILURE:
-      return {
-        ...state,
-        error: action.payload,
-      };
-    case LOG_IN:
+
+    case LOGIN_ACTIONS.REQUEST:
       return {
         ...state,
         user: action.payload,
       };
-    case LOG_OUT:
+    case LOGOUT_ACTIONS.REQUEST:
       return {
         ...state,
         user: {
-          token: '',
+          token: "",
           user: {
-            userName: '',
-            password: '',
+            userName: "",
+            password: "",
           },
         },
+      };
+    case SIGNUP_ACTIONS.FAILURE:
+    case LOGIN_ACTIONS.FAILURE:
+    case LOGOUT_ACTIONS.FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
       };
     default:
       return state;
