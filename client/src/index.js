@@ -1,6 +1,6 @@
 // Import external utilities:
 import React from "react";
-import { createRoot } from "react-dom";
+import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -30,9 +30,10 @@ const theme = extendTheme({
 });
 
 // Set base URL for axios:
-axios.defaults.baseURL =
-  // `https://project-portfolio-production-a234.up.railway.app/` ||
-  "http://localhost:3000";
+const PRODUCTION_URL = process.env.REACT_APP_PRODUCTION_URL;
+const DEVELOPMENT_URL = process.env.REACT_APP_DEVELOPMENT_URL;
+
+axios.defaults.baseURL = PRODUCTION_URL || DEVELOPMENT_URL;
 
 // Render App component:
 const root = createRoot(document.getElementById("root"));
