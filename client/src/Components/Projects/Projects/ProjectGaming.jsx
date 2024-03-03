@@ -1,24 +1,24 @@
-import Carousel from 'react-bootstrap/Carousel';
-import * as images from '../../../Assets/Project_Gaming/Gaming_images';
-import style from './Projects.module.css';
+import Carousel from "react-bootstrap/Carousel";
+import * as images from "../../../Assets/indexExportImages.js";
+import style from "./Projects.module.css";
 
 function ProjectGaming() {
   const leftArrowStyle = {
-    position: 'absolute',
-    bottom: '0',
-    left: '0',
-    padding: '11.5%',
-    color: 'white',
-    backgroundColor: 'rgba(0, 0, 0, 0.9)',
+    position: "absolute",
+    bottom: "0",
+    left: "0",
+    padding: "11.5%",
+    color: "white",
+    backgroundColor: "rgba(0, 0, 0, 0.9)",
   };
 
   const rightArrowStyle = {
-    position: 'absolute',
-    bottom: '0',
-    right: '0',
-    padding: '11.5%',
-    color: 'white',
-    backgroundColor: 'rgba(0, 0, 0, 0.9)',
+    position: "absolute",
+    bottom: "0",
+    right: "0",
+    padding: "11.5%",
+    color: "white",
+    backgroundColor: "rgba(0, 0, 0, 0.9)",
   };
 
   return (
@@ -43,9 +43,9 @@ function ProjectGaming() {
         <Carousel.Caption
           className={style.carousel_caption}
           style={{
-            left: '0',
-            right: '0',
-            bottom: '0',
+            left: "0",
+            right: "0",
+            bottom: "0",
           }}
         >
           <h3>Landing</h3>
@@ -70,9 +70,9 @@ function ProjectGaming() {
         <Carousel.Caption
           className={style.carousel_caption}
           style={{
-            left: '0',
-            right: '0',
-            bottom: '0',
+            left: "0",
+            right: "0",
+            bottom: "0",
           }}
         >
           <h3>Home</h3>
@@ -87,9 +87,9 @@ function ProjectGaming() {
         <Carousel.Caption
           className={style.carousel_caption}
           style={{
-            left: '0',
-            right: '0',
-            bottom: '0',
+            left: "0",
+            right: "0",
+            bottom: "0",
           }}
         >
           <h3>Detail</h3>
@@ -99,9 +99,9 @@ function ProjectGaming() {
         <Carousel.Caption
           className={style.carousel_caption}
           style={{
-            left: '0',
-            right: '0',
-            bottom: '0',
+            left: "0",
+            right: "0",
+            bottom: "0",
           }}
         >
           <h3>Add game</h3>
@@ -120,9 +120,9 @@ function ProjectGaming() {
         <Carousel.Caption
           className={style.carousel_caption}
           style={{
-            left: '0',
-            right: '0',
-            bottom: '0',
+            left: "0",
+            right: "0",
+            bottom: "0",
           }}
         >
           <h3>Review added game</h3>
@@ -141,9 +141,9 @@ function ProjectGaming() {
         <Carousel.Caption
           className={style.carousel_caption}
           style={{
-            left: '0',
-            right: '0',
-            bottom: '0',
+            left: "0",
+            right: "0",
+            bottom: "0",
           }}
         >
           <h3>Edit game</h3>

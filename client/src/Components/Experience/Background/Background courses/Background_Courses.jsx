@@ -1,11 +1,11 @@
 // import external dependencies:
-import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
 
 // import local components:
-import * as images from '../../../../Assets/home_images';
-import style from './Background_Courses.module.css';
-import backgroundCourses from './Background Courses Data/Background_Courses.json';
+import * as images from "../../../../Assets/indexExportImages";
+import style from "./Background_Courses.module.css";
+import backgroundCourses from "./Background Courses Data/Background_Courses.json";
 
 // Define CourseItem for Background_Courses
 const CourseItem = ({ course }) => {
@@ -39,13 +39,13 @@ const CourseItem = ({ course }) => {
         <div
           className="card"
           style={{
-            borderRadius: '0',
+            borderRadius: "0",
           }}
         >
           <div
             className="card-body"
             style={{
-              backgroundColor: 'rgba(4, 1, 19, 0.9)',
+              backgroundColor: "rgba(4, 1, 19, 0.9)",
             }}
           >
             <div className="float-end text-white">
@@ -92,7 +92,7 @@ const Background_Courses = () => {
               <span
                 className={`badge border`}
                 style={{
-                  backgroundColor: '#2ECC71',
+                  backgroundColor: "#2ECC71",
                 }}
               >
                 &nbsp;
@@ -120,14 +120,14 @@ const Background_Courses = () => {
             <div
               className="card"
               style={{
-                borderRadius: '0',
+                borderRadius: "0",
               }}
             >
               <div
                 className="card-body
               "
                 style={{
-                  backgroundColor: 'rgba(4, 1, 19, 0.9)',
+                  backgroundColor: "rgba(4, 1, 19, 0.9)",
                 }}
               >
                 <div className="float-end text-white">

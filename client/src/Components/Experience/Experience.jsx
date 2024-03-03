@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
 import style from "./Experience.module.css";
-import * as images from "../../Assets/home_images.js";
+import * as images from "../../Assets/indexExportImages.js";
 import Background from "./Background/Background.jsx";
 
 const Experience = () => {

@@ -1,7 +1,7 @@
-import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import * as images from '../../../../Assets/home_images';
-import style from './Background_Experience.module.css';
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import * as images from "../../../../Assets/indexExportImages";
+import style from "./Background_Experience.module.css";
 
 const Background_Experience = () => {
   return (
@@ -35,7 +35,7 @@ const Background_Experience = () => {
               <span
                 className={`badge border`}
                 style={{
-                  backgroundColor: '#2ECC71',
+                  backgroundColor: "#2ECC71",
                 }}
               >
                 &nbsp;
@@ -64,14 +64,14 @@ const Background_Experience = () => {
             <div
               className="card"
               style={{
-                borderRadius: '0',
+                borderRadius: "0",
               }}
             >
               <div
                 className="card-body
               "
                 style={{
-                  backgroundColor: 'rgba(4, 1, 19, 0.9)',
+                  backgroundColor: "rgba(4, 1, 19, 0.9)",
                 }}
               >
                 <div className="float-end text-white">
@@ -88,7 +88,7 @@ const Background_Experience = () => {
                 </h4>
                 <p className="card-text text-white">
                   Labour & Employment local and international advise and
-                  litigation.{' '}
+                  litigation.{" "}
                 </p>
                 <br />
                 <p className="card-text text-white">
@@ -153,14 +153,14 @@ const Background_Experience = () => {
             <div
               className="card"
               style={{
-                borderRadius: '0',
+                borderRadius: "0",
               }}
             >
               <div
                 className="card-body
               "
                 style={{
-                  backgroundColor: 'rgba(4, 1, 19, 0.9)',
+                  backgroundColor: "rgba(4, 1, 19, 0.9)",
                 }}
               >
                 <div className="float-end text-white">
@@ -234,13 +234,13 @@ const Background_Experience = () => {
             <div
               className="card"
               style={{
-                borderRadius: '0',
+                borderRadius: "0",
               }}
             >
               <div
                 className="card-body"
                 style={{
-                  backgroundColor: 'rgba(4, 1, 19, 0.9)',
+                  backgroundColor: "rgba(4, 1, 19, 0.9)",
                 }}
               >
                 <div className="float-end text-white">
@@ -301,14 +301,14 @@ const Background_Experience = () => {
             <div
               className="card"
               style={{
-                borderRadius: '0',
+                borderRadius: "0",
               }}
             >
               <div
                 className="card-body
               "
                 style={{
-                  backgroundColor: 'rgba(4, 1, 19, 0.9)',
+                  backgroundColor: "rgba(4, 1, 19, 0.9)",
                 }}
               >
                 <div className="float-end text-white">

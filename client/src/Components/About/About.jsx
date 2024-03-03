@@ -6,7 +6,7 @@ import { IconButton } from "@chakra-ui/react";
 import { BsChevronDoubleUp } from "react-icons/bs";
 
 // Import local dependencies:
-import * as images from "../../Assets/home_images";
+import * as images from "../../Assets/indexExportImages.js";
 import style from "./About.module.css";
 import CardAbout from "./CardAbout.jsx";
 import technologies from "./technologies.json";
