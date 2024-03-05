@@ -2,7 +2,6 @@
 import {
   EMAIL_ACTIONS,
   COMMENTS_ACTIONS,
-  ERROR_ACTION,
   SIGNUP_ACTIONS,
   LOGIN_ACTIONS,
   LOGOUT_ACTIONS,
@@ -10,72 +9,77 @@ import {
 
 // Initial global state:
 const initialState = {
-  error: false,
+  error: {},
+  loading: {},
   comments: [],
-  user: {
-    token: "",
-    user: {
-      userName: "",
-      password: "",
-    },
-  },
+  user: null,
 };
 
 // Reducer function to update global state according to actions:
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case EMAIL_ACTIONS.REQUEST:
+    case EMAIL_ACTIONS.POST_REQUEST:
       return {
         ...state,
-        loading: true,
-        error: null,
+        loading: { ...state.loading, [EMAIL_ACTIONS.POST_REQUEST]: true },
+        error: { ...state.error, [EMAIL_ACTIONS.POST_FAILURE]: null },
       };
-    case EMAIL_ACTIONS.SUCCESS:
+    case EMAIL_ACTIONS.POST_SUCCESS:
       return {
         ...state,
+        loading: { ...state.loading, [EMAIL_ACTIONS.POST_REQUEST]: false },
         email: action.payload,
-        loading: false,
       };
-    case EMAIL_ACTIONS.FAILURE:
+    case EMAIL_ACTIONS.POST_FAILURE:
+      return {
+        loading: { ...state.loading, [EMAIL_ACTIONS.POST_REQUEST]: false },
+        error: { ...state.error, [EMAIL_ACTIONS.POST_FAILURE]: action.payload },
+      };
+    case COMMENTS_ACTIONS.POST_REQUEST:
       return {
         ...state,
-        loading: false,
-        error: action.payload,
+        loading: { ...state.loading, [COMMENTS_ACTIONS.POST_REQUEST]: true },
+        error: { ...state.error, [COMMENTS_ACTIONS.POST_FAILURE]: null },
       };
-    case COMMENTS_ACTIONS.REQUEST:
+    case COMMENTS_ACTIONS.POST_SUCCESS:
       return {
         ...state,
-        loadingComment: true,
-        errorComment: null,
+        loading: { ...state.loading, [COMMENTS_ACTIONS.POST_REQUEST]: false },
+        comments: [action.payload, ...state.comments],
       };
-    case COMMENTS_ACTIONS.SUCCESS:
+    case COMMENTS_ACTIONS.POST_FAILURE:
+      return {
+        loading: { ...state.loading, [COMMENTS_ACTIONS.POST_REQUEST]: false },
+        error: {
+          ...state.error,
+          [COMMENTS_ACTIONS.POST_FAILURE]: action.payload,
+        },
+      };
+    case COMMENTS_ACTIONS.READ_REQUEST:
       return {
         ...state,
-        loadingComment: false,
-        postedComment: action.payload,
+        loading: { ...state.loading, [COMMENTS_ACTIONS.READ_REQUEST]: true },
       };
-    case COMMENTS_ACTIONS.FAILURE:
+    case COMMENTS_ACTIONS.READ_SUCCESS:
       return {
         ...state,
-        loadingComment: false,
-        errorComment: action.payload,
-      };
-    case COMMENTS_ACTIONS.READ:
-      return {
-        ...state,
+        loading: { ...state.loading, [COMMENTS_ACTIONS.READ_REQUEST]: false },
         comments: action.payload,
       };
-    case ERROR_ACTION.FOUND:
+    case COMMENTS_ACTIONS.READ_FAILURE:
       return {
         ...state,
-        error: true,
+        loading: { ...state.loading, [COMMENTS_ACTIONS.READ_REQUEST]: false },
+        error: {
+          ...state.error,
+          [COMMENTS_ACTIONS.READ_REQUEST]: action.payload,
+        },
       };
     case SIGNUP_ACTIONS.REQUEST:
       return {
         ...state,
         user: action.payload,
       };
-
     case LOGIN_ACTIONS.REQUEST:
       return {
         ...state,
@@ -93,12 +97,19 @@ const rootReducer = (state = initialState, action) => {
         },
       };
     case SIGNUP_ACTIONS.FAILURE:
+      return {
+        ...state,
+        error: { ...state.error, [SIGNUP_ACTIONS.FAILURE]: action.payload },
+      };
     case LOGIN_ACTIONS.FAILURE:
+      return {
+        ...state,
+        error: { ...state.error, [LOGIN_ACTIONS.FAILURE]: action.payload },
+      };
     case LOGOUT_ACTIONS.FAILURE:
       return {
         ...state,
-        loading: false,
-        error: action.payload,
+        error: { ...state.error, [LOGOUT_ACTIONS.FAILURE]: action.payload },
       };
     default:
       return state;

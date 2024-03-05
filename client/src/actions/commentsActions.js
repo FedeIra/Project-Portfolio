@@ -3,69 +3,51 @@ import axios from "axios";
 
 // Action types:
 export const COMMENTS_ACTIONS = {
-  READ: "COMMENTS_READ",
-  REQUEST: "COMMENT_REQUEST",
-  SUCCESS: "COMMENT_SUCCESS",
-  FAILURE: "COMMENT_FAILURE",
-};
-
-export const ERROR_ACTION = {
-  FOUND: "ERROR_FOUND",
+  READ_REQUEST: "COMMENTS_READ_REQUEST",
+  READ_SUCCESS: "COMMENTS_READ_SUCCESS",
+  READ_FAILURE: "COMMENTS_READ_FAILURE",
+  POST_REQUEST: "COMMENT_POST_REQUEST",
+  POST_SUCCESS: "COMMENT_POST_SUCCESS",
+  POST_FAILURE: "COMMENT_POST_FAILURE",
 };
 
 // Use route to get comments:
-export const getComments = (id) => {
-  return async function (dispatch) {
-    try {
-      var json = await axios.get(`/comments`);
-      if (json.status === 204) {
-        return dispatch({
-          type: ERROR_ACTION.FOUND,
-        });
-      }
-      return dispatch({
-        type: COMMENTS_ACTIONS.READ,
-        payload: json.data,
-      });
-    } catch (error) {
-      return dispatch({
-        type: ERROR_ACTION.FOUND,
-      });
-    }
-  };
+export const getComments = () => async (dispatch) => {
+  dispatch({ type: COMMENTS_ACTIONS.READ_REQUEST });
+  try {
+    const response = await axios.get(`/comments`);
+    dispatch({
+      type: COMMENTS_ACTIONS.READ_SUCCESS,
+      payload: response.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: COMMENTS_ACTIONS.READ_FAILURE,
+      payload: error.message,
+    });
+  }
 };
 
 // Use route to post new comment:
-export const postNewComment = (commentId, userName, content, date, token) => {
-  return async function (dispatch) {
-    dispatch({
-      type: COMMENTS_ACTIONS.REQUEST,
-    });
+export const postNewComment =
+  ({ token, ...commentData }) =>
+  async (dispatch) => {
+    dispatch({ type: COMMENTS_ACTIONS.POST_REQUEST });
     try {
-      const config = {
+      const configHeader = {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       };
-      var json = await axios.post(
-        `/comments`,
-        {
-          commentId,
-          userName,
-          content,
-          date,
-        },
-        config
-      );
-      return dispatch({
-        type: COMMENTS_ACTIONS.SUCCESS,
-        payload: json.data,
+      const response = await axios.post(`/comments`, commentData, configHeader);
+      dispatch({
+        type: COMMENTS_ACTIONS.POST_SUCCESS,
+        payload: response.data,
       });
     } catch (error) {
-      return dispatch({
-        type: COMMENTS_ACTIONS.FAILURE,
+      dispatch({
+        type: COMMENTS_ACTIONS.POST_FAILURE,
         payload: error.message,
       });
     }
   };
-};

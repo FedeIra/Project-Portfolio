@@ -13,9 +13,9 @@ const getAllComments = async () => {
 };
 
 // Create comment for database:
-const createComment = async (id, userName, content, date) => {
+const createComment = async (commentId, username, content, date) => {
   try {
-    await Comment.create({ id, userName, content, date });
+    await Comment.create({ commentId, username, content, date });
   } catch (error) {
     return error;
   }

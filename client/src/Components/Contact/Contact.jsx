@@ -1,59 +1,62 @@
 // Import external dependencies:
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { motion } from "framer-motion";
-import { useToast } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 
 // Import local dependencies:
-import style from "./Contact.module.css";
 import { sendEmail } from "../../actions";
+import useToastNotifications from "../Comments/commentToast/commentToast.jsx";
+import style from "./Contact.module.css";
 
 const Contact = () => {
   const dispatch = useDispatch();
-  const emailToast = useToast();
   const form = useRef();
+  const { showToast } = useToastNotifications();
 
-  const { loading, email, error } = useSelector((state) => state);
+  const loading = useSelector((state) => state.loading);
+  const error = useSelector((state) => state.error);
 
-  useEffect(() => {
-    if (loading) {
-      emailToast({
-        title: "Loading.",
-        description: "Sending email...",
-        status: "info",
-        duration: 2000,
-        position: "top-right",
-        isClosable: true,
-      });
-    } else if (email) {
-      emailToast({
-        title: "Email sent.",
-        description: "I appreciate your email and will respond soon.",
-        status: "success",
-        duration: 3000,
-        position: "top-right",
-        isClosable: true,
-      });
-    } else if (error) {
-      emailToast({
-        title: "Error.",
-        description: "Error sending email. Please try again.",
-        status: "error",
-        duration: 3000,
-        position: "top-right",
-        isClosable: true,
-      });
-    }
-  }, [loading, email, error, emailToast]);
+  const [postAttemptEmail, setPostAttemptEmail] = useState(false);
 
   const boxVariants = {
     hidden: { opacity: 0, x: window.innerWidth < 769 ? 1000 : 0 },
     visible: { opacity: 1, x: 0, transition: { duration: 1 } },
   };
 
+  useEffect(() => {
+    if (!loading.EMAIL_POST_REQUEST && postAttemptEmail) {
+      if (!error.EMAIL_POST_FAILURE) {
+        showToast({
+          title: "Email sent.",
+          description: "I appreciate your email and will respond soon.",
+          status: "success",
+        });
+      } else {
+        showToast({
+          title: "Error.",
+          description: "Error sending email. Please try again.",
+          status: "error",
+        });
+      }
+      setPostAttemptEmail(false);
+    }
+  }, [
+    loading.EMAIL_POST_REQUEST,
+    error.EMAIL_POST_FAILURE,
+    showToast,
+    postAttemptEmail,
+  ]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    showToast({
+      title: "Loading.",
+      description: "Sending email...",
+      status: "info",
+      duration: 2000,
+    });
+    setPostAttemptEmail(true);
     const formData = {
       user_name: e.target.user_name.value,
       user_email: e.target.user_email.value,
