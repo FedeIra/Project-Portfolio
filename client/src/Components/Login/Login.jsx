@@ -182,7 +182,7 @@ export default function Login() {
                   fontFamily={"heading"}
                   mt={8}
                   w={"full"}
-                  backgroundColor={"gray.800"}
+                  backgroundColor={"gray.500"}
                   color={"white"}
                   onClick={handleSubmit}
                   _hover={{
@@ -220,7 +220,7 @@ export default function Login() {
         left={window.innerWidth < 769 ? "0.2rem" : "2rem"}
       >
         <Button
-          backgroundColor={"rgba(4, 1, 19, 0.9)"}
+          backgroundColor={"white"}
           size={window.innerWidth < 769 ? "sm" : "lg"}
           onClick={() => navigate("/")}
         >
