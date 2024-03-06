@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
 import style from "./Experience.module.css";
-import * as images from "../../Assets/home_images.js";
+import * as images from "../../Assets/indexExportImages.js";
 import Background from "./Background/Background.jsx";
 
 const Experience = () => {
@@ -128,7 +128,6 @@ const Experience = () => {
                     <span className={style.construction_text}>Present</span>
                   </h4>
                   <p className="card-text text-white">Backend Developer:</p>
-                  <br />
                   <p className="card-text text-white">
                     I contributed to the following projects:
                     <br /> • <b> Chapur (ongoing project): </b> I spearheaded
@@ -144,7 +143,6 @@ const Experience = () => {
                     with Jira, enabling the addition of tickets through Google
                     Forms. <br />
                   </p>
-                  <br />
                   <p className="card-text text-white">
                     The technologies and tools employed in these projects
                     included:
@@ -242,8 +240,10 @@ const Experience = () => {
                     <strong> Project Portfolio </strong>
                   </h4>
                   <p className="card-text text-white">
-                    Building my portfolio using the following techs:
-                    <br />
+                    Building my portfolio using the following techs:{" "}
+                  </p>
+
+                  <p className="card-text text-white">
                     Javascript | Node.js | Express.js | JWS and Passpprt |
                     MongoDB | JSON | Email.js | React.js | Redux | HTML | CSS |
                     Chakra UI | Bootstrap | Toastify
@@ -337,8 +337,10 @@ const Experience = () => {
                   </h4>
                   <p className="card-text text-white">
                     Team project to build a movie and TV show streaming service
-                    that includes the following features: <br /> • Third-party
-                    authentication (Google);
+                    that includes the following features: <br />
+                  </p>
+                  <p className="card-text text-white">
+                    • Third-party authentication (Google);
                     <br /> • Stripe payment platform integration; <br />•
                     Combined filters; <br />• Image loading with Cloudinary;{" "}
                     <br />• Cloudinary/upload/bucket; <br />• E-mail and live
@@ -346,7 +348,6 @@ const Experience = () => {
                     persist; <br />• Likes and review system; and <br />•
                     Dashboard admin. and owner.
                   </p>
-                  <br />
                   <p className="card-text text-white">
                     Kinema was built using the following tools:
                     <br />
@@ -446,13 +447,14 @@ const Experience = () => {
                     Individual Project to build a single page application
                     consisting of videogames information with the following
                     features:
-                    <br /> • Interaction with API data;
+                  </p>
+                  <p className="card-text text-white">
+                    • Interaction with API data;
                     <br /> • Combined filters and sorts; <br />• Combined
                     filters;
                     <br />• Paginate; and <br />• User can create, modify and
                     delete added videgoames.
                   </p>
-                  <br />
                   <p className="card-text text-white">
                     G&B was built using the following tools:
                     <br />
@@ -521,7 +523,6 @@ const Experience = () => {
             <Col
               className={`
             py-0
-
             `}
             >
               <div
@@ -550,10 +551,8 @@ const Experience = () => {
                     <strong>Henry Bootcamp</strong>
                   </h4>
                   <p className="card-text text-white">
-                    Henry Bootcamp. 1000 hours of a theoretical-practical
-                    course.
+                    1000 hours of a theoretical-practical course.
                   </p>
-                  <br />
                   <p className="card-text text-white">
                     Technologies: Javascript | Node.js | Express | PostgreSQL |
                     Sequelize | React.js | Redux.js | HTML | CSS | SCRUM
@@ -579,9 +578,6 @@ const Experience = () => {
         Background
       </motion.h2>
       <Background />
-      <br />
-      <br />
-      <br />
     </div>
   );
 };

@@ -8,8 +8,9 @@ const footerIconButton = (link, iconComponent) => {
         size="lg"
         icon={iconComponent}
         style={{
-          backgroundColor: "rgba(255, 255, 255, 0.1)",
+          backgroundColor: "rgba(4, 1, 19, 1)",
           borderRadius: "0",
+          color: "white",
         }}
       />
     </a>

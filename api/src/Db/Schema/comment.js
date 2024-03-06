@@ -6,7 +6,7 @@ const dataSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  userName: {
+  username: {
     type: String,
     required: false,
     default: 'Anonymous',

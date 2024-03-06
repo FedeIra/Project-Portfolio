@@ -1,6 +1,6 @@
 /* built footer: */
-import React from 'react';
-import { FaLinkedin, FaWhatsapp, FaGithub, FaEnvelope } from 'react-icons/fa';
+import React from "react";
+import { FaLinkedin, FaWhatsapp, FaGithub, FaEnvelope } from "react-icons/fa";
 import {
   IconButton,
   Button,
@@ -9,11 +9,11 @@ import {
   MenuList,
   MenuItem,
   useToast,
-} from '@chakra-ui/react';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { logOut } from '../../../actions/index.js';
+} from "@chakra-ui/react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { logOut } from "../../../actions/index.js";
 
 const Icons = () => {
   const user = useSelector((state) => state.user);
@@ -24,11 +24,11 @@ const Icons = () => {
   const handleLogout = () => {
     dispatch(logOut());
     logOutToast({
-      title: 'Logged out.',
-      description: 'You have been logged out.',
-      status: 'success',
+      title: "Logged out.",
+      description: "You have been logged out.",
+      status: "success",
       duration: 3000,
-      position: 'top-right',
+      position: "top-right",
       isClosable: true,
     });
   };
@@ -85,14 +85,14 @@ const Icons = () => {
           icon={<FaWhatsapp size="1.7rem" color="white" />}
         />
       </a>
-      {user.token ? (
+      {user?.token ? (
         <Menu>
-          <MenuButton>{user.user.userName}</MenuButton>
+          <MenuButton>{user.username}</MenuButton>
           <MenuList>
             <MenuItem
               onClick={handleLogout}
-              backgroundColor={'white'}
-              color={'black'}
+              backgroundColor={"white"}
+              color={"black"}
             >
               Logout
             </MenuItem>
@@ -102,18 +102,18 @@ const Icons = () => {
         <>
           <Button
             colorScheme="transparent"
-            borderColor={'white'}
-            border={'1px'}
+            borderColor={"white"}
+            border={"1px"}
             mr={2}
-            onClick={() => navigate('/login')}
+            onClick={() => navigate("/login")}
           >
             Log In
           </Button>
           <Button
             colorScheme="transparent"
-            borderColor={'white'}
-            border={'1px'}
-            onClick={() => navigate('/register')}
+            borderColor={"white"}
+            border={"1px"}
+            onClick={() => navigate("/register")}
           >
             Register
           </Button>

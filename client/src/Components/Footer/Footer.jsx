@@ -22,7 +22,10 @@ const Footer = () => {
             >
               {footerIconButton(
                 "https://www.linkedin.com/in/federico-irarr%C3%A1zaval-314b89a1/",
-                <FaLinkedin size="1.5rem" />
+                <FaLinkedin
+                  size="1.5rem"
+                  className={style.link_footer_linkedinEmail}
+                />
               )}
               {footerIconButton(
                 "https://github.com/FedeIra",
@@ -30,7 +33,10 @@ const Footer = () => {
               )}
               {footerIconButton(
                 "mailto: fedeirar@gmail.com",
-                <FaEnvelope size="1.5rem" />
+                <FaEnvelope
+                  size="1.5rem"
+                  className={style.link_footer_linkedinEmail}
+                />
               )}
               {footerIconButton(
                 "https://api.whatsapp.com/send?phone=5491167887879&text=Hey",

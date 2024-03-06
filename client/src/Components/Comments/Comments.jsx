@@ -1,86 +1,76 @@
 // Import external dependencies:
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Box,
-  Flex,
-  Text,
-  Button,
-  Center,
-  Textarea,
-  Divider,
-  useMediaQuery,
-  useToast,
-} from "@chakra-ui/react";
+import { Flex, useMediaQuery } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+
 // Import local dependencies:
+import CommentList from "./commentList/CommentList.jsx";
+import CommentForm from "./CommentForm/CommentForm.jsx";
 import { getComments, postNewComment } from "../../actions";
-import CommentCard from "./CommentCard/CommentCard.jsx";
+import { validate, createComment } from "../../utils/index.js";
+import useToastNotifications from "./commentToast/commentToast.jsx";
 import style from "./Comments.module.css";
 
 const Comments = () => {
-  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const { showToast } = useToastNotifications();
+
+  const user = useSelector((state) => state.user);
   const comments = useSelector((state) => state.comments);
+  const loading = useSelector((state) => state.loading);
+  const error = useSelector((state) => state.error);
 
-  useEffect(() => {}, [user]);
-
-  const commentToast = useToast();
-
-  const { loadingComment, postedComment, errorComment } = useSelector(
-    (state) => state
-  );
-
-  useEffect(() => {
-    if (loadingComment) {
-      commentToast({
-        title: "Loading.",
-        description: "Posting comment...",
-        status: "info",
-        duration: 2000,
-        position: "top-right",
-        isClosable: true,
-      });
-    } else if (postedComment) {
-      commentToast({
-        title: "Comment posted.",
-        description: "I appreciate your comment.",
-        status: "success",
-        duration: 3000,
-        position: "top-right",
-        isClosable: true,
-      });
-    } else if (errorComment) {
-      commentToast({
-        title: "Error.",
-        description: "Error posting comment. Please try again.",
-        status: "error",
-        duration: 3000,
-        position: "top-right",
-        isClosable: true,
-      });
-    }
-  }, [loadingComment, postedComment, errorComment, commentToast]);
-
-  const [commentsLocal, setCommentsLocal] = useState([]);
+  const [allComments, setComments] = useState([]);
   const [commentArea, setCommentArea] = useState("");
-  const [userName, setUserName] = useState("");
+  const [username, setUserName] = useState("");
   const [errorCommentArea, setErrorCommentArea] = useState(false);
+  const [postAttemptComment, setPostAttemptComment] = useState(false);
+
   const [isShortThan960px] = useMediaQuery("(max-width: 960px)");
+
+  const boxVariants = {
+    hidden: { opacity: 0, x: window.innerWidth < 769 ? 1000 : 0 },
+    visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+  };
 
   useEffect(() => {
     dispatch(getComments());
   }, [dispatch]);
 
   useEffect(() => {
-    setCommentsLocal(comments);
+    setComments(comments);
   }, [comments]);
 
-  const validate = (str) => {
-    if (str.length < 5) {
-      return true;
-    } else return false;
-  };
+  useEffect(() => {
+    if (
+      postAttemptComment &&
+      !loading.COMMENTS_POST_REQUEST &&
+      !error.COMMENTS_POST_FAILURE
+    ) {
+      showToast({
+        title: "Comment posted.",
+        description: "Thank you for your comment.",
+        status: "success",
+      });
+    } else if (
+      postAttemptComment &&
+      !loading.COMMENTS_POST_REQUEST &&
+      error.COMMENTS_POST_FAILURE
+    ) {
+      showToast({
+        title: "Error.",
+        description: "Error posting comment. Please try again.",
+        status: "error",
+      });
+    }
+    setPostAttemptComment(false);
+  }, [
+    loading.COMMENTS_POST_REQUEST,
+    error.COMMENTS_POST_FAILURE,
+    showToast,
+    postAttemptComment,
+  ]);
 
   const handleTextAreaComment = (e) => {
     e.preventDefault();
@@ -98,28 +88,18 @@ const Comments = () => {
     if (!commentArea) {
       setErrorCommentArea(true);
     } else {
-      const date = new Date();
-      let day = date.getDate();
-      let month = date.getMonth() + 1;
-      let year = date.getFullYear();
-      let currentDate = `${day}-${month}-${year}`;
-      let commentId = Math.random();
-      let token = user.token;
-      dispatch(
-        postNewComment(commentId, userName, commentArea, currentDate, token)
-      );
-      setCommentsLocal([
-        { _id: commentId, userName, content: commentArea, date: currentDate },
-        ...commentsLocal,
-      ]);
+      showToast({
+        title: "Loading.",
+        description: "Posting comment...",
+        status: "info",
+        duration: 2000,
+      });
+      setPostAttemptComment(true);
+      const newComment = createComment(user.token, username, commentArea);
+      dispatch(postNewComment(newComment));
       setCommentArea("");
       setUserName("");
     }
-  };
-
-  const boxVariants = {
-    hidden: { opacity: 0, x: window.innerWidth < 769 ? 1000 : 0 },
-    visible: { opacity: 1, x: 0, transition: { duration: 1 } },
   };
 
   return (
@@ -140,123 +120,16 @@ const Comments = () => {
         mb={50}
         w={isShortThan960px ? "85%" : "50%"}
       >
-        <Flex
-          maxH={500}
-          overflow="auto"
-          flexDirection="column"
-          alignItems="center"
-          css={{
-            "&::-webkit-scrollbar": {
-              backgroundColor: "rgba(4, 1, 19, 0.9)",
-              width: "10px",
-            },
-            "&::-webkit-scrollbar-track": {
-              width: "1px",
-            },
-            "&::-webkit-scrollbar-thumb": {
-              background: "white",
-              borderRadius: "24px",
-            },
-          }}
-        >
-          {commentsLocal.length ? (
-            commentsLocal.map((comment) => {
-              return (
-                <CommentCard
-                  key={comment._id}
-                  username={comment.userName}
-                  text={comment.content}
-                  date={comment.date}
-                  id={comment._id}
-                  deleteLocal={setCommentsLocal}
-                ></CommentCard>
-              );
-            })
-          ) : (
-            <Center
-              border="2px"
-              borderColor="gray.800"
-              backgroundColor="rgba(4, 1, 19, 0.9)"
-              color="gray.100"
-              w="100%"
-              borderRadius={0}
-            >
-              <Text mt="2vh" mb="2vh" fontSize="2vh">
-                No comments yet. Be the first one!
-              </Text>
-            </Center>
-          )}
-        </Flex>
-        <Box
-          border="2px"
-          borderColor="gray.800"
-          backgroundColor="rgba(4, 1, 19, 0.9)"
-          color="gray.100"
-          borderRadius={0}
-        >
-          <Text fontSize="2.5vh" ml="5vh" mt={5}>
-            Leave your comment!
-          </Text>
-          <Divider mt={4} mb={4} />
-          <Center
-            flexDirection="column"
-            alignItems="center"
-            mb={5}
-            mt={5}
-            w="100%"
-          >
-            <Textarea
-              value={userName}
-              placeholder="Name or Company..."
-              w="90%"
-              border="2px"
-              borderColor="gray.300"
-              mb={5}
-              onChange={handleTextAreaName}
-            />
-            <Textarea
-              value={commentArea}
-              placeholder="Type your comment here..."
-              w="90%"
-              border="2px"
-              borderColor="gray.300"
-              mb={5}
-              onChange={handleTextAreaComment}
-            />
-          </Center>
-          <Flex justifyContent="flex-end">
-            {errorCommentArea ? (
-              <Text mr={5} color="red">
-                You must write at least 5 characters.
-              </Text>
-            ) : (
-              <></>
-            )}
-            {!user.token ? (
-              <Button
-                mr="5%"
-                mb={5}
-                backgroundColor="gray.800"
-                borderRadius={0}
-                _hover={{ backgroundColor: "gray.600" }}
-              >
-                Login to Comment
-              </Button>
-            ) : (
-              <Button
-                mr="5%"
-                mb={5}
-                backgroundColor="gray.800"
-                borderRadius={0}
-                _hover={{ backgroundColor: "gray.600" }}
-                onClick={handleSubmitComment}
-                disabled={errorCommentArea}
-              >
-                Submit
-              </Button>
-            )}
-          </Flex>
-        </Box>
+        <CommentList comments={allComments} />
+        <CommentForm
+          username={username}
+          commentArea={commentArea}
+          errorCommentArea={errorCommentArea}
+          handleTextAreaName={handleTextAreaName}
+          handleTextAreaComment={handleTextAreaComment}
+          handleSubmitComment={handleSubmitComment}
+          user={user}
+        />
       </Flex>
     </div>
   );

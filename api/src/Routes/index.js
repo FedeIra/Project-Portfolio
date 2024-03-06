@@ -48,7 +48,15 @@ router.post('/sendEmail', async (req, res) => {
 router.get('/comments', async (req, res) => {
   try {
     const comments = await getAllComments();
-    res.status(200).json(comments);
+    const response = comments.map((comment) => {
+      return {
+        commentId: comment.commentId,
+        username: comment.username,
+        content: comment.content,
+        date: comment.date,
+      };
+    });
+    res.status(200).json(response);
   } catch (error) {
     return res.status(204).json({ Error: error.message });
   }
@@ -59,10 +67,10 @@ router.post(
   '/comments',
   passport.authenticate('jwt', { session: false }),
   async (req, res) => {
-    const { commentId, userName, content, date } = req.body;
+    const { commentId, username, content, date } = req.body;
     try {
-      Comment.create({ commentId, userName, content, date });
-      res.status(201).json('created!');
+      await createComment(commentId, username, content, date);
+      res.status(201).json({ commentId, username, content, date });
     } catch (error) {
       return res.status(204).json({ Error: error.message });
     }
@@ -93,7 +101,11 @@ router.post(
     try {
       const user = req.user;
       const token = await loginService.signToken(user);
-      res.status(200).json(token);
+      const response = {
+        token: token.token,
+        username: user.userName,
+      };
+      res.status(200).json(response);
     } catch (error) {
       next(error);
     }

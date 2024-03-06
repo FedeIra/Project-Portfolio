@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
 import style from "./Projects.module.css";
-import * as images from "../../Assets/home_images";
+import * as images from "../../Assets/indexExportImages.js";
 import { FaGithub, FaGlobe, FaStar } from "react-icons/fa";
 import Overlay from "./Overlays/Overlay.jsx";
 import { IconButton } from "@chakra-ui/react";

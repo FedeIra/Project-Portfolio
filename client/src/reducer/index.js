@@ -1,106 +1,115 @@
 // Import action types variables:
 import {
-  SEND_EMAIL_REQUEST,
-  SEND_EMAIL_SUCCESS,
-  SEND_EMAIL_FAILURE,
-  GET_COMMENTS_DATA,
-  SEND_COMMENT_REQUEST,
-  SEND_COMMENT_SUCCESS,
-  SEND_COMMENT_FAILURE,
-  ERROR_FOUND,
-  SIGN_UP,
-  SIGN_UP_FAILURE,
-  LOG_IN,
-  LOG_OUT,
-} from '../actions/index.js';
+  EMAIL_ACTIONS,
+  COMMENTS_ACTIONS,
+  SIGNUP_ACTIONS,
+  LOGIN_ACTIONS,
+  LOGOUT_ACTIONS,
+} from "../actions/index.js";
 
-// Set initial global state:
+// Initial global state:
 const initialState = {
-  error: false,
+  error: {},
+  loading: {},
   comments: [],
-  user: {
-    token: '',
-    user: {
-      userName: '',
-      password: '',
-    },
-  },
+  user: null,
 };
 
-// Create reducer functions:
+// Reducer function to update global state according to actions:
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SEND_EMAIL_REQUEST:
+    case EMAIL_ACTIONS.POST_REQUEST:
       return {
         ...state,
-        loading: true,
-        error: null,
+        loading: { ...state.loading, [EMAIL_ACTIONS.POST_REQUEST]: true },
+        error: { ...state.error, [EMAIL_ACTIONS.POST_FAILURE]: null },
       };
-    case SEND_EMAIL_SUCCESS:
+    case EMAIL_ACTIONS.POST_SUCCESS:
       return {
         ...state,
+        loading: { ...state.loading, [EMAIL_ACTIONS.POST_REQUEST]: false },
         email: action.payload,
-        loading: false,
       };
-    case SEND_EMAIL_FAILURE:
+    case EMAIL_ACTIONS.POST_FAILURE:
+      return {
+        loading: { ...state.loading, [EMAIL_ACTIONS.POST_REQUEST]: false },
+        error: { ...state.error, [EMAIL_ACTIONS.POST_FAILURE]: action.payload },
+      };
+    case COMMENTS_ACTIONS.POST_REQUEST:
       return {
         ...state,
-        loading: false,
-        error: action.payload,
+        loading: { ...state.loading, [COMMENTS_ACTIONS.POST_REQUEST]: true },
+        error: { ...state.error, [COMMENTS_ACTIONS.POST_FAILURE]: null },
       };
-    case SEND_COMMENT_REQUEST:
+    case COMMENTS_ACTIONS.POST_SUCCESS:
       return {
         ...state,
-        loadingComment: true,
-        errorComment: null,
+        loading: { ...state.loading, [COMMENTS_ACTIONS.POST_REQUEST]: false },
+        comments: [action.payload, ...state.comments],
       };
-    case SEND_COMMENT_SUCCESS:
+    case COMMENTS_ACTIONS.POST_FAILURE:
+      return {
+        loading: { ...state.loading, [COMMENTS_ACTIONS.POST_REQUEST]: false },
+        error: {
+          ...state.error,
+          [COMMENTS_ACTIONS.POST_FAILURE]: action.payload,
+        },
+      };
+    case COMMENTS_ACTIONS.READ_REQUEST:
       return {
         ...state,
-        loadingComment: false,
-        postedComment: action.payload,
+        loading: { ...state.loading, [COMMENTS_ACTIONS.READ_REQUEST]: true },
       };
-    case SEND_COMMENT_FAILURE:
+    case COMMENTS_ACTIONS.READ_SUCCESS:
       return {
         ...state,
-        loadingComment: false,
-        errorComment: action.payload,
-      };
-    case GET_COMMENTS_DATA:
-      return {
-        ...state,
+        loading: { ...state.loading, [COMMENTS_ACTIONS.READ_REQUEST]: false },
         comments: action.payload,
       };
-    case ERROR_FOUND:
+    case COMMENTS_ACTIONS.READ_FAILURE:
       return {
         ...state,
-        error: true,
+        loading: { ...state.loading, [COMMENTS_ACTIONS.READ_REQUEST]: false },
+        error: {
+          ...state.error,
+          [COMMENTS_ACTIONS.READ_REQUEST]: action.payload,
+        },
       };
-    case SIGN_UP:
-      return {
-        ...state,
-        user: action.payload,
-      };
-    case SIGN_UP_FAILURE:
-      return {
-        ...state,
-        error: action.payload,
-      };
-    case LOG_IN:
+    case SIGNUP_ACTIONS.REQUEST:
       return {
         ...state,
         user: action.payload,
       };
-    case LOG_OUT:
+    case LOGIN_ACTIONS.REQUEST:
+      return {
+        ...state,
+        user: action.payload,
+      };
+    case LOGOUT_ACTIONS.REQUEST:
       return {
         ...state,
         user: {
-          token: '',
+          token: "",
           user: {
-            userName: '',
-            password: '',
+            userName: "",
+            password: "",
           },
         },
+      };
+    case SIGNUP_ACTIONS.FAILURE:
+      return {
+        ...state,
+        error: { ...state.error, [SIGNUP_ACTIONS.FAILURE]: action.payload },
+      };
+    case LOGIN_ACTIONS.FAILURE:
+      return {
+        ...state,
+        error: { ...state.error, [LOGIN_ACTIONS.FAILURE]: action.payload },
+      };
+    case LOGOUT_ACTIONS.FAILURE:
+      return {
+        ...state,
+        error: { ...state.error, [LOGOUT_ACTIONS.FAILURE]: action.payload },
       };
     default:
       return state;
