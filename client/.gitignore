@@ -22,5 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# add .env files
-.env
+# add .env files in client directory
+client/.env
+
