@@ -24,4 +24,4 @@ yarn-error.log*
 
 # add .env files in client directory
 client/.env
-
+.env

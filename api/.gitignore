@@ -24,3 +24,4 @@ yarn-error.log*
 
 # env files in node directory
 node/.env
+.env
