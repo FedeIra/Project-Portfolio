@@ -87,7 +87,6 @@ router.post(
       const newUser = await userService.createUser(body);
       res.status(201).json(newUser);
     } catch (error) {
-      console.log(error.message);
       next(error);
     }
   }
@@ -103,7 +102,7 @@ router.post(
       const token = await loginService.signToken(user);
       const response = {
         token: token.token,
-        username: user.userName,
+        username: user.username,
       };
       res.status(200).json(response);
     } catch (error) {

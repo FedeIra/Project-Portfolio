@@ -1,29 +1,7 @@
 import React from "react";
-import {
-  Box,
-  Text,
-  Flex,
-  Image,
-  Divider /* , Button */,
-} from "@chakra-ui/react";
-// import { DeleteIcon } from "@chakra-ui/icons";
-// import "@fontsource/nunito";
-// import { color } from "../../globalStyles";
-// import {  useDispatch,  useSelector } from "react-redux";
-// import { deleteComment } from "../../../Redux/actions";
+import { Box, Text, Flex, Image, Divider } from "@chakra-ui/react";
 
-export default function CommentCard({
-  username,
-  text,
-  // avatar,
-  date,
-  // userId,
-  id,
-  deleteLocal,
-}) {
-  // const dispatch = useDispatch();
-  // const user = useSelector((state) => state.user);
-
+export default function CommentCard({ username, text, date, id, deleteLocal }) {
   return (
     <Box
       border="1px"

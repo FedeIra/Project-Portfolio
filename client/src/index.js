@@ -16,9 +16,7 @@ import { themeChakra } from "./utils/index.js";
 
 // Set base URL for axios:
 const baseURL =
-  process.env.REACT_APP_BACKEND_ENV === "production"
-    ? process.env.REACT_APP_PRODUCTION_URL
-    : process.env.REACT_APP_DEVELOPMENT_URL;
+  process.env.REACT_APP_PRODUCTION_URL || process.env.REACT_APP_DEVELOPMENT_URL;
 
 axios.defaults.baseURL = baseURL;
 

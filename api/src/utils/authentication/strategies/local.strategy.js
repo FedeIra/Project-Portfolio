@@ -5,12 +5,12 @@ const loginService = new LoginService();
 
 const localStrategy = new Strategy(
   {
-    usernameField: 'userName',
+    usernameField: 'username',
     passwordField: 'password',
   },
-  async (userName, password, done) => {
+  async (username, password, done) => {
     try {
-      const user = await loginService.logUser(userName, password);
+      const user = await loginService.logUser(username, password);
       done(null, user);
     } catch (error) {
       done(error);

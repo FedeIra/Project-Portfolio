@@ -11,8 +11,8 @@ const { JWT_SECRET } = process.env;
 
 class AuthService {
   // logUSer service
-  async logUser(userName, password) {
-    const user = await service.getUser(userName);
+  async logUser(username, password) {
+    const user = await service.getUser(username);
     if (!user) {
       throw boom.notFound('Invalid username or password.');
     }
@@ -33,7 +33,7 @@ class AuthService {
     return {
       token,
       user: {
-        userName: user.userName,
+        username: user.username,
       },
     };
   }

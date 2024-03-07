@@ -16,10 +16,10 @@ export const LOGOUT_ACTIONS = {
 export const logIn = (logForm) => {
   return async function (dispatch) {
     try {
-      var json = await axios.post(`/login`, logForm);
+      const response = await axios.post(`/login`, logForm);
       return dispatch({
         type: LOGIN_ACTIONS.REQUEST,
-        payload: json.data,
+        payload: response.data,
       });
     } catch (error) {
       if (error.response.data === "Invalid username or password.") {
