@@ -76,7 +76,7 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const userForm = {
-      userName: userLog.displayName,
+      username: userLog.displayName,
       password: userLog.password,
     };
     try {

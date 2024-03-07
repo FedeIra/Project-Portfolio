@@ -71,7 +71,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const userForm = {
-      userName: userLogin.displayName,
+      username: userLogin.displayName,
       password: userLogin.password,
     };
     try {

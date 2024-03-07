@@ -21,45 +21,55 @@ import Comments from "../Comments/Comments.jsx";
 
 const About = () => {
   // Function to handle scroll:
-  const navBarLinks = document.getElementsByClassName("nav-link");
+  useEffect(() => {
+    const navBarLinks = document.getElementsByClassName("nav-link");
 
-  window.onscroll = function () {
-    const aboutMe = document.getElementById("aboutMe");
-    const projects = document.getElementById("projects");
-    const experience = document.getElementById("experience");
-    const contact = document.getElementById("getInTouch");
-    const comments = document.getElementById("userComments");
+    const handleScroll = () => {
+      window.onscroll = function () {
+        const aboutMe = document.getElementById("aboutMe");
+        const projects = document.getElementById("projects");
+        const experience = document.getElementById("experience");
+        const contact = document.getElementById("getInTouch");
+        const comments = document.getElementById("userComments");
 
-    const navBarLinksArray = Array.from(navBarLinks);
-    const navBarLinksArrayLength = navBarLinksArray.length;
+        const navBarLinksArray = Array.from(navBarLinks);
+        const navBarLinksArrayLength = navBarLinksArray.length;
 
-    const aboutMePosition = aboutMe.getBoundingClientRect().top;
-    const projectsPosition = projects.getBoundingClientRect().top;
-    const experiencePosition = experience.getBoundingClientRect().top;
-    const contactPosition = contact.getBoundingClientRect().top;
-    const commentsPosition = comments.getBoundingClientRect().top;
+        const aboutMePosition = aboutMe.getBoundingClientRect().top;
+        const projectsPosition = projects.getBoundingClientRect().top;
+        const experiencePosition = experience.getBoundingClientRect().top;
+        const contactPosition = contact.getBoundingClientRect().top;
+        const commentsPosition = comments.getBoundingClientRect().top;
 
-    const navBarLinksArrayPositions = [
-      aboutMePosition,
-      projectsPosition,
-      experiencePosition,
-      contactPosition,
-      commentsPosition,
-    ];
+        const navBarLinksArrayPositions = [
+          aboutMePosition,
+          projectsPosition,
+          experiencePosition,
+          contactPosition,
+          commentsPosition,
+        ];
 
-    for (let i = 0; i < navBarLinksArrayLength; i++) {
-      if (navBarLinksArrayPositions[i] < 100) {
-        navBarLinksArray[i].style.textDecoration = "underline";
-        for (let j = 0; j < navBarLinksArrayLength; j++) {
-          if (j !== i) {
-            navBarLinksArray[j].style.textDecoration = "none";
+        for (let i = 0; i < navBarLinksArrayLength; i++) {
+          if (navBarLinksArrayPositions[i] < 100) {
+            navBarLinksArray[i].style.textDecoration = "underline";
+            for (let j = 0; j < navBarLinksArrayLength; j++) {
+              if (j !== i) {
+                navBarLinksArray[j].style.textDecoration = "none";
+              }
+            }
+          } else {
+            navBarLinksArray[i].style.textDecoration = "none";
           }
         }
-      } else {
-        navBarLinksArray[i].style.textDecoration = "none";
-      }
-    }
-  };
+      };
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   // Framer motion variants:
   const boxVariants = {

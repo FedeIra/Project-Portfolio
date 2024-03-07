@@ -91,7 +91,7 @@ const rootReducer = (state = initialState, action) => {
         user: {
           token: "",
           user: {
-            userName: "",
+            username: "",
             password: "",
           },
         },

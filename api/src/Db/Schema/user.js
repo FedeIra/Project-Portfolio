@@ -2,7 +2,7 @@ import Mongoose from 'mongoose';
 
 export const userSchema = new Mongoose.Schema(
   {
-    userName: {
+    username: {
       type: String,
       unique: true,
       lowercase: true,
