@@ -4,6 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { IconButton } from "@chakra-ui/react";
 import { BsChevronDoubleUp } from "react-icons/bs";
+import { useLocation } from "react-router-dom";
 
 // Import local dependencies:
 import * as images from "../../Assets/indexExportImages.js";
@@ -20,6 +21,7 @@ import OtherProjects from "../Other projects/Other_Projects.jsx";
 import Comments from "../Comments/Comments.jsx";
 
 const About = () => {
+  const location = useLocation();
   // Function to handle scroll:
   useEffect(() => {
     const navBarLinks = document.getElementsByClassName("nav-link");
@@ -68,12 +70,16 @@ const About = () => {
       };
     };
 
-    window.addEventListener("scroll", handleScroll);
+    if (location.pathname === "/") {
+      window.addEventListener("scroll", handleScroll);
+    }
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (location.pathname === "/") {
+        window.removeEventListener("scroll", handleScroll);
+      }
     };
-  }, []);
+  }, [location.pathname]);
 
   // Framer motion variants:
   const boxVariants = {
