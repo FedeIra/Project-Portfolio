@@ -32,6 +32,10 @@ const About = () => {
         const contact = document.getElementById("getInTouch");
         const comments = document.getElementById("userComments");
 
+        if (!aboutMe || !projects || !experience || !contact || !comments) {
+          return;
+        }
+
         const navBarLinksArray = Array.from(navBarLinks);
         const navBarLinksArrayLength = navBarLinksArray.length;
 
