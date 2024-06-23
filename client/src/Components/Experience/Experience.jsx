@@ -130,25 +130,49 @@ const Experience = () => {
                   <p className="card-text text-white">Backend Developer:</p>
                   <p className="card-text text-white">
                     I contributed to the following projects:
-                    <br /> • <b> Chapur (ongoing project): </b> I spearheaded
-                    the creation of a middleware designed to facilitate the
-                    utilization of payment services from a payment provider.
-                    Leading a team in this project, I played a pivotal role in
-                    ensuring its successful implementation; <br />•{" "}
-                    <b> OBI: </b> I actively participated in the development of
-                    a service dedicated to synchronizing product stock levels
-                    between two warehouses; and <br />•
-                    <b> Jira integration: </b>
+                    <br /> <br />
+                    <b> • Chapur: </b> E-commerce and ERP Synchronization: I
+                    contributed to the development of a service to synchronize
+                    order statuses between the e-commerce platform and the
+                    client's ERP system, ensuring seamless order management and
+                    tracking across platforms. <br /> <br />
+                    <b> • Vista Energy: </b>
+                    I worked on migrating documents and implementing document
+                    upload functionalities with PHP from the repository to
+                    Google Cloud Storage buckets, ensuring a seamless transition
+                    and enhanced document management capabilities. <br /> <br />
+                    <b> • Macromex: </b>
+                    Audit of architecture, integrations, and custom applications
+                    for e-commerce optimization.
+                    <br />
+                    <br /> <b> • Chapur: </b> I spearheaded the creation of a
+                    middleware designed to facilitate the utilization of payment
+                    services from a payment provider. Leading a team in this
+                    project, I played a pivotal role in ensuring its successful
+                    implementation. Additionally, I developed features for
+                    tokenizing credit card data and implementing an autocomplete
+                    functionality for payment forms, enhancing the security and
+                    user experience of the payment process. <br />
+                    <br />
+                    <b> • Jira integration: </b>
                     I took the initiative in crafting a service that integrates
                     with Jira, enabling the addition of tickets through Google
-                    Forms. <br />
+                    Forms. <br /> <br />
+                    <b> • OBI: </b> I actively participated in the development
+                    of a service dedicated to synchronizing product stock levels
+                    between two warehouses; and <br />
                   </p>
                   <p className="card-text text-white">
-                    The technologies and tools employed in these projects
-                    included:
+                    The technologies and tools employed in most of these
+                    projects are as follows:
                     <br />
                     Javascript | Typescript | Node.js | Koa.js | VTEX.IO | JSON
-                    | SCRUM | GitHub
+                    | JIRA | SCRUM | GitHub
+                    <br /> <br />
+                    Moreover, in most projects, I was responsible for leading a
+                    team of developers and maintaining direct communication with
+                    the client, ensuring the successful completion of the areas
+                    of the project assigned to me.
                   </p>
                 </div>
               </div>
@@ -539,7 +563,7 @@ const Experience = () => {
                   }}
                 >
                   <div className="float-end text-white">
-                    <p className={style.date}>Jun. 2022 - Nov. 2022</p>
+                    <p className={style.date}>May. 2022 - Nov. 2022</p>
                   </div>
                   <h4 className="d-flex card-title text-white align-items-center">
                     <img

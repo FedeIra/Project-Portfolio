@@ -47,6 +47,7 @@
 .main_text {
   padding: 30px 0;
   text-align: center;
+  max-height: 35vh;
 }
 
 .main_text p {
@@ -124,9 +125,9 @@
 
 .stars {
   display: flex;
-  flex-direction: row;
+  align-items: normal;
   justify-content: center;
-  align-items: center;
+  flex-direction: row;
 }
 
 .card:hover .iconStar {

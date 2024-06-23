@@ -93,17 +93,12 @@ const Projects = () => {
                           </p>
                           <br />
                           <div className={style.stars}>
-                            <IconButton
-                              colorScheme="transparent"
-                              fontSize="20px"
-                              icon={
-                                <FaStar
-                                  size="1.4rem"
-                                  color="orange"
-                                  className={style.iconStar}
-                                />
-                              }
+                            <FaStar
+                              size="1.4rem"
+                              color="orange"
+                              className={style.iconStar}
                             />
+
                             <p>
                               Selected by Henry among the best 4 projects of the
                               course.
@@ -195,6 +190,8 @@ const Projects = () => {
                             videogames added by users.
                           </p>
                           <br />
+                          <br />
+
                           <br />
                           <br />
                           <br />

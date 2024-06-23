@@ -1,5 +1,17 @@
 [
   {
+    "date": "2024",
+    "title": "Platzi",
+    "description": "AWS. Roles and Security with IAM.",
+    "picture": "platzi.png"
+  },
+  {
+    "date": "2023",
+    "title": "Platzi",
+    "description": " Introduction to AWS. Networking, Governance and Machine Learning.",
+    "picture": "platzi.png"
+  },
+  {
     "date": "2023",
     "title": "Platzi",
     "description": "Introduction to AWS. Computing, storage and databases.",

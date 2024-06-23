@@ -131,7 +131,7 @@ const Background_Courses = () => {
                 }}
               >
                 <div className="float-end text-white">
-                  <p className={style.date}> 2023 </p>
+                  <p className={style.date}> 2024 </p>
                 </div>
                 <h4 className="d-flex card-title text-white align-items-center">
                   <img
@@ -143,8 +143,7 @@ const Background_Courses = () => {
                   <strong>Platzi</strong>
                 </h4>
                 <p className="card-text text-white">
-                  Introduction to AWS. Networking, Governance and Machine
-                  Learning.
+                  AWS. Amazon Elastic Compute Cloud (EC2).
                 </p>
               </div>
             </div>

@@ -12,6 +12,14 @@
     "avatar": "nodejs.png"
   },
   {
+    "name": "Express.js",
+    "avatar": "express.png"
+  },
+  {
+    "name": "Fastify",
+    "avatar": "fastify.png"
+  },
+  {
     "name": "MongoDB",
     "avatar": "mongodb.png"
   },
@@ -57,7 +65,15 @@
     "avatar": "github.png"
   },
   {
+    "name": "JIRA",
+    "avatar": "jira.png"
+  },
+  {
     "name": "SCRUM",
     "avatar": "SCRUM.png"
+  },
+  {
+    "name": "VTEX",
+    "avatar": "vtex.png"
   }
 ]
