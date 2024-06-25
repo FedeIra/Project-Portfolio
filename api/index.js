@@ -1,8 +1,8 @@
-import dotenv from 'dotenv';
+import config from './config.js';
 import server from './src/app.js';
 import database from './src/Db/db.js';
 
-const PORT = process.env.PORT || 3001;
+const PORT = config.port || 3001;
 
 database.on('error', (error) => {
   console.log(error);

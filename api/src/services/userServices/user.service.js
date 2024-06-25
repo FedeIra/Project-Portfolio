@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import { UserModel } from '../Db/Schema/user.js';
+import { UserModel } from '../../Db/Schema/user.js';
 
 class UserService {
   constructor() {}

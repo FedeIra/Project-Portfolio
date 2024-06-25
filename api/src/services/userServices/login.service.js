@@ -1,13 +1,10 @@
 import bcrypt from 'bcrypt';
 import boom from '@hapi/boom';
 import jwtService from 'jsonwebtoken';
-import dotenv from 'dotenv';
+import config from '../../../config.js';
 import { UserService } from './user.service.js';
 
 const service = new UserService();
-
-dotenv.config();
-const { JWT_SECRET } = process.env;
 
 class AuthService {
   // logUSer service
@@ -28,7 +25,7 @@ class AuthService {
       sub: user.id,
     };
 
-    const token = jwtService.sign(payload, JWT_SECRET);
+    const token = jwtService.sign(payload, config.jwt.secret);
 
     return {
       token,

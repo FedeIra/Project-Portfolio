@@ -1,5 +1,5 @@
 import { Strategy } from 'passport-local';
-import LoginService from '../../../userServices/login.service.js';
+import LoginService from '../../../services/userServices/login.service.js';
 
 const loginService = new LoginService();
 

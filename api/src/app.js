@@ -1,4 +1,5 @@
 import express from 'express';
+import fileUpload from 'express-fileupload';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
@@ -29,6 +30,14 @@ server.use((req, res, next) => {
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   next();
 });
+
+server.use(
+  fileUpload({
+    useTempFiles: true,
+    tempFileDir: './uploads',
+    limits: { fileSize: 50 * 1024 * 1024 },
+  })
+); // TODO: REVISAR
 
 server.use('/', routes);
 

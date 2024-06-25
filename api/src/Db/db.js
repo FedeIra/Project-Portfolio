@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
+import config from '../../config.js';
+
 mongoose.set('strictQuery', false);
 
-import dotenv from 'dotenv';
-dotenv.config();
-const URL_DB = process.env.URL_DB;
+const URL_DB = config.url_database;
 
 mongoose.connect(URL_DB);
 

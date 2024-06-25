@@ -1,41 +1,33 @@
 import { Router } from 'express';
 import emailjs from '@emailjs/nodejs';
 const router = Router();
-import dotenv from 'dotenv';
-dotenv.config();
-
-import { Comment } from '../Db/Schema/comment.js';
+import config from '../../config.js';
 import { getAllComments, createComment } from '../Db/ControllersDB/comments.js';
-
 import { validatorHandler } from '../middlewares/validator.handler.js';
-import { UserService } from '../userServices/user.service.js';
+import { UserService } from '../services/userServices/user.service.js';
 const userService = new UserService();
-
 import { createUserSchema } from '../schemasValidation/user.schema.js';
-
 import passport from 'passport';
-import AuthService from '../userServices/login.service.js';
+import AuthService from '../services/userServices/login.service.js';
 const loginService = new AuthService();
+import {
+  uploadFile,
+  getFiles,
+  getFile,
+} from '../services/awsServices/awsS3Services.js';
 
-const {
-  EMAIL_JS_SERVICEID,
-  EMAIL_JS_TEMPLATEID,
-  EMAIL_JS_PUBLICKEY,
-  EMAIL_JS_PRIVATEKEY,
-} = process.env;
-
-// Route to send email:
+// Endpoint to send email:
 router.post('/sendEmail', async (req, res) => {
   const templateParams = req.body;
 
   try {
     await emailjs.send(
-      EMAIL_JS_SERVICEID,
-      EMAIL_JS_TEMPLATEID,
+      config.email_js_serviceid,
+      config.email_js_templateid,
       templateParams,
       {
-        publicKey: EMAIL_JS_PUBLICKEY,
-        privateKey: EMAIL_JS_PRIVATEKEY,
+        publicKey: config.email_js_publickey,
+        privateKey: config.email_js_privatekey,
       }
     );
     res.status(200).json({ success: true, message: 'Email sent successfully' });
@@ -44,7 +36,7 @@ router.post('/sendEmail', async (req, res) => {
   }
 });
 
-// Route to get all comments
+// Endpoint to get all comments
 router.get('/comments', async (req, res) => {
   try {
     const comments = await getAllComments();
@@ -62,7 +54,7 @@ router.get('/comments', async (req, res) => {
   }
 });
 
-// Route to post comment
+// Endpoint to post comment
 router.post(
   '/comments',
   passport.authenticate('jwt', { session: false }),
@@ -77,7 +69,7 @@ router.post(
   }
 );
 
-// Route to user sign-up
+// Endpoint to user sign-up
 router.post(
   '/sign-up',
   validatorHandler(createUserSchema, 'body'),
@@ -92,7 +84,7 @@ router.post(
   }
 );
 
-// Route to user login
+// Endpoint to user login
 router.post(
   '/login',
   passport.authenticate('local', { session: false }),
@@ -110,5 +102,29 @@ router.post(
     }
   }
 );
+
+// Endpoint to upload pdf documents:
+router.post('/upload', async (req, res) => {
+  const response = await uploadFile(req.files.file);
+  res.status(200).json(response);
+});
+
+// Endpoint to get all pdf documents:
+router.get('/getDocuments', async (req, res) => {
+  const response = await getFiles();
+  res.status(200).json(response);
+});
+
+// Endpoint to get pdf document:
+router.get('/getDocument/:key', async (req, res) => {
+  const key = req.params.key;
+  if (!key) {
+    return res.status(400).json({ error: 'No filename provided' });
+  }
+  const response = await getFile(key);
+  res.setHeader('Content-Type', 'application/octet-stream');
+  res.setHeader('Content-Type', 'application/pdf');
+  response.pipe(res);
+});
 
 export default router;
