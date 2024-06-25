@@ -37,7 +37,7 @@ server.use(
     tempFileDir: './uploads',
     limits: { fileSize: 50 * 1024 * 1024 },
   })
-); // TODO: REVISAR
+);
 
 server.use('/', routes);
 

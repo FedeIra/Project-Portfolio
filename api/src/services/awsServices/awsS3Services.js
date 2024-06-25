@@ -21,23 +21,27 @@ const awsClient = new S3Client({
 
 // Service to upload a file to S3:
 export const uploadFile = async (file) => {
-  console.log(config.aws_bucket_name);
   const stream = fs.createReadStream(file.tempFilePath);
   const uploadParams = {
     Bucket: config.aws_bucket_name,
     Key: file.name,
     Body: stream,
   };
-
   const command = new PutObjectCommand(uploadParams);
 
   const awsResponse = await awsClient.send(command);
+
+  fs.unlink(file.tempFilePath, (err) => {
+    if (err) {
+      return awsResponse;
+    }
+  });
 
   return awsResponse;
 };
 
 // Service to get all files from S3:
-export const getFiles = async () => {
+export const getFilesData = async () => {
   const listParams = {
     Bucket: config.aws_bucket_name,
   };
@@ -46,8 +50,6 @@ export const getFiles = async () => {
     const command = new ListObjectsV2Command(listParams);
 
     const awsResponse = await awsClient.send(command);
-
-    console.log('🚀 ~ listFiles ~ awsResponse:', awsResponse);
 
     const files = awsResponse.Contents.map((file) => ({
       key: file.Key,
@@ -62,13 +64,26 @@ export const getFiles = async () => {
   }
 };
 
-// Service to get a file from S3:
-export const getFile = async (key) => {
+// Service to get document data from S3:
+export const getFileData = async (fileName) => {
   const getFilesParams = {
     Bucket: config.aws_bucket_name,
-    Key: key,
+    Key: fileName,
   };
 
+  const command = new GetObjectCommand(getFilesParams);
+
+  const awsResponse = await awsClient.send(command);
+
+  return awsResponse.$metadata;
+};
+
+// Service to download pdf from S3:
+export const downloadFile = async (fileName) => {
+  const getFilesParams = {
+    Bucket: config.aws_bucket_name,
+    Key: fileName,
+  };
   const command = new GetObjectCommand(getFilesParams);
 
   const awsResponse = await awsClient.send(command);

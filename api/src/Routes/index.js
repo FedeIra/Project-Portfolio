@@ -12,8 +12,9 @@ import AuthService from '../services/userServices/login.service.js';
 const loginService = new AuthService();
 import {
   uploadFile,
-  getFiles,
-  getFile,
+  getFilesData,
+  getFileData,
+  downloadFile,
 } from '../services/awsServices/awsS3Services.js';
 
 // Endpoint to send email:
@@ -109,22 +110,38 @@ router.post('/upload', async (req, res) => {
   res.status(200).json(response);
 });
 
-// Endpoint to get all pdf documents:
-router.get('/getDocuments', async (req, res) => {
-  const response = await getFiles();
+// Endpoint to get all documents data:
+router.get('/getListFiles', async (req, res) => {
+  if (!req.body) {
+    return res.status(400).json({ error: 'No filename provided.' });
+  }
+  const response = await getFilesData();
   res.status(200).json(response);
 });
 
-// Endpoint to get pdf document:
-router.get('/getDocument/:key', async (req, res) => {
-  const key = req.params.key;
-  if (!key) {
-    return res.status(400).json({ error: 'No filename provided' });
+// Endpoint to get document data:
+router.get('/getFileData/:fileName', async (req, res) => {
+  const fileName = req.params.fileName;
+  if (!fileName) {
+    return res.status(400).json({ error: 'No filename provided.' });
   }
-  const response = await getFile(key);
-  res.setHeader('Content-Type', 'application/octet-stream');
-  res.setHeader('Content-Type', 'application/pdf');
-  response.pipe(res);
+  const response = await getFileData(fileName);
+  res.status(200).json(response);
+});
+
+// Endpoint to download pdf:
+router.get('/downloadFile/:fileName', async (req, res) => {
+  const { fileName } = req.params;
+  if (!fileName) {
+    return res.status(400).json({ error: 'No filename provided.' });
+  }
+  try {
+    const response = await downloadFile(fileName);
+    res.setHeader('Content-Type', 'application/pdf');
+    response.pipe(res);
+  } catch (error) {
+    res.status(404).json({ error: 'File not found.' });
+  }
 });
 
 export default router;
