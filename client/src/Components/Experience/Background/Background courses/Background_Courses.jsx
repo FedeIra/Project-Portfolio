@@ -1,11 +1,29 @@
 // import external dependencies:
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+// import see eye from library bootstrap icons:
+import { Eye } from "react-bootstrap-icons";
 
 // import local components:
 import * as images from "../../../../Assets/indexExportImages";
 import style from "./Background_Courses.module.css";
 import backgroundCourses from "./Background Courses Data/Background_Courses.json";
+
+// Handle view certificate:
+const handleViewCertificate = async () => {
+  try {
+    const response = await fetch(`https://your-backend-url.com/certificates/`);
+    const data = await response.json();
+    if (data.url) {
+      window.open(data.url, "_blank");
+    } else {
+      alert("Certificado no disponible.");
+    }
+  } catch (error) {
+    console.error("Error fetching certificate:", error);
+    alert("Error al obtener el certificado.");
+  }
+};
 
 // Define CourseItem for Background_Courses
 const CourseItem = ({ course }) => {
@@ -56,6 +74,9 @@ const CourseItem = ({ course }) => {
               <strong>{course.title}</strong>
             </h4>
             <p className="card-text text-white">{course.description}</p>
+            <button onClick={handleViewCertificate} className={style.icon_eye}>
+              <Eye size={20} />
+            </button>
           </div>
         </div>
       </Col>
@@ -145,6 +166,12 @@ const Background_Courses = () => {
                 <p className="card-text text-white">
                   AWS. Amazon Elastic Compute Cloud (EC2).
                 </p>
+                <button
+                  onClick={handleViewCertificate}
+                  className={style.icon_eye}
+                >
+                  <Eye size={20} />
+                </button>
               </div>
             </div>
           </Col>

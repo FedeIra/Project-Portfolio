@@ -3,3 +3,13 @@
     font-size: 14px;
   }
 }
+
+.icon_eye {
+  margin-right: 0.5rem;
+  color: white;
+  border: 1px solid white;
+  padding: 0.4rem;
+  border-radius: 0.25rem;
+  position: relative;
+  left: calc(100% - 30px);
+}
