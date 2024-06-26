@@ -1,8 +1,8 @@
 # Portfolio.
 
-Includes e-mail and live notifications and was built with the following tools: 
+Includes login and registration services, live notifications, comments section and service to download courses certificates. Portfolio was built with the following tools:
 
-• JavaScript; • JSON; • HTML 5; • React.js; • Bootstrap; • CSS; • Chakra UI; • Toastify; • email.js; • motion frames • Railway; and • Vercel.
+• JavaScript; • Node.js • Express.js • AWS S3 • JWT and Passport • MongoDB • JSON • Email.js • React.js • Redux • HTML • CSS • Chakra UI • Bootstrap • Vercel • Railway • GitHub
 
 Link: https://portfolio-fedeira.vercel.app
 
