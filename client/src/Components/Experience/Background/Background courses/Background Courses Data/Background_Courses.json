@@ -3,25 +3,29 @@
     "date": "2024",
     "title": "Platzi",
     "description": "AWS. Roles and Security with IAM.",
-    "picture": "platzi.png"
+    "picture": "platzi.png",
+    "key": "Certificado Platzi. AWS. Roles y Seguridad con IAM.pdf"
   },
   {
     "date": "2023",
     "title": "Platzi",
     "description": " Introduction to AWS. Networking, Governance and Machine Learning.",
-    "picture": "platzi.png"
+    "picture": "platzi.png",
+    "key": "Certificado Platzi. Introducción a AWS. Redes, Gobernanza y Machine Learning.pdf"
   },
   {
     "date": "2023",
     "title": "Platzi",
     "description": "Introduction to AWS. Computing, storage and databases.",
-    "picture": "platzi.png"
+    "picture": "platzi.png",
+    "key": "Certificado Platzi. Curso de introducción a AWS. Cómputo, almacenamiento y bases de datos..pdf"
   },
   {
     "date": "2023",
     "title": "Platzi",
     "description": "Introduction to AWS. Cloud computing basics.",
-    "picture": "platzi.png"
+    "picture": "platzi.png",
+    "key": "Certificado Platzi. Introducción a AWS. Fundamentos del cloud computing..pdf"
   },
   {
     "date": "2023",
@@ -33,72 +37,84 @@
     "date": "2023",
     "title": "Platzi",
     "description": "Practice Node.js: Authentication.",
-    "picture": "platzi.png"
+    "picture": "platzi.png",
+    "key": "Certificado Platzi. Introducción a la nube..pdf"
   },
   {
     "date": "2023",
     "title": "Platzi",
     "description": "Backend with NodeJS. Authentication with Passport.js and JWT.",
-    "picture": "platzi.png"
+    "picture": "platzi.png",
+    "key": "Certificado Platzi. Backend con Node.js. Autenticación con Passport.js y JWT.pdf"
   },
   {
     "date": "2023",
     "title": "Platzi",
     "description": "Backend with Node.js: API REST with express.js.",
-    "picture": "platzi.png"
+    "picture": "platzi.png",
+    "key": "Certificado Platzi. Backend con Node.js API REST con Express.js.pdf"
   },
   {
     "date": "2023",
     "title": "Platzi",
     "description": "Node.js Fundamentals.",
-    "picture": "platzi.png"
+    "picture": "platzi.png",
+    "key": "Certificado Platzi. Fundamentos de Node.js.pdf"
   },
   {
     "date": "2023",
     "title": "Platzi",
     "description": "Database fundamentals.",
-    "picture": "platzi.png"
+    "picture": "platzi.png",
+    "key": "Certificado Platzi. Curso de Fundamentos de Bases de Datos..pdf"
   },
   {
     "date": "2023",
     "title": "Platzi",
     "description": "Typescript POO and asynchronism.",
-    "picture": "platzi.png"
+    "picture": "platzi.png",
+    "key": "Certificado Platzi. Programación orientada a objetos y asincronismo.pdf"
   },
   {
     "date": "2023",
     "title": "Platzi",
     "description": "Typescript Advanced types and functions.",
-    "picture": "platzi.png"
+    "picture": "platzi.png",
+    "key": "Certificado Platzi. Tipos Avanzados de Typescript y Funciones.pdf"
   },
   {
     "date": "2023",
     "title": "Platzi",
     "description": "Typescript Fundamentals.",
-    "picture": "platzi.png"
+    "picture": "platzi.png",
+    "key": "Certificado Platzi. Fundamentos de Typescript.pdf"
   },
   {
     "date": "2022",
     "title": "EducacionIT",
     "description": "Online Course, Python Programming.",
-    "picture": "educacionIT.png"
+    "picture": "educacionIT.png",
+    "key": "Certificado educacionIT. Python para no programadores.pdf"
   },
   {
     "date": "2021",
     "title": "Píldoras Informáticas",
     "description": "Online Course, Python programming.",
-    "picture": "pildorasInformaticas.png"
+    "picture": "pildorasInformaticas.png",
+    "key": "Certificado educacionIT. Python para no programadores.pdf"
   },
   {
     "date": "2021",
     "title": "EducacionIT",
     "description": "Online Course, Python for non-programmers.",
-    "picture": "educacionIT.png"
+    "picture": "educacionIT.png",
+    "key": "Certificado educacionIT. Python para no programadores.pdf"
   },
   {
     "date": "2021",
     "title": "LinkedIn Learning",
     "description": "Online Course, Intro to Python.",
-    "picture": "linkedinLearning.png"
+    "picture": "linkedinLearning.png",
+    "key": "Certificado educacionIT. Python para no programadores.pdf"
   }
 ]

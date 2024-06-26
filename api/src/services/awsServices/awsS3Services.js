@@ -6,6 +6,7 @@ import {
   ListObjectsV2Command,
 } from '@aws-sdk/client-s3';
 import fs from 'fs';
+import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 
 // Internal imports:
 import config from '../../../config.js';
@@ -76,6 +77,22 @@ export const getFileData = async (fileName) => {
   const awsResponse = await awsClient.send(command);
 
   return awsResponse.$metadata;
+};
+
+// Service to get document url from S3:
+export const getFileUrl = async (fileName) => {
+  const getFilesParams = {
+    Bucket: config.aws_bucket_name,
+    Key: fileName,
+  };
+
+  const command = new GetObjectCommand(getFilesParams);
+
+  const fileURL = await getSignedUrl(awsClient, command, { expiresIn: 600 });
+
+  return {
+    url: fileURL,
+  };
 };
 
 // Service to download pdf from S3:

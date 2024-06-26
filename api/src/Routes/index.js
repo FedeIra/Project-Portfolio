@@ -15,6 +15,7 @@ import {
   getFilesData,
   getFileData,
   downloadFile,
+  getFileUrl,
 } from '../services/awsServices/awsS3Services.js';
 
 // Endpoint to send email:
@@ -129,12 +130,24 @@ router.get('/getFileData/:fileName', async (req, res) => {
   res.status(200).json(response);
 });
 
-// Endpoint to download pdf:
-router.get('/downloadFile/:fileName', async (req, res) => {
-  const { fileName } = req.params;
+// Endpoint to get document url:
+router.get('/getFileUrl/:fileName', async (req, res) => {
+  const fileName = req.params.fileName;
   if (!fileName) {
     return res.status(400).json({ error: 'No filename provided.' });
   }
+  const response = await getFileUrl(fileName);
+  res.status(200).json(response);
+});
+
+// Endpoint to download pdf:
+router.get('/downloadFile/:fileName', async (req, res) => {
+  const { fileName } = req.params;
+
+  if (!fileName) {
+    return res.status(400).json({ error: 'No filename provided.' });
+  }
+
   try {
     const response = await downloadFile(fileName);
     res.setHeader('Content-Type', 'application/pdf');

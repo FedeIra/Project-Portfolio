@@ -5,6 +5,7 @@ import {
   SIGNUP_ACTIONS,
   LOGIN_ACTIONS,
   LOGOUT_ACTIONS,
+  FILE_ACTIONS,
 } from "../actions/index.js";
 
 // Initial global state:
@@ -110,6 +111,23 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         error: { ...state.error, [LOGOUT_ACTIONS.FAILURE]: action.payload },
+      };
+    case FILE_ACTIONS.GET_REQUEST:
+      return {
+        ...state,
+        loading: { ...state.loading, [FILE_ACTIONS.GET_REQUEST]: true },
+        error: { ...state.error, [FILE_ACTIONS.GET_FAILURE]: null },
+      };
+    case FILE_ACTIONS.GET_SUCCESS:
+      return {
+        ...state,
+        loading: { ...state.loading, [FILE_ACTIONS.GET_REQUEST]: false },
+        file: action.payload,
+      };
+    case FILE_ACTIONS.GET_FAILURE:
+      return {
+        loading: { ...state.loading, [FILE_ACTIONS.GET_REQUEST]: false },
+        error: { ...state.error, [FILE_ACTIONS.GET_FAILURE]: action.payload },
       };
     default:
       return state;

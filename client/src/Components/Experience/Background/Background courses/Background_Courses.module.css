@@ -13,3 +13,8 @@
   position: relative;
   left: calc(100% - 30px);
 }
+
+.icon_eye:hover {
+  background-color: white;
+  color: black;
+}
