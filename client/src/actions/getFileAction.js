@@ -9,11 +9,16 @@ export const FILE_ACTIONS = {
 };
 
 // Use route to get file:
-export const getFile = (fileName) => async (dispatch) => {
+export const getFile = (token, fileName) => async (dispatch) => {
   dispatch({ type: FILE_ACTIONS.GET_REQUEST });
   try {
     const response = await axios.get(
-      `/getFileUrl/${encodeURIComponent(fileName)}`
+      `/getFileUrl/${encodeURIComponent(fileName)}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
     );
 
     window.open(response.data.url, "_blank");

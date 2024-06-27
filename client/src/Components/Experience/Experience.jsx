@@ -1,6 +1,9 @@
+// Import external dependencies:
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
+
+// Import local dependencies:
 import style from "./Experience.module.css";
 import * as images from "../../Assets/indexExportImages.js";
 import Background from "./Background/Background.jsx";
@@ -45,7 +48,6 @@ const Experience = () => {
         >
           <Row>
             <Col
-              pro
               className={`
             text-center
             flex-column
@@ -96,7 +98,7 @@ const Experience = () => {
             </Col>
             <Col
               className={`
-            py-3`}
+            py-2`}
             >
               <div
                 className="card"
@@ -210,7 +212,7 @@ const Experience = () => {
                 className={`m-0
             `}
               >
-                <span className={`badge bg-success border`}>&nbsp;</span>
+                <span className={`badge bg-success border `}>&nbsp;</span>
               </h5>
               <Row
                 className={`
@@ -222,9 +224,7 @@ const Experience = () => {
                   className={`
                 border-end
                 `}
-                >
-                  &nbsp;
-                </Col>
+                ></Col>
                 <Col>&nbsp;</Col>
               </Row>
             </Col>
@@ -264,13 +264,14 @@ const Experience = () => {
                     <strong> Project Portfolio </strong>
                   </h4>
                   <p className="card-text text-white">
-                    Building my portfolio using the following techs:{" "}
+                    Building my portfolio using the following tools:{" "}
                   </p>
 
                   <p className="card-text text-white">
-                    Javascript | Node.js | Express.js | JWS and Passpprt |
-                    MongoDB | JSON | Email.js | React.js | Redux | HTML | CSS |
-                    Chakra UI | Bootstrap | Toastify
+                    Javascript | Node.js | Express.js | AWS S3 | JWT and
+                    Passport | MongoDB | JSON | Email.js | React.js | Redux |
+                    HTML | CSS | Chakra UI | Bootstrap | Vercel | Railway |
+                    GitHub
                   </p>
                 </div>
               </div>
@@ -364,7 +365,7 @@ const Experience = () => {
                     that includes the following features: <br />
                   </p>
                   <p className="card-text text-white">
-                    • Third-party authentication (Google);
+                    • Third-party authentication with Google;
                     <br /> • Stripe payment platform integration; <br />•
                     Combined filters; <br />• Image loading with Cloudinary;{" "}
                     <br />• Cloudinary/upload/bucket; <br />• E-mail and live
@@ -375,10 +376,10 @@ const Experience = () => {
                   <p className="card-text text-white">
                     Kinema was built using the following tools:
                     <br />
-                    Javascript | Node.js | Express.js | JSON | Mongo Db |
+                    Javascript | Node.js | Express.js | JSON | MongoDB |
                     Mongoose | HTML | React.js | Redux.js | CSS | Chakra UI |
-                    Cloudinary | Firebase | Toastify | emailJS | Railway |
-                    Vercel | SCRUM
+                    Cloudinary | Firebase | EmailJS | Railway | Vercel | SCRUM |
+                    Trello | GitHub
                   </p>
                 </div>
               </div>
@@ -483,8 +484,8 @@ const Experience = () => {
                     G&B was built using the following tools:
                     <br />
                     Javascript | Typescript | Node.js | Express.js | Fastify |
-                    JSON | PostgreSQL | MongoDB Sequelize | HTML | React.js |
-                    Redux.js | CSS Railway | Vercel | Railway
+                    JSON | PostgreSQL | Sequelize | MongoDB | HTML | React.js |
+                    Redux.js | CSS | Heroku | Vercel | Railway | GitHub
                   </p>
                 </div>
               </div>
@@ -526,12 +527,10 @@ const Experience = () => {
                 </Col>
                 <Col>&nbsp;</Col>
               </Row>
-              <h5 className={`m-0`}>
-                <span className={`badge bg-success border`}>&nbsp;</span>
-              </h5>
+
               <Row
                 className={`
-              h-100
+              h-80
               `}
               >
                 <Col
@@ -543,10 +542,13 @@ const Experience = () => {
                 </Col>
                 <Col>&nbsp;</Col>
               </Row>
+              <h5 className={`m-0`}>
+                <span className={`badge bg-success border`}>&nbsp;</span>
+              </h5>
             </Col>
             <Col
               className={`
-            py-0
+            py-2
             `}
             >
               <div
@@ -579,7 +581,8 @@ const Experience = () => {
                   </p>
                   <p className="card-text text-white">
                     Technologies: Javascript | Node.js | Express | PostgreSQL |
-                    Sequelize | React.js | Redux.js | HTML | CSS | SCRUM
+                    Sequelize | React.js | Redux.js | HTML | CSS | SCRUM |
+                    GitHub
                   </p>
                 </div>
               </div>

@@ -131,14 +131,18 @@ router.get('/getFileData/:fileName', async (req, res) => {
 });
 
 // Endpoint to get document url:
-router.get('/getFileUrl/:fileName', async (req, res) => {
-  const fileName = req.params.fileName;
-  if (!fileName) {
-    return res.status(400).json({ error: 'No filename provided.' });
+router.get(
+  '/getFileUrl/:fileName',
+  passport.authenticate('jwt', { session: false }),
+  async (req, res) => {
+    const fileName = req.params.fileName;
+    if (!fileName) {
+      return res.status(400).json({ error: 'No filename provided.' });
+    }
+    const response = await getFileUrl(fileName);
+    res.status(200).json(response);
   }
-  const response = await getFileUrl(fileName);
-  res.status(200).json(response);
-});
+);
 
 // Endpoint to download pdf:
 router.get('/downloadFile/:fileName', async (req, res) => {
