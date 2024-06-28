@@ -20,7 +20,20 @@ const CourseItem = ({ course }) => {
   const loading = useSelector((state) => state.loading);
   const error = useSelector((state) => state.error);
 
-  const [username, setUserName] = useState("");
+  const [postAttemptPdfView, setPostAttemptPdfView] = useState(false);
+
+  useEffect(() => {
+    if (!loading.FILE_REQUEST && postAttemptPdfView) {
+      if (error.FILE_FAILURE) {
+        showToast({
+          title: "Error.",
+          description: "Error loading file. Please try again.",
+          status: "error",
+        });
+      }
+      setPostAttemptPdfView(false);
+    }
+  }, [loading.FILE_REQUEST, error.FILE_FAILURE, showToast, postAttemptPdfView]);
 
   // Define path to icon:
   const icon = require(`./Icons/${course.picture}`);
@@ -33,6 +46,7 @@ const CourseItem = ({ course }) => {
       });
       return;
     }
+    console.log(user);
     dispatch(getFile(user.token, key));
   };
 
@@ -97,6 +111,39 @@ const CourseItem = ({ course }) => {
 // Main component:
 const Background_Courses = () => {
   const dispatch = useDispatch();
+
+  const { showToast } = useToastNotifications();
+
+  const user = useSelector((state) => state.user);
+  const loading = useSelector((state) => state.loading);
+  const error = useSelector((state) => state.error);
+
+  const [postAttemptPdfView, setPostAttemptPdfView] = useState(false);
+
+  useEffect(() => {
+    if (!loading.FILE_REQUEST && postAttemptPdfView) {
+      if (error.FILE_FAILURE) {
+        showToast({
+          title: "Error.",
+          description: "Error loading file. Please try again.",
+          status: "error",
+        });
+      }
+      setPostAttemptPdfView(false);
+    }
+  }, [loading.FILE_REQUEST, error.FILE_FAILURE, showToast, postAttemptPdfView]);
+
+  const handleGetFile = (key) => {
+    if (!user || !user.token) {
+      showToast({
+        description: "Please log in to view file.",
+        status: "warning",
+      });
+      return;
+    }
+    dispatch(getFile(user.token, key));
+  };
+
   return (
     <div>
       <Container>
@@ -179,8 +226,8 @@ const Background_Courses = () => {
                 </p>
                 <button
                   onClick={() =>
-                    dispatch(
-                      getFile("Certificado Platzi. AWS. Cómputo con EC2.pdf")
+                    handleGetFile(
+                      "Certificado Platzi. AWS. Cómputo con EC2.pdf"
                     )
                   }
                   className={style.icon_eye}

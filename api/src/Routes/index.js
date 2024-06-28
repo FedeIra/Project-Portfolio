@@ -93,11 +93,14 @@ router.post(
   async (req, res, next) => {
     try {
       const user = req.user;
+
       const token = await loginService.signToken(user);
+
       const response = {
         token: token.token,
         username: user.username,
       };
+
       res.status(200).json(response);
     } catch (error) {
       next(error);
@@ -140,6 +143,7 @@ router.get(
       return res.status(400).json({ error: 'No filename provided.' });
     }
     const response = await getFileUrl(fileName);
+    console.log('🚀 ~ response:', response);
     res.status(200).json(response);
   }
 );
