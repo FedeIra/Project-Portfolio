@@ -114,6 +114,7 @@ Below, an image the architecture of the project is shown:
 - **AWS S3**: Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance.
 - **Joi and Boom**: Joi is a powerful schema description language and data validator for JavaScript. Boom is a set of utilities for returning HTTP errors.
 - **Bcrypt**: A library to help you hash passwords.
+- **Docker**: A platform for developing, shipping, and running applications in containers.
 
 ## Installation
 
@@ -147,6 +148,12 @@ JWT_SECRET=secret-key
 2. Check Docker is installed and running on your machine.
 
 3. Build and run the containers in backend-nodejs directory with the following commands:
+
+BACKEND Y FRONTED:
+
+```bash
+docker-compose up --build
+```
 
 BACKEND (api directory)
 
