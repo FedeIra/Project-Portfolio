@@ -115,23 +115,31 @@ router.post('/upload', async (req, res) => {
 });
 
 // Endpoint to get all documents data:
-router.get('/getListFiles', async (req, res) => {
-  if (!req.body) {
-    return res.status(400).json({ error: 'No filename provided.' });
+router.get(
+  '/getListFiles',
+  passport.authenticate('jwt', { session: false }),
+  async (req, res) => {
+    if (!req.body) {
+      return res.status(400).json({ error: 'No filename provided.' });
+    }
+    const response = await getFilesData();
+    res.status(200).json(response);
   }
-  const response = await getFilesData();
-  res.status(200).json(response);
-});
+);
 
 // Endpoint to get document data:
-router.get('/getFileData/:fileName', async (req, res) => {
-  const fileName = req.params.fileName;
-  if (!fileName) {
-    return res.status(400).json({ error: 'No filename provided.' });
+router.get(
+  '/getFileData/:fileName',
+  passport.authenticate('jwt', { session: false }),
+  async (req, res) => {
+    const fileName = req.params.fileName;
+    if (!fileName) {
+      return res.status(400).json({ error: 'No filename provided.' });
+    }
+    const response = await getFileData(fileName);
+    res.status(200).json(response);
   }
-  const response = await getFileData(fileName);
-  res.status(200).json(response);
-});
+);
 
 // Endpoint to get document url:
 router.get(
@@ -149,20 +157,24 @@ router.get(
 );
 
 // Endpoint to download pdf:
-router.get('/downloadFile/:fileName', async (req, res) => {
-  const { fileName } = req.params;
+router.get(
+  '/downloadFile/:fileName',
+  passport.authenticate('jwt', { session: false }),
+  async (req, res) => {
+    const { fileName } = req.params;
 
-  if (!fileName) {
-    return res.status(400).json({ error: 'No filename provided.' });
-  }
+    if (!fileName) {
+      return res.status(400).json({ error: 'No filename provided.' });
+    }
 
-  try {
-    const response = await downloadFile(fileName);
-    res.setHeader('Content-Type', 'application/pdf');
-    response.pipe(res);
-  } catch (error) {
-    res.status(404).json({ error: 'File not found.' });
+    try {
+      const response = await downloadFile(fileName);
+      res.setHeader('Content-Type', 'application/pdf');
+      response.pipe(res);
+    } catch (error) {
+      res.status(404).json({ error: 'File not found.' });
+    }
   }
-});
+);
 
 export default router;

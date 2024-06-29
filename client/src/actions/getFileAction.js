@@ -13,15 +13,20 @@ export const getFile = (token, fileName) => async (dispatch) => {
   dispatch({ type: FILE_ACTIONS.GET_REQUEST });
   try {
     const response = await axios.get(
-      `/getFileUrl/${encodeURIComponent(fileName)}`,
+      `/downloadFile/${encodeURIComponent(fileName)}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
         },
+        responseType: "blob",
       }
     );
 
-    window.open(response.data.url, "_blank");
+    const url = window.URL.createObjectURL(
+      new Blob([response.data], { type: "application/pdf" })
+    );
+
+    window.open(url, "_blank");
 
     dispatch({
       type: FILE_ACTIONS.GET_SUCCESS,

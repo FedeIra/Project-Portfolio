@@ -34,96 +34,68 @@ The project follows clean architecture principles to ensure a well-organized and
 Below is the organized structure of folders and files in the project:
 
 ```
-backend-nodejs
-├── packages
-│    ├── clients
-│    │   ├── tmdbClient
-│    │   └── dataBaseClient
-│    ├── env
-│    │   └── config.ts
-│    ├── errors
-│    │   └── ...
-│    └── fastify
-├── server
-│   ├── handlers
-│   │   └── ...
-│   ├── errors.ts
-│   └── main.ts
-├── src
-│   ├── models
-│   │   └── ...
-│   ├── services
-│   │   ├── movies
-│   │   ├── tvShows
-│   │   └── users
-│   └── useCases
-│       ├── movies
-│       ├── tvShows
-│       └── users
-├── package.json
-├── package-lock.json
-├── Dockerfile
-├── tsconfig.json
-└── .env
+PORTFOLIOFI
+├── api
+│    ├── src
+│    │   ├── Db
+│    │   │    ├── ControllersDB
+│    │   │    │        └── comments.js
+│    │   │    ├── Schema
+│    │   │    │      ├── comment.js
+│    │   │    │      └── user.js
+│    │   │    └── db.js
+│    │   ├── middlewares
+│    │   │    ├── error.handler.js
+│    │   │    └── validator.handler.js
+│    │   ├── routes
+│    │   │     └── index.js
+│    │   ├── schemasValidation
+│    │   │        └── user.schema.js
+│    │   ├── services
+│    │   │     ├── awsServices
+│    │   │     └── userServices
+│    │   │           ├── login.service.js
+│    │   │           └── user.service.js
+│    │   ├── utils/authentication
+│    │   │           ├── strategies
+│    │   │           │       ├── jwt.strategy.js
+│    │   │           │       └── local.strategy.js
+│    │   │           └── index.js
+│    │   └── app.js
+│    ├── uploads
+│    │      └── ...
+│    ├── config.js
+│    ├── index.js
+│    ├── package.json
+│    └── .env
+└── client
+     ├── public
+     │    ├── index.html
+     │    └── ...
+     ├── src
+     │   ├── actions
+     │   │    └── ...
+     │   ├── assets
+     │   │    └── ...
+     │   ├── components
+     │   │    └── ...
+     │   ├── reducer
+     │   │    └── index.js
+     │   ├── store
+     │   │    └── index.js
+     |   ├── utils
+     │   │     ├── comments
+     │   │     │     └── ...
+     │   │     ├── general
+     │   │     |     └── ...
+     │   │     └── index.js
+     |   ├── App.js
+     |   └── index.js
+     ├── package.json
+     └── .env
 ```
 
 ## Architecture
-
-This project follows the principles of Clean Architecture to ensure that the system is easy to understand, maintain, and extend.
-
-The project is divided into three main layers:
-
-1. **Handlers or Delivery Layer**: This layer contains the HTTP handlers that receive incoming HTTP requests, call the appropriate use case, and return the HTTP response. The handlers are responsible for parsing the request, validating the input, and returning the response.
-
-```json
-├── server
-│   ├── handlers
-│   │   └── ...
-│   ├── errors.ts
-│   └── main.ts
-```
-
-2. **Use Cases or Application Layer**: This layer contains the use cases that represent the application's business rules. Each use case is a class that implements a specific feature of the application. The use cases are independent of the delivery mechanism (HTTP, CLI, etc.) and the data access layer (database, external services, etc.). Use cases interact with the services to perform specific tasks, ensuring that the business rules are enforced.
-
-```json
-│   └── useCases
-│       ├── movies
-│       ├── tvShows
-│       └── users
-```
-
-3. **Services or Data Access Layer**: This layer contains the services that interact with external data sources such as databases (i.e: mongoDB), external APIs (i.e: TMBD APIs), etc. The services in this layer are responsible for fetching and storing data from and to external sources.
-
-```json
-│   ├── services
-│   │   ├── movies
-│   │   ├── tvShows
-│   │   └── users
-```
-
-**Example of flow:**
-
-Here is a brief overview of how a request flows through the system:
-
-1. Handler: The client sends an HTTP request to the server, which is received by a handler. Handlers are responsible for parsing the request using a schema (e.g., Zod), mapping the input data to the correct format if required and calling the appropriate use case.
-2. Use Case: The use case is responsible for enforcing the business rules and orchestrating the flow of data between the services if required.
-3. Service: If interaction with a a service is required by use case, services are required to perform its tasks (e.g., fetching data from a database, calling an external API, etc.) and return the result to the use case.
-4. Response: The use case returns the result to the handler, which then sends the response back to the client.
-
-The main objective of this architecture is to keep the business rules isolated from the delivery mechanism and the data access layer, making the system more flexible, testable, and maintainable by following the SOLID principles:
-
-- **Separation of concerns**: Each layer has a specific responsibility and is isolated from the other layers.
-- **Dependency Rule**: Inner layers should not depend on outer layers. The flow of dependencies is always inward. For example, the business logic layer or use cases does not know anything about the delivery layer or the data access layer (services).
-- **Encapsulation**: Each layer hides its implementation details from other layers.
-- **Interface Adapters**: The use of interfaces allows the system to be easily adapted to different frameworks or libraries.
-
-Below, an image of clean architecture is shown:
-
-![Clean Architecture](./assetsDocumentation/CleanArchitecture.jpg)
-
-Please note flow of data. Handler ("Controller") receives the request, then it calls the use case, which may or may not interact with services (DB, External Interfaces, etc.). The use case returns the response to the controller ("Presenter"), which sends the response back to the client.
-
-Entities (in our development "Models") are the objects that represent the core business objects of the application. They are independent of the data access layer object (in our development "Entities").
 
 Below, an image the architecture of the project is shown:
 
@@ -132,12 +104,16 @@ Below, an image the architecture of the project is shown:
 ## Tech Stack
 
 - **Node.js**: JavaScript runtime built on Chrome's V8 JavaScript engine.
-- **TypeScript**: A superset of JavaScript that adds static types to the language.
-- **Fastify**: A fast and low overhead web framework for Node.js.
+- **Javascript**: High-level, interpreted programming language.
+- **Express**: A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
 - **MongoDB**: A NoSQL database that stores data in flexible, JSON-like documents. For this project im using MongoDB Atlas. MongoDB Atlas is a fully managed cloud database service.
+- **Mongoose**: A MongoDB object modeling tool designed to work in an asynchronous environment.
 - **Docker**: A platform for developing, shipping, and running applications in containers.
-- **JWT**: JSON Web Tokens are an open, industry-standard RFC 7519 method for representing claims securely between two parties.
-- **TMDB API**: The Movie Database (TMDb) API is a resource for any developers that want to integrate movie, TV show, and cast data in their application.
+- **JWT and Passport**: JSON Web Token (JWT) is an open standard that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. Passport is Express-compatible authentication middleware for Node.js.
+- **Email.js**: A Node.js module for sending emails.
+- **AWS S3**: Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance.
+- **Joi and Boom**: Joi is a powerful schema description language and data validator for JavaScript. Boom is a set of utilities for returning HTTP errors.
+- **Bcrypt**: A library to help you hash passwords.
 
 ## Installation
 
@@ -152,7 +128,7 @@ Below, an image the architecture of the project is shown:
 Create a `.env` file in the root of the project and add the following environment variables. You can check for such purpose the `.env.example` file in the root of the project:
 
 ```bash
-PORT=3000
+PORT=3001
 HOST=0.0.0.0
 TMDB_API_KEY=tmdb-api-key
 TMDB_BASE_URL=https://api.themoviedb.org/3
@@ -172,9 +148,18 @@ JWT_SECRET=secret-key
 
 3. Build and run the containers in backend-nodejs directory with the following commands:
 
+BACKEND (api directory)
+
 ```bash
-docker build -t movie-challenge-backend .
-docker run -p 3000:3000 --env-file movie-challenge-backend
+docker build -t portfolio-backend .
+docker run -p 3001:3001 --env-file .env portfolio-backend
+```
+
+FRONTED (client directory)
+
+```bash
+docker build -t portfolio-frontend .
+docker run -p 3000:3000 --env-file .env portfolio-frontend
 ```
 
 ### Without Docker:

@@ -5,7 +5,10 @@ mongoose.set('strictQuery', false);
 
 const URL_DB = config.url_database;
 
-mongoose.connect(URL_DB);
+mongoose.connect(URL_DB, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 const database = mongoose.connection;
 
