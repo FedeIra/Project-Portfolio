@@ -61,7 +61,7 @@ export const getFilesData = async () => {
 
     return files;
   } catch (error) {
-    throw error;
+    return error;
   }
 };
 

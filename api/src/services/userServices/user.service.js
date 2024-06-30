@@ -1,4 +1,5 @@
 import bcrypt from 'bcrypt';
+import Boom from '@hapi/boom';
 import { UserModel } from '../../Db/Schema/user.js';
 
 class UserService {
@@ -10,7 +11,7 @@ class UserService {
     const existingUser = await this.getUser(data.username);
 
     if (existingUser) {
-      throw new Error('Username already exists.');
+      throw Boom.badRequest('Username already exists');
     }
     // hash password:
     const hash = await bcrypt.hash(data.password, 10);

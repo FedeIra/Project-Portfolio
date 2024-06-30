@@ -4,7 +4,10 @@ import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import routes from './Routes/index.js';
-import { boomErrorHandler } from './middlewares/error.handler.js';
+import {
+  boomErrorHandler,
+  genericErrorHandler,
+} from './middlewares/error.handler.js';
 
 const server = express();
 
@@ -41,12 +44,7 @@ server.use(
 
 server.use('/', routes);
 
-server.use((err, req, res, next) => {
-  const status = err.status || 500;
-  const message = err.message || err;
-  res.status(status).send(message);
-});
-
 server.use(boomErrorHandler);
+server.use(genericErrorHandler);
 
 export default server;

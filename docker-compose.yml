@@ -13,6 +13,9 @@ services:
       - ./api/.env
     depends_on:
       - mongo
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
 
   frontend:
     build:
@@ -26,6 +29,9 @@ services:
       - ./client/.env
     depends_on:
       - backend
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
 
   mongo:
     image: mongo

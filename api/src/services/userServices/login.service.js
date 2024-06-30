@@ -15,7 +15,7 @@ class AuthService {
     }
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      throw boom.notFound('Invalid username or password.');
+      throw boom.unauthorized('Invalid username or password.');
     }
     return user;
   }

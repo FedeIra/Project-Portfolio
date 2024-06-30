@@ -15,8 +15,6 @@ The API provides endpoints to:
 - get certificate url, and
 - get certificate file.
 
-The project follows clean architecture principles to ensure a well-organized and maintainable codebase.
-
 ## Table of Contents
 
 - [Project Structure](#project-structure)
