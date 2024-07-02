@@ -11,20 +11,23 @@ import routes from './routes/index.js';
 import {
   boomErrorHandler,
   genericErrorHandler,
-} from './middlewares/error.handler.js';
-import passport from './middlewares/passport.handler.js';
+} from './middlewares/error.middleware.js';
+import passport from './middlewares/passport.middleware.js';
 
 const server = express();
 
+// General middlewares:
 server.use(cors());
 server.use(express.json());
-
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 server.use(bodyParser.json({ limit: '50mb' }));
 server.use(cookieParser());
 server.use(morgan('dev'));
+
+// Authentication middleware:
 server.use(passport.initialize());
 
+// CORS configuration:
 server.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Credentials', 'true');
@@ -45,6 +48,7 @@ server.use(
   })
 );
 
+// Routes:
 server.use('/', routes);
 
 // Error handling:

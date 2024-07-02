@@ -12,12 +12,12 @@ class EmailService {
   async sendEmail(templateParams) {
     try {
       await emailjs.send(
-        config.email_js_serviceid,
-        config.email_js_templateid,
+        config.email_js.serviceid,
+        config.email_js.templateid,
         templateParams,
         {
-          publicKey: config.email_js_publickey,
-          privateKey: config.email_js_privatekey,
+          publicKey: config.email_js.publickey,
+          privateKey: config.email_js.privatekey,
         }
       );
       return { success: true, message: 'Email sent successfully' };

@@ -13,10 +13,10 @@ import config from '../../config/config.js';
 
 // S3 client service:
 const awsClient = new S3Client({
-  region: config.aws_bucket_region,
+  region: config.aws.bucket_region,
   credentials: {
-    accessKeyId: config.aws_access_key,
-    secretAccessKey: config.aws_secret_key,
+    accessKeyId: config.aws.access_key,
+    secretAccessKey: config.aws.secret_key,
   },
 });
 
@@ -24,7 +24,7 @@ const awsClient = new S3Client({
 export const uploadFile = async (file) => {
   const stream = fs.createReadStream(file.tempFilePath);
   const uploadParams = {
-    Bucket: config.aws_bucket_name,
+    Bucket: config.aws.bucket_name,
     Key: file.name,
     Body: stream,
   };
@@ -44,7 +44,7 @@ export const uploadFile = async (file) => {
 // Service to get all files from S3:
 export const getFilesData = async () => {
   const listParams = {
-    Bucket: config.aws_bucket_name,
+    Bucket: config.aws.bucket_name,
   };
 
   try {
@@ -68,7 +68,7 @@ export const getFilesData = async () => {
 // Service to get document data from S3:
 export const getFileData = async (fileName) => {
   const getFilesParams = {
-    Bucket: config.aws_bucket_name,
+    Bucket: config.aws.bucket_name,
     Key: fileName,
   };
 
@@ -82,7 +82,7 @@ export const getFileData = async (fileName) => {
 // Service to get document url from S3:
 export const getFileUrl = async (fileName) => {
   const getFilesParams = {
-    Bucket: config.aws_bucket_name,
+    Bucket: config.aws.bucket_name,
     Key: fileName,
   };
 
@@ -98,7 +98,7 @@ export const getFileUrl = async (fileName) => {
 // Service to download pdf from S3:
 export const downloadFile = async (fileName) => {
   const getFilesParams = {
-    Bucket: config.aws_bucket_name,
+    Bucket: config.aws.bucket_name,
     Key: fileName,
   };
   const command = new GetObjectCommand(getFilesParams);

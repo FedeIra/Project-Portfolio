@@ -1,19 +1,47 @@
 // Import external packages:
 import 'dotenv/config';
+import Joi from 'joi';
+
+const envVarsSchema = Joi.object({
+  URL_DB: Joi.string().required(),
+  PORT: Joi.number().default(3001),
+  EMAIL_JS_SERVICEID: Joi.string().required(),
+  EMAIL_JS_TEMPLATEID: Joi.string().required(),
+  EMAIL_JS_PUBLICKEY: Joi.string().required(),
+  EMAIL_JS_PRIVATEKEY: Joi.string().required(),
+  AWS_BUCKET_NAME: Joi.string().required(),
+  AWS_BUCKET_REGION: Joi.string().required(),
+  AWS_ACCESS_KEY: Joi.string().required(),
+  AWS_SECRET_KEY: Joi.string().required(),
+  JWT_SECRET: Joi.string().required(),
+})
+  .unknown()
+  .required();
+
+const { error, value: envVars } = envVarsSchema.validate(process.env);
+
+if (error) {
+  console.log();
+  throw new Error(`Config .env validation error: ${error.message}`);
+}
 
 // Environment variables configuration object:
 const config = {
-  url_database: process.env.URL_DB,
-  port: process.env.PORT,
-  email_js_serviceid: process.env.EMAIL_JS_SERVICEID,
-  email_js_templateid: process.env.EMAIL_JS_TEMPLATEID,
-  email_js_publickey: process.env.EMAIL_JS_PUBLICKEY,
-  email_js_privatekey: process.env.EMAIL_JS_PRIVATEKEY,
-  aws_bucket_name: process.env.AWS_BUCKET_NAME,
-  aws_bucket_region: process.env.AWS_BUCKET_REGION,
-  aws_access_key: process.env.AWS_ACCESS_KEY,
-  aws_secret_key: process.env.AWS_SECRET_KEY,
-  jwt_secret: process.env.JWT_SECRET,
+  url_database: envVars.URL_DB,
+  port: envVars.PORT,
+  email_js: {
+    serviceid: envVars.EMAIL_JS_SERVICEID,
+    templateid: envVars.EMAIL_JS_TEMPLATEID,
+    publickey: envVars.EMAIL_JS_PUBLICKEY,
+    privatekey: envVars.EMAIL_JS_PRIVATEKEY,
+  },
+  aws: {
+    bucket_name: envVars.AWS_BUCKET_NAME,
+    bucket_region: envVars.AWS_BUCKET_REGION,
+    access_key: envVars.AWS_ACCESS_KEY,
+    secret_key: envVars.AWS_SECRET_KEY,
+  },
+  jwt_secret: envVars.JWT_SECRET,
 };
 
 export default config;

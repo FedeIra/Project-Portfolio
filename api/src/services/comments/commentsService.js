@@ -1,3 +1,6 @@
+// External packages:
+import Boom from '@hapi/boom';
+
 // Internal packages:
 import { Comment } from '../../db/schemas/comment.js';
 
@@ -8,11 +11,9 @@ class CommentService {
   // Get all comments from database:
   async getAllComments() {
     try {
-      const comments = await Comment.find();
+      const comments = await Comment.find().sort({ createdAt: -1 });
 
-      const orderComments = comments.reverse();
-
-      const cleanComments = orderComments.map((comment) => {
+      const cleanComments = comments.map((comment) => {
         return {
           commentId: comment.commentId,
           username: comment.username,
@@ -23,7 +24,7 @@ class CommentService {
 
       return cleanComments;
     } catch (error) {
-      return error;
+      throw Boom.internal('Error getting comments');
     }
   }
 
@@ -45,7 +46,7 @@ class CommentService {
 
       return commentResponse;
     } catch (error) {
-      return error;
+      throw Boom.internal('Error creating comment');
     }
   }
 }

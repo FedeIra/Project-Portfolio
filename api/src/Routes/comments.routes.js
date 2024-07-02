@@ -3,8 +3,8 @@ import Boom from '@hapi/boom';
 import { Router } from 'express';
 
 // Internal packages:
-import { validatorHandler } from '../middlewares/validator.handler.js';
-import { authenticateJwt } from '../middlewares/authentication.handler.js';
+import { validatorHandler } from '../middlewares/validator.middleware.js';
+import { authenticateJwt } from '../middlewares/authentication.middleware.js';
 import { CommentService } from '../services/comments/commentsService.js';
 import { postCommentSchema } from '../schemasValidation/comment.schema.js';
 

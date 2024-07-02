@@ -3,7 +3,7 @@ import Boom from '@hapi/boom';
 import { Router } from 'express';
 
 // Internal packages:
-import { validatorHandler } from '../middlewares/validator.handler.js';
+import { validatorHandler } from '../middlewares/validator.middleware.js';
 import { EmailService } from '../services/emails/emailService.js';
 import { sendEmailSchema } from '../schemasValidation/email.schema.js';
 

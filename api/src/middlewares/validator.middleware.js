@@ -6,7 +6,6 @@ const validatorHandler = (schema, property) => {
     const data = req[property];
     const { error } = schema.validate(data, { abortEarly: false });
     if (error) {
-      error.fedeiraError = 'fedeira Error';
       next(boom.badRequest(error));
     }
     next();

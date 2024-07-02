@@ -10,7 +10,7 @@ import {
   downloadFile,
   getFileUrl,
 } from '../services/files/awsS3Services.js';
-import { authenticateJwt } from '../middlewares/authentication.handler.js';
+import { authenticateJwt } from '../middlewares/authentication.middleware.js';
 
 const router = Router();
 
