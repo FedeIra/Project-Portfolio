@@ -24,9 +24,6 @@ server.use(bodyParser.json({ limit: '50mb' }));
 server.use(cookieParser());
 server.use(morgan('dev'));
 
-// Authentication middleware:
-server.use(passport.initialize());
-
 // CORS configuration:
 server.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -38,6 +35,9 @@ server.use((req, res, next) => {
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   next();
 });
+
+// Authentication middleware:
+server.use(passport.initialize());
 
 // Middleware for handling file uploads:
 server.use(

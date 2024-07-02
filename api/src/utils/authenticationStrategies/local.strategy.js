@@ -1,5 +1,6 @@
 // External packages:
 import { Strategy } from 'passport-local';
+import Boom from '@hapi/boom';
 
 // Internal packages:
 import LoginService from '../../services/authentication/login.service.js';
@@ -16,9 +17,9 @@ const localStrategy = new Strategy(
   async (username, password, done) => {
     try {
       const user = await loginService.logUser(username, password);
-      done(null, user);
+      return done(null, user);
     } catch (error) {
-      done(error);
+      return done(Boom.unauthorized('Unauthorized.'), false);
     }
   }
 );

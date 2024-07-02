@@ -1,5 +1,6 @@
 // External packages:
 import emailjs from '@emailjs/nodejs';
+import Boom from '@hapi/boom';
 
 // Internal packages:
 import config from '../../config/config.js';
@@ -22,7 +23,7 @@ class EmailService {
       );
       return { success: true, message: 'Email sent successfully' };
     } catch (error) {
-      return error;
+      throw Boom.internal('Error sending email');
     }
   }
 }

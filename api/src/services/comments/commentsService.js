@@ -39,7 +39,8 @@ class CommentService {
       });
 
       const commentResponse = {
-        commentId: String(postComment.commentId),
+        commentId: postComment.commentId,
+        username: postComment.username,
         content: postComment.content,
         date: postComment.date,
       };

@@ -29,12 +29,15 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: { ...state.loading, [EMAIL_ACTIONS.POST_REQUEST]: false },
-        email: action.payload,
       };
     case EMAIL_ACTIONS.POST_FAILURE:
       return {
+        ...state,
         loading: { ...state.loading, [EMAIL_ACTIONS.POST_REQUEST]: false },
-        error: { ...state.error, [EMAIL_ACTIONS.POST_FAILURE]: action.payload },
+        error: {
+          ...state.error,
+          [EMAIL_ACTIONS.POST_FAILURE]: action.payload,
+        },
       };
     case COMMENTS_ACTIONS.POST_REQUEST:
       return {
@@ -50,6 +53,7 @@ const rootReducer = (state = initialState, action) => {
       };
     case COMMENTS_ACTIONS.POST_FAILURE:
       return {
+        ...state,
         loading: { ...state.loading, [COMMENTS_ACTIONS.POST_REQUEST]: false },
         error: {
           ...state.error,
@@ -89,13 +93,7 @@ const rootReducer = (state = initialState, action) => {
     case LOGOUT_ACTIONS.REQUEST:
       return {
         ...state,
-        user: {
-          token: "",
-          user: {
-            username: "",
-            password: "",
-          },
-        },
+        user: action.payload,
       };
     case SIGNUP_ACTIONS.FAILURE:
       return {
@@ -126,6 +124,7 @@ const rootReducer = (state = initialState, action) => {
       };
     case FILE_ACTIONS.GET_FAILURE:
       return {
+        ...state,
         loading: { ...state.loading, [FILE_ACTIONS.GET_REQUEST]: false },
         error: { ...state.error, [FILE_ACTIONS.GET_FAILURE]: action.payload },
       };

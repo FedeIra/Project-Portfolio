@@ -25,7 +25,7 @@ const Contact = () => {
   };
 
   useEffect(() => {
-    if (!loading.EMAIL_POST_REQUEST && postAttemptEmail) {
+    if (postAttemptEmail && !loading.EMAIL_POST_REQUEST) {
       if (!error.EMAIL_POST_FAILURE) {
         showToast({
           title: "Email sent.",
@@ -35,7 +35,8 @@ const Contact = () => {
       } else {
         showToast({
           title: "Error.",
-          description: "Error sending email. Please try again.",
+          description:
+            "There was an error sending the email. Please try again.",
           status: "error",
         });
       }

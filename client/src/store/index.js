@@ -12,7 +12,6 @@ import rootReducer from "../reducer/index.js";
 const persistConfig = {
   key: "root",
   version: 1,
-  timeout: 3600000,
   storage,
   whitelist: ["user", "comments"],
 };

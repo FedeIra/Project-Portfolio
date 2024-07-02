@@ -43,31 +43,25 @@ const Comments = () => {
   }, [comments]);
 
   useEffect(() => {
-    if (
-      postAttemptComment &&
-      !loading.COMMENTS_POST_REQUEST &&
-      !error.COMMENTS_POST_FAILURE
-    ) {
-      showToast({
-        title: "Comment posted.",
-        description: "Thank you for your comment.",
-        status: "success",
-      });
-    } else if (
-      postAttemptComment &&
-      !loading.COMMENTS_POST_REQUEST &&
-      error.COMMENTS_POST_FAILURE
-    ) {
-      showToast({
-        title: "Error.",
-        description: "Error posting comment. Please try again.",
-        status: "error",
-      });
+    if (postAttemptComment && !loading.COMMENT_POST_REQUEST) {
+      if (!error.COMMENT_POST_FAILURE) {
+        showToast({
+          title: "Comment posted.",
+          description: "Thank you for your comment.",
+          status: "success",
+        });
+      } else {
+        showToast({
+          title: "Error.",
+          description: "There was an error posting your comment.",
+          status: "error",
+        });
+      }
+      setPostAttemptComment(false);
     }
-    setPostAttemptComment(false);
   }, [
-    loading.COMMENTS_POST_REQUEST,
-    error.COMMENTS_POST_FAILURE,
+    loading.COMMENT_POST_REQUEST,
+    error.COMMENT_POST_FAILURE,
     showToast,
     postAttemptComment,
   ]);
