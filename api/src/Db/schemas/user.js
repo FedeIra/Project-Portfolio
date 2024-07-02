@@ -1,5 +1,7 @@
+// External packages:
 import Mongoose from 'mongoose';
 
+// Database user schema:
 export const userSchema = new Mongoose.Schema(
   {
     username: {

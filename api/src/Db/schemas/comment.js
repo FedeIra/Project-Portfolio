@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-// Create database collection:
+// Database comment schema:
 const dataSchema = new mongoose.Schema({
   commentId: {
     type: Number,

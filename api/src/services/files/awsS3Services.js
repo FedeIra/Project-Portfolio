@@ -9,7 +9,7 @@ import fs from 'fs';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 
 // Internal imports:
-import config from '../../../config.js';
+import config from '../../config/config.js';
 
 // S3 client service:
 const awsClient = new S3Client({

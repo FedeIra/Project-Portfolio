@@ -10,7 +10,7 @@ services:
     environment:
       - NODE_ENV=production
     env_file:
-      - ./api/.env
+      - ./api/config/.env
     depends_on:
       - mongo
     dns:

@@ -1,20 +1,21 @@
+// External packages:
 import express from 'express';
-import fileUpload from 'express-fileupload';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
-import routes from './Routes/index.js';
+import fileUpload from 'express-fileupload';
+import cors from 'cors';
+
+// Internal packages:
+import routes from './routes/index.js';
 import {
   boomErrorHandler,
   genericErrorHandler,
 } from './middlewares/error.handler.js';
+import passport from './middlewares/passport.handler.js';
 
 const server = express();
 
-import cors from 'cors';
-import './utils/authentication/index.js';
-
-// server.name = 'API';
 server.use(cors());
 server.use(express.json());
 
@@ -22,6 +23,7 @@ server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 server.use(bodyParser.json({ limit: '50mb' }));
 server.use(cookieParser());
 server.use(morgan('dev'));
+server.use(passport.initialize());
 
 server.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -34,6 +36,7 @@ server.use((req, res, next) => {
   next();
 });
 
+// Middleware for handling file uploads:
 server.use(
   fileUpload({
     useTempFiles: true,
@@ -44,6 +47,7 @@ server.use(
 
 server.use('/', routes);
 
+// Error handling:
 server.use(boomErrorHandler);
 server.use(genericErrorHandler);
 

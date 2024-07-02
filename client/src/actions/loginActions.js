@@ -16,9 +16,7 @@ export const LOGOUT_ACTIONS = {
 export const logIn = (logForm) => {
   return async function (dispatch) {
     try {
-      console.log(`INTENTADO LOGEAR ${JSON.stringify(logForm)}`);
       const response = await axios.post(`/login`, logForm);
-      console.log("🚀 ~ response:", response);
       return dispatch({
         type: LOGIN_ACTIONS.REQUEST,
         payload: response.data,

@@ -1,8 +1,13 @@
+// External packages:
 import { Strategy } from 'passport-local';
-import LoginService from '../../../services/userServices/login.service.js';
 
+// Internal packages:
+import LoginService from '../../services/authentication/login.service.js';
+
+// Create an instance of the LoginService class:
 const loginService = new LoginService();
 
+// Local strategy:
 const localStrategy = new Strategy(
   {
     usernameField: 'username',

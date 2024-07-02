@@ -46,7 +46,6 @@ const CourseItem = ({ course }) => {
       });
       return;
     }
-    console.log(user);
     dispatch(getFile(user.token, key));
   };
 

@@ -1,6 +1,6 @@
 import boom from '@hapi/boom';
 
-// middleware validator for create user:
+// Middleware for validating request body:
 const validatorHandler = (schema, property) => {
   return (req, res, next) => {
     const data = req[property];

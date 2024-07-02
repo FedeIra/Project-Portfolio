@@ -1,10 +1,14 @@
+// External packages:
 import mongoose from 'mongoose';
-import config from '../../config.js';
 
-mongoose.set('strictQuery', false);
+// Internal packages:
+import config from '../config/config.js';
 
 const URL_DB = config.url_database;
 
+mongoose.set('strictQuery', false);
+
+// Connect to the database:
 mongoose.connect(URL_DB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,

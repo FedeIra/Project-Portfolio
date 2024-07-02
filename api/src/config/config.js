@@ -1,7 +1,7 @@
 // Import external packages:
 import 'dotenv/config';
 
-// Environment variables:
+// Environment variables configuration object:
 const config = {
   url_database: process.env.URL_DB,
   port: process.env.PORT,

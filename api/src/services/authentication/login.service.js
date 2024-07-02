@@ -1,13 +1,18 @@
+// External packages:
 import bcrypt from 'bcrypt';
 import boom from '@hapi/boom';
 import jwtService from 'jsonwebtoken';
-import config from '../../../config.js';
-import { UserService } from './user.service.js';
 
+// Internal packages:
+import config from '../../config/config.js';
+import { UserService } from '../user/user.service.js';
+
+// Create an instance of the UserService class:
 const service = new UserService();
 
+// AuthService class:
 class AuthService {
-  // logUSer service
+  // Log user service:
   async logUser(username, password) {
     const user = await service.getUser(username);
     if (!user) {
@@ -19,19 +24,20 @@ class AuthService {
     }
     return user;
   }
-  // authentication and signature of token service:
+  // Sign token service:
   async signToken(user) {
     const payload = {
       sub: user.id,
     };
 
     const token = jwtService.sign(payload, config.jwt_secret);
-    return {
+
+    const tokenResponse = {
       token,
-      user: {
-        username: user.username,
-      },
+      user: user.username,
     };
+
+    return tokenResponse;
   }
 }
 

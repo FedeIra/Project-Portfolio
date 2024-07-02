@@ -1,11 +1,16 @@
+// External packages:
 import { Strategy, ExtractJwt } from 'passport-jwt';
-import config from '../../../../config.js';
 
+// Internal packages:
+import config from '../../config/config.js';
+
+// Options for the JWT strategy:
 const options = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey: config.jwt_secret,
+  secretOrKey: String(config.jwt_secret),
 };
 
+// JWT strategy:
 const JwtStrategy = new Strategy(options, (payload, done) => {
   if (!payload) {
     return done(new Error('Unauthorized'));
