@@ -3,16 +3,13 @@ import Boom from '@hapi/boom';
 import { Router } from 'express';
 
 // Internal packages:
-import {
-  uploadFile,
-  getFilesData,
-  getFileData,
-  downloadFile,
-  getFileUrl,
-} from '../services/files/awsS3Services.js';
+import { AwsS3Service } from '../services/files/awsS3Services.js';
 import { authenticateJwt } from '../middlewares/authentication.middleware.js';
 
 const router = Router();
+
+// Services instances:
+const filesService = new AwsS3Service();
 
 // Endpoint to upload pdf documents:
 router.post('/upload', async (req, res, next) => {
@@ -20,20 +17,17 @@ router.post('/upload', async (req, res, next) => {
     const response = await uploadFile(req.files.file);
     res.status(200).json(response);
   } catch (error) {
-    next(Boom.internal(error.message));
+    next(error);
   }
 });
 
 // Endpoint to get all documents data:
 router.get('/getListFiles', authenticateJwt, async (req, res, next) => {
   try {
-    if (!req.body) {
-      return res.status(400).json({ error: 'No filename provided.' });
-    }
-    const response = await getFilesData();
+    const response = await filesService.getFilesData();
     res.status(200).json(response);
   } catch (error) {
-    next(Boom.internal(error.message));
+    next(error);
   }
 });
 
@@ -47,10 +41,10 @@ router.get(
       if (!fileName) {
         return res.status(400).json({ error: 'No filename provided.' });
       }
-      const response = await getFileData(fileName);
+      const response = await filesService.getFileData(fileName);
       res.status(200).json(response);
     } catch (error) {
-      next(Boom.internal(error.message));
+      next(error);
     }
   }
 );
@@ -62,10 +56,10 @@ router.get('/getFileUrl/:fileName', authenticateJwt, async (req, res, next) => {
     if (!fileName) {
       return res.status(400).json({ error: 'No filename provided.' });
     }
-    const response = await getFileUrl(fileName);
+    const response = await filesService.getFileUrl(fileName);
     res.status(200).json(response);
   } catch (error) {
-    next(Boom.internal(error.message));
+    next(error);
   }
 });
 
@@ -80,11 +74,11 @@ router.get(
       if (!fileName) {
         return res.status(400).json({ error: 'No filename provided.' });
       }
-      const response = await downloadFile(fileName);
+      const response = await filesService.downloadFile(fileName);
       res.setHeader('Content-Type', 'application/pdf');
       response.pipe(res);
     } catch (error) {
-      next(Boom.internal(error.message));
+      next(error);
     }
   }
 );

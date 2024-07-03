@@ -17,6 +17,7 @@ class AuthService {
     try {
       const user = await service.getUser(username);
       if (!user) {
+        console.log('Invalid username or password.');
         throw boom.notFound('Invalid username or password.');
       }
       const isMatch = await bcrypt.compare(password, user.password);
@@ -25,7 +26,11 @@ class AuthService {
       }
       return user;
     } catch (error) {
-      throw boom.internal('Error during authentication process');
+      if (error.isBoom) {
+        throw error; // TODO: usar throw error en los demas!!!!
+      } else {
+        throw boom.internal('Error during authentication process');
+      }
     }
   }
 
