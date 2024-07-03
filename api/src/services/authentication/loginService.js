@@ -5,7 +5,7 @@ import jwtService from 'jsonwebtoken';
 
 // Internal packages:
 import config from '../../config/config.js';
-import { UserService } from '../user/user.service.js';
+import { UserService } from '../user/userService.js';
 
 // Create an instance of the UserService class:
 const service = new UserService();
@@ -27,29 +27,34 @@ class AuthService {
       return user;
     } catch (error) {
       if (error.isBoom) {
-        throw error; // TODO: usar throw error en los demas!!!!
-      } else {
-        throw boom.internal('Error during authentication process');
+        throw error;
       }
+      throw boom.internal(
+        `Error during authentication process: ${error.message}.`
+      );
     }
   }
 
   // Sign token service:
   async signToken(user) {
-    const payload = {
-      sub: user.id,
-    };
+    try {
+      const payload = {
+        sub: user.id,
+      };
 
-    const token = jwtService.sign(payload, config.jwt_secret, {
-      expiresIn: '1h',
-    });
+      const token = jwtService.sign(payload, config.jwt_secret, {
+        expiresIn: '1h',
+      });
 
-    const tokenResponse = {
-      token,
-      user: user.username,
-    };
+      const tokenResponse = {
+        token,
+        user: user.username,
+      };
 
-    return tokenResponse;
+      return tokenResponse;
+    } catch (error) {
+      throw boom.internal(`Error signing token: ${error.message}.`);
+    }
   }
 }
 

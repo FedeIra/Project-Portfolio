@@ -24,7 +24,7 @@ class CommentService {
 
       return cleanComments;
     } catch (error) {
-      throw Boom.internal('Error getting comments');
+      throw Boom.internal(`Error getting comments: ${error.message}.`);
     }
   }
 
@@ -47,7 +47,7 @@ class CommentService {
 
       return commentResponse;
     } catch (error) {
-      throw Boom.internal('Error creating comment');
+      throw Boom.internal(`Error creating comment: ${error.message}.`);
     }
   }
 }

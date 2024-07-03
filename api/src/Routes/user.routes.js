@@ -5,9 +5,9 @@ import { Router } from 'express';
 // Internal packages:
 import { validatorHandler } from '../middlewares/validator.middleware.js';
 import { authenticateLocal } from '../middlewares/authentication.middleware.js';
-import { UserService } from '../services/user/user.service.js';
+import { UserService } from '../services/user/userService.js';
 import { userSchema } from '../schemasValidation/user.schema.js';
-import AuthService from '../services/authentication/login.service.js';
+import AuthService from '../services/authentication/loginService.js';
 
 const router = Router();
 

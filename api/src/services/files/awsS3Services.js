@@ -4,6 +4,7 @@ import {
   PutObjectCommand,
   GetObjectCommand,
   ListObjectsV2Command,
+  DeleteObjectCommand,
 } from '@aws-sdk/client-s3';
 import fs from 'fs';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
@@ -30,13 +31,16 @@ class AwsS3Service {
 
   // Service to upload a file to S3:
   async uploadFile(file) {
+    let stream;
     try {
-      const stream = fs.createReadStream(file.tempFilePath);
+      stream = fs.createReadStream(file.tempFilePath);
+
       const uploadParams = {
         Bucket: config.aws.bucket_name,
         Key: file.name,
         Body: stream,
       };
+
       const command = new PutObjectCommand(uploadParams);
 
       const awsResponse = await this.awsClient.send(command);
@@ -45,9 +49,11 @@ class AwsS3Service {
 
       return awsResponse;
     } catch (error) {
-      throw Boom.internal('Error uploading file');
+      throw Boom.internal(`Error uploading file: ${error.message}.`);
     } finally {
-      stream.destroy();
+      if (stream) {
+        stream.destroy();
+      }
     }
   }
 
@@ -71,7 +77,7 @@ class AwsS3Service {
 
       return files;
     } catch (error) {
-      throw Boom.internal('Error getting files');
+      throw Boom.internal(`Error getting files: ${error.message}.`);
     }
   }
 
@@ -89,7 +95,7 @@ class AwsS3Service {
 
       return awsResponse.$metadata;
     } catch (error) {
-      throw Boom.internal('Error getting file data');
+      throw Boom.internal(`Error getting file data: : ${error.message}.`);
     }
   }
 
@@ -111,7 +117,7 @@ class AwsS3Service {
         url: fileURL,
       };
     } catch (error) {
-      throw Boom.internal('Error getting file url');
+      throw Boom.internal(`Error getting file url: ${error.message}.`);
     }
   }
 
@@ -130,7 +136,25 @@ class AwsS3Service {
 
       return fileStream;
     } catch (error) {
-      throw Boom.internal('Error downloading file');
+      throw Boom.internal(`Error downloading file: ${error.message}.`);
+    }
+  }
+
+  // Service to eliminate a file from S3:
+  async deleteFile(fileName) {
+    try {
+      const deleteParams = {
+        Bucket: config.aws.bucket_name,
+        Key: fileName,
+      };
+
+      const command = new DeleteObjectCommand(deleteParams);
+
+      const awsResponse = await this.awsClient.send(command);
+
+      return awsResponse;
+    } catch (error) {
+      throw Boom.internal(`Error deleting file: ${error.message}.`);
     }
   }
 }

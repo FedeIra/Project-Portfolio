@@ -23,7 +23,7 @@ class EmailService {
       );
       return { success: true, message: 'Email sent successfully' };
     } catch (error) {
-      throw Boom.internal('Error sending email');
+      throw Boom.internal(`Error sending email: ${error.message}.`);
     }
   }
 }

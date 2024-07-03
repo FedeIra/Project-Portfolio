@@ -1,19 +1,8 @@
-# Portfolio Backend
+// TODO: VER DE AGREGAR RUTA PARA REFRESCAT TOKEN
 
-This a backend application using HTTP REST API.
+# Portfolio
 
-The API provides endpoints to:
-
-- register user,
-- login user,
-- send email,
-- get all comments,
-- post comments,
-- upload new certificates,
-- get all certificates data,
-- get specific certificate data,
-- get certificate url, and
-- get certificate file.
+This a full-stack portfolio application that allows users to register, login, send emails, post comments, view and download courses certificates and, of course, get to know me better.
 
 ## Table of Contents
 
@@ -23,7 +12,12 @@ The API provides endpoints to:
 - [Installation](#installation)
 - [Environment Variables](#environment-variables)
 - [Running the Project](#running-the-project)
+- [BACKEND](#backend)
 - [API Endpoints](#api-endpoints)
+- [Error Handling](#error-handling)
+- [FRONTEND](#frontend)
+- [Main directories and files](#main-directories-and-files)
+- [Theming and Styling](#theming-and-styling)
 - [Error Handling](#error-handling)
 - [License](#license)
 
@@ -33,36 +27,49 @@ Below is the organized structure of folders and files in the project:
 
 ```
 PORTFOLIOFI
+├── docker-compose.yml
 ├── api
 │    ├── src
-│    │   ├── Db
-│    │   │    ├── ControllersDB
-│    │   │    │        └── comments.js
-│    │   │    ├── Schema
+│    │   ├── config
+│    │   │    └── config.js
+│    │   ├── db
+│    │   │    ├── schemas
 │    │   │    │      ├── comment.js
 │    │   │    │      └── user.js
 │    │   │    └── db.js
 │    │   ├── middlewares
-│    │   │    ├── error.handler.js
-│    │   │    └── validator.handler.js
+│    │   │    ├── authentication.middleware.js
+│    │   │    ├── error.middleware.js
+│    │   │    ├── passport.middleware.js
+│    │   │    └── validator.middleware.js
 │    │   ├── routes
+│    │   │     ├── comments.routes.js
+│    │   │     ├── email.routes.js
+│    │   │     ├── files.routes.js
+│    │   │     ├── user.routes.js
 │    │   │     └── index.js
 │    │   ├── schemasValidation
+│    │   │        ├── comment.schema.js
+│    │   │        ├── email.schema.js
 │    │   │        └── user.schema.js
 │    │   ├── services
-│    │   │     ├── awsServices
-│    │   │     └── userServices
-│    │   │           ├── login.service.js
-│    │   │           └── user.service.js
-│    │   ├── utils/authentication
-│    │   │           ├── strategies
-│    │   │           │       ├── jwt.strategy.js
-│    │   │           │       └── local.strategy.js
-│    │   │           └── index.js
+│    │   │     ├── authentication
+│    │   │     │      └── loginService.js
+│    │   │     ├── comments
+│    │   │     │      └── commentsService.js
+│    │   │     ├── emails
+│    │   │     │      └── emailService.js
+│    │   │     ├── files
+│    │   │     │      └── awsS3Service.js
+│    │   │     └── user
+│    │   │           └── userService.js
+│    │   ├── utils/authenticationStrategies
+│    │   │                  ├── jwt.strategy.js
+│    │   │                  └── local.strategy.js
 │    │   └── app.js
 │    ├── uploads
 │    │      └── ...
-│    ├── config.js
+|    ├── Dockerfile
 │    ├── index.js
 │    ├── package.json
 │    └── .env
@@ -97,9 +104,11 @@ PORTFOLIOFI
 
 Below, an image the architecture of the project is shown:
 
-![Project Architecture](./assetsDocumentation/Architecture.drawio.png)
+![Project Architecture](./doc/architecture.png)
 
 ## Tech Stack
+
+#### Backend stack
 
 - **Node.js**: JavaScript runtime built on Chrome's V8 JavaScript engine.
 - **Javascript**: High-level, interpreted programming language.
@@ -114,27 +123,41 @@ Below, an image the architecture of the project is shown:
 - **Bcrypt**: A library to help you hash passwords.
 - **Docker**: A platform for developing, shipping, and running applications in containers.
 
+#### Frontend stack
+
+- **Javascript**: High-level, interpreted programming language.
+- **React**: A JavaScript library for building user interfaces.
+- **Redux**: A predictable state container for JavaScript apps.
+- **Redux Thunk**: A middleware for Redux to handle asynchronous actions.
+  **Redux Persist**: A library to persist and rehydrate a redux store.
+- **React Router**: A collection of navigational components for React applications.
+- **Chakra UI**: A simple, modular, and accessible component library that gives you the building blocks you need to build your React applications.
+- **Axios**: A promise-based HTTP client for the browser and Node.js.
+- **Framer Motion**: A production-ready motion library for React.
+- **React Bootstrap**: Bootstrap rebuilt for React.
+
 ## Installation
 
-1. git clone https://github.com/your-repo/movie-challenge-backend.git
+1. git clone https://github.com/FedeIra/Project-Portfolio.git
 
 2. You can use branches master or develop.
-
-3. cd backend-nodejs
 
 ## Environment Variables
 
 Create a `.env` file in the root of the project and add the following environment variables. You can check for such purpose the `.env.example` file in the root of the project:
 
 ```bash
+URL_DB=mongodb+srv://...
 PORT=3001
-HOST=0.0.0.0
-TMDB_API_KEY=tmdb-api-key
-TMDB_BASE_URL=https://api.themoviedb.org/3
-CONNECTION_STRING_DB=mongodb_connection_string
-DB_NAME=Movie-Challenge
-USER_COLLECTION_NAME=Users
-JWT_SECRET=secret-key
+EMAIL_JS_SERVICEID=email_js_service_id
+EMAIL_JS_TEMPLATEID=email_js_template_id
+EMAIL_JS_PUBLICKEY=email_js_public_key
+EMAIL_JS_PRIVATEKEY=email_js_private_key
+AWS_BUCKET_NAME=aws_bucket_name
+AWS_BUCKET_REGION=aws_bucket_region
+AWS_ACCESS_KEY=aws_access_key
+AWS_SECRET_KEY=aws_secret_key
+JWT_SECRET=secret_key
 ```
 
 ## Running the Project
@@ -145,13 +168,13 @@ JWT_SECRET=secret-key
 
 2. Check Docker is installed and running on your machine.
 
-3. Build and run the containers in backend-nodejs directory with the following commands:
-
-BACKEND Y FRONTED:
+3. Build and run the project using the following command in the root of the project directory:
 
 ```bash
 docker-compose up --build
 ```
+
+4. Else, you can run the backend and frontend separately using the following commands:
 
 BACKEND (api directory)
 
@@ -171,86 +194,41 @@ docker run -p 3000:3000 --env-file .env portfolio-frontend
 
 1. Create a `.env` as described previously.
 
-2. Run either of following commands to start the server:
+2. Run either of following commands to start the server both in api and client directories:
 
 ```bash
-npm start
-npm run dev
+npm install
+npm run start
 ```
+
+# BACKEND
+
+The API build with provides endpoints to:
+
+- register user,
+- login user,
+- send email,
+- get all comments,
+- post comments,
+- upload new certificate,
+- get all certificates data,
+- get specific certificate data,
+- get certificate url,
+- download certificate file, and
+- delete certificate.
 
 ## API Endpoints
 
-- Fetch Movies
+- Register user
 
-  - URL: /movies
+  - URL: /sign-up
   - Method: POST
   - Body:
 
     ```json
     {
-      "filters": {
-        "genre": "string",
-        "recommended": "boolean",
-        "year": "number"
-      },
-      "sorts": {
-        "byDate": "boolean",
-        "byAverage": "boolean"
-      }
-    }
-    ```
-
-Note: This endpoint does not require authentication. In most cases, applications and websites allows users to browse movies without being logged in. However, if you want to add a movie to the wishlist or watch more details, you need to be authenticated. This is a common practice in the industry.
-
-Example of response:
-
-```json
-[
-  {
-      "id": 786892,
-      "title": "Furiosa: A Mad Max Saga",
-      "poster": "https://image.tmdb.org/t/p/original/aKrDLfQX30tHaTIC2ZRAxG2PbQw.jpg/iADOJ8Zymht2JPMoy3R7xceZprc.jpg",
-      "description": "As the world fell, young Furiosa is snatched from the Green Place of Many Mothers and falls into the hands of a great Biker Horde led by the Warlord Dementus. Sweeping through the Wasteland they come across the Citadel presided over by The Immortan Joe. While the two Tyrants war for dominance, Furiosa must survive many trials as she puts together the means to find her way home.",
-      "average": 7.686,
-      "releaseDate": "2024-05-22",
-      "genres": [
-          "Action",
-          "Adventure",
-          "Science Fiction"
-      ]
-  },
-  {
-      "id": 573435,
-      "title": "Bad Boys: Ride or Die",
-      "poster": "https://image.tmdb.org/t/p/original/aKrDLfQX30tHaTIC2ZRAxG2PbQw.jpg/nP6RliHjxsz4irTKsxe8FRhKZYl.jpg",
-      "description": "After their late former Captain is framed, Lowrey and Burnett try to clear his name, only to end up on the run themselves.",
-      "average": 7.478,
-      "releaseDate": "2024-06-05",
-      "genres": [
-          "Action",
-          "Crime",
-          "Thriller"
-      ]
-  },
-  ...
-]
-```
-
-- Fetch TV Show Details
-
-  - URL: /tvshow-details
-  - Method: POST
-  - Authorization Header:
-
-    ```json
-      Bearer Token <token>
-    ```
-
-  - Body:
-
-    ```json
-    {
-      "tvshowId": "string"
+      "username": "username",
+      "password": "password"
     }
     ```
 
@@ -258,44 +236,35 @@ Example of response:
 
 ```json
 {
-    "id": 15,
-    "title": "Mister Rogers' Neighborhood",
-    "poster": "https://image.tmdb.org/t/p/original/qhbeRYVg120cBmc9XvGxvk6EmJF.jpg",
-    "average": 5.351,
-    "releaseDate": "1968-02-19",
-    "genres": [
-        "Kids"
-    ],
-    "numberOfSeasons": 31,
-    "director": [
-        {
-            "id": 1074129,
-            "credit_id": "52532eb819c295794000402c",
-            "name": "Fred Rogers",
-            "original_name": "Fred Rogers",
-            "gender": 2,
-            "profile_path": "/d000aVyO5zYls7MrSCU6EhG4eoz.jpg"
-        }
-    ],
-    "seasons": [
-        {
-            "seasonNumber": 0,
-            "seasonId": 246353,
-            "releaseDate": "1968-06-07",
-            "totalEpisodes": 1
-        },
-        {
-            "seasonNumber": 1,
-            "seasonId": 137656,
-            "releaseDate": "1968-02-19",
-            "totalEpisodes": 130
-        },
-        ...
-    ]
+  "username": "username",
+  "createdAt": "2024-07-03T14:17:10.797Z"
 }
 ```
 
-- Register User
+- Login user
+
+  - URL: /tvshow-details
+  - Method: POST
+
+  - Body:
+
+```json
+{
+  "username": "username",
+  "password": "password"
+}
+```
+
+Example of response:
+
+```json
+{
+  "token": "asdjklhfjksr234ihrfjkasdhfjkasdhf",
+  "user": "username"
+}
+```
+
+- Send email
 
   - URL: /register-user
   - Method: POST
@@ -303,9 +272,10 @@ Example of response:
 
   ```json
   {
-    "username": "string",
-    "password": "string",
-    "email": "string"
+    "user_name": "user_name",
+    "user_email": "user_email",
+    "subject": "subject",
+    "message": "message"
   }
   ```
 
@@ -313,59 +283,39 @@ Example of response:
 
   ```json
   {
-    "username": "Ejemplo2",
-    "email": "Ejemplo2@gmail.com",
-    "wishList": [],
-    "createdAt": "2024-06-08T19:09:10.488Z"
+    "success": true,
+    "message": "Email sent successfully"
   }
   ```
 
-- Login User
+- Get all comments
 
   - URL: /login
-  - Method: POST
+  - Method: GET
   - Body:
-
-  ```json
-  {
-    "email": "string",
-    "password": "string"
-  }
-  ```
 
   Example of response:
 
   ```json
-  {
-    "username": "Ejemplo1",
-    "email": "Ejemplo1@gmail.com",
-    "wishList": [
-      {
-        "title": "Rush Hour",
-        "id": 123123,
-        "image": "posterExample",
-        "_id": "6663e2feaa6483ee107b538d"
-      },
-      {
-        "title": "Lord of the rings",
-        "id": 876345,
-        "image": "posterExample4",
-        "_id": "6663e31baa6483ee107b5394"
-      },
-      {
-        "title": "Lord of the rings 3",
-        "id": 8763,
-        "image": "posterExample2",
-        "_id": "6663ec122881baa2859fe579"
-      }
-    ],
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-  }
+  [
+    {
+      "commentId": 0.8408903311723082,
+      "username": "Ricky",
+      "content": "Nice porfolio!",
+      "date": "7-3-2024"
+    },
+    {
+      "commentId": 0.7788864317317885,
+      "username": "John",
+      "content": "Great job!",
+      "date": "7-3-2024"
+    }
+  ]
   ```
 
-- Refresh JWT Access Token
+- Post comment
 
-  - URL: /refresh-token
+  - URL: /comments
   - Method: POST
   - Authorization Header:
 
@@ -377,7 +327,10 @@ Example of response:
 
   ```json
   {
-    "currentToken": "string"
+    "commentId": 123521353145,
+    "username": "username",
+    "content": "content",
+    "date": "7-01-2024"
   }
   ```
 
@@ -385,87 +338,245 @@ Example of response:
 
   ```json
   {
-    "newToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+    "commentId": 123521353145,
+    "username": "username",
+    "content": "content",
+    "date": "7-01-2024"
   }
   ```
 
-- Add Movie or TV Show to Wishlist
+- Upload new certificate
 
-  - URL: /add-to-wishlist
+  - URL: /upload
   - Method: POST
+
+  - Body: Form data with file (key: file)
+
+  Example of response:
+
+  ```json
+  {
+    "$metadata": {
+      "httpStatusCode": 200,
+      "requestId": "12397612893asddf",
+      "extendedRequestId": "asdlmfnlasjkdnfjksdnflmsdf==",
+      "attempts": 1,
+      "totalRetryDelay": 0
+    },
+    "ETag": "\"sxdkjlhf9rfksdhf\"",
+    "ServerSideEncryption": "HJS914",
+    "VersionId": "askldjhfjkslhafjklashf"
+  }
+  ```
+
+- Get all certificates data
+
+  - URL: /getListFiles
+  - Method: GET
   - Authorization Header:
 
     ```json
       Bearer Token <token>
     ```
 
-  - Body:
+  Example of response:
 
   ```json
-  {
-    "userId": "string",
-    "mediaId": "string",
-    "mediaType": "string"
-  }
+  [
+    {
+      "key": "Certificado Platzi. Fundamentos de Typescript.pdf",
+      "size": 460788,
+      "lastModified": "2023-12-14T18:39:56.000Z",
+      "storageClass": "STANDARD"
+    },
+    {
+      "key": "Certificado Platzi. Introducción a la nube..pdf",
+      "size": 449571,
+      "lastModified": "2024-06-25T17:36:15.000Z",
+      "storageClass": "STANDARD"
+    }
+  ]
   ```
+
+- Get specific certificate data
+
+  - URL: /getFileData/:fileName
+  - Method: GET
+  - Authorization Header:
+
+    ```json
+      Bearer Token <token>
+    ```
+
+  - Params:
+
+    ```json
+    {
+      "fileName": "Certificado Platzi. Fundamentos de Typescript.pdf"
+    }
+    ```
 
   Example of response:
 
   ```json
   {
-    "message": "Added to wishlist. Enjoy!"
+    "httpStatusCode": 200,
+    "requestId": "sdkfh3498trj",
+    "extendedRequestId": "sadklfjskldjfklsdjf==",
+    "attempts": 1,
+    "totalRetryDelay": 0
   }
   ```
+
+- Get certificate url
+
+  - URL: /getFileUrl/:fileName
+  - Method: GET
+  - Authorization Header:
+
+    ```json
+      Bearer Token <token>
+    ```
+
+  - Params:
+
+    ```json
+    {
+      "fileName": "Certificado Platzi. Fundamentos de Typescript.pdf"
+    }
+    ```
+
+  Example of response:
+
+  ```json
+  {
+    "url": "https://example-example.s3.us-east-1.amazonaws.com/example"
+  }
+  ```
+
+- Download certificate file
+
+  - URL: /downloadFile/:fileName
+  - Method: GET
+  - Authorization Header:
+
+    ```json
+      Bearer Token <token>
+    ```
+
+  - Params:
+
+    ```json
+    {
+      "fileName": "Certificado Platzi. Fundamentos de Typescript.pdf"
+    }
+    ```
+
+  Example of response:
+
+![Example response](./doc/exampleDownloadCertificate.png)
+
+- Delete certificate
+
+  - URL: /deleteFile/:fileName
+  - Method: DELETE
+  - Authorization Header:
+
+  ```json
+    Bearer Token <token>
+  ```
+
+- Params:
+
+  ```json
+  {
+    "fileName": "Certificado Platzi. Fundamentos de Typescript.pdf"
+  }
+  ```
+
+Example of response:
+
+```json
+{
+  "$metadata": {
+    "httpStatusCode": 204,
+    "requestId": "ASGEWRHGeRG",
+    "extendedRequestId": "sdfgDFGwergdfGEDWRSGwerg=",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  },
+  "DeleteMarker": true,
+  "VersionId": "sdfsadFSAFASFASDFsad"
+}
+```
 
 ## Error Handling
 
-Errors are handled using custom error classes to provide structured error responses. The following error classes are defined:
+Errors as well as validations are handled by middleware "error.middleware.js".
 
-- CustomError: Base class for all custom errors.
-- ClientError: Represents client-side errors (status code 400).
-- ServerError: Represents server-side errors (status code 500).
-- UnauthorizedError: Represents authentication errors (status code 401).
+The middleware is used to catch errors and send a response with the corresponding status code and error message.
 
-Errors are caught in the Fastify error handler (error.ts) and sent as a response to the client.
+Moreover, errors are handled with Joi and Boom libraries. Joi for validation and Boom for error handling.
 
-```json
-├── server
-│   ├── handlers
-│   │   └── ...
-│   ├── errors.ts
-│   └── main.ts
-
-```
-
-Some examples of error responses:
+Examples of error responses (bad request and internal error) are shown below.
 
 ```json
 {
-  "errorCode": 400,
-  "error": "Bad request.",
-  "validationErrors": [
-    {
-      "path": "username",
-      "message": "Expected string, received number"
-    }
-  ]
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "Date is required. \"asd\" is not allowed"
 }
 ```
 
 ```json
 {
-  "errorCode": 500,
-  "error": "Internal server error.",
-  "errorDetails": {
-    "message": "Email already in use.",
-    "stack": "Error: Email already in use.\n    at DataBaseServices.registerUser (file:///app/src/services/users/userService.ts:47:15)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async RegisterUserUseCase.registerUser (file:///app/src/useCases/users/registerUserUseCase.ts:31:12)\n    at async Object.<anonymous> (file:///app/server/handlers/registerUserHandler.ts:37:9)"
-  }
+  "statusCode": 500,
+  "error": "Internal Server Error",
+  "message": "Error sending email: undefined."
 }
 ```
+
+## FRONTEND
+
+The frontend of this project is built using React and Redux to provide a seamless user interface for interacting with the backend API. It allows users to register, login, post comments, upload and manage certificates, and more.
+
+Below, you can see an image of the state of the application as example:
+
+![React state example](./doc/reactState.png)
+
+## Main directories and files
+
+Frontend main directories are as follows:
+
+- **Actions**: Contains all the actions that are dispatched to the Redux store. These actions are used to update the state of the application.
+- **Assets**: Contains most of the images and icons used in the project.
+- **Components**: Contains all the reusable components used in the project. These components are used to build the user interface. Each component is a separate folder that contains the component file and styles. Moreover, components may have subcomponents that are used to build the main component.
+- **Reducer**: Contains the root reducer that handles react state updates.
+- **Store**: Contains the store configuration. The store is where the application state is stored. The store is passed to the Provider component from react-redux, which makes the store available to all components in the application.
+- **Utils**: Contains the utility functions used in the project. These functions are used to perform common tasks such as formatting dates, handling errors, and more.
+
+The main files in the frontend are:
+
+- **App.js**: The main component of the application. It contains the routes and the layout of the application.
+- **Index.js**: The entry point of the application. It renders the App component and mounts it to the root element in the index.html file.
+
+## Theming and Styling
+
+The frontend is styled using Chakra UI's built-in theming system. The theme is defined in the theme.js file in the src/utils folder. The theme file contains the colors, fonts, and other styles used in the application. The theme is passed to the ChakraProvider component from Chakra UI, which makes the theme available to all components in the application.
+
+Moreover, frontend uses Bootstrap for styling and layout for some components.
+
+Finally, components also use CSS modules for styling. CSS modules are used to scope the styles to the component and prevent style conflicts.
+
+For animation, the frontend uses Framer Motion, a production-ready motion library for React. Framer Motion is used to create smooth animations and transitions in the application.
+
+## Error Handling
+
+Errors are handled using try-catch blocks and displayed to the user using toast notifications from Chakra UI.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](./assetsDocumentation/LICENSE.txt) file for details.
+This project is licensed under the MIT License. See the [LICENSE](./doc/LICENSE.txt) file for details.
 
 ## Author
 

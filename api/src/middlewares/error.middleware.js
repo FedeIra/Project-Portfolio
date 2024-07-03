@@ -4,8 +4,6 @@
 const boomErrorHandler = (err, req, res, next) => {
   if (err.isBoom) {
     const { output } = err;
-    console.log('🚀 ~ boomErrorHandler ~ err:', err);
-    console.log('🚀 ~ boomErrorHandler ~ output:', output);
     res.status(output.statusCode).json({
       statusCode: output.payload.statusCode || 500,
       error: output.payload.error || 'Internal Server Error',
