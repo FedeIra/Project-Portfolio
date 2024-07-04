@@ -85,9 +85,9 @@ const Icons = () => {
           icon={<FaWhatsapp size="1.7rem" color="white" />}
         />
       </a>
-      {user ? (
+      {user?.token ? (
         <Menu>
-          <MenuButton>{user.user}</MenuButton>
+          <MenuButton>{user.username}</MenuButton>
           <MenuList>
             <MenuItem
               onClick={handleLogout}

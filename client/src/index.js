@@ -7,12 +7,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Provider } from "react-redux";
 import axios from "axios";
 import { PersistGate } from "redux-persist/integration/react";
-import { persistStore } from "redux-persist";
 
 // Import local utilities:
-import { store } from "./store/index.js";
+import { store, persistor } from "./store/index.js";
 import App from "./App";
 import { themeChakra } from "./utils/index.js";
+import { refreshTokenBeforeExpiration } from "./utils/index.js";
 
 // Set base URL for axios:
 const baseURL =
@@ -20,8 +20,10 @@ const baseURL =
 
 axios.defaults.baseURL = baseURL;
 
-// Create persistor:
-const persistor = persistStore(store);
+// Refresh token or logout user according expiration time:
+const onBeforeLift = () => {
+  refreshTokenBeforeExpiration();
+};
 
 // Render App component:
 const container = document.getElementById("root");
@@ -31,7 +33,11 @@ root.render(
   <ChakraProvider theme={themeChakra}>
     <Provider store={store}>
       <BrowserRouter>
-        <PersistGate loading={null} persistor={persistor}>
+        <PersistGate
+          loading={null}
+          persistor={persistor}
+          onBeforeLift={onBeforeLift}
+        >
           <App />
         </PersistGate>
       </BrowserRouter>

@@ -75,5 +75,13 @@
   {
     "name": "VTEX",
     "avatar": "vtex.png"
+  },
+  {
+    "name": "Docker",
+    "avatar": "amazonS3.png"
+  },
+  {
+    "name": "AWS S3",
+    "avatar": "docker.png"
   }
 ]

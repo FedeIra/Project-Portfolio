@@ -6,6 +6,7 @@ import {
   LOGIN_ACTIONS,
   LOGOUT_ACTIONS,
   FILE_ACTIONS,
+  REFRESH_TOKEN_ACTIONS,
 } from "../actions/index.js";
 
 // Initial global state:
@@ -13,7 +14,11 @@ const initialState = {
   error: {},
   loading: {},
   comments: [],
-  user: null,
+  user: {
+    expiration: null,
+    token: null,
+    username: null,
+  },
 };
 
 // Reducer function to update global state according to actions:
@@ -90,7 +95,17 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         user: action.payload,
       };
+    case LOGIN_ACTIONS.SUCCESS:
+      return {
+        ...state,
+        user: action.payload,
+      };
     case LOGOUT_ACTIONS.REQUEST:
+      return {
+        ...state,
+        user: action.payload,
+      };
+    case LOGOUT_ACTIONS.SUCCESS:
       return {
         ...state,
         user: action.payload,
@@ -127,6 +142,27 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         loading: { ...state.loading, [FILE_ACTIONS.GET_REQUEST]: false },
         error: { ...state.error, [FILE_ACTIONS.GET_FAILURE]: action.payload },
+      };
+    case REFRESH_TOKEN_ACTIONS.REQUEST:
+      return {
+        ...state,
+        loading: { ...state.loading, [REFRESH_TOKEN_ACTIONS.REQUEST]: true },
+        error: { ...state.error, [REFRESH_TOKEN_ACTIONS.FAILURE]: null },
+      };
+    case REFRESH_TOKEN_ACTIONS.SUCCESS:
+      return {
+        ...state,
+        loading: { ...state.loading, [REFRESH_TOKEN_ACTIONS.REQUEST]: false },
+        token: action.payload.token,
+      };
+    case REFRESH_TOKEN_ACTIONS.FAILURE:
+      return {
+        ...state,
+        loading: { ...state.loading, [REFRESH_TOKEN_ACTIONS.REQUEST]: false },
+        error: {
+          ...state.error,
+          [REFRESH_TOKEN_ACTIONS.FAILURE]: action.payload,
+        },
       };
     default:
       return state;

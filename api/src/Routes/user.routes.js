@@ -8,6 +8,7 @@ import { authenticateLocal } from '../middlewares/authentication.middleware.js';
 import { UserService } from '../services/user/userService.js';
 import { userSchema } from '../schemasValidation/user.schema.js';
 import AuthService from '../services/authentication/loginService.js';
+import { refreshTokenSchema } from '../schemasValidation/refreshToken.schema.js';
 
 const router = Router();
 
@@ -43,6 +44,21 @@ router.post(
     try {
       const user = req.user;
       const response = await loginService.signToken(user);
+      res.status(200).json(response);
+    } catch (error) {
+      next(Boom.internal(error.message));
+    }
+  }
+);
+
+// Endpoint to refresh token
+router.post(
+  '/refresh-token',
+  validatorHandler(refreshTokenSchema, 'body'),
+  async (req, res, next) => {
+    try {
+      const { token } = req.body;
+      const response = await loginService.refreshToken(token);
       res.status(200).json(response);
     } catch (error) {
       next(Boom.internal(error.message));

@@ -17,7 +17,6 @@ class AuthService {
     try {
       const user = await service.getUser(username);
       if (!user) {
-        console.log('Invalid username or password.');
         throw boom.notFound('Invalid username or password.');
       }
       const isMatch = await bcrypt.compare(password, user.password);
@@ -46,14 +45,39 @@ class AuthService {
         expiresIn: '1h',
       });
 
+      // add date and hour to token for expiration:
       const tokenResponse = {
         token,
-        user: user.username,
+        expiration: new Date(Date.now() + 3600000),
+        username: user.username,
       };
 
       return tokenResponse;
     } catch (error) {
       throw boom.internal(`Error signing token: ${error.message}.`);
+    }
+  }
+
+  // Token refresh service:
+  async refreshToken(token) {
+    try {
+      const decoded = jwtService.verify(token, config.jwt_secret);
+      const user = await service.getUserById(decoded.sub);
+      if (!user) {
+        throw boom.unauthorized('Invalid token.');
+      }
+      const payload = {
+        sub: user.id,
+      };
+      const newToken = jwtService.sign(payload, config.jwt_secret, {
+        expiresIn: '1h',
+      });
+      return { token: newToken };
+    } catch (error) {
+      if (error.isBoom) {
+        throw error;
+      }
+      throw boom.internal(`Error refreshing token: ${error.message}.`);
     }
   }
 }
