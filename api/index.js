@@ -16,5 +16,5 @@ database.once('connected', () => {
 
 // Start the server:
 server.listen(PORT, () => {
-  console.log(`Server connected on port: ${PORT}`);
+  console.log(`Server connected on port: ${PORT}.`);
 });
