@@ -1,7 +1,7 @@
 // Internal packages:
 import config from './src/config/config.js';
 import server from './src/app.js';
-import database from './src/db/db.js';
+import database from './src/dbname/db.js';
 
 const PORT = config.port || 3001;
 
