@@ -1,4 +1,4 @@
-# Portfolio
+# PORTFOLIO
 
 This a full-stack portfolio application that allows users to register, login, send emails, post comments, view and download courses certificates and, of course, get to know me better.
 
