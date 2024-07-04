@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 import Boom from '@hapi/boom';
 
 // Internal packages:
-import { UserModel } from '../../dbname/schemas/user.js';
+import { UserModel } from '../../db/schemas/user.js';
 
 // UserService class:
 class UserService {

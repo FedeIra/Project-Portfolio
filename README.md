@@ -89,10 +89,12 @@ PORTFOLIOFI
      │   ├── store
      │   │    └── index.js
      |   ├── utils
+     │   │     ├── authentication
+     │   │     │     └── refreshToken.js
      │   │     ├── comments
      │   │     │     └── ...
      │   │     ├── general
-     │   │     |     └── ...
+     │   │     |     └── chakraTheme.js
      │   │     └── index.js
      |   ├── App.js
      |   └── index.js
@@ -207,6 +209,7 @@ The API build with provides endpoints to:
 
 - register user,
 - login user,
+- refresh user token,
 - send email,
 - get all comments,
 - post comments,
@@ -243,7 +246,7 @@ Example of response:
 
 - Login user
 
-  - URL: /tvshow-details
+  - URL: /login
   - Method: POST
 
   - Body:
@@ -264,9 +267,30 @@ Example of response:
 }
 ```
 
+- Refresh user token
+
+  - URL: /refresh-token
+  - Method: POST
+
+  - Body:
+
+```json
+{
+  "token": "asdjklhfjks92s4ihrfjkasdhfjkasdhf"
+}
+```
+
+Example of response:
+
+```json
+{
+  "token": "asdjklhfjksr234ihrfjkasdhfjkasdhf"
+}
+```
+
 - Send email
 
-  - URL: /register-user
+  - URL: /sendEmail
   - Method: POST
   - Body:
 
@@ -290,7 +314,7 @@ Example of response:
 
 - Get all comments
 
-  - URL: /login
+  - URL: /comments
   - Method: GET
   - Body:
 
@@ -532,7 +556,7 @@ Examples of error responses (bad request and internal error) are shown below.
 {
   "statusCode": 500,
   "error": "Internal Server Error",
-  "message": "Error sending email: undefined."
+  "message": "Error sending email: incorrect service id key."
 }
 ```
 
@@ -553,7 +577,7 @@ Frontend main directories are as follows:
 - **Components**: Contains all the reusable components used in the project. These components are used to build the user interface. Each component is a separate folder that contains the component file and styles. Moreover, components may have subcomponents that are used to build the main component.
 - **Reducer**: Contains the root reducer that handles react state updates.
 - **Store**: Contains the store configuration. The store is where the application state is stored. The store is passed to the Provider component from react-redux, which makes the store available to all components in the application.
-- **Utils**: Contains the utility functions used in the project. These functions are used to perform common tasks such as formatting dates, handling errors, and more.
+- **Utils**: Contains the utility functions used in the project. These functions are used to perform common tasks such as formatting dates, handling errors, and more. Utils folder contains document refreshToken.js, which is used to refresh the user token when it expires. For that purpose, every time website is loaded, refreshToken.js is called to check token expiration and refresh it if necessary.
 
 The main files in the frontend are:
 
