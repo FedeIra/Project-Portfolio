@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - '3001:3001'
+    environment:
+      - NODE_ENV=production
+    env_file:
+      - ./api/config/.env
+    depends_on:
+      - mongo
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=production
+    env_file:
+      - ./client/.env
+    depends_on:
+      - backend
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

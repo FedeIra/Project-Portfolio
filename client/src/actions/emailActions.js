@@ -15,15 +15,15 @@ export const sendEmail = (form) => {
       type: EMAIL_ACTIONS.POST_REQUEST,
     });
     try {
-      await axios.post("/sendEmail", form);
+      const response = await axios.post("/sendEmail", form);
       dispatch({
         type: EMAIL_ACTIONS.POST_SUCCESS,
-        payload: form,
+        payload: response.data,
       });
     } catch (error) {
       dispatch({
         type: EMAIL_ACTIONS.POST_FAILURE,
-        payload: error.message,
+        payload: error.response ? error.response.data.message : error.message,
       });
     }
   };

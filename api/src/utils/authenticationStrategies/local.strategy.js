@@ -1,8 +1,13 @@
+// External packages:
 import { Strategy } from 'passport-local';
-import LoginService from '../../../userServices/login.service.js';
 
+// Internal packages:
+import LoginService from '../../services/authentication/loginService.js';
+
+// Create an instance of the LoginService class:
 const loginService = new LoginService();
 
+// Local strategy:
 const localStrategy = new Strategy(
   {
     usernameField: 'username',
@@ -11,9 +16,9 @@ const localStrategy = new Strategy(
   async (username, password, done) => {
     try {
       const user = await loginService.logUser(username, password);
-      done(null, user);
+      return done(null, user);
     } catch (error) {
-      done(error);
+      return done(error);
     }
   }
 );

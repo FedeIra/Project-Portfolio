@@ -97,6 +97,8 @@ const Background_Experience = () => {
                   compensation and benefits, bargaining of individual and
                   collective employment agreements, labor relations and Trade
                   Union counseling, employment and social security.
+                  Additionally, I led teams of junior and semi-senior lawyers
+                  and paralegals.
                 </p>
               </div>
             </div>

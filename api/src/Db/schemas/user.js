@@ -1,6 +1,8 @@
-import Mongoose from 'mongoose';
+// External packages:
+import mongoose from 'mongoose';
 
-export const userSchema = new Mongoose.Schema(
+// Database user schema:
+export const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
@@ -17,4 +19,4 @@ export const userSchema = new Mongoose.Schema(
   { timestamps: true }
 );
 
-export const UserModel = Mongoose.model('user', userSchema);
+export const UserModel = mongoose.model('user', userSchema);

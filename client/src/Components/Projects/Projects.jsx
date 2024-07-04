@@ -85,11 +85,11 @@ const Projects = () => {
                           <p>
                             Kinema is a movie and TV Show streaming website with
                             the following features: Third-party authentication
-                            (Google); Stripe payment platform integration;
+                            with Google; Stripe payment platform integration;
                             Combined filters; Image loading with Cloudinary;
-                            E-mail and live notifications; Logic user delete;
-                            Redux persist; Rating and review system; and Admin.
-                            and owner dashboard.
+                            E-mail and live notifications; Logic for user
+                            removal; Rating and review system; and Admin. and
+                            owner dashboard.
                           </p>
                           <br />
                           <div className={style.stars}>
@@ -191,7 +191,6 @@ const Projects = () => {
                           </p>
                           <br />
                           <br />
-
                           <br />
                           <br />
                           <br />
