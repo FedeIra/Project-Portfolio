@@ -1,6 +1,8 @@
 // Import external libraries:
 import axios from "axios";
 
+import { logOut } from "./loginActions";
+
 // Action types:
 export const REFRESH_TOKEN_ACTIONS = {
   REQUEST: "REFRESH_TOKEN_REQUEST",
@@ -23,5 +25,6 @@ export const refreshToken = (token) => async (dispatch) => {
       type: REFRESH_TOKEN_ACTIONS.FAILURE,
       payload: error.response ? error.response.data.message : error.message,
     });
+    dispatch(logOut());
   }
 };
