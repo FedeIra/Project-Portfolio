@@ -16,13 +16,24 @@ import passport from './middlewares/passport.middleware.js';
 
 const server = express();
 
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://project-portfolio-production-a234.up.railway.app',
+];
+
 // CORS configuration:
 server.use(
   cors({
-    origin: '*',
+    origin: allowedOrigins,
     credentials: true,
     methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
-    allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept'],
+    allowedHeaders: [
+      'Origin',
+      'X-Requested-With',
+      'Content-Type',
+      'Accept',
+      'Authorization',
+    ],
   })
 );
 
