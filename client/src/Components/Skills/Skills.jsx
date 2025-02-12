@@ -44,9 +44,11 @@ const Skills = () => {
             ></div>
           </div>
           <div className={style.text}>
-            <h2 className={style.title}>User Oriented</h2>
+            <h2 className={style.title}>Client-Focused</h2>
             <Col md={{ span: 11, offset: 1 }}>
-              <p>Fulfill user's needs, my highest priority.</p>
+              <p>
+                I engage with clients and take ownership of technical solutions.
+              </p>
             </Col>
           </div>
         </Col>
@@ -63,9 +65,9 @@ const Skills = () => {
             ></div>
           </div>
           <div className={style.text}>
-            <h2 className={style.title}>Responsive</h2>
+            <h2 className={style.title}>Versatile</h2>
             <Col md={{ span: 10, offset: 1 }}>
-              <p>My layouts will work on any device, big or small.</p>
+              <p>Strong backend skills with full stack adaptability.</p>
             </Col>
           </div>
         </Col>
@@ -104,9 +106,11 @@ const Skills = () => {
             ></div>
           </div>
           <div className={style.text}>
-            <h2 className={style.title}>Dynamic</h2>
+            <h2 className={style.title}>Collaborative</h2>
             <Col md={{ span: 10, offset: 1 }}>
-              <p>I enjoy turning static websites to a living thing.</p>
+              <p>
+                I communicate effectively and promote teamwork in all projects.
+              </p>
             </Col>
           </div>
         </Col>

@@ -15,7 +15,10 @@ export const sendEmail = (form) => {
       type: EMAIL_ACTIONS.POST_REQUEST,
     });
     try {
-      const response = await axios.post("/sendEmail", form);
+      const response = await axios.post("/sendEmail", form, {
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true, // ✅ Permite enviar cookies y credenciales
+      });
       dispatch({
         type: EMAIL_ACTIONS.POST_SUCCESS,
         payload: response.data,

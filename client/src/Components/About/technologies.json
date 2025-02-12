@@ -20,6 +20,14 @@
     "avatar": "fastify.png"
   },
   {
+    "name": "Koa",
+    "avatar": "koa.png"
+  },
+  {
+    "name": "AWS S3",
+    "avatar": "amazonS3.png"
+  },
+  {
     "name": "MongoDB",
     "avatar": "mongodb.png"
   },
@@ -53,14 +61,6 @@
     "avatar": "css.png"
   },
   {
-    "name": "Chakra UI",
-    "avatar": "chakra.png"
-  },
-  {
-    "name": "Bootstrap",
-    "avatar": "bootstrap.png"
-  },
-  {
     "name": "Github",
     "avatar": "github.png"
   },
@@ -78,10 +78,6 @@
   },
   {
     "name": "Docker",
-    "avatar": "amazonS3.png"
-  },
-  {
-    "name": "AWS S3",
     "avatar": "docker.png"
   }
 ]

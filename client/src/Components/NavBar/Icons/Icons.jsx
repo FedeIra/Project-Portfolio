@@ -38,7 +38,7 @@ const Icons = () => {
   return (
     <div>
       <a
-        href="https://www.linkedin.com/in/federico-irarr%C3%A1zaval-314b89a1/"
+        href="https://www.linkedin.com/in/federicoirarrazaval/"
         target="_blank"
         rel="nofollow noreferrer"
       >

@@ -17,6 +17,7 @@ router.post(
   validatorHandler(sendEmailSchema, 'body'),
   async (req, res, next) => {
     try {
+      console.info('Sending email...');
       const templateParams = req.body;
       const response = await emailService.sendEmail(templateParams);
       res.status(200).json(response);
