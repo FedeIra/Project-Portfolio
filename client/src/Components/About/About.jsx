@@ -145,9 +145,11 @@ const About = () => {
                   >
                     <Col xs={12} md={{ span: 8, offset: 2 }}>
                       <p className={`text-center `}>
-                        I'm a Full Stack Web Developer. I strive to deliver high
-                        quality, responsive and dinamic products, always
-                        prioritizing user experience above all. <br />
+                        I'm a Full Stack Web Developer with a strong focus on
+                        backend development. I take ownership of technical
+                        solutions, ensuring high-quality and scalable results. I
+                        excel in collaboration, working closely with teams and
+                        clients to build efficient and adaptable systems. <br />
                         <a
                           href="#getInTouch"
                           style={{

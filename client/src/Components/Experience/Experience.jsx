@@ -113,7 +113,7 @@ const Experience = () => {
                   }}
                 >
                   <div className="float-end text-white">
-                    <p className={style.date}>Feb. 2023 - Current</p>
+                    <p className={style.date}>Aug. 2022 - Current</p>
                   </div>
                   <h4
                     className="d-flex card-title text-white
@@ -129,52 +129,66 @@ const Experience = () => {
                     <strong> ITGlobers </strong>
                     <span className={style.construction_text}>Present</span>
                   </h4>
-                  <p className="card-text text-white">Backend Developer:</p>
                   <p className="card-text text-white">
-                    I contributed to the following projects:
-                    <br /> <br />
-                    <b> • Chapur: </b> E-commerce and ERP Synchronization: I
-                    contributed to the development of a service to synchronize
-                    order statuses between the e-commerce platform and the
-                    client's ERP system, ensuring seamless order management and
-                    tracking across platforms. <br /> <br />
-                    <b> • Vista Energy: </b>
-                    I worked on migrating documents and implementing document
-                    upload functionalities with PHP from the repository to
-                    Google Cloud Storage buckets, ensuring a seamless transition
-                    and enhanced document management capabilities. <br /> <br />
-                    <b> • Macromex: </b>
-                    Audit of architecture, integrations, and custom applications
-                    for e-commerce optimization.
-                    <br />
-                    <br /> <b> • Chapur: </b> I spearheaded the creation of a
-                    middleware designed to facilitate the utilization of payment
-                    services from a payment provider. Leading a team in this
-                    project, I played a pivotal role in ensuring its successful
-                    implementation. Additionally, I developed features for
-                    tokenizing credit card data and implementing an autocomplete
-                    functionality for payment forms, enhancing the security and
-                    user experience of the payment process. <br />
-                    <br />
-                    <b> • Jira integration: </b>
-                    I took the initiative in crafting a service that integrates
-                    with Jira, enabling the addition of tickets through Google
-                    Forms. <br /> <br />
-                    <b> • OBI: </b> I actively participated in the development
-                    of a service dedicated to synchronizing product stock levels
-                    between two warehouses; and <br />
+                    <strong>Backend Developer:</strong>
                   </p>
                   <p className="card-text text-white">
-                    The technologies and tools employed in most of these
-                    projects are as follows:
-                    <br />
-                    Javascript | Typescript | Node.js | Koa.js | VTEX.IO | JSON
-                    | JIRA | SCRUM | GitHub
+                    I contributed to multiple backend projects, focusing on
+                    system integration, architecture optimization, and
+                    automation. My responsibilities included leading technical
+                    initiatives, and maintaining direct communication with
+                    clients to ensure project success.
                     <br /> <br />
-                    Moreover, in most projects, I was responsible for leading a
-                    team of developers and maintaining direct communication with
-                    the client, ensuring the successful completion of the areas
-                    of the project assigned to me.
+                    <p className="card-text text-white">
+                      <strong>Technologies & Tools:</strong>
+                      TypeScript | JavaScript | Node.js | Fastify | Koa.js |
+                      Express.js | PostgreSQL | Sequelize | MongoDB | Moongose |
+                      AWS | VTEX.IO | Docker | JIRA | SCRUM | GitHub | Git |
+                      Docker
+                    </p>
+                    <p className="card-text text-white">
+                      <strong>Key Projects:</strong>
+                    </p>
+                    <b> • Nadro: </b> Developed a messaging service leveraging
+                    AWS Lambda and SES to enable event-driven notifications and
+                    scalable communication.
+                    <br /> <br />
+                    <b> • Cencosud: </b> Developed a high-performance
+                    reconciliation service to match sales records across
+                    different platforms, ensuring data accuracy and integrity in
+                    financial transactions.
+                    <br /> <br />
+                    <b> • Cencosud: </b> Designed and implemented an integration
+                    with a logistics provider to enable rapid product delivery
+                    based on store configurations and order details.
+                    <br /> <br />
+                    <b> • Gabrica: </b> Built a system for synchronizing
+                    promotional campaigns between an external platform and VTEX,
+                    automating the management of discounts and special offers.
+                    <br /> <br />
+                    <b> • Chapur: </b> E-commerce and ERP Synchronization:
+                    Developed a service to synchronize payment statuses between
+                    the e-commerce platform and the client's ERP system.
+                    Additionally, I integrated a payment connector with an
+                    external payment provider, ensuring seamless transactions
+                    and order processing. <br /> <br />
+                    <b> • Vista Energy: </b>
+                    Migrated documents and implemented file upload
+                    functionalities using PHP and Google Cloud Storage, ensuring
+                    a smooth transition and enhanced document management
+                    capabilities. <br /> <br />
+                    <b> • Macromex: </b>
+                    Conducted an architectural audit, analyzed integrations, and
+                    optimized custom applications for better performance and
+                    scalability.
+                    <br /> <br />
+                    <b> • Jira integration: </b>
+                    Developed a service that integrates with Jira, enabling
+                    ticket creation through Google Forms for streamlined issue
+                    tracking. <br /> <br />
+                    <b> • OBI: </b> Built a service to synchronize stock levels
+                    between multiple warehouses, improving inventory management
+                    accuracy. <br />
                   </p>
                 </div>
               </div>
@@ -245,7 +259,7 @@ const Experience = () => {
                   }}
                 >
                   <div className="float-end text-white">
-                    <p className={style.date}>Nov. 2022 - Dec. 2022</p>
+                    <p className={style.date}>Jul. 2022 - Aug. 2022</p>
                   </div>
                   <h4
                     className="d-flex card-title text-white
@@ -349,7 +363,7 @@ const Experience = () => {
                   }}
                 >
                   <div className="float-end text-white">
-                    <p className={style.date}>Oct. 2022 - Nov. 2022</p>
+                    <p className={style.date}>Jun. 2022 - Jul. 2022</p>
                   </div>
                   <h4 className="d-flex card-title text-white align-items-center">
                     <img
@@ -457,7 +471,7 @@ const Experience = () => {
                   }}
                 >
                   <div className="float-end text-white">
-                    <p className={style.date}>Sep. 2022 - Oct. 2022</p>
+                    <p className={style.date}>May. 2022 - Jun. 2022</p>
                   </div>
                   <h4 className="d-flex card-title text-white align-items-center">
                     <img
@@ -565,7 +579,7 @@ const Experience = () => {
                   }}
                 >
                   <div className="float-end text-white">
-                    <p className={style.date}>May. 2022 - Nov. 2022</p>
+                    <p className={style.date}>Mar. 2022 - Jul. 2022</p>
                   </div>
                   <h4 className="d-flex card-title text-white align-items-center">
                     <img

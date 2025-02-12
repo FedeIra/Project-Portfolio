@@ -21,7 +21,7 @@ const Footer = () => {
               }}
             >
               {footerIconButton(
-                "https://www.linkedin.com/in/federico-irarr%C3%A1zaval-314b89a1/",
+                "https://www.linkedin.com/in/federicoirarrazaval/",
                 <FaLinkedin
                   size="1.5rem"
                   className={style.link_footer_linkedinEmail}
@@ -45,7 +45,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <p className={style.copyright}> © 2024 Federico Irarrazaval</p>
+        <p className={style.copyright}> © 2025 Federico Irarrazaval</p>
       </div>
     </footer>
   );

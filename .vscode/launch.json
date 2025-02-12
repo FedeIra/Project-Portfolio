@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "protocol": "inspector",
+            "name": "Iniciar el programa",
+            "cwd": "${workspaceFolder}/api",
+            "runtimeExecutable": "${workspaceFolder}/api/node_modules/.bin/nodemon",
+            "args": ["${workspaceFolder}/api/src/index.js"],
+            "restart": true,
+        }
+    ]
+}
