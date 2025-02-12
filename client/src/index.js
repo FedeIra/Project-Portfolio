@@ -19,6 +19,7 @@ const baseURL =
   process.env.REACT_APP_PRODUCTION_URL || process.env.REACT_APP_DEVELOPMENT_URL;
 
 axios.defaults.baseURL = baseURL;
+axios.defaults.withCredentials = false;
 
 // Refresh token or logout user according expiration time:
 const onBeforeLift = () => {

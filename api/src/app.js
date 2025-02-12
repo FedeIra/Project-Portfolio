@@ -18,8 +18,7 @@ const server = express();
 
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://project-portfolio-production-a234.up.railway.app',
-  `https://portfolio-fedeira.vercel.app/`,
+  'https://portfolio-fedeira.vercel.app',
 ];
 
 // CORS configuration:
