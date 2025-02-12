@@ -1,7 +1,7 @@
 import Joi from 'joi';
 
 export const sendEmailSchema = Joi.object({
-  user_name: Joi.string().min(3).max(30).required().messages({
+  user_name: Joi.string().min(2).max(30).required().messages({
     'string.base': 'Username should be a type of text',
     'string.empty': 'Username cannot be empty',
     'string.min': 'Username should have a minimum length of {#limit}',
@@ -20,7 +20,7 @@ export const sendEmailSchema = Joi.object({
     'string.max': 'Subject should have a maximum length of {#limit}',
     'any.required': 'Subject is required',
   }),
-  message: Joi.string().min(5).max(500).required().messages({
+  message: Joi.string().min(2).max(500).required().messages({
     'string.base': 'Message should be a type of text',
     'string.empty': 'Message cannot be empty',
     'string.min': 'Message should have a minimum length of {#limit}',
