@@ -4,6 +4,11 @@ import profilePic from '../../../Assets/portfolio_General/profile-pic2.jpg';
 import technologies from '../config/technologies.json';
 import TechCard from './TechCard';
 
+const iconModules = import.meta.glob('../../../assets/images/tech-icons/*.png', { eager: true }) as Record<string, { default: string }>;
+const visibleTechnologies = technologies.filter((tech) =>
+  Object.keys(iconModules).some((k) => k.endsWith(`/${tech.avatar}`))
+);
+
 const AboutSection: FC = () => {
   return (
     <div className="flex flex-col lg:flex-row justify-center items-start gap-8 px-4">
@@ -11,7 +16,7 @@ const AboutSection: FC = () => {
         <motion.img
           src={profilePic}
           alt="profile-pic"
-          className="hexagon-shape mb-[2%] w-80 h-80 object-cover max-md:w-48 max-md:h-48"
+          className="hexagon-shape mb-[2%] w-80 h-80 object-cover max-md:w-48 max-md:h-48 brightness-110 contrast-95"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -27,10 +32,12 @@ const AboutSection: FC = () => {
           className="max-w-lg text-center"
         >
           <p>
-            I'm a Full Stack Web Developer with a strong focus on backend development. I take
-            ownership of technical solutions, ensuring high-quality and scalable results. I excel in
-            collaboration, working closely with teams and clients to build efficient and adaptable
-            systems.
+            Backend Engineer with expertise in Node.js, TypeScript, and cloud architecture (AWS).
+            I specialize in designing scalable APIs and microservices, defining database schemas,
+            and shaping product architecture from the ground up — following clean architecture
+            principles and collaborating closely with product and client teams. I also have React
+            experience and can contribute to frontend work when the project demands it. I actively
+            use AI-assisted development tools like Claude and GitHub Copilot in my daily workflow.
             <br />
             <a href="#getInTouch" className="underline">
               Let's work together.
@@ -40,7 +47,7 @@ const AboutSection: FC = () => {
       </div>
 
       <div className="flex flex-wrap justify-center gap-2 lg:w-1/3">
-        {technologies.map((tech, index) => (
+        {visibleTechnologies.map((tech, index) => (
           <motion.div
             key={tech.name}
             initial="hidden"

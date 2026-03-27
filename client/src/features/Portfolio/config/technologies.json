@@ -1,83 +1,25 @@
 [
-  {
-    "name": "JavaScript",
-    "avatar": "javascript.png"
-  },
-  {
-    "name": "Typescript",
-    "avatar": "typescript.png"
-  },
-  {
-    "name": "Node.js",
-    "avatar": "nodejs.png"
-  },
-  {
-    "name": "Express.js",
-    "avatar": "express.png"
-  },
-  {
-    "name": "Fastify",
-    "avatar": "fastify.png"
-  },
-  {
-    "name": "Koa",
-    "avatar": "koa.png"
-  },
-  {
-    "name": "AWS S3",
-    "avatar": "amazonS3.png"
-  },
-  {
-    "name": "MongoDB",
-    "avatar": "mongodb.png"
-  },
-  {
-    "name": "Mongoose",
-    "avatar": "mongoose.png"
-  },
-  {
-    "name": "ReactJS",
-    "avatar": "react.png"
-  },
-  {
-    "name": "Redux",
-    "avatar": "redux.png"
-  },
-  {
-    "name": "PostgreSQL",
-    "avatar": "postgressSQL.png"
-  },
-  {
-    "name": "Sequelize",
-    "avatar": "sequelize.png"
-  },
-  {
-    "name": "HTML",
-    "avatar": "html.png"
-  },
-
-  {
-    "name": "CSS",
-    "avatar": "css.png"
-  },
-  {
-    "name": "Github",
-    "avatar": "github.png"
-  },
-  {
-    "name": "JIRA",
-    "avatar": "jira.png"
-  },
-  {
-    "name": "SCRUM",
-    "avatar": "SCRUM.png"
-  },
-  {
-    "name": "VTEX",
-    "avatar": "vtex.png"
-  },
-  {
-    "name": "Docker",
-    "avatar": "docker.png"
-  }
+  { "name": "JavaScript", "avatar": "javascript.png" },
+  { "name": "TypeScript", "avatar": "typescript.png" },
+  { "name": "Node.js", "avatar": "nodejs.png" },
+  { "name": "Express.js", "avatar": "express.png" },
+  { "name": "Fastify", "avatar": "fastify.png" },
+  { "name": "Koa", "avatar": "koa.png" },
+  { "name": "AWS", "avatar": "amazonS3.png" },
+  { "name": "PostgreSQL", "avatar": "postgressSQL.png" },
+  { "name": "Sequelize", "avatar": "sequelize.png" },
+  { "name": "MongoDB", "avatar": "mongodb.png" },
+  { "name": "Mongoose", "avatar": "mongoose.png" },
+  { "name": "Docker", "avatar": "docker.png" },
+  { "name": "GitHub", "avatar": "github.png" },
+  { "name": "JIRA", "avatar": "jira.png" },
+  { "name": "SCRUM", "avatar": "SCRUM.png" },
+  { "name": "VTEX", "avatar": "vtex.png" },
+  { "name": "Redmine", "avatar": "redmine.png" },
+  { "name": "Claude", "avatar": "claude.png" },
+  { "name": "Copilot", "avatar": "copilot.png" },
+  { "name": "ReactJS", "avatar": "react.png" },
+  { "name": "Redux", "avatar": "redux.png" },
+  { "name": "HTML", "avatar": "html.png" },
+  { "name": "CSS", "avatar": "css.png" }
 ]

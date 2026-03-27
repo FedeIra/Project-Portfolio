@@ -1,58 +1,60 @@
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
 import itglobersImg from '../../../Assets/experience/itGlobers.png';
-import portfolioImg from '../../../Assets/portfolio_General/portfolio-image.png';
-import kinemaLogo from '../../../Assets/projects/KinemaLogo.png';
-import gamingLogo from '../../../Assets/projects/gamingLogo.png';
 import henryImg from '../../../Assets/education/henry.png';
 import Background from './Background';
 
 interface TimelineEntry {
   date: string;
   company: string;
-  logo: string;
+  logo?: string;
   logoInvert?: boolean;
   badge?: string;
   role?: string;
   description: string;
+  bullets?: string[];
   isFirst?: boolean;
   isLast?: boolean;
 }
 
 const timelineData: TimelineEntry[] = [
   {
-    date: 'Aug. 2022 - Current',
-    company: 'ITGlobers',
-    logo: itglobersImg,
+    date: 'Aug. 2024 – Present',
+    company: 'Nubceo',
     badge: 'Present',
-    role: 'Backend Developer:',
-    description: `I contributed to multiple backend projects, focusing on system integration, architecture optimization, and automation. My responsibilities included leading technical initiatives, and maintaining direct communication with clients to ensure project success.`,
+    role: 'Backend Engineer',
+    description: 'Backend Engineer specialized in fintech, with expertise in designing and scaling APIs and microservices using Node.js, TypeScript, PostgreSQL, and AWS. Full product lifecycle ownership across core modules — from requirements and architecture through implementation and production monitoring — including reconciliation, accounting, and promotions systems.',
+    bullets: [
+      'Proactive leadership in backend development, facilitating task management, work organization, and team coordination.',
+      'Development of RESTful APIs for system integrations using Express.js and Fastify.',
+      'Implementation of secure authentication and authorization with JWT and OAuth2.',
+      'Performance and scalability optimization in cloud environments, including enhancements and integrations in serverless architectures with AWS Lambda, S3, DynamoDB, SQS, ECS, RDS, Secrets Manager, and CloudWatch.',
+      'Design and development of scalable architectures, following best practices and clean architecture.',
+      'Agile development with Scrum, participating in sprint planning, code reviews, and technical workshops to ensure continuous improvement.',
+      'Development of multi-tenant architectures supporting complex financial operations across multiple companies and subsidiaries.',
+      'Integration with third-party payment providers (e.g. MercadoPago, Rappi) to automate reconciliation and settlement processes.',
+    ],
     isFirst: true,
   },
   {
-    date: 'Jul. 2022 - Aug. 2022',
-    company: 'Project Portfolio',
-    logo: portfolioImg,
-    logoInvert: true,
-    description: 'Building my portfolio using the following tools: Javascript | Node.js | Express.js | AWS S3 | JWT and Passport | MongoDB | JSON | Email.js | React.js | Redux | HTML | CSS | Chakra UI | Bootstrap | Vercel | Railway | GitHub',
+    date: 'Apr. 2022 – Aug. 2024',
+    company: 'ITGlobers',
+    logo: itglobersImg,
+    role: 'Backend Developer',
+    description: 'Backend development for marketplaces, e-commerce, and other services, building scalable APIs and microservices using Node.js, TypeScript, and AWS. Experienced in taking leadership roles within projects, proactively assigning tasks, organizing workflows, and ensuring efficient development processes. Strong background in integrating e-commerce platforms like VTEX IO and designing robust and scalable architectures.',
+    bullets: [
+      'Proactive leadership in backend development, facilitating task management, work organization, and team coordination.',
+      'Active participation in client meetings to gather requirements, design solution architectures, and present technical proposals aligned with business needs.',
+      'Development of RESTful APIs for system integrations using Koa.js and Express.js.',
+      'Implementation of secure authentication and authorization with JWT and OAuth2.',
+      'Design and development of scalable architectures, following best practices and clean architecture.',
+    ],
   },
   {
-    date: 'Jun. 2022 - Jul. 2022',
-    company: 'Project Kinema',
-    logo: kinemaLogo,
-    description: 'Team project to build a movie and TV show streaming service that includes the following features: Third-party authentication with Google; Stripe payment platform integration; Combined filters; Image loading with Cloudinary; E-mail and live notifications; Logic user delete; Redux persist; Likes and review system; and Dashboard admin. and owner.',
-  },
-  {
-    date: 'May. 2022 - Jun. 2022',
-    company: 'Project Gaming & Beyond',
-    logo: gamingLogo,
-    description: 'Individual Project to build a single page application consisting of videogames information with the following features: Interaction with API data; Combined filters and sorts; Paginate; and User can create, modify and delete added videogames.',
-  },
-  {
-    date: 'Mar. 2022 - Jul. 2022',
+    date: 'Feb. 2022 – Jun. 2022',
     company: 'Henry Bootcamp',
     logo: henryImg,
-    description: '1000 hours of a theoretical-practical course. Technologies: Javascript | Node.js | Express | PostgreSQL | Sequelize | React.js | Redux.js | HTML | CSS | SCRUM | GitHub',
+    description: '1000 hours of theoretical-practical training. Technologies: JavaScript · Node.js · Express · PostgreSQL · Sequelize · React.js · Redux · HTML · CSS · SCRUM · GitHub',
     isLast: true,
   },
 ];
@@ -77,7 +79,7 @@ const TimelineItem: FC<{ entry: TimelineEntry }> = ({ entry }) => (
       <div className="m-0">
         <span
           className="inline-block w-4 h-4 rounded-full border border-white"
-          style={{ backgroundColor: entry.isFirst ? '#2ECC71' : '#198754' }}
+          style={{ backgroundColor: entry.isFirst ? '#22d3ee' : '#0e7490' }}
         />
       </div>
       <div className="flex-1 w-full flex">
@@ -102,22 +104,35 @@ const TimelineItem: FC<{ entry: TimelineEntry }> = ({ entry }) => (
           <div className="float-right text-white">
             <p className="text-sm max-sm:text-xs">{entry.date}</p>
           </div>
-          <h4 className="flex items-center text-white gap-2">
-            <img
-              src={entry.logo}
-              alt={entry.company}
-              width={40}
-              className={entry.logoInvert ? 'invert' : ''}
-            />
+          <h4 className="flex items-center text-white gap-2 flex-wrap">
+            {entry.logo ? (
+              <img
+                src={entry.logo}
+                alt={entry.company}
+                width={40}
+                className={entry.logoInvert ? 'invert' : ''}
+              />
+            ) : (
+              <div className="w-10 h-10 bg-accent-green flex items-center justify-center rounded text-white font-bold text-lg flex-shrink-0">
+                {entry.company[0]}
+              </div>
+            )}
             <strong>{entry.company}</strong>
             {entry.badge && (
-              <span className="ml-2 bg-accent-success text-white text-sm px-3 py-1 rounded-2xl">
+              <span className="bg-accent-success text-white text-xs px-3 py-1 rounded-2xl">
                 {entry.badge}
               </span>
             )}
           </h4>
-          {entry.role && <p className="text-white font-bold mt-2">{entry.role}</p>}
-          <p className="text-white mt-1 text-base">{entry.description}</p>
+          {entry.role && <p className="text-white font-semibold mt-2 text-sm">{entry.role}</p>}
+          <p className="text-white mt-1 text-sm">{entry.description}</p>
+          {entry.bullets && (
+            <ul className="list-disc list-outside ml-5 mt-2 text-white text-sm space-y-1">
+              {entry.bullets.map((bullet, i) => (
+                <li key={i}>{bullet}</li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     </div>
@@ -151,8 +166,8 @@ const Experience: FC = () => {
             whileInView="visible"
             viewport={{ once: true }}
             variants={{
-              hidden: { opacity: 0, y: -1000 },
-              visible: { opacity: 1, y: 0, transition: { duration: 1 + index * 0.5 } },
+              hidden: { opacity: 0, y: -50 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: index * 0.15 } },
             }}
           >
             <TimelineItem entry={entry} />

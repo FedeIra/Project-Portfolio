@@ -20,7 +20,7 @@
   }
 
   .custom-scrollbar::-webkit-scrollbar {
-    background-color: rgba(4, 1, 19, 0.9);
+    background-color: rgba(8, 14, 26, 0.95);
     width: 10px;
   }
 
@@ -116,7 +116,7 @@
   text-decoration: none;
   letter-spacing: 2px;
   color: rgb(0, 0, 0);
-  outline: 2px solid rgba(4, 1, 19, 0.9);
+  outline: 2px solid rgba(8, 14, 26, 0.95);
   padding: 30px 60px;
   overflow: hidden;
   transition: color 1s;
@@ -142,7 +142,7 @@
   z-index: -1;
   width: 150%;
   height: 100%;
-  background-color: rgba(4, 1, 19, 0.9);
+  background-color: rgba(8, 14, 26, 0.95);
   transform: scaleX(0) skewX(35deg);
   transform-origin: left;
   transition: transform 1s;

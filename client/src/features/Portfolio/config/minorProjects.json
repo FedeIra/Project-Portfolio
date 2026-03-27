@@ -22,11 +22,5 @@
     "technologies": ["AWS S3", "AWS Route53", "HTML", "CSS"],
     "avatar": "11.png",
     "link": "http://fedeira.xyz/"
-  },
-  {
-    "name": "Mug Clug Store",
-    "technologies": ["Shopify", "HTML", "CSS"],
-    "avatar": "10.png",
-    "link": "https://www.youtube.com/watch?v=ZcsY4dQkY8w"
   }
 ]

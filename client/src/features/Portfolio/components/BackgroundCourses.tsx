@@ -1,14 +1,51 @@
 import type { FC } from 'react';
-import { FaEye } from 'react-icons/fa';
+import { FaEye, FaCog } from 'react-icons/fa';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { getFileAsync } from '../state/fileSlice';
 import { showToast } from '../../../utils/toast';
-import TimelineCard from './TimelineCard';
 import coursesData from '../config/backgroundCourses.json';
 import type { Course } from '../../../utils/types';
 import platziImg from '../../../Assets/courses/platzi.png';
 
 const courseIcons = import.meta.glob('../../../assets/images/course-icons/*.png', { eager: true }) as Record<string, { default: string }>;
+
+const getIcon = (picture: string): string => {
+  const match = Object.keys(courseIcons).find((k) => k.endsWith(`/${picture}`));
+  return match ? courseIcons[match].default : platziImg;
+};
+
+interface CourseRowProps {
+  date: string;
+  logo: string;
+  title: string;
+  description: string;
+  courseKey?: string;
+  onView: (key?: string) => void;
+}
+
+const CourseRow: FC<CourseRowProps> = ({ date, logo, title, description, courseKey, onView }) => (
+  <div className="flex items-center gap-3 bg-primary-dark px-3 py-2 mb-1">
+    <img src={logo} alt={title} width={24} height={24} className="flex-shrink-0 object-contain" />
+    <div className="flex-1 min-w-0">
+      <span className="text-white font-semibold text-sm">{title} — </span>
+      <span className="text-gray-300 text-sm">{description}</span>
+    </div>
+    <span className="text-gray-400 text-xs flex-shrink-0 ml-2">{date}</span>
+    {courseKey ? (
+      <button
+        onClick={() => onView(courseKey)}
+        className="text-white hover:text-gray-300 flex-shrink-0 ml-1"
+        title="View certificate"
+      >
+        <FaEye size={14} />
+      </button>
+    ) : (
+      <span className="text-gray-500 flex-shrink-0 ml-1 animate-spin" title="Certificate in progress" style={{ animationDuration: '3s' }}>
+        <FaCog size={14} />
+      </span>
+    )}
+  </div>
+);
 
 const BackgroundCourses: FC = () => {
   const dispatch = useAppDispatch();
@@ -23,54 +60,18 @@ const BackgroundCourses: FC = () => {
     void dispatch(getFileAsync({ token: user.token, fileName: key }));
   };
 
-  const getIcon = (picture: string): string => {
-    const match = Object.keys(courseIcons).find((k) => k.endsWith(`/${picture}`));
-    return match ? courseIcons[match].default : '';
-  };
-
-  // First hardcoded course (Platzi EC2)
-  const firstCourse = {
-    date: '2024',
-    title: 'Platzi',
-    description: 'AWS. Amazon Elastic Compute Cloud (EC2).',
-    key: 'Certificado Platzi. AWS. Cómputo con EC2.pdf',
-  };
-
   return (
     <div className="max-w-4xl mx-auto">
-      <TimelineCard
-        date={firstCourse.date}
-        logo={platziImg}
-        title={firstCourse.title}
-        isFirst
-      >
-        <p>{firstCourse.description}</p>
-        <button
-          onClick={() => handleGetFile(firstCourse.key)}
-          className="text-white hover:text-gray-300 mt-2"
-        >
-          <FaEye size={20} />
-        </button>
-      </TimelineCard>
-
       {(coursesData as Course[]).map((course, index) => (
-        <TimelineCard
+        <CourseRow
           key={`${course.title}-${course.date}-${index}`}
           date={course.date}
           logo={getIcon(course.picture)}
           title={course.title}
-          isLast={index === coursesData.length - 1}
-        >
-          <p>{course.description}</p>
-          {course.key && (
-            <button
-              onClick={() => handleGetFile(course.key)}
-              className="text-white hover:text-gray-300 mt-2"
-            >
-              <FaEye size={20} />
-            </button>
-          )}
-        </TimelineCard>
+          description={course.description}
+          courseKey={course.key}
+          onView={handleGetFile}
+        />
       ))}
     </div>
   );

@@ -29,7 +29,7 @@ const TimelineCard: FC<TimelineCardProps> = ({ date, logo, title, children, isFi
       <div className="m-0">
         <span
           className="inline-block w-4 h-4 rounded-full border border-white"
-          style={{ backgroundColor: isFirst ? '#2ECC71' : '#198754' }}
+          style={{ backgroundColor: isFirst ? '#22d3ee' : '#0e7490' }}
         />
       </div>
       <div className="flex-1 w-full flex">

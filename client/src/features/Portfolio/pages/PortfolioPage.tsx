@@ -26,11 +26,12 @@ const PortfolioPage: FC = () => {
 
       const linksArray = Array.from(navBarLinks) as HTMLElement[];
       const positions = elements.map((el) => el!.getBoundingClientRect().top);
+      const len = Math.min(linksArray.length, sections.length);
 
-      for (let i = 0; i < linksArray.length; i++) {
-        linksArray[i].style.textDecoration = positions[i] < 100 ? 'underline' : 'none';
-        if (positions[i] < 100) {
-          for (let j = 0; j < linksArray.length; j++) {
+      for (let i = 0; i < len; i++) {
+        linksArray[i].style.textDecoration = positions[i] < 1 ? 'underline' : 'none';
+        if (positions[i] < 1) {
+          for (let j = 0; j < len; j++) {
             if (j !== i) linksArray[j].style.textDecoration = 'none';
           }
         }

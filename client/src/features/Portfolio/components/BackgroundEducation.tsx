@@ -12,22 +12,16 @@ const entries = [
     isFirst: true,
   },
   {
-    date: '2016',
+    date: '2015 - 2016',
     logo: universityImg,
     title: 'Pontifical Catholic University of Argentina',
-    description: 'Postgraduate Course in Labor & Employment Law.',
-  },
-  {
-    date: '2015',
-    logo: universityImg,
-    title: 'Pontifical Catholic University of Argentina',
-    description: 'Postgraduate Course in Legal counselling.',
+    description: 'Postgraduate courses in Labor & Employment Law and Legal Counselling.',
   },
   {
     date: '2007 - 2014',
     logo: universityImg,
     title: 'Pontifical Catholic University of Argentina',
-    description: 'Lawyer',
+    description: 'Lawyer.',
   },
   {
     date: '1994 - 2006',
@@ -40,7 +34,7 @@ const entries = [
 
 const BackgroundEducation: FC = () => (
   <div className="max-w-4xl mx-auto">
-    {entries.map((entry, index) => (
+    {entries.map((entry) => (
       <TimelineCard key={`${entry.title}-${entry.date}`} {...entry}>
         <p>{entry.description}</p>
       </TimelineCard>

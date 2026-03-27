@@ -5,13 +5,13 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#172139',
-          dark: 'rgba(4, 1, 19, 0.9)',
-          light: 'rgba(4, 1, 19, 0.5)',
+          DEFAULT: '#0a0f18',
+          dark: 'rgba(8, 14, 26, 0.95)',
+          light: 'rgba(8, 14, 26, 0.55)',
         },
         accent: {
-          green: '#2ECC71',
-          success: '#006C00',
+          green: '#22d3ee',
+          success: '#0e7490',
         },
       },
       fontFamily: {

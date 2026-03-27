@@ -12,7 +12,7 @@ const MinorProjectCard: FC<MinorProject> = ({ name, technologies, avatar, link }
     <div className="flip-card">
       <div className="flip-card-inner">
         <div className="flip-card-front">
-          <img src={imageSrc} alt={name} className="w-full h-full object-cover" />
+          <img src={imageSrc} alt={name} className="w-full h-full object-contain bg-gray-100" />
         </div>
         <div className="flip-card-back">
           <h2>{name}</h2>
@@ -34,10 +34,24 @@ const MinorProjectCard: FC<MinorProject> = ({ name, technologies, avatar, link }
 
 const OtherProjects: FC = () => {
   return (
-    <div className="flex flex-wrap justify-center w-4/5 mb-[5%] gap-[30px]">
-      {(minorProjects as MinorProject[]).map((project) => (
-        <MinorProjectCard key={project.name} {...project} />
-      ))}
+    <div className="flex flex-col items-center w-4/5 mb-[5%]">
+      <p className="text-white text-sm mb-4 text-center">
+        More personal projects on{' '}
+        <a
+          href="https://github.com/FedeIra/Personal-Projects"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-accent-green transition-colors"
+        >
+          GitHub
+        </a>
+        .
+      </p>
+      <div className="flex flex-wrap justify-center gap-[30px]">
+        {(minorProjects as MinorProject[]).map((project) => (
+          <MinorProjectCard key={project.name} {...project} />
+        ))}
+      </div>
     </div>
   );
 };

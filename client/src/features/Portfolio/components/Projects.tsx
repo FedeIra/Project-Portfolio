@@ -22,12 +22,12 @@ const ProjectCard: FC<ProjectCardProps> = ({ title, description, image, logo, si
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <div className="w-full lg:w-[400px] mb-8 group">
-      <div className="bg-white shadow-[0_0_30px_rgba(0,0,0,0.5)] max-h-full pb-5 transition-transform duration-1000 hover:scale-105">
+    <div className="w-full lg:w-[400px] mb-8 group flex flex-col">
+      <div className="bg-white shadow-[0_0_30px_rgba(0,0,0,0.5)] flex flex-col flex-1 pb-5 hover:scale-[1.02] transition-transform duration-300">
         {/* Image with overlay */}
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden flex-shrink-0">
           <img src={image} alt={title} className="w-full rounded-none" />
-          <div className="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition-opacity duration-100 flex flex-col items-center justify-center text-white">
+          <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
             <h3 className="text-xl font-bold mb-4">{title}</h3>
             <button
               onClick={() => setShowModal(true)}
@@ -38,17 +38,17 @@ const ProjectCard: FC<ProjectCardProps> = ({ title, description, image, logo, si
           </div>
         </div>
 
-        {/* Logo */}
-        <div className="flex justify-center -mt-20 group-hover:hidden">
-          <img src={logo} alt={`${title}-logo`} className="w-[130px] h-[130px] rounded-full border-4 border-gray-500" />
+        {/* Logo — z-10 ensures it renders above the positioned image container */}
+        <div className="relative z-10 flex justify-center -mt-16 group-hover:hidden">
+          <img src={logo} alt={`${title}-logo`} className="w-[110px] h-[110px] rounded-full border-4 border-gray-500 bg-white" />
         </div>
 
-        {/* Text */}
-        <div className="py-8 text-center text-gray-600">
-          <h2 className="uppercase font-black mb-5">{title}</h2>
+        {/* Text — flex-1 fills remaining space so buttons always align at bottom */}
+        <div className="flex-1 py-6 text-center text-gray-600">
+          <h2 className="uppercase font-black mb-4">{title}</h2>
           <p className="px-9 text-sm md:text-base">{description}</p>
           {award && (
-            <div className="flex items-center justify-center gap-1 mt-2 group-hover:hidden">
+            <div className="flex items-center justify-center gap-1 mt-3 group-hover:hidden">
               <FaStar size={22} color="orange" />
               <p className="text-sm">{award}</p>
             </div>
@@ -113,7 +113,7 @@ const Projects: FC = () => {
       </motion.h2>
 
       <motion.div
-        className="flex flex-col lg:flex-row justify-center items-start gap-8 px-8 lg:px-24 mt-[2%] mb-[5%]"
+        className="flex flex-col lg:flex-row justify-center items-stretch gap-8 px-8 lg:px-24 mt-[2%] mb-[5%]"
         initial={isMobile ? 'visible' : 'hidden'}
         whileInView="visible"
         viewport={{ once: true }}
@@ -121,7 +121,7 @@ const Projects: FC = () => {
       >
         <ProjectCard
           title="Kinema"
-          description="Kinema is a movie and TV Show streaming website with the following features: Third-party authentication with Google; Stripe payment platform integration; Combined filters; Image loading with Cloudinary; E-mail and live notifications; Logic for user removal; Rating and review system; and Admin. and owner dashboard."
+          description="Kinema is a full-featured movie and TV show platform built with a team of eight developers. It includes Google OAuth authentication, Stripe payment integration, Cloudinary image management, email and real-time notifications, a rating and review system, and an admin dashboard for content moderation."
           image={kinemaImg}
           logo={kinemaLogo}
           siteUrl="https://kinema-showcase.vercel.app/"
@@ -131,7 +131,7 @@ const Projects: FC = () => {
         />
         <ProjectCard
           title="Gaming & Beyond"
-          description="G&B is a gaming website with the following features: Search engine; Combined filters and sorts; Paging; User interaction to create, delete and modify videogames added by users."
+          description="Gaming & Beyond is a videogame catalogue with a full-text search engine, combined filtering and sorting, paginated results, and complete user-driven CRUD capabilities for custom game entries."
           image={gamingImg}
           logo={gamingLogo}
           siteUrl="https://gaming-beyond-v2.vercel.app/"

@@ -69,30 +69,28 @@ const Contact: FC = () => {
                 name="user_name"
                 required
                 placeholder="Name"
-                className="bg-primary-light border-0 text-white px-4 py-3 placeholder-gray-400/40 outline-none col-span-1"
+                className="bg-primary-light border border-white/25 focus:border-accent-green text-white px-4 py-3 placeholder-gray-400/60 outline-none transition-colors col-span-1"
               />
               <input
                 type="email"
                 name="user_email"
                 required
-                placeholder="Enter email"
-                defaultValue="fedeirar@gmail.com"
-                readOnly
-                className="bg-primary-light border-0 text-white px-4 py-3 placeholder-gray-400/40 outline-none col-span-1"
+                placeholder="Your email"
+                className="bg-primary-light border border-white/25 focus:border-accent-green text-white px-4 py-3 placeholder-gray-400/60 outline-none transition-colors col-span-1"
               />
               <input
                 type="text"
                 name="subject"
                 required
                 placeholder="Enter subject"
-                className="bg-primary-light border-0 text-white px-4 py-3 placeholder-gray-400/40 outline-none md:col-span-2"
+                className="bg-primary-light border border-white/25 focus:border-accent-green text-white px-4 py-3 placeholder-gray-400/60 outline-none transition-colors md:col-span-2"
               />
               <textarea
                 name="message"
                 required
                 rows={5}
                 placeholder="Your Message"
-                className="bg-primary-light border-0 text-white px-4 py-3 placeholder-gray-400/40 outline-none md:col-span-2 resize-none max-h-[230px] overflow-auto custom-scrollbar"
+                className="bg-primary-light border border-white/25 focus:border-accent-green text-white px-4 py-3 placeholder-gray-400/60 outline-none transition-colors md:col-span-2 resize-none max-h-[230px] overflow-auto custom-scrollbar"
               />
               <div className="md:col-span-2">
                 <button

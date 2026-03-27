@@ -1,54 +1,39 @@
-import { useState, useEffect, type FC } from 'react';
-import { HiOutlineArrowRight, HiOutlineArrowDown } from 'react-icons/hi';
+import { type FC } from 'react';
+import { HiOutlineArrowDown } from 'react-icons/hi';
 import NavBar from '../../Navigation/components/NavBar';
-import landingBg from '../../../Assets/portfolio_General/Landing.gif';
 
-const Landing: FC = () => {
-  const [buttonHover, setButtonHover] = useState(false);
-  const [, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
+const Landing: FC = () => (
+  <div
+    className="h-screen w-screen flex flex-col bg-primary"
+    id="landing"
+  >
+    <NavBar />
 
-  useEffect(() => {
-    const handleResize = () => setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    <div className="flex-1 flex flex-col items-center justify-center text-center px-4">
+      <p className="text-white/60 tracking-[0.3em] uppercase text-sm md:text-base mb-3">
+        Hello, I&apos;m
+      </p>
+      <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight">
+        Federico Irarrazaval
+      </h1>
+      <p className="text-white/90 text-2xl md:text-4xl font-light tracking-wide mb-10">
+        Backend Engineer
+      </p>
 
-  const isMobile = window.innerWidth < 767;
-  const isTablet = window.innerWidth < 1024 && window.innerWidth > 767;
-  const iconSize = isMobile || isTablet ? 'text-lg' : 'text-2xl';
-
-  return (
-    <div
-      className="h-screen w-screen bg-center bg-no-repeat"
-      id="landing"
-      style={{
-        backgroundImage: `url(${landingBg})`,
-        backgroundColor: '#161f37',
-        backgroundSize: isMobile ? '100vh' : undefined,
-      }}
-    >
-      <NavBar />
       <a href="#aboutMe" className="no-underline">
         <button
-          className="absolute top-[60vh] left-1/2 -translate-x-1/2 -translate-y-1/2 inline-block whitespace-nowrap bg-white text-black font-semibold cursor-pointer py-2 pr-4 pl-8 md:text-xl text-[2.5vw] md:py-2 md:pr-4 md:pl-8"
-          onMouseEnter={() => setButtonHover(true)}
-          onMouseLeave={() => setButtonHover(false)}
-          style={{ fontSize: isMobile ? '2.5vw' : '23px' }}
+          type="button"
+          className="group flex items-center gap-3 border-2 border-white text-white px-8 py-3 text-sm md:text-base tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300"
         >
-          View my profile!
-          <span className="inline-block ml-2 align-middle">
-            <span className={`inline-flex items-center justify-center bg-white ${iconSize}`}>
-              {buttonHover ? (
-                <HiOutlineArrowDown size={isMobile ? 16 : 32} />
-              ) : (
-                <HiOutlineArrowRight size={isMobile ? 16 : 32} />
-              )}
-            </span>
-          </span>
+          View Profile
+          <HiOutlineArrowDown
+            size={16}
+            className="transition-transform duration-300 group-hover:translate-y-1"
+          />
         </button>
       </a>
     </div>
-  );
-};
+  </div>
+);
 
 export default Landing;

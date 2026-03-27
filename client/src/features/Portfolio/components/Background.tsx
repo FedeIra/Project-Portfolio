@@ -1,4 +1,4 @@
-import { useState, type FC } from 'react';
+import { useState, useRef, type FC } from 'react';
 import BackgroundCourses from './BackgroundCourses';
 import BackgroundExperience from './BackgroundExperience';
 import BackgroundEducation from './BackgroundEducation';
@@ -15,11 +15,23 @@ interface AccordionSectionProps {
 
 const AccordionSection: FC<AccordionSectionProps> = ({ title, eventKey, activeKey, onToggle, children }) => {
   const isOpen = activeKey === eventKey;
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleToggle = () => {
+    const opening = !isOpen;
+    onToggle(opening ? eventKey : null);
+    if (opening) {
+      setTimeout(() => {
+        containerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 50);
+    }
+  };
 
   return (
-    <div className="border border-primary mx-[5%] mb-4" style={{ borderRadius: 0 }}>
+    <div ref={containerRef} className="border border-primary mx-[5%] mb-4" style={{ borderRadius: 0 }}>
       <button
-        onClick={() => onToggle(isOpen ? null : eventKey)}
+        type="button"
+        onClick={handleToggle}
         className="w-full text-left px-4 py-3 bg-white text-black font-bold flex justify-between items-center"
       >
         {title}
