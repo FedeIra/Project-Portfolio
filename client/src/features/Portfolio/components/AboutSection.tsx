@@ -11,8 +11,8 @@ const visibleTechnologies = technologies.filter((tech) =>
 
 const AboutSection: FC = () => {
   return (
-    <div className="flex flex-col lg:flex-row justify-center items-start gap-8 px-4">
-      <div className="flex flex-col items-center lg:w-2/3">
+    <div className="flex flex-col lg:flex-row justify-center items-start gap-6 px-4">
+      <div className="flex flex-col items-center lg:w-2/5">
         <motion.img
           src={profilePic}
           alt="profile-pic"

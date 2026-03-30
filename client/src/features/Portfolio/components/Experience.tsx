@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
+import nubceoImg from '../../../Assets/experience/nubceo.png';
 import itglobersImg from '../../../Assets/experience/itGlobers.png';
 import henryImg from '../../../Assets/education/henry.png';
 import Background from './Background';
@@ -21,6 +22,7 @@ const timelineData: TimelineEntry[] = [
   {
     date: 'Aug. 2024 – Present',
     company: 'Nubceo',
+    logo: nubceoImg,
     badge: 'Present',
     role: 'Backend Engineer',
     description: 'Backend Engineer specialized in fintech, with expertise in designing and scaling APIs and microservices using Node.js, TypeScript, PostgreSQL, and AWS. Full product lifecycle ownership across core modules — from requirements and architecture through implementation and production monitoring — including reconciliation, accounting, and promotions systems.',

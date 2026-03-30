@@ -2,8 +2,15 @@
   {
     "date": "2026",
     "title": "Platzi",
-    "description": "Claude AI.",
+    "description": "Claude AI 2.",
     "picture": "platzi.png"
+  },
+  {
+    "date": "2026",
+    "title": "Platzi",
+    "description": "Claude AI.",
+    "picture": "platzi.png",
+    "key": "Certificado Platzi. Curso de Claude AI.pdf"
   },
   {
     "date": "2024",
