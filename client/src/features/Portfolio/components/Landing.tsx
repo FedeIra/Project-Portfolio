@@ -17,7 +17,7 @@ const Landing: FC = () => (
         Federico Irarrazaval
       </h1>
       <p className="text-white/90 text-2xl md:text-4xl font-light tracking-wide mb-10">
-        Backend Engineer
+        Backend Engineer • Product-minded & Team Lead
       </p>
 
       <a href="#aboutMe" className="no-underline">

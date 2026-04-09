@@ -1,12 +1,15 @@
-import type { FC } from 'react';
-import { motion } from 'framer-motion';
-import profilePic from '../../../Assets/portfolio_General/profile-pic2.jpg';
-import technologies from '../config/technologies.json';
-import TechCard from './TechCard';
+import type { FC } from "react";
+import { motion } from "framer-motion";
+import profilePic from "../../../Assets/portfolio_General/profile-pic2.jpg";
+import technologies from "../config/technologies.json";
+import TechCard from "./TechCard";
 
-const iconModules = import.meta.glob('../../../assets/images/tech-icons/*.png', { eager: true }) as Record<string, { default: string }>;
+const iconModules = import.meta.glob(
+  "../../../assets/images/tech-icons/*.png",
+  { eager: true },
+) as Record<string, { default: string }>;
 const visibleTechnologies = technologies.filter((tech) =>
-  Object.keys(iconModules).some((k) => k.endsWith(`/${tech.avatar}`))
+  Object.keys(iconModules).some((k) => k.endsWith(`/${tech.avatar}`)),
 );
 
 const AboutSection: FC = () => {
@@ -32,12 +35,12 @@ const AboutSection: FC = () => {
           className="max-w-lg text-center"
         >
           <p>
-            Backend Engineer with expertise in Node.js, TypeScript, and cloud architecture (AWS).
-            I specialize in designing scalable APIs and microservices, defining database schemas,
-            and shaping product architecture from the ground up — following clean architecture
-            principles and collaborating closely with product and client teams. I also have React
-            experience and can contribute to frontend work when the project demands it. I actively
-            use AI-assisted development tools like Claude and GitHub Copilot in my daily workflow.
+            Backend Engineer building financial and marketplace solutions. I
+            design and deliver complete solutions: from client requirements to
+            scalable architecture to production. Technical leader who
+            contributes to product strategy. Node.js, TypeScript, PostgreSQL,
+            AWS, VTEX. Full-stack capable (React when needed). I actively use
+            AI-assisted development tools in my daily workflow.
             <br />
             <a href="#getInTouch" className="underline">
               Let's work together.

@@ -9,6 +9,7 @@ import AboutSection from '../components/AboutSection';
 import Projects from '../components/Projects';
 import OtherProjects from '../components/OtherProjects';
 import Experience from '../components/Experience';
+import Background from '../components/Background';
 import Contact from '../../Contact/components/Contact';
 import Comments from '../../Comments/components/Comments';
 import Footer from '../components/Footer';
@@ -76,9 +77,23 @@ const PortfolioPage: FC = () => {
           <AboutSection />
         </div>
 
+        <Experience />
         <Projects />
         <OtherProjects />
-        <Experience />
+
+        <div className="w-full mt-[3%] mb-[5%] px-4">
+          <motion.h2
+            className="section-heading"
+            initial={window.innerWidth < 769 ? 'visible' : 'hidden'}
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={boxVariants}
+          >
+            Background
+          </motion.h2>
+          <Background />
+        </div>
+
         <br />
         <Contact />
         <Comments />
