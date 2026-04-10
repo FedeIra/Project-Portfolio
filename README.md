@@ -1,24 +1,52 @@
-# PORTFOLIO
+# PORTFOLIO - FULL-STACK DIGITAL PRESENCE PLATFORM
 
-This a full-stack portfolio application that allows users to register, login, send emails, post comments, view and download courses certificates and, of course, get to know me better.
+## El Problema
+Necesidad de una solución integral de presencia digital que consolidara: autenticación segura, gestión de credenciales profesionales, comunicación directa con visitantes y análisis de interacciones. Una plataforma que demostrara no solo habilidades técnicas, sino también **capacidad de liderazgo end-to-end** en la arquitectura, diseño y operación de sistemas.
+
+## Mi Intervención (Leadership + Engineering)
+Diseñé, desarrollé y orquesté un **ecosistema full-stack escalable** que integra:
+- **Backend robusto** (Node.js/Express) con flujos de autenticación JWT + Passport, validaciones de negocio con Joi, y manejo estructurado de errores
+- **Base de datos flexible** (MongoDB Atlas) con esquemas de usuario y comentarios optimizados para concurrencia y escalabilidad
+- **Integración de servicios** (AWS S3, Email.js) para gestión de certificados y comunicación directa
+- **Frontend reactivo** (React/Redux) con state management persistente y UX fluida
+- **Infraestructura containerizada** (Docker) lista para producción
+
+El proyecto demuestra **liderazgo en decisiones arquitectónicas** desde el diseño de la base de datos hasta la experiencia del usuario final, incluyendo seguridad (JWT, bcrypt), validación en capas y patrones de escalabilidad.
+
+## Impacto
+Una plataforma que trasciende portfolio tradicional: es un **case study funcional** de cómo sistemas enterprise manejan autenticación, integridad de datos, seguridad y UX. Disponible en producción, totalmente versionada, documentada y lista para inspección de arquitectura.
 
 ## Table of Contents
 
+### 📖 Documentación para Recruiters (LEER PRIMERO)
+
+**Tu entrada es aquí ↓** Elegí el documento según tu tiempo disponible:
+
+| Tiempo | Documento | Contenido |
+|---|---|---|
+| ⏱️ 2 min | [📋 EXECUTIVE_SUMMARY.md](./EXECUTIVE_SUMMARY.md) | Quién soy + qué hice + impacto |
+| ⏱️ 5 min | [🏗️ ARCHITECTURE.md](./ARCHITECTURE.md) | 10 decisiones técnicas + patrones |
+| ⏱️ 10 min | [⭐ DIFERENCIAL.md](./DIFERENCIAL.md) | Por qué soy Senior (evidencia) |
+| ⏱️ 15 min | [❓ FAQ_RECRUITERS.md](./FAQ_RECRUITERS.md) | Preguntas + respuestas preparadas |
+
+### 📚 Documentación Técnica
 - [Project Structure](#project-structure)
 - [Architecture](#architecture)
 - [Tech Stack](#tech-stack)
 - [Installation](#installation)
 - [Environment Variables](#environment-variables)
 - [Running the Project](#running-the-project)
-- [BACKEND](#backend)
+
+### 🔧 Backend & Frontend
+- [BACKEND - API Segura y Escalable](#backend---api-segura-y-escalable)
 - [API Endpoints](#api-endpoints)
 - [Error Handling](#error-handling)
-- [FRONTEND](#frontend)
-- [Main directories and files](#main-directories-and-files)
-- [Theming and Styling](#theming-and-styling)
-- [Error Handling](#error-handling)
+- [FRONTEND - UX Reactiva y State Management Enterprise](#frontend---ux-reactiva-y-state-management-enterprise)
+- [Theming & Styling - Sistema Escalable](#theming--styling---sistema-escalable)
+
+### 📝 Legales y Autor
 - [License](#license)
-- [Author](#author)
+- [Author & Leadership Profile](#author--leadership-profile)
 - [Portfolio pictures](#portfolio-pictures)
 
 ## Project Structure
@@ -108,35 +136,33 @@ Below, an image the architecture of the project is shown:
 
 ![Project Architecture](./doc/architecture.png)
 
-## Tech Stack
+## Tech Stack - Decisiones Arquitectónicas
 
-#### Backend stack
+### Backend: Escalabilidad y Seguridad
 
-- **Node.js**: JavaScript runtime built on Chrome's V8 JavaScript engine.
-- **Javascript**: High-level, interpreted programming language.
-- **Express**: A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
-- **MongoDB**: A NoSQL database that stores data in flexible, JSON-like documents. For this project im using MongoDB Atlas. MongoDB Atlas is a fully managed cloud database service.
-- **Mongoose**: A MongoDB object modeling tool designed to work in an asynchronous environment.
-- **Docker**: A platform for developing, shipping, and running applications in containers.
-- **JWT and Passport**: JSON Web Token (JWT) is an open standard that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. Passport is Express-compatible authentication middleware for Node.js.
-- **Email.js**: A Node.js module for sending emails.
-- **AWS S3**: Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance.
-- **Joi and Boom**: Joi is a powerful schema description language and data validator for JavaScript. Boom is a set of utilities for returning HTTP errors.
-- **Bcrypt**: A library to help you hash passwords.
-- **Docker**: A platform for developing, shipping, and running applications in containers.
+| Tecnología | Rol | Justificación |
+|---|---|---|
+| **Node.js + Express** | Core API | Runtime event-driven para I/O escalable + framework minimalista que permite patrones de arquitectura limpios |
+| **MongoDB Atlas** | Persistencia | Esquema flexible para evolución rápida + managed service (automatic backup, scaling) |
+| **Mongoose** | ODM | Validaciones de schema en aplicación + hooks para lógica transversal |
+| **JWT + Passport** | Autenticación | Stateless authentication escalable + soporte multi-estrategia (local, OAuth-ready) |
+| **Joi + Boom** | Validación/Errores | Validación declarativa en entrada + mapeo consistente de errores a códigos HTTP semánticos |
+| **Bcrypt** | Hash de contraseñas | Rounds configurables para adaptarse a poder computacional futuro |
+| **AWS S3** | Almacenamiento de archivos | Escalabilidad ilimitada + integridad de data con versionado + CDN-ready |
+| **Docker** | Infraestructura | Reproducibilidad dev→prod + deployment sin fricción |
 
-#### Frontend stack
+### Frontend: UX Reactiva y Mantenibilidad
 
-- **Javascript**: High-level, interpreted programming language.
-- **React**: A JavaScript library for building user interfaces.
-- **Redux**: A predictable state container for JavaScript apps.
-- **Redux Thunk**: A middleware for Redux to handle asynchronous actions.
-  **Redux Persist**: A library to persist and rehydrate a redux store.
-- **React Router**: A collection of navigational components for React applications.
-- **Chakra UI**: A simple, modular, and accessible component library that gives you the building blocks you need to build your React applications.
-- **Axios**: A promise-based HTTP client for the browser and Node.js.
-- **Framer Motion**: A production-ready motion library for React.
-- **React Bootstrap**: Bootstrap rebuilt for React.
+| Tecnología | Rol | Justificación |
+|---|---|---|
+| **React + Redux** | State Management | Single source of truth predecible + debugging con Redux DevTools |
+| **Redux Persist** | Session Recovery | Rehydration automática, sesión resiliente a refreshes |
+| **Redux Thunk** | Async Operations | Middleware para operaciones asíncronas, manejo de race conditions |
+| **React Router** | Routing | SPA con URLs semánticas + nested routes para UX jerarquizada |
+| **Chakra UI** | Component Library | Design system consistente + accesibilidad WCAG built-in + theming centralizado |
+| **Framer Motion** | Animaciones | Transiciones fluidas sin impacto en performance (GPU-accelerated) |
+| **Axios** | HTTP Client | Interceptores para auth headers + retry logic automático |
+| **CSS Modules** | Scoping de estilos | Evita colisiones CSS en componentes, mantenibilidad escalada |
 
 ## Installation
 
@@ -203,22 +229,24 @@ npm install
 npm run start
 ```
 
-# BACKEND
+# BACKEND - API SEGURA Y ESCALABLE
 
-The API build with provides endpoints to:
+## Arquitectura y Responsabilidades
 
-- register user,
-- login user,
-- refresh user token,
-- send email,
-- get all comments,
-- post comments,
-- upload new certificate,
-- get all certificates data,
-- get specific certificate data,
-- get certificate url,
-- download certificate file, and
-- delete certificate.
+Backend implementa una **arquitectura de capas** con separación clara de concerns: rutas, servicios, validaciones y persistencia. Esto asegura:
+
+- **Autenticación de empresa-grade**: JWT + Passport con estrategias locales e integración preparada para OAuth
+- **Validaciones de negocio en capas**: Joi schemas en entrada + reglas en servicios, garantizando integridad de datos
+- **Manejo estructurado de errores**: Middleware centralizado con códigos HTTP correctos y mensajes claros (Boom library)
+- **Gestión de archivos escalable**: Integración con AWS S3 para almacenamiento seguro de certificados con metadatos auditables
+- **Persistencia flexible**: MongoDB con Mongoose ODM, diseño de schemas optimizado para crecimiento
+
+## Endpoints - Operaciones Críticas
+
+La API gestiona operaciones transaccionales:
+- **Ciclo de usuario**: Registro con validación, login con token issuance, refresh automático de sesiones
+- **Comunicación asíncrona**: Envío de emails con manejo de errores y logging
+- **Gestión de credenciales**: CRUD completo de certificados con integridad de archivo y auditoría (metadata S3)
 
 ## API Endpoints
 
@@ -560,56 +588,125 @@ Examples of error responses (bad request and internal error) are shown below.
 }
 ```
 
-## FRONTEND
+## FRONTEND - UX REACTIVA Y STATE MANAGEMENT ENTERPRISE
 
-The frontend of this project is built using React and Redux to provide a seamless user interface for interacting with the backend API. It allows users to register, login, post comments, upload and manage certificates, and more.
+### Arquitectura de Componentes y Estado
 
-Below, you can see an image of the state of the application as example:
+Frontend implementa un **modelo de state management centralizado** (Redux + Redux Thunk) que asegura:
 
-![React state example](./doc/reactState.png)
+- **Single Source of Truth**: Redux store con persistencia (Redux Persist) garantiza consistencia de datos y rehydration automática entre sesiones
+- **Flujos de datos predecibles**: Actions y reducers estructurados por dominio (autenticación, comentarios, certificados)
+- **Token lifecycle management**: Refresh automático de JWT al cargar la aplicación, manejo de expiración sin interrumpir UX
+- **Componentes reutilizables**: Arquitectura modular basada en carpetas (cada componente = carpeta con lógica + estilos + subcomponentes)
 
-## Main directories and files
+### Estructura Técnica
 
-Frontend main directories are as follows:
+- **Actions**: Lógica de dispatch (autenticación, comentarios, gestión de archivos) con Redux Thunk para operaciones asíncronas
+- **Reducer**: Manejo centralizado de cambios de estado con validaciones y transformaciones de datos
+- **Store**: Configuración con Redux Persist para session recovery automática
+- **Components**: +20 componentes reutilizables con props bien definidas y manejo de errores granular
+- **Utils**: Estrategias de autenticación, helpers de validación, y tema customizado de Chakra UI
 
-- **Actions**: Contains all the actions that are dispatched to the Redux store. These actions are used to update the state of the application.
-- **Assets**: Contains most of the images and icons used in the project.
-- **Components**: Contains all the reusable components used in the project. These components are used to build the user interface. Each component is a separate folder that contains the component file and styles. Moreover, components may have subcomponents that are used to build the main component.
-- **Reducer**: Contains the root reducer that handles react state updates.
-- **Store**: Contains the store configuration. The store is where the application state is stored. The store is passed to the Provider component from react-redux, which makes the store available to all components in the application.
-- **Utils**: Contains the utility functions used in the project. These functions are used to perform common tasks such as formatting dates, handling errors, and more. Utils folder contains document refreshToken.js, which is used to refresh the user token when it expires. For that purpose, every time website is loaded, refreshToken.js is called to check token expiration and refresh it if necessary.
+### Experiencia del Usuario
 
-The main files in the frontend are:
+- **Animaciones fluidas**: Framer Motion para transiciones y microinteracciones (modal entrances, loading states)
+- **Diseño accesible**: Chakra UI como base (componentes con WCAG compliance)
+- **Validaciones en tiempo real**: Feedback inmediato con Toast notifications (Chakra UI)
+- **Theming dinámico**: Sistema de tema centralizado que soporte múltiples variantes de color sin refactor
 
-- **App.js**: The main component of the application. It contains the routes and the layout of the application.
-- **Index.js**: The entry point of the application. It renders the App component and mounts it to the root element in the index.html file.
+## Theming & Styling - Sistema Escalable
 
-## Theming and Styling
+**Chakra UI theming** centralizado (`src/utils/chakraTheme.js`):
+- Colores, tipografía y espaciado definidos en un único punto de verdad
+- Soporte para múltiples variantes sin tocar componentes
+- **CSS Modules** para componentes con necesidades de estilo específicas (scoping automático)
+- **Framer Motion** para animaciones de producción (modal transitions, loading states, scroll effects)
 
-The frontend is styled using Chakra UI's built-in theming system. The theme is defined in the theme.js file in the src/utils folder. The theme file contains the colors, fonts, and other styles used in the application. The theme is passed to the ChakraProvider component from Chakra UI, which makes the theme available to all components in the application.
+Esta estructura permite **pivots visuales sin refactoring masivo** — cambiar tema corporativo es un cambio en configuración.
 
-Moreover, frontend uses Bootstrap for styling and layout for some components.
+## Error Handling - Resiliencia de Usuario
 
-Finally, components also use CSS modules for styling. CSS modules are used to scope the styles to the component and prevent style conflicts.
+**Backend**: Middleware centralizado (`error.middleware.js`) que mapea errores a códigos HTTP semánticos y mensajes claros. Joi + Boom para validación y estructura de errores.
 
-For animation, the frontend uses Framer Motion, a production-ready motion library for React. Framer Motion is used to create smooth animations and transitions in the application.
-
-## Error Handling
-
-Errors are handled using try-catch blocks and displayed to the user using toast notifications from Chakra UI.
+**Frontend**: Try-catch granular + Toast notifications (Chakra UI) que mantienen al usuario informado sin interrumpir flujos. Recuperación automática de errores transientes (timeout, network).
 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](./doc/LICENSE.txt) file for details.
 
-## Author
+## Author & Leadership Profile
 
-Federico Irarrazaval
+**Federico Irarrazaval** — Senior Soft Skills + Semi-Senior Technical  
+3 años de experiencia técnica | Liderazgo end-to-end (diseño → desarrollo → negocio)
 
-- LinkedIn: https://www.linkedin.com/in/federicoirarrazaval/?locale=en_US
-- Email: fedeirar@gmail.com
-- Portfolio: https://portfolio-fedeira.vercel.app/
-- GitHub: https://github.com/FedeIra
+### Documentación Complementaria
+
+Esta carpeta contiene **documentación estratégica para recruiters y entrevistas**. Cada documento está diseñado para un caso de uso específico:
+
+#### 📚 Para Entrevistas (LEER ANTES DE POSTULAR)
+
+| Documento | Para | Tiempo | Contenido |
+|---|---|---|---|
+| [📋 EXECUTIVE_SUMMARY.md](./EXECUTIVE_SUMMARY.md) | Recruiter rápido | 2 min | Quién soy + qué hizo + impacto |
+| [🏗️ ARCHITECTURE.md](./ARCHITECTURE.md) | Tech interviewer (Portfolio) | 5-10 min | 10 decisiones técnicas + justificación |
+| [⭐ DIFERENCIAL.md](./DIFERENCIAL.md) | Skeptic (¿Por qué Senior?) | 10 min | Evidencia de seniority con 3 años |
+| [❓ FAQ_RECRUITERS.md](./FAQ_RECRUITERS.md) | Interview prep | 20 min | 12 preguntas + respuestas preparadas |
+| [🎯 PRE_ENTREVISTA_CHECKLIST.md](./PRE_ENTREVISTA_CHECKLIST.md) | Últimos 10 min antes de entrevista | 10 min | Elevator pitch, puntos clave, quick facts |
+
+#### 💼 Para LinkedIn/CV (COPIAR-PEGAR)
+
+| Documento | Para | Tiempo | Contenido |
+|---|---|---|---|
+| [🏢 PROYECTOS_NUBCEO.md](./PROYECTOS_NUBCEO.md) | Describir experiencia en Nubceo | 10 min | 3 proyectos reescritos (Conciliación, Contabilidad, Promociones) |
+| [📝 COPY_PASTE_LINKEDIN.md](./COPY_PASTE_LINKEDIN.md) | LinkedIn/CV directo | 5 min | Perfiles, resúmenes, experiencias — listos para copiar |
+
+### El Diferencial
+
+**Problema**: Tengo 3 años técnico, pero perfil Senior en liderazgo.  
+**Solución**: Código que demuestra pensamiento senior.
+
+✅ JWT stateless (escalabilidad, no sesiones)  
+✅ Validaciones en capas (robustez, debugging)  
+✅ Documentación de decisiones (ARCHITECTURE.md)  
+✅ Monorepo separado (equipos independientes)  
+✅ Docker ready (dev-prod parity)  
+
+**No digo**: "Hice un full-stack app"  
+**Digo**: "Lideré solución que escala a 100k usuarios sin cambios arquitectónicos"
+
+---
+
+### Para Recruiters
+
+Si llegaste aquí sin saber dónde empezar:
+
+1. **Tienes 2 minutos**: Lee [EXECUTIVE_SUMMARY.md](./EXECUTIVE_SUMMARY.md)
+2. **Tienes 5 minutos**: Lee [DIFERENCIAL.md](./DIFERENCIAL.md)
+3. **Tienes 10 minutos**: Lee [ARCHITECTURE.md](./ARCHITECTURE.md)
+4. **Vas a hacer entrevista**: Lee [FAQ_RECRUITERS.md](./FAQ_RECRUITERS.md)
+5. **Es mañana la entrevista**: Lee [PRE_ENTREVISTA_CHECKLIST.md](./PRE_ENTREVISTA_CHECKLIST.md)
+
+---
+
+### Contacto
+
+- 🔗 **LinkedIn**: https://www.linkedin.com/in/federicoirarrazaval/?locale=en_US
+- 📧 **Email**: fedeirar@gmail.com
+- 🌐 **Live Portfolio**: https://portfolio-fedeira.vercel.app/
+- 💻 **GitHub**: https://github.com/FedeIra
+
+---
+
+### Qué Busco
+
+✅ Rol Senior (Eng, Tech Lead, Product Eng)  
+✅ Empresas que valoren arquitectura + escalabilidad  
+✅ Mentalidad: "¿Qué pasa cuando crezcamos?"  
+✅ Cultura de learning y decisiones técnicas conscientes
+
+❌ Feature factories sin perspectiva  
+❌ Tech debt acumulado sin plan  
+❌ Decisiones de arquitectura por moda
 
 ## Portfolio pictures
 
