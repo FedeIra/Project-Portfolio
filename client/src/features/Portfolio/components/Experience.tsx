@@ -28,8 +28,8 @@ const timelineData: TimelineEntry[] = [
       "Senior Backend Engineer leading fintech systems architecture. Own product lifecycle end-to-end: payment reconciliation (automating cash flow integrity), accounting automation (real-time GL entries), promotion analytics (ROI dashboards). Tech: Node.js, TypeScript, PostgreSQL, AWS. Leadership: Team coordination, task organization, architectural decisions with business alignment.",
     bullets: [
       "Designed payment reconciliation engine processing hundreds of thousands of daily sales with 97% automatic reconciliation rate, eliminating manual cash flow discrepancies (95% time reduction).",
-      "Built event-driven accounting automation: real-time GL entry generation.",
-      "Architected promotion intelligence platform: auto-tagging + ROI dashboards enabling data-driven pricing decisions.",
+      "Built event-driven accounting automation: developed general ledger entry system generating real-time GL records with automated journal entry posting and multi-currency support.",
+      "Architected promotion intelligence platform: designed promotion tagging system automatically categorizing sales transactions with promotion metadata, enabling data-driven ROI analysis and pricing optimization dashboards.",
       "Led team coordination on complex financial systems: gathering requirements from CFO, defining architecture, development  and presenting solutions to stakeholders.",
       "Multi-tenant architecture supporting N customers with independent rules (chart of accounts, tax treatments, payment providers).",
       "Queue-based async processing: SQS for scalability,  audit trails for compliance.",
@@ -43,12 +43,13 @@ const timelineData: TimelineEntry[] = [
     logo: itglobersImg,
     role: "Backend Developer",
     description:
-      "Backend Engineer leading marketplace/e-commerce initiatives. Built scalable APIs (Express.js, Koa.js) for complex integrations (VTEX IO). Took ownership of task assignment, workflow organization, requirement gathering with clients. Tech: Node.js, TypeScript, AWS. Focus: clean architecture, API design, system scalability.",
+      "Backend Engineer developing new e-commerce and marketplace features. Led backend initiatives building scalable APIs (Express.js, Koa.js) for complex marketplace integrations (VTEX IO). Took ownership of task assignment, workflow organization, requirement gathering with clients. Tech: Node.js, TypeScript, AWS. Focus: clean architecture, API design, system scalability.",
     bullets: [
-      "Led backend initiatives: task assignment, workflow organization, client requirement gathering.",
-      "Designed solution architectures presented to business stakeholders (VTEX IO integrations, marketplace platforms).",
-      "Built RESTful APIs (Koa.js, Express.js) with JWT/OAuth2 authentication.",
-      "Scalable architecture: clean code patterns, system design for growth.",
+      "Developed new e-commerce and marketplace features: designed and implemented backend functionality for product catalogs, order management, marketplace integrations, intelligent product recommendations based on customer search metrics, advanced search capabilities, web scraping systems, Google Analytics integrations, and ERP system integrations.",
+      "Led backend initiatives: task assignment, workflow organization, client requirement gathering for feature development.",
+      "Designed solution architectures for new features presented to business stakeholders (VTEX IO integrations, marketplace platforms, e-commerce modules).",
+      "Built RESTful APIs (Koa.js, Express.js) with JWT/OAuth2 authentication for new marketplace capabilities.",
+      "Scalable architecture: clean code patterns, system design enabling feature growth and marketplace expansion.",
     ],
   },
   {
