@@ -4,7 +4,7 @@ import type { MinorProject } from '../../../utils/types';
 
 const projects = Array.isArray(minorProjects) ? minorProjects : [];
 
-const projectImages = import.meta.glob('../../../assets/images/other-projects/*.png', { eager: true }) as Record<string, { default: string }>;
+const projectImages = import.meta.glob('../../../Assets/images/other-projects/*.png', { eager: true }) as Record<string, { default: string }>;
 
 const MinorProjectCard: FC<MinorProject> = ({ name, technologies, avatar, link }) => {
   const key = Object.keys(projectImages).find((k) => k.endsWith(`/${avatar}`));

@@ -5,7 +5,7 @@ import technologies from "../config/technologies.json";
 import TechCard from "./TechCard";
 
 const iconModules = import.meta.glob(
-  "../../../assets/images/tech-icons/*.png",
+  "../../../Assets/images/tech-icons/*.png",
   { eager: true },
 ) as Record<string, { default: string }>;
 const technologiesArray = Array.isArray(technologies) ? technologies : [];

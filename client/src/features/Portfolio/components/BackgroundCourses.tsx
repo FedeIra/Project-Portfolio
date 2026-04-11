@@ -7,7 +7,7 @@ import coursesData from '../config/backgroundCourses.json';
 import type { Course } from '../../../utils/types';
 import platziImg from '../../../Assets/courses/platzi.png';
 
-const courseIcons = import.meta.glob('../../../assets/images/course-icons/*.png', { eager: true }) as Record<string, { default: string }>;
+const courseIcons = import.meta.glob('../../../Assets/images/course-icons/*.png', { eager: true }) as Record<string, { default: string }>;
 
 const courses = Array.isArray(coursesData) ? coursesData : [];
 

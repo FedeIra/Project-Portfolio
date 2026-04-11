@@ -5,7 +5,7 @@ interface TechCardProps {
   avatar: string;
 }
 
-const iconModules = import.meta.glob('../../../assets/images/tech-icons/*.png', { eager: true }) as Record<string, { default: string }>;
+const iconModules = import.meta.glob('../../../Assets/images/tech-icons/*.png', { eager: true }) as Record<string, { default: string }>;
 
 const TechCard: FC<TechCardProps> = ({ name, avatar }) => {
   const key = Object.keys(iconModules).find((k) => k.endsWith(`/${avatar}`));
