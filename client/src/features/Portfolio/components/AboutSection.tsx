@@ -8,7 +8,8 @@ const iconModules = import.meta.glob(
   "../../../assets/images/tech-icons/*.png",
   { eager: true },
 ) as Record<string, { default: string }>;
-const visibleTechnologies = technologies.filter((tech) =>
+const technologiesArray = Array.isArray(technologies) ? technologies : [];
+const visibleTechnologies = technologiesArray.filter((tech) =>
   Object.keys(iconModules).some((k) => k.endsWith(`/${tech.avatar}`)),
 );
 

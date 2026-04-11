@@ -9,6 +9,8 @@ import platziImg from '../../../Assets/courses/platzi.png';
 
 const courseIcons = import.meta.glob('../../../assets/images/course-icons/*.png', { eager: true }) as Record<string, { default: string }>;
 
+const courses = Array.isArray(coursesData) ? coursesData : [];
+
 const getIcon = (picture: string): string => {
   const match = Object.keys(courseIcons).find((k) => k.endsWith(`/${picture}`));
   return match ? courseIcons[match].default : platziImg;
@@ -62,7 +64,7 @@ const BackgroundCourses: FC = () => {
 
   return (
     <div className="max-w-4xl mx-auto">
-      {(coursesData as Course[]).map((course, index) => (
+      {courses.map((course, index) => (
         <CourseRow
           key={`${course.title}-${course.date}-${index}`}
           date={course.date}

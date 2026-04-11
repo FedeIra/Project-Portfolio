@@ -54,7 +54,7 @@ const commentsSlice = createSlice({
       })
       .addCase(getCommentsAsync.fulfilled, (state, action) => {
         state.loading = false;
-        state.comments = action.payload;
+        state.comments = Array.isArray(action.payload) ? action.payload : [];
       })
       .addCase(getCommentsAsync.rejected, (state, action) => {
         state.loading = false;

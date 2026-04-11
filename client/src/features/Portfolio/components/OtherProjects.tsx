@@ -2,6 +2,8 @@ import type { FC } from 'react';
 import minorProjects from '../config/minorProjects.json';
 import type { MinorProject } from '../../../utils/types';
 
+const projects = Array.isArray(minorProjects) ? minorProjects : [];
+
 const projectImages = import.meta.glob('../../../assets/images/other-projects/*.png', { eager: true }) as Record<string, { default: string }>;
 
 const MinorProjectCard: FC<MinorProject> = ({ name, technologies, avatar, link }) => {
@@ -48,7 +50,7 @@ const OtherProjects: FC = () => {
         .
       </p>
       <div className="flex flex-wrap justify-center gap-[30px]">
-        {(minorProjects as MinorProject[]).map((project) => (
+        {projects.map((project) => (
           <MinorProjectCard key={project.name} {...project} />
         ))}
       </div>
