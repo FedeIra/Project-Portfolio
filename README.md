@@ -1,35 +1,7 @@
 # PORTFOLIO - FULL-STACK DIGITAL PRESENCE PLATFORM
 
-## El Problema
-Necesidad de una solución integral de presencia digital que consolidara: autenticación segura, gestión de credenciales profesionales, comunicación directa con visitantes y análisis de interacciones. Una plataforma que demostrara no solo habilidades técnicas, sino también **capacidad de liderazgo end-to-end** en la arquitectura, diseño y operación de sistemas.
+### 📚 Technical Documentation
 
-## Mi Intervención (Leadership + Engineering)
-Diseñé, desarrollé y orquesté un **ecosistema full-stack escalable** que integra:
-- **Backend robusto** (Node.js/Express) con flujos de autenticación JWT + Passport, validaciones de negocio con Joi, y manejo estructurado de errores
-- **Base de datos flexible** (MongoDB Atlas) con esquemas de usuario y comentarios optimizados para concurrencia y escalabilidad
-- **Integración de servicios** (AWS S3, Email.js) para gestión de certificados y comunicación directa
-- **Frontend reactivo** (React/Redux) con state management persistente y UX fluida
-- **Infraestructura containerizada** (Docker) lista para producción
-
-El proyecto demuestra **liderazgo en decisiones arquitectónicas** desde el diseño de la base de datos hasta la experiencia del usuario final, incluyendo seguridad (JWT, bcrypt), validación en capas y patrones de escalabilidad.
-
-## Impacto
-Una plataforma que trasciende portfolio tradicional: es un **case study funcional** de cómo sistemas enterprise manejan autenticación, integridad de datos, seguridad y UX. Disponible en producción, totalmente versionada, documentada y lista para inspección de arquitectura.
-
-## Table of Contents
-
-### 📖 Documentación para Recruiters (LEER PRIMERO)
-
-**Tu entrada es aquí ↓** Elegí el documento según tu tiempo disponible:
-
-| Tiempo | Documento | Contenido |
-|---|---|---|
-| ⏱️ 2 min | [📋 EXECUTIVE_SUMMARY.md](./EXECUTIVE_SUMMARY.md) | Quién soy + qué hice + impacto |
-| ⏱️ 5 min | [🏗️ ARCHITECTURE.md](./ARCHITECTURE.md) | 10 decisiones técnicas + patrones |
-| ⏱️ 10 min | [⭐ DIFERENCIAL.md](./DIFERENCIAL.md) | Por qué soy Senior (evidencia) |
-| ⏱️ 15 min | [❓ FAQ_RECRUITERS.md](./FAQ_RECRUITERS.md) | Preguntas + respuestas preparadas |
-
-### 📚 Documentación Técnica
 - [Project Structure](#project-structure)
 - [Architecture](#architecture)
 - [Tech Stack](#tech-stack)
@@ -38,13 +10,14 @@ Una plataforma que trasciende portfolio tradicional: es un **case study funciona
 - [Running the Project](#running-the-project)
 
 ### 🔧 Backend & Frontend
-- [BACKEND - API Segura y Escalable](#backend---api-segura-y-escalable)
+
 - [API Endpoints](#api-endpoints)
 - [Error Handling](#error-handling)
 - [FRONTEND - UX Reactiva y State Management Enterprise](#frontend---ux-reactiva-y-state-management-enterprise)
 - [Theming & Styling - Sistema Escalable](#theming--styling---sistema-escalable)
 
 ### 📝 Legales y Autor
+
 - [License](#license)
 - [Author & Leadership Profile](#author--leadership-profile)
 - [Portfolio pictures](#portfolio-pictures)
@@ -140,29 +113,29 @@ Below, an image the architecture of the project is shown:
 
 ### Backend: Escalabilidad y Seguridad
 
-| Tecnología | Rol | Justificación |
-|---|---|---|
-| **Node.js + Express** | Core API | Runtime event-driven para I/O escalable + framework minimalista que permite patrones de arquitectura limpios |
-| **MongoDB Atlas** | Persistencia | Esquema flexible para evolución rápida + managed service (automatic backup, scaling) |
-| **Mongoose** | ODM | Validaciones de schema en aplicación + hooks para lógica transversal |
-| **JWT + Passport** | Autenticación | Stateless authentication escalable + soporte multi-estrategia (local, OAuth-ready) |
-| **Joi + Boom** | Validación/Errores | Validación declarativa en entrada + mapeo consistente de errores a códigos HTTP semánticos |
-| **Bcrypt** | Hash de contraseñas | Rounds configurables para adaptarse a poder computacional futuro |
-| **AWS S3** | Almacenamiento de archivos | Escalabilidad ilimitada + integridad de data con versionado + CDN-ready |
-| **Docker** | Infraestructura | Reproducibilidad dev→prod + deployment sin fricción |
+| Tecnología            | Rol                        | Justificación                                                                                                |
+| --------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| **Node.js + Express** | Core API                   | Runtime event-driven para I/O escalable + framework minimalista que permite patrones de arquitectura limpios |
+| **MongoDB Atlas**     | Persistencia               | Esquema flexible para evolución rápida + managed service (automatic backup, scaling)                         |
+| **Mongoose**          | ODM                        | Validaciones de schema en aplicación + hooks para lógica transversal                                         |
+| **JWT + Passport**    | Autenticación              | Stateless authentication escalable + soporte multi-estrategia (local, OAuth-ready)                           |
+| **Joi + Boom**        | Validación/Errores         | Validación declarativa en entrada + mapeo consistente de errores a códigos HTTP semánticos                   |
+| **Bcrypt**            | Hash de contraseñas        | Rounds configurables para adaptarse a poder computacional futuro                                             |
+| **AWS S3**            | Almacenamiento de archivos | Escalabilidad ilimitada + integridad de data con versionado + CDN-ready                                      |
+| **Docker**            | Infraestructura            | Reproducibilidad dev→prod + deployment sin fricción                                                          |
 
 ### Frontend: UX Reactiva y Mantenibilidad
 
-| Tecnología | Rol | Justificación |
-|---|---|---|
-| **React + Redux** | State Management | Single source of truth predecible + debugging con Redux DevTools |
-| **Redux Persist** | Session Recovery | Rehydration automática, sesión resiliente a refreshes |
-| **Redux Thunk** | Async Operations | Middleware para operaciones asíncronas, manejo de race conditions |
-| **React Router** | Routing | SPA con URLs semánticas + nested routes para UX jerarquizada |
-| **Chakra UI** | Component Library | Design system consistente + accesibilidad WCAG built-in + theming centralizado |
-| **Framer Motion** | Animaciones | Transiciones fluidas sin impacto en performance (GPU-accelerated) |
-| **Axios** | HTTP Client | Interceptores para auth headers + retry logic automático |
-| **CSS Modules** | Scoping de estilos | Evita colisiones CSS en componentes, mantenibilidad escalada |
+| Tecnología        | Rol                | Justificación                                                                  |
+| ----------------- | ------------------ | ------------------------------------------------------------------------------ |
+| **React + Redux** | State Management   | Single source of truth predecible + debugging con Redux DevTools               |
+| **Redux Persist** | Session Recovery   | Rehydration automática, sesión resiliente a refreshes                          |
+| **Redux Thunk**   | Async Operations   | Middleware para operaciones asíncronas, manejo de race conditions              |
+| **React Router**  | Routing            | SPA con URLs semánticas + nested routes para UX jerarquizada                   |
+| **Chakra UI**     | Component Library  | Design system consistente + accesibilidad WCAG built-in + theming centralizado |
+| **Framer Motion** | Animaciones        | Transiciones fluidas sin impacto en performance (GPU-accelerated)              |
+| **Axios**         | HTTP Client        | Interceptores para auth headers + retry logic automático                       |
+| **CSS Modules**   | Scoping de estilos | Evita colisiones CSS en componentes, mantenibilidad escalada                   |
 
 ## Installation
 
@@ -244,6 +217,7 @@ Backend implementa una **arquitectura de capas** con separación clara de concer
 ## Endpoints - Operaciones Críticas
 
 La API gestiona operaciones transaccionales:
+
 - **Ciclo de usuario**: Registro con validación, login con token issuance, refresh automático de sesiones
 - **Comunicación asíncrona**: Envío de emails con manejo de errores y logging
 - **Gestión de credenciales**: CRUD completo de certificados con integridad de archivo y auditoría (metadata S3)
@@ -251,7 +225,6 @@ La API gestiona operaciones transaccionales:
 ## API Endpoints
 
 - Register user
-
   - URL: /sign-up
   - Method: POST
   - Body:
@@ -273,7 +246,6 @@ Example of response:
 ```
 
 - Login user
-
   - URL: /login
   - Method: POST
 
@@ -296,7 +268,6 @@ Example of response:
 ```
 
 - Refresh user token
-
   - URL: /refresh-token
   - Method: POST
 
@@ -317,7 +288,6 @@ Example of response:
 ```
 
 - Send email
-
   - URL: /sendEmail
   - Method: POST
   - Body:
@@ -341,7 +311,6 @@ Example of response:
   ```
 
 - Get all comments
-
   - URL: /comments
   - Method: GET
   - Body:
@@ -366,7 +335,6 @@ Example of response:
   ```
 
 - Post comment
-
   - URL: /comments
   - Method: POST
   - Authorization Header:
@@ -398,7 +366,6 @@ Example of response:
   ```
 
 - Upload new certificate
-
   - URL: /upload
   - Method: POST
 
@@ -422,7 +389,6 @@ Example of response:
   ```
 
 - Get all certificates data
-
   - URL: /getListFiles
   - Method: GET
   - Authorization Header:
@@ -451,7 +417,6 @@ Example of response:
   ```
 
 - Get specific certificate data
-
   - URL: /getFileData/:fileName
   - Method: GET
   - Authorization Header:
@@ -481,7 +446,6 @@ Example of response:
   ```
 
 - Get certificate url
-
   - URL: /getFileUrl/:fileName
   - Method: GET
   - Authorization Header:
@@ -507,7 +471,6 @@ Example of response:
   ```
 
 - Download certificate file
-
   - URL: /downloadFile/:fileName
   - Method: GET
   - Authorization Header:
@@ -529,7 +492,6 @@ Example of response:
 ![Example response](./doc/exampleDownloadCertificate.png)
 
 - Delete certificate
-
   - URL: /deleteFile/:fileName
   - Method: DELETE
   - Authorization Header:
@@ -617,6 +579,7 @@ Frontend implementa un **modelo de state management centralizado** (Redux + Redu
 ## Theming & Styling - Sistema Escalable
 
 **Chakra UI theming** centralizado (`src/utils/chakraTheme.js`):
+
 - Colores, tipografía y espaciado definidos en un único punto de verdad
 - Soporte para múltiples variantes sin tocar componentes
 - **CSS Modules** para componentes con necesidades de estilo específicas (scoping automático)
@@ -633,80 +596,6 @@ Esta estructura permite **pivots visuales sin refactoring masivo** — cambiar t
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](./doc/LICENSE.txt) file for details.
-
-## Author & Leadership Profile
-
-**Federico Irarrazaval** — Senior Soft Skills + Semi-Senior Technical  
-3 años de experiencia técnica | Liderazgo end-to-end (diseño → desarrollo → negocio)
-
-### Documentación Complementaria
-
-Esta carpeta contiene **documentación estratégica para recruiters y entrevistas**. Cada documento está diseñado para un caso de uso específico:
-
-#### 📚 Para Entrevistas (LEER ANTES DE POSTULAR)
-
-| Documento | Para | Tiempo | Contenido |
-|---|---|---|---|
-| [📋 EXECUTIVE_SUMMARY.md](./EXECUTIVE_SUMMARY.md) | Recruiter rápido | 2 min | Quién soy + qué hizo + impacto |
-| [🏗️ ARCHITECTURE.md](./ARCHITECTURE.md) | Tech interviewer (Portfolio) | 5-10 min | 10 decisiones técnicas + justificación |
-| [⭐ DIFERENCIAL.md](./DIFERENCIAL.md) | Skeptic (¿Por qué Senior?) | 10 min | Evidencia de seniority con 3 años |
-| [❓ FAQ_RECRUITERS.md](./FAQ_RECRUITERS.md) | Interview prep | 20 min | 12 preguntas + respuestas preparadas |
-| [🎯 PRE_ENTREVISTA_CHECKLIST.md](./PRE_ENTREVISTA_CHECKLIST.md) | Últimos 10 min antes de entrevista | 10 min | Elevator pitch, puntos clave, quick facts |
-
-#### 💼 Para LinkedIn/CV (COPIAR-PEGAR)
-
-| Documento | Para | Tiempo | Contenido |
-|---|---|---|---|
-| [🏢 PROYECTOS_NUBCEO.md](./PROYECTOS_NUBCEO.md) | Describir experiencia en Nubceo | 10 min | 3 proyectos reescritos (Conciliación, Contabilidad, Promociones) |
-| [📝 COPY_PASTE_LINKEDIN.md](./COPY_PASTE_LINKEDIN.md) | LinkedIn/CV directo | 5 min | Perfiles, resúmenes, experiencias — listos para copiar |
-
-### El Diferencial
-
-**Problema**: Tengo 3 años técnico, pero perfil Senior en liderazgo.  
-**Solución**: Código que demuestra pensamiento senior.
-
-✅ JWT stateless (escalabilidad, no sesiones)  
-✅ Validaciones en capas (robustez, debugging)  
-✅ Documentación de decisiones (ARCHITECTURE.md)  
-✅ Monorepo separado (equipos independientes)  
-✅ Docker ready (dev-prod parity)  
-
-**No digo**: "Hice un full-stack app"  
-**Digo**: "Lideré solución que escala a 100k usuarios sin cambios arquitectónicos"
-
----
-
-### Para Recruiters
-
-Si llegaste aquí sin saber dónde empezar:
-
-1. **Tienes 2 minutos**: Lee [EXECUTIVE_SUMMARY.md](./EXECUTIVE_SUMMARY.md)
-2. **Tienes 5 minutos**: Lee [DIFERENCIAL.md](./DIFERENCIAL.md)
-3. **Tienes 10 minutos**: Lee [ARCHITECTURE.md](./ARCHITECTURE.md)
-4. **Vas a hacer entrevista**: Lee [FAQ_RECRUITERS.md](./FAQ_RECRUITERS.md)
-5. **Es mañana la entrevista**: Lee [PRE_ENTREVISTA_CHECKLIST.md](./PRE_ENTREVISTA_CHECKLIST.md)
-
----
-
-### Contacto
-
-- 🔗 **LinkedIn**: https://www.linkedin.com/in/federicoirarrazaval/?locale=en_US
-- 📧 **Email**: fedeirar@gmail.com
-- 🌐 **Live Portfolio**: https://portfolio-fedeira.vercel.app/
-- 💻 **GitHub**: https://github.com/FedeIra
-
----
-
-### Qué Busco
-
-✅ Rol Senior (Eng, Tech Lead, Product Eng)  
-✅ Empresas que valoren arquitectura + escalabilidad  
-✅ Mentalidad: "¿Qué pasa cuando crezcamos?"  
-✅ Cultura de learning y decisiones técnicas conscientes
-
-❌ Feature factories sin perspectiva  
-❌ Tech debt acumulado sin plan  
-❌ Decisiones de arquitectura por moda
 
 ## Portfolio pictures
 
@@ -731,8 +620,3 @@ Si llegaste aquí sin saber dónde empezar:
 ![image](https://github.com/FedeIra/Project-Portfolio/assets/93743323/565bd176-b77b-43e7-b07f-b251807b4736)
 
 ![image](https://github.com/FedeIra/Project-Portfolio/assets/93743323/a6436093-5948-4e3f-8d9d-c64e05a23a59)
-
-
-
-
-
