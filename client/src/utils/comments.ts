@@ -9,13 +9,11 @@ const createDate = (): string => {
 };
 
 export const createComment = (
-  token: string | null,
   username: string,
   content: string,
 ): Omit<Comment, '_id'> => ({
   date: createDate(),
   commentId: Math.random(),
-  token: token ?? undefined,
   username,
   content,
 });

@@ -56,7 +56,7 @@ const Comments: FC = () => {
     }
     showToast({ title: 'Loading.', description: 'Posting comment...', status: 'loading', duration: 2000 });
     setPostAttempt(true);
-    const newComment = createComment(user.token, username, commentArea);
+    const newComment = createComment(username, commentArea);
     void dispatch(postCommentAsync({ commentData: newComment, token: user.token! }));
     setCommentArea('');
     setUsername('');

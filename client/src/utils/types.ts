@@ -10,7 +10,6 @@ export interface Comment {
   content: string;
   date: string;
   commentId?: number;
-  token?: string;
 }
 
 export interface EmailForm {
