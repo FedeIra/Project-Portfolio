@@ -16,7 +16,11 @@ const boomErrorHandler = (err, req, res, next) => {
 // Handler for generic errors:
 const genericErrorHandler = (err, req, res, next) => {
   const status = err.status || 500;
-  const message = err.message || 'Internal Server Error';
+  console.error(err);
+  const message =
+    process.env.NODE_ENV === 'production'
+      ? 'Internal Server Error'
+      : err.message || 'Internal Server Error';
   res.status(status).json({ statusCode: status, error: 'Error', message });
 };
 

@@ -4,7 +4,10 @@ import { Router } from 'express';
 
 // Internal packages:
 import { AwsS3Service } from '../services/files/awsS3Services.js';
-import { authenticateJwt } from '../middlewares/authentication.middleware.js';
+import {
+  authenticateJwt,
+  authenticateAdminKey,
+} from '../middlewares/authentication.middleware.js';
 
 const router = Router();
 
@@ -12,7 +15,7 @@ const router = Router();
 const filesService = new AwsS3Service();
 
 // Endpoint to upload pdf documents:
-router.post('/upload', async (req, res, next) => {
+router.post('/upload', authenticateAdminKey, async (req, res, next) => {
   try {
     const response = await filesService.uploadFile(req.files.file);
     res.status(200).json(response);
@@ -22,7 +25,7 @@ router.post('/upload', async (req, res, next) => {
 });
 
 // Endpoint to get all documents data:
-router.get('/getListFiles', authenticateJwt, async (req, res, next) => {
+router.get('/getListFiles', async (req, res, next) => {
   try {
     const response = await filesService.getFilesData();
     res.status(200).json(response);
@@ -31,25 +34,21 @@ router.get('/getListFiles', authenticateJwt, async (req, res, next) => {
   }
 });
 
-// Endpoint to get document data:
-router.get(
-  '/getFileData/:fileName',
-  authenticateJwt,
-  async (req, res, next) => {
-    try {
-      const fileName = req.params.fileName;
-      if (!fileName) {
-        return res.status(400).json({ error: 'No filename provided.' });
-      }
-      const response = await filesService.getFileData(fileName);
-      res.status(200).json(response);
-    } catch (error) {
-      next(error);
+// Endpoint to get document data (requires login):
+router.get('/getFileData/:fileName', authenticateJwt, async (req, res, next) => {
+  try {
+    const fileName = req.params.fileName;
+    if (!fileName) {
+      return res.status(400).json({ error: 'No filename provided.' });
     }
+    const response = await filesService.getFileData(fileName);
+    res.status(200).json(response);
+  } catch (error) {
+    next(error);
   }
-);
+});
 
-// Endpoint to get document url:
+// Endpoint to get document url (requires login):
 router.get('/getFileUrl/:fileName', authenticateJwt, async (req, res, next) => {
   try {
     const fileName = req.params.fileName;
@@ -63,30 +62,26 @@ router.get('/getFileUrl/:fileName', authenticateJwt, async (req, res, next) => {
   }
 });
 
-// Endpoint to download pdf:
-router.get(
-  '/downloadFile/:fileName',
-  authenticateJwt,
-  async (req, res, next) => {
-    try {
-      const { fileName } = req.params;
+// Endpoint to download pdf (requires login):
+router.get('/downloadFile/:fileName', authenticateJwt, async (req, res, next) => {
+  try {
+    const { fileName } = req.params;
 
-      if (!fileName) {
-        return res.status(400).json({ error: 'No filename provided.' });
-      }
-      const response = await filesService.downloadFile(fileName);
-      res.setHeader('Content-Type', 'application/pdf');
-      response.pipe(res);
-    } catch (error) {
-      next(error);
+    if (!fileName) {
+      return res.status(400).json({ error: 'No filename provided.' });
     }
+    const response = await filesService.downloadFile(fileName);
+    res.setHeader('Content-Type', 'application/pdf');
+    response.pipe(res);
+  } catch (error) {
+    next(error);
   }
-);
+});
 
 // Endpoint to eliminate pdf:
 router.delete(
   '/deleteFile/:fileName',
-  authenticateJwt,
+  authenticateAdminKey,
   async (req, res, next) => {
     try {
       const fileName = req.params.fileName;
@@ -98,7 +93,7 @@ router.delete(
     } catch (error) {
       next(error);
     }
-  }
+  },
 );
 
 export default router;
