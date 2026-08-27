@@ -1,0 +1,174 @@
+{
+  "info": {
+    "name": "Portfolio API",
+    "description": "Endpoints for the Project-Portfolio backend (api/). Set the `base_url`, `token`, and `admin_key` collection variables before running requests.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:3001" },
+    { "key": "token", "value": "" },
+    { "key": "admin_key", "value": "" },
+    { "key": "file_name", "value": "example-certificate.pdf" }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Sign up",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"username\",\n  \"password\": \"password\"\n}"
+            },
+            "url": { "raw": "{{base_url}}/sign-up", "host": ["{{base_url}}"], "path": ["sign-up"] }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"username\",\n  \"password\": \"password\"\n}"
+            },
+            "url": { "raw": "{{base_url}}/login", "host": ["{{base_url}}"], "path": ["login"] }
+          }
+        },
+        {
+          "name": "Refresh token",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"{{token}}\"\n}"
+            },
+            "url": { "raw": "{{base_url}}/refresh-token", "host": ["{{base_url}}"], "path": ["refresh-token"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Email",
+      "item": [
+        {
+          "name": "Send contact email",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_name\": \"user_name\",\n  \"user_email\": \"user@example.com\",\n  \"subject\": \"subject\",\n  \"message\": \"message\"\n}"
+            },
+            "url": { "raw": "{{base_url}}/sendEmail", "host": ["{{base_url}}"], "path": ["sendEmail"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Comments",
+      "item": [
+        {
+          "name": "Get all comments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{base_url}}/comments", "host": ["{{base_url}}"], "path": ["comments"] }
+          }
+        },
+        {
+          "name": "Post comment",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"commentId\": 123521353145,\n  \"username\": \"username\",\n  \"content\": \"content\",\n  \"date\": \"7-01-2024\"\n}"
+            },
+            "url": { "raw": "{{base_url}}/comments", "host": ["{{base_url}}"], "path": ["comments"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Certificates",
+      "item": [
+        {
+          "name": "Upload certificate (admin key)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "x-admin-key", "value": "{{admin_key}}" }],
+            "body": {
+              "mode": "formdata",
+              "formdata": [{ "key": "file", "type": "file", "src": "" }]
+            },
+            "url": { "raw": "{{base_url}}/upload", "host": ["{{base_url}}"], "path": ["upload"] }
+          }
+        },
+        {
+          "name": "Get all certificates",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{base_url}}/getListFiles", "host": ["{{base_url}}"], "path": ["getListFiles"] }
+          }
+        },
+        {
+          "name": "Get certificate data",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": {
+              "raw": "{{base_url}}/getFileData/{{file_name}}",
+              "host": ["{{base_url}}"],
+              "path": ["getFileData", "{{file_name}}"]
+            }
+          }
+        },
+        {
+          "name": "Get certificate URL",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": {
+              "raw": "{{base_url}}/getFileUrl/{{file_name}}",
+              "host": ["{{base_url}}"],
+              "path": ["getFileUrl", "{{file_name}}"]
+            }
+          }
+        },
+        {
+          "name": "Download certificate",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": {
+              "raw": "{{base_url}}/downloadFile/{{file_name}}",
+              "host": ["{{base_url}}"],
+              "path": ["downloadFile", "{{file_name}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete certificate (admin key)",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "x-admin-key", "value": "{{admin_key}}" }],
+            "url": {
+              "raw": "{{base_url}}/deleteFile/{{file_name}}",
+              "host": ["{{base_url}}"],
+              "path": ["deleteFile", "{{file_name}}"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
