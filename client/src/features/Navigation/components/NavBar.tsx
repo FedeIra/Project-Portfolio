@@ -23,14 +23,14 @@ const NavBar: FC = () => {
 
   const navLinks = [
     { href: '#aboutMe', label: 'About me' },
-    { href: '#projects', label: 'Projects' },
     { href: '#experience', label: 'Experience' },
+    { href: '#projects', label: 'Projects' },
     { href: '#getInTouch', label: 'Get in touch' },
     { href: '#userComments', label: 'Comments' },
   ];
 
   const socialLinks = [
-    { href: 'https://www.linkedin.com/in/federicoirarrazaval/', icon: FaLinkedin, hoverClass: 'hover:text-[#0077b5]' },
+    { href: 'https://www.linkedin.com/in/federico-irarrazaval/', icon: FaLinkedin, hoverClass: 'hover:text-[#0077b5]' },
     { href: 'https://github.com/FedeIra', icon: FaGithub, hoverClass: 'hover:text-black hover:bg-white' },
     { href: 'mailto:fedeirar@gmail.com', icon: FaEnvelope, hoverClass: 'hover:text-[#0077b5]' },
     { href: 'https://api.whatsapp.com/send?phone=5491167887879&text=Hey', icon: FaWhatsapp, hoverClass: 'hover:text-green-500 hover:bg-white' },

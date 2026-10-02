@@ -59,7 +59,7 @@ const Contact: FC = () => {
       <div className="max-w-4xl mx-auto px-4">
         <div className="text-center p-4">
           <h6 className="text-white font-bold text-2xl max-md:text-xl">
-            Have a question or want to work together?
+            Open to Senior Backend Engineer roles — remote.
           </h6>
           <br />
           <div className="max-w-2xl mx-auto">

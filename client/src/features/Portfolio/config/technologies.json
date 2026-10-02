@@ -3,7 +3,11 @@
   { "name": "JavaScript", "avatar": "javascript.png" },
   { "name": "TypeScript", "avatar": "typescript.png" },
   { "name": "AWS", "avatar": "aws.png" },
+  { "name": "Claude", "avatar": "claude.png" },
+  { "name": "MCP", "avatar": "mcp.png" },
+  { "name": "Gemini", "avatar": "gemini.png" },
   { "name": "PostgreSQL", "avatar": "postgressSQL.png" },
+  { "name": "DynamoDB", "avatar": "dynamodb.png" },
   { "name": "Sequelize", "avatar": "sequelize.png" },
   { "name": "MongoDB", "avatar": "mongodb.png" },
   { "name": "Mongoose", "avatar": "mongoose.png" },
@@ -16,12 +20,7 @@
   { "name": "VTEX", "avatar": "vtex.png" },
   { "name": "ReactJS", "avatar": "react.png" },
   { "name": "Redux", "avatar": "redux.png" },
-  { "name": "HTML", "avatar": "html.png" },
-  { "name": "CSS", "avatar": "css.png" },
   { "name": "Postman", "avatar": "postman.png" },
   { "name": "SCRUM", "avatar": "SCRUM.png" },
-  { "name": "JIRA", "avatar": "jira.png" },
-  { "name": "Redmine", "avatar": "redmine.png" },
-  { "name": "Claude", "avatar": "claude.png" },
-  { "name": "Copilot", "avatar": "copilot.png" }
+  { "name": "JIRA", "avatar": "jira.png" }
 ]

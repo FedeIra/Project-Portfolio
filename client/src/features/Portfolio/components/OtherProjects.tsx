@@ -49,7 +49,7 @@ const OtherProjects: FC = () => {
         </a>
         .
       </p>
-      <div className="flex flex-wrap justify-center gap-[30px]">
+      <div className="flex flex-wrap justify-center gap-[30px] w-full">
         {projects.map((project) => (
           <MinorProjectCard key={project.name} {...project} />
         ))}

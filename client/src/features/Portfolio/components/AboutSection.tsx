@@ -36,12 +36,15 @@ const AboutSection: FC = () => {
           className="max-w-lg text-center"
         >
           <p>
-            Backend Engineer building financial and marketplace solutions. I
-            design and deliver complete solutions: from client requirements to
-            scalable architecture to production. Technical leader who
-            contributes to product strategy. Node.js, TypeScript, PostgreSQL,
-            AWS, VTEX. Full-stack capable (React when needed). I actively use
-            AI-assisted development tools in my daily workflow.
+            Product-minded Senior Backend Engineer building backend systems at
+            scale. I work end to end: I meet with stakeholders, turn business
+            needs into functional definitions and specs, design the
+            architecture and build it. I co-led a multi-tenant payment
+            reconciliation platform processing 1M+ transactions per week per
+            client, now lead its new development, and build AI in production:
+            a co-built MCP server and Claude/Gemini integrations. Node.js,
+            TypeScript, PostgreSQL, AWS. Before engineering, 7+ years as a
+            labor &amp; employment attorney, most recently at Baker McKenzie.
             <br />
             <a href="#getInTouch" className="underline">
               Let's work together.

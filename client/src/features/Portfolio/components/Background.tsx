@@ -47,11 +47,11 @@ const AccordionSection: FC<AccordionSectionProps> = ({ title, eventKey, activeKe
 };
 
 const Background: FC = () => {
-  const [activeKey, setActiveKey] = useState<AccordionKey>('courses');
+  const [activeKey, setActiveKey] = useState<AccordionKey>(null);
 
   return (
     <div className="max-w-5xl mx-auto">
-      <AccordionSection title="Programming Courses" eventKey="courses" activeKey={activeKey} onToggle={setActiveKey}>
+      <AccordionSection title="Certifications & Courses" eventKey="courses" activeKey={activeKey} onToggle={setActiveKey}>
         <BackgroundCourses />
       </AccordionSection>
 
