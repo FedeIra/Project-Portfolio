@@ -2,7 +2,6 @@ import type { FC } from "react";
 import { motion } from "framer-motion";
 import nubceoImg from "../../../Assets/experience/nubceo.png";
 import itglobersImg from "../../../Assets/experience/itGlobers.png";
-import henryImg from "../../../Assets/education/henry.png";
 
 interface TimelineEntry {
   date: string;
@@ -23,17 +22,16 @@ const timelineData: TimelineEntry[] = [
     company: "Nubceo",
     logo: nubceoImg,
     badge: "Present",
-    role: "Backend Engineer",
+    role: "Senior Backend Engineer",
     description:
-      "Senior Backend Engineer leading fintech systems architecture. Own product lifecycle end-to-end: payment reconciliation (automating cash flow integrity), accounting automation (real-time GL entries), promotion analytics (ROI dashboards). Tech: Node.js, TypeScript, PostgreSQL, AWS. Leadership: Team coordination, task organization, architectural decisions with business alignment.",
+      "Senior Backend Engineer working end to end: from requirements with the CFO and business stakeholders to functional definition, architecture and delivery. Platforms: payment reconciliation (co-led), promotions, accounting automation (contributor).",
     bullets: [
-      "Designed payment reconciliation engine processing hundreds of thousands of daily sales with 97% automatic reconciliation rate, eliminating manual cash flow discrepancies (95% time reduction).",
-      "Built event-driven accounting automation: developed general ledger entry system generating real-time GL records with automated journal entry posting and multi-currency support.",
-      "Architected promotion intelligence platform: designed promotion tagging system automatically categorizing sales transactions with promotion metadata, enabling data-driven ROI analysis and pricing optimization dashboards.",
-      "Led team coordination on complex financial systems: gathering requirements from CFO, defining architecture, development  and presenting solutions to stakeholders.",
-      "Multi-tenant architecture supporting N customers with independent rules (chart of accounts, tax treatments, payment providers).",
-      "Queue-based async processing: SQS for scalability,  audit trails for compliance.",
-      "Tech leadership: code reviews, architectural decisions, mentoring on developers.",
+      "Co-led the payment reconciliation platform build with the tech lead; since 2025, lead all new sales reconciliation work: multi-tenant, per-client rules, AWS SQS, audit trails; 1M+ transactions/week per client, 97% auto-reconciled, 95% less processing time.",
+      "Informal lead on reconciliation initiatives and other cross-functional projects (backend, frontend, QA): define product scope with the CFO and stakeholders, write the functional specs and backend technical specs, contribute to frontend definitions as the team's go-to person on the product, coordinate the team, review all PRs and report status.",
+      "Co-built a production MCP server in TypeScript: tools, prompts and resources exposing internal APIs over stdio and streamable HTTP, running authenticated and multi-tenant.",
+      "Shipped two user-selectable LLM integrations (Claude, Gemini): reconciliation-sequence suggestions for the ~3% the engine cannot close (the model proposes, a person approves) and promotion PDF-to-JSON extraction.",
+      "Designed and built the promotions platform: full CRUD and an async matching engine that tags each sale with the promotion applied, enabling promotion ROI analysis.",
+      "Core contributor to event-driven accounting automation: real-time, multi-currency general ledger entries.",
     ],
     isFirst: true,
   },
@@ -41,23 +39,14 @@ const timelineData: TimelineEntry[] = [
     date: "Apr. 2022 – Aug. 2024",
     company: "ITGlobers",
     logo: itglobersImg,
-    role: "Backend Developer",
+    role: "Backend Engineer",
     description:
-      "Backend Engineer developing new e-commerce and marketplace features. Led backend initiatives building scalable APIs (Express.js, Koa.js) for complex marketplace integrations (VTEX IO). Took ownership of task assignment, workflow organization, requirement gathering with clients. Tech: Node.js, TypeScript, AWS. Focus: clean architecture, API design, system scalability.",
+      "Backend Engineer building integrations between client ERPs and VTEX IO for e-commerce and marketplace clients.",
     bullets: [
-      "Developed new e-commerce and marketplace features: designed and implemented backend functionality for product catalogs, order management, marketplace integrations, intelligent product recommendations based on customer search metrics, advanced search capabilities, web scraping systems, Google Analytics integrations, and ERP system integrations.",
-      "Led backend initiatives: task assignment, workflow organization, client requirement gathering for feature development.",
-      "Designed solution architectures for new features presented to business stakeholders (VTEX IO integrations, marketplace platforms, e-commerce modules).",
-      "Built RESTful APIs (Koa.js, Express.js) with JWT/OAuth2 authentication for new marketplace capabilities.",
-      "Scalable architecture: clean code patterns, system design enabling feature growth and marketplace expansion.",
+      "Built 20+ integrations between client ERPs and VTEX IO: order-status flows, inventory sync, 6+ payment platforms, Google Analytics, and bulk-load scripts handling 100K+ sales.",
+      "Built REST APIs and microservices with Node.js, TypeScript, Koa.js, Express.js and AWS (Lambda, SQS, SNS, CloudWatch).",
+      "Gathered client requirements, defined functional solutions and proposed architectures; led task assignment.",
     ],
-  },
-  {
-    date: "Feb. 2022 – Jun. 2022",
-    company: "Henry Bootcamp",
-    logo: henryImg,
-    description:
-      "1000 hours of theoretical-practical training. Technologies: JavaScript · Node.js · Express · PostgreSQL · Sequelize · React.js · Redux · HTML · CSS · SCRUM · GitHub",
     isLast: true,
   },
 ];

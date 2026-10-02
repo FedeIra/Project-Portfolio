@@ -1,9 +1,31 @@
 [
   {
     "date": "2026",
+    "title": "Anthropic",
+    "description": "Introduction to Model Context Protocol.",
+    "picture": "anthropic.png",
+    "key": "Certificado Anthropic. MCP 1.pdf"
+  },
+  {
+    "date": "2026",
+    "title": "Anthropic",
+    "description": "MCP: Advanced Topics.",
+    "picture": "anthropic.png",
+    "key": "Certificado Anthropic. MCP Advanced..pdf"
+  },
+  {
+    "date": "2026",
+    "title": "DeepLearning.AI",
+    "description": "MCP: Build Rich-Context AI Apps with Anthropic.",
+    "picture": "deeplearningai.png",
+    "key": "Certificado DeepLearning MCP.pdf"
+  },
+  {
+    "date": "2026",
     "title": "Platzi",
-    "description": "Claude AI 2.",
-    "picture": "platzi.png"
+    "description": "Claude Code.",
+    "picture": "platzi.png",
+    "key": "Certificado Platzi.Curso de Claude AI 2.pdf"
   },
   {
     "date": "2026",
@@ -50,6 +72,27 @@
   {
     "date": "2023",
     "title": "Platzi",
+    "description": "Typescript POO and asynchronism.",
+    "picture": "platzi.png",
+    "key": "Certificado Platzi. Programación orientada a objetos y asincronismo.pdf"
+  },
+  {
+    "date": "2023",
+    "title": "Platzi",
+    "description": "Typescript Advanced types and functions.",
+    "picture": "platzi.png",
+    "key": "Certificado Platzi. Tipos Avanzados de Typescript y Funciones.pdf"
+  },
+  {
+    "date": "2023",
+    "title": "Platzi",
+    "description": "Typescript Fundamentals.",
+    "picture": "platzi.png",
+    "key": "Certificado Platzi. Fundamentos de Typescript.pdf"
+  },
+  {
+    "date": "2023",
+    "title": "Platzi",
     "description": "Practice Node.js: Authentication.",
     "picture": "platzi.png",
     "key": "Certificado Platzi. Práctica de Node.js. Autenticación con Passport.js y JWT.pdf"
@@ -81,27 +124,6 @@
     "description": "Database fundamentals.",
     "picture": "platzi.png",
     "key": "Certificado Platzi. Curso de Fundamentos de Bases de Datos..pdf"
-  },
-  {
-    "date": "2023",
-    "title": "Platzi",
-    "description": "Typescript POO and asynchronism.",
-    "picture": "platzi.png",
-    "key": "Certificado Platzi. Programación orientada a objetos y asincronismo.pdf"
-  },
-  {
-    "date": "2023",
-    "title": "Platzi",
-    "description": "Typescript Advanced types and functions.",
-    "picture": "platzi.png",
-    "key": "Certificado Platzi. Tipos Avanzados de Typescript y Funciones.pdf"
-  },
-  {
-    "date": "2023",
-    "title": "Platzi",
-    "description": "Typescript Fundamentals.",
-    "picture": "platzi.png",
-    "key": "Certificado Platzi. Fundamentos de Typescript.pdf"
   },
   {
     "date": "2022",

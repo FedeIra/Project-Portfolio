@@ -10,12 +10,12 @@ import ProjectCarousel from './ProjectCarousel';
 interface ProjectCardProps {
   title: string;
   description: string;
-  image: string;
-  logo: string;
-  siteUrl: string;
+  image?: string;
+  logo?: string;
+  siteUrl?: string;
   codeUrl: string;
   award?: string;
-  carouselType: 'kinema' | 'gaming';
+  carouselType?: 'kinema' | 'gaming';
 }
 
 const ProjectCard: FC<ProjectCardProps> = ({ title, description, image, logo, siteUrl, codeUrl, award, carouselType }) => {
@@ -25,26 +25,32 @@ const ProjectCard: FC<ProjectCardProps> = ({ title, description, image, logo, si
     <div className="w-full lg:w-[400px] mb-8 group flex flex-col">
       <div className="bg-white shadow-[0_0_30px_rgba(0,0,0,0.5)] flex flex-col flex-1 pb-5 hover:scale-[1.02] transition-transform duration-300">
         {/* Image with overlay */}
-        <div className="relative overflow-hidden flex-shrink-0">
-          <img src={image} alt={title} className="w-full rounded-none" />
-          <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
-            <h3 className="text-xl font-bold mb-4">{title}</h3>
-            <button
-              onClick={() => setShowModal(true)}
-              className="rounded-full border-[3px] border-white px-6 py-4 text-lg hover:bg-white/20 transition"
-            >
-              Preview!
-            </button>
+        {image && (
+          <div className="relative overflow-hidden flex-shrink-0">
+            <img src={image} alt={title} className="w-full rounded-none" />
+            {carouselType && (
+              <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
+                <h3 className="text-xl font-bold mb-4">{title}</h3>
+                <button
+                  onClick={() => setShowModal(true)}
+                  className="rounded-full border-[3px] border-white px-6 py-4 text-lg hover:bg-white/20 transition"
+                >
+                  Preview!
+                </button>
+              </div>
+            )}
           </div>
-        </div>
+        )}
 
         {/* Logo — z-10 ensures it renders above the positioned image container */}
-        <div className="relative z-10 flex justify-center -mt-16 group-hover:hidden">
-          <img src={logo} alt={`${title}-logo`} className="w-[110px] h-[110px] rounded-full border-4 border-gray-500 bg-white" />
-        </div>
+        {logo && (
+          <div className="relative z-10 flex justify-center -mt-16 group-hover:hidden">
+            <img src={logo} alt={`${title}-logo`} className="w-[110px] h-[110px] rounded-full border-4 border-gray-500 bg-white" />
+          </div>
+        )}
 
         {/* Text — flex-1 fills remaining space so buttons always align at bottom */}
-        <div className="flex-1 py-6 text-center text-gray-600">
+        <div className={`flex-1 py-6 text-center text-gray-600 ${image ? '' : 'pt-10'}`}>
           <h2 className="uppercase font-black mb-4">{title}</h2>
           <p className="px-9 text-sm md:text-base">{description}</p>
           {award && (
@@ -57,11 +63,13 @@ const ProjectCard: FC<ProjectCardProps> = ({ title, description, image, logo, si
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row justify-center items-center gap-2 px-4">
-          <a href={siteUrl} target="_blank" rel="nofollow noreferrer">
-            <button className="bg-blue-600 text-white px-5 py-2 flex items-center gap-2 hover:bg-blue-700 transition">
-              View Site <FaGlobe size={22} />
-            </button>
-          </a>
+          {siteUrl && (
+            <a href={siteUrl} target="_blank" rel="nofollow noreferrer">
+              <button className="bg-blue-600 text-white px-5 py-2 flex items-center gap-2 hover:bg-blue-700 transition">
+                View Site <FaGlobe size={22} />
+              </button>
+            </a>
+          )}
           <a href={codeUrl} target="_blank" rel="nofollow noreferrer">
             <button className="bg-gray-600 text-white px-5 py-2 flex items-center gap-2 hover:bg-gray-700 transition">
               View Code <FaGithub size={22} />
@@ -71,7 +79,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ title, description, image, logo, si
       </div>
 
       {/* Modal */}
-      {showModal && (
+      {showModal && carouselType && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80" onClick={() => setShowModal(false)}>
           <div className="relative max-w-4xl w-full mx-4" onClick={(e) => e.stopPropagation()}>
             <div className="bg-black border border-white border-b-[3px] border-b-gray-500">
@@ -111,6 +119,30 @@ const Projects: FC = () => {
       >
         Personal Projects
       </motion.h2>
+
+      <motion.div
+        className="flex flex-col lg:flex-row lg:flex-wrap justify-center items-stretch gap-8 px-8 mt-[2%]"
+        initial={isMobile ? 'visible' : 'hidden'}
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={boxVariants2}
+      >
+        <ProjectCard
+          title="Personal Services Platform"
+          description="Serverless microservices on AWS (Lambda, API Gateway JWT authorizer, DynamoDB, SQS FIFO + DLQs), infrastructure as code with Serverless Framework, and CI."
+          codeUrl="https://github.com/FedeIra/Project-Personal-Services"
+        />
+        <ProjectCard
+          title="MCP Server & Client Reference"
+          description="Personal reference build, separate from the production server: TypeScript and Python; tools, resources, prompts, sampling and roots over stdio and streamable HTTP."
+          codeUrl="https://github.com/FedeIra/MCP-Server-Client-Reference"
+        />
+        <ProjectCard
+          title="Movie & TV Show API"
+          description="Fastify, TypeScript, Zod, JWT, MongoDB; AWS S3 file storage, DynamoDB records and an S3-triggered Lambda for upload notifications; Clean Architecture, Vitest tests, Docker, CI."
+          codeUrl="https://github.com/FedeIra/Project-Movie-TvShow-API"
+        />
+      </motion.div>
 
       <motion.div
         className="flex flex-col lg:flex-row justify-center items-stretch gap-8 px-8 lg:px-24 mt-[2%] mb-[5%]"

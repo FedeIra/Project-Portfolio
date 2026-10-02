@@ -2,14 +2,22 @@ import type { FC } from 'react';
 import TimelineCard from './TimelineCard';
 import universityImg from '../../../Assets/education/university.png';
 import molinosImg from '../../../Assets/education/molinos.png';
+import henryImg from '../../../Assets/education/henry.png';
 
 const entries = [
+  {
+    date: '2022',
+    logo: henryImg,
+    title: 'Henry Bootcamp',
+    description:
+      '1000 hours of theoretical-practical training. Technologies: JavaScript · Node.js · Express · PostgreSQL · Sequelize · React.js · Redux · HTML · CSS · SCRUM · GitHub',
+    isFirst: true,
+  },
   {
     date: '2017 - 2020',
     logo: universityImg,
     title: 'Pontifical Catholic University of Argentina',
     description: 'Specialization in Labor & Employment Law.',
-    isFirst: true,
   },
   {
     date: '2015 - 2016',
